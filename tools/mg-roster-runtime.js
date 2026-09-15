@@ -596,6 +596,14 @@ function MG_ROSTER_RUNTIME(D) {
     positions: POS,
     /* players */
     byId: byId, player: byId, byEaId: byEaId, byCard: byCard, cardOf: cardOf,
+    /* the two engine numbers for ANY roster player, so a club takeover can
+       field the real squad (addendum 34). null on an older roster file. */
+    engineStats: function (id) {
+      var p = typeof id === 'object' && id ? id.id : id;
+      if (!(p >= 0 && p < D.n) || !D.cols.sho || !D.cols.dfn) return null;
+      return { sho: colRaw('sho', p), dfn: colRaw('dfn', p),
+               role: POS[colRaw('pos', p)][2], cur: col('ovr', p) };
+    },
     albumCard: albumCard,
     search: search,
     /* stats — lazy, decoded per player on demand */

@@ -2253,11 +2253,37 @@ def link_card(pid, pos, ovr, sho, dfn, team, club, ark, subject, partner):
 # their roster ids and the few numbers this game invents, never a second copy
 # of 644 names, clubs and nations.
 
-EA_DIR = os.path.join(ROOT, "data", "ea")
+# Which harvest the roster is built from. Newest first: the FC 27 database
+# (tools/fetch_ea_ratings.py, 2026-09-15) wins whenever it is on disk, then the
+# FC 26 one (tools/fetch_ea_roster.sh, 2026-06-11). `--ea <dir>` picks one
+# explicitly. AS_OF is the day ages are measured on, and the harvest day.
+EA_SOURCES = [
+    ("ea-fc27", (2026, 9, 15),
+     "EA SPORTS FC 27 ratings, www.ea.com/games/ea-sports-fc/ratings, harvested to data/ea-fc27/"),
+    ("ea", (2026, 6, 11),
+     "EA public FC ratings pages (drop-api.ea.com/rating/ea-sports-fc), harvested to data/ea/"),
+]
+
+
+def _pick_ea_source():
+    want = None
+    if "--ea" in sys.argv:
+        i = sys.argv.index("--ea")
+        want = os.path.basename(os.path.normpath(sys.argv[i + 1])) if i + 1 < len(sys.argv) else None
+    for name, as_of, source in EA_SOURCES:
+        d = os.path.join(ROOT, "data", name)
+        if want and name != want:
+            continue
+        if want or glob.glob(os.path.join(d, "page-*.json")):
+            return d, as_of, source
+    name, as_of, source = EA_SOURCES[-1]
+    return os.path.join(ROOT, "data", name), as_of, source
+
+
+EA_DIR, AS_OF, ROSTER_SOURCE = _pick_ea_source()
 ROSTER_PATH = os.path.join(ROOT, "gibson", "web", "static", "mg-roster.js")
 ROSTER_RUNTIME = os.path.join(ROOT, "tools", "mg-roster-runtime.js")
 ROSTER_VERSION = 1
-AS_OF = (2026, 6, 11)          # same reference date MG_DATA ages against
 
 ROSTER_HONESTY = (
     "Player ratings, clubs, leagues and nations come from EA's public FC "
@@ -2266,7 +2292,6 @@ ROSTER_HONESTY = (
     "parallel colours and everything else in the game are ours."
 )
 ROSTER_NOTICE = "Ratings: EA's public FC ratings pages. Not affiliated with or endorsed by EA."
-ROSTER_SOURCE = "EA public FC ratings pages (drop-api.ea.com/rating/ea-sports-fc), harvested to data/ea/"
 
 B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 NO_CLUB = "(no club listed)"
@@ -2309,7 +2334,7 @@ def enc_bits(rows, bits, per):
 
 
 def load_ea_roster():
-    """Every data/ea/page-*.json, deduped by player id, in EA's own rank order."""
+    """Every page-*.json in EA_DIR, deduped by player id, in EA's own rank order."""
     files = sorted(glob.glob(os.path.join(EA_DIR, "page-*.json")))
     if not files:
         return []
@@ -2937,8 +2962,8 @@ def build_youth(rows, ovr_col, posc, pos_table, statrows, stat_keys, card_of):
 def build_roster(players_by_team=None, quiet=False):
     rows = load_ea_roster()
     if not rows:
-        print("roster: no data/ea/page-*.json found — skipped "
-              "(run tools/fetch_ea_roster.sh)")
+        print("roster: no page-*.json in %s — skipped "
+              "(run tools/fetch_ea_ratings.py)" % os.path.relpath(EA_DIR, ROOT))
         return None
     if players_by_team is None:
         players_by_team = album_from_data_js()
@@ -3074,6 +3099,21 @@ def build_roster(players_by_team=None, quiet=False):
     youth, youth_audit = build_youth(rows, ovr_col, posc, pos_table, statrows,
                                      stat_keys, card_of)
 
+    # ---- SHO / DEF for every roster player (addendum 34) -----------------
+    # A club takeover fields the club's real squad, so every player needs the
+    # two numbers the match engine reads. youth_stats() is already the rule
+    # that turns EA's composites into them, clamped into the band an album
+    # card of that position would have — one rule, applied to everyone.
+    ski_all = {k: j for j, k in enumerate(stat_keys)}
+    sho_col, dfn_col = [], []
+    for i, it in enumerate(rows):
+        role = pos_table[posc[i]][2]
+        role = role if role in ("GK", "DEF", "MID", "ATT") else "MID"
+        st = {k: statrows[i][ski_all[k]] for k in
+              ("sho", "def", "gkReflexes", "gkDiving", "gkPositioning") if k in ski_all}
+        s1, d1 = youth_stats("r%d" % it["id"], role, ovr_col[i], st)
+        sho_col.append(s1); dfn_col.append(d1)
+
     # ---- pack ------------------------------------------------------------
     stats_str, stat_chars = enc_bits(statrows, 7, len(stat_keys))
     ncode = "".join((next((c for c, al in NATION_ALIASES.items()
@@ -3093,6 +3133,8 @@ def build_roster(players_by_team=None, quiet=False):
         "cl":    [1, 0],
         "cstr":  [1, 32],
         "lstr":  [1, 32],
+        "sho":   [2, 0],
+        "dfn":   [2, 0],
     }
     c = {
         "ea":    enc_col(ea_col, 4, 0, "ea id"),
@@ -3109,6 +3151,8 @@ def build_roster(players_by_team=None, quiet=False):
         "cl":    enc_col([x["league"] for x in clubs], 1, 0, "club league"),
         "cstr":  enc_col([x["str"] for x in clubs], 1, 32, "club strength"),
         "lstr":  enc_col(lstr, 1, 32, "league strength"),
+        "sho":   enc_col(sho_col, 2, 0, "shooting"),
+        "dfn":   enc_col(dfn_col, 2, 0, "defending"),
     }
     payload = {
         "v": ROSTER_VERSION,

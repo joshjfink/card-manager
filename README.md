@@ -122,7 +122,7 @@ This writes `cardmanager/dist/cardmanager.html`.
 ### Test
 
 ```bash
-npm test               # the engine gates (G14–G32) and the full career flow; Node only
+npm test               # engine gates (G14–G32), the career flow, and real-club squads; Node only
 
 npm install            # once, for the real-tap suite
 npm run tap:boot       # title → slots → setup → picker, with real taps on an iPhone-sized page
@@ -187,6 +187,9 @@ price list under `config/`, in a few seconds. The output is deterministic, so an
 unchanged checkout rebuilds the committed file exactly. Then rebuild the single
 file.
 
-The real-club layer, `mg-roster.js`, is not rebuilt from this repo. It needs the
-harvested EA ratings pages, which stay in Gibson Store, so the script reports
-"roster: skipped" here. That is expected.
+The real-club layer, `mg-roster.js`, holds EA SPORTS FC 27's clubs and squads,
+harvested on 2026-09-15. The harvest itself is not committed. To refresh it, run
+`python3 tools/fetch_ea_ratings.py` (about ten minutes, one polite request every
+1.5 seconds), then `python3 tools/build_mg_data.py --roster-only` and rebuild
+the single file. Without a harvest on disk the data script reports
+"roster: skipped" and leaves `mg-roster.js` as it is.

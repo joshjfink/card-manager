@@ -5,7 +5,8 @@
   "description": "Card Manager — a Football-Manager-style career game built on the Panini World Cup 2026 sticker album",
   "scripts": {
     "build": "bash cardmanager/build.sh",
-    "test": "node tools/mg-harness.js --sims 200 && node tools/mg-flow-test.js",
+    "test": "node tools/mg-harness.js --sims 200 && node tools/mg-flow-test.js && node tools/cm-squad-test.js",
+    "test:squads": "node tools/cm-squad-test.js",
     "test:harness": "node tools/mg-harness.js --sims 200",
     "test:flow": "node tools/mg-flow-test.js",
     "tap:boot": "node tools/mg-tap-suite.js --page cardmanager/dist/cardmanager.html --device iphone --script tools/tap-scripts/career-boot.json",

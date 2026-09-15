@@ -845,7 +845,7 @@
     const p = PIDX[pid];
     if (!p) return ['#3f5aa8', '#ffffff'];
     if (p.cast) return [p.c1, p.c2];
-    if (p.youth) {                      // academy green until he is somebody
+    if (p.youth || p.rost) {            // a real player outside the album: his nation's colours
       const club = CLUB_BY_CODE[p.team];
       return club ? [club.c1, club.c2] : [p.c1, p.c2];
     }
@@ -1267,7 +1267,7 @@
     const row = PIDX[pid] || {};
     /* a prospect carries his club as a name, not an index — it came out of
      * the roster with him and is EA's own, never guessed (invariant 6) */
-    if (row.youth) return row.club || '';
+    if (row.youth || row.rost) return row.club || '';
     const x = row.x;
     return x && x.cl != null ? (SYN.clubs || [])[x.cl] || '' : '';
   };
@@ -1467,6 +1467,7 @@
         } catch (e) { ok = false; }
         if (ok && s.v === SAVE_V) {
           SAVE = s;
+          hydrateRows(SAVE);
           if (from < SAVE_V) {
             backupRaw(raw, '-pre' + SAVE_V);   // the undo, written once
             saveNow();                          // and the upgrade is committed now
@@ -2252,6 +2253,7 @@
     if (SAVE && SAVE.profiles && (SAVE.profiles.p1 || SAVE.profiles.p2))
       writeBackup(why || 'before a restore');
     SAVE = s;
+    hydrateRows(SAVE);
     saveDamaged = false;
     saveNow();
     return SAVE;
@@ -2811,6 +2813,112 @@
     }
   }
   const isProspect = (pid) => !!(PIDX[pid] && PIDX[pid].youth);
+
+  /* ---- CLUB SQUAD CARDS (addendum 34) ---------------------------------
+   * Owner, 2026-09-15: "I did Phil Union of MLS and selected real roster and
+   * it was the US national team. It should be the current Phil Union
+   * roster." A takeover used to bring only the club's album cards, which for
+   * most clubs is nobody. Now every player of the club comes with the job.
+   *
+   * A player who is an album card comes as that card, in colour. A signed-
+   * able prospect comes as his prospect card ('y<ea>'), so he can still grow.
+   * Everyone else becomes a card here: pid 'r<eaId>', one PIDX row built on
+   * demand from the roster file. EA's name, age, club, nation, position and
+   * rating are theirs; SHO / DEF are this project's rule over EA's composites
+   * (tools/build_mg_data.py youth_stats), shipped as roster columns. Nobody is
+   * invented, no potential is guessed (pt = today's rating), and like a
+   * prospect he never enters packs, the binder or album completion.
+   * Icons stay pack-only even when their club is taken over (addendum 33).
+   *
+   * Rows exist only in memory, so a save that holds 'r…' or 'y…' cards gets
+   * them rebuilt the moment it is installed (hydrateRows). */
+  const RS_CARDS = !!(RS && RS.byEaId && RS.engineStats && RS.engineStats(0));
+  function ensureRosterRow(pid) {
+    if (PIDX[pid]) return true;
+    const m = /^[ry](\d+)$/.exec(String(pid));
+    if (!m || !RS_CARDS) return false;
+    const pl = RS.byEaId(+m[1]);
+    if (!pl) return false;
+    const e = RS.engineStats(pl.id);
+    if (!e || !FIELDABLE.has(e.role)) return false;
+    const team = (pl.nationCode && D.teams[pl.nationCode]) ? pl.nationCode : (pl.nationCode || 'CLB');
+    PIDX[pid] = {
+      id: pid, rid: pl.id, ea: pl.ea, num: 0,
+      name: pl.name, short: pl.short || pl.name,
+      pos: e.role, base: e.cur, sho: e.sho, dfn: e.dfn,
+      team: team, club: pl.clubName, nation: pl.nationName, league: pl.leagueName,
+      rost: 1, c1: '#3f5aa8', c2: '#ffffff',
+      x: { ag: pl.age, ar: 1, pt: e.cur, ps: hashStr(pl.name + '|' + team) },
+    };
+    return true;
+  }
+  /* Every 'r…' / 'y…' card a save mentions gets its row. A card the roster
+     file no longer carries cannot be drawn honestly, so it leaves the
+     teamsheet and the collection rather than crash the career. */
+  /* roster club index for an EA team id, for this roster file */
+  let _clubIdxByEa = null;
+  function clubIndexOfEa(ea) {
+    if (!RS || !RS.clubs || !ea) return 0;
+    if (!_clubIdxByEa) {
+      _clubIdxByEa = {};
+      try { for (const c of RS.clubs()) _clubIdxByEa[c.ea] = c.id; } catch (e) {}
+    }
+    return _clubIdxByEa[ea] || 0;
+  }
+  /* A real club is stored as clubEa. A save from before the FC 27 roster only
+     has the old index; the badge file carries that numbering (legacyEa), so
+     the club is recovered exactly, not guessed from its name. A club EA no
+     longer lists falls back to the crest and colours already in the save. */
+  function settleClub(p) {
+    if (!p || !RS) return;
+    const BG = (typeof window !== 'undefined' && window.MG_BADGES) || null;
+    if (!p.clubEa && p.clubId && BG && BG.legacyEa) p.clubEa = +BG.legacyEa(p.clubId) || 0;
+    if (p.clubEa) p.clubId = clubIndexOfEa(p.clubEa);
+  }
+  function hydrateRows(s) {
+    if (!s || !s.profiles) return 0;
+    let lost = 0;
+    for (const k of ['p1', 'p2']) {
+      const p = s.profiles[k];
+      if (p) settleClub(p);
+      if (!p || !p.collection) continue;
+      const ids = new Set(Object.keys(p.collection));
+      const lu = p.lineup || {};
+      for (const id of (lu.slots || []).concat(lu.bench || [])) ids.add(id);
+      const gone = [];
+      for (const id of ids) {
+        if (PIDX[id]) continue;
+        if (/^[ry]\d+$/.test(id) && ensureRosterRow(id)) continue;
+        if (/^[ry]\d+$/.test(id)) gone.push(id);
+      }
+      if (!gone.length) continue;
+      lost += gone.length;
+      for (const id of gone) delete p.collection[id];
+      if (lu.slots) lu.slots = lu.slots.filter(id => PIDX[id]);
+      if (lu.bench) lu.bench = lu.bench.filter(id => PIDX[id]);
+      if (lu.formation && lu.slots && lu.slots.length < 9) { try { autoFill(p); } catch (e) {} }
+    }
+    return lost;
+  }
+  /* The club's real squad as cards, best first, plus the icons it keeps back. */
+  function clubSquadPids(clubId) {
+    const out = { pids: [], icons: [] };
+    if (!RS_CARDS) return out;
+    let sq = [];
+    try { sq = RS.playersOfClub(clubId) || []; } catch (e) { sq = []; }
+    sq = sq.filter(Boolean).sort((a, b) => (b.ovr | 0) - (a.ovr | 0));
+    const seen = new Set();
+    for (const pl of sq) {
+      let pid = null;
+      if (pl.card && PIDX[pl.card]) {
+        if (isIcon(pl.card)) { out.icons.push(PIDX[pl.card].name); continue; }
+        pid = pl.card;
+      } else if (PIDX['y' + pl.ea]) pid = 'y' + pl.ea;
+      else if (ensureRosterRow('r' + pl.ea)) pid = 'r' + pl.ea;
+      if (pid && isFieldable(pid) && !seen.has(pid)) { seen.add(pid); out.pids.push(pid); }
+    }
+    return out;
+  }
 
   function youthState(p) {
     if (!p.youth) p.youth = { own: {}, seen: {}, list: [], ls: 0 };
@@ -4943,12 +5051,10 @@
       .filter(pid => !used.has(pid))
       .sort((a, b) => effOfBest(p, b) - effOfBest(p, a)).slice(0, 4);
   }
-  /* Addendum 29: a real club brings the players of its that are album cards.
-     The album holds national-team players only, so most clubs bring few or
-     none (measured: 430 of 639 clubs bring nobody, a dozen giants bring
-     9-15). Whatever a fieldable side still lacks — a keeper above all — comes
-     from the host-nation starters, in their published order, and never in
-     place of a card the club brought. */
+  /* A real club brings its real squad (addendum 34, clubSquadPids). The
+     top-up below only ever fires for a squad with no keeper or fewer than 14
+     fieldable players — the picker already hides clubs that thin — and it
+     fills from the host-nation starters, never in place of the club's own. */
   const SQUAD_MIN = 14;                       // the host-nation start hands out 14
   function topUpSquad(p, tier) {
     const owned = () => Object.keys(p.collection).filter(isFieldable);
@@ -4970,8 +5076,14 @@
     const total = Object.keys(p.collection).length;
     const base = brought.length
       ? Math.round(brought.reduce((s, pid) => s + (PIDX[pid].base || 0), 0) / brought.length) : 0;
+    const keepers = brought.filter(pid => PIDX[pid].pos === 'GK')
+      .sort((a, b) => PIDX[b].base - PIDX[a].base);
+    const top = brought.slice().sort((a, b) => PIDX[b].base - PIDX[a].base)[0];
     return { brought: brought.length, fill: total - brought.length, total, base,
-             gk: brought.some(pid => PIDX[pid].pos === 'GK') };
+             gk: keepers.length > 0,
+             keeper: keepers.length ? PIDX[keepers[0]].name + ' (' + PIDX[keepers[0]].base + ')' : '',
+             star: top ? PIDX[top].name + ' (' + PIDX[top].base + ')' : '',
+             album: brought.filter(pid => ALBUM_PIDS.indexOf(pid) >= 0).length };
   }
 
   function createCareer(key, opts) {
@@ -4981,6 +5093,19 @@
        and defaulted, so an existing save simply reads 0 and keeps its emoji
        crest — no migration, no save version bump. */
     p.clubId = opts.clubId || 0;
+    /* addendum 34: the club is also stored by EA's TEAM id, which never moves.
+       clubId is the roster's club index, which shifts whenever EA adds clubs
+       (the FC 27 roster added 103), so clubId is re-derived from clubEa on
+       every load and never trusted on its own. */
+    let clubEa = opts.clubEa || 0;
+    if (!clubEa && p.clubId && RS && RS.club) {
+      try { clubEa = (RS.club(p.clubId) || {}).ea || 0; } catch (e) { clubEa = 0; }
+    }
+    /* Never a club index without its team id while a roster is loaded: a save
+       with only an index is read as a pre-FC 27 save (settleClub), so a new
+       one missing the id would be re-read as whichever club held that index
+       before. */
+    p.clubEa = clubEa;
     p.pseed = rollSeed();
     /* addendum 32: where he starts and how hard. Both default to the game as
        it always was — Division 6, NORMAL. */
@@ -5017,8 +5142,8 @@
     storageUsed, CODE_TAG, CODE_END, BK_KEEP, SAVE_KEY,
     clubKnow, clubKnowPts, learnClub, playerKnow, notePlayerSeen,
     canScout, doScoutReport, fixtureKey, isScouted, KNOW_MAX, KNOW_WORD,
-    getSave: () => SAVE, setSave: (s) => { SAVE = s; },
-    createCareer, takeoverPreview, DIFFICULTY, freshSave, ICON_PIDS, GRAIL_ONE_IN, isGrail, grailPool, packPool, pullCards, buyCombo, clubCombos, fireFeatDirect, newSeason, settleMatch, seasonReview, commitSeason,
+    getSave: () => SAVE, setSave: (s) => { SAVE = s; hydrateRows(SAVE); },
+    createCareer, takeoverPreview, clubSquadPids, ensureRosterRow, hydrateRows, DIFFICULTY, freshSave, ICON_PIDS, GRAIL_ONE_IN, isGrail, grailPool, packPool, pullCards, buyCombo, clubCombos, fireFeatDirect, newSeason, settleMatch, seasonReview, commitSeason,
     trainInfo, doTrain, xpInfo, XP_GATE, XP_PER_APP, questFor, questState,
     addCombo, removeCombo, ownsCombo, bestTier, combosOwned, playTiers,
     autoFill, mySquad, cpuSquad, isAvailable, canRelease, valueOf, effOfBest,
@@ -5978,7 +6103,11 @@
           } else {
             /* the crest: a real club's badge, or the shield he made */
             const cx = tx + 21, cy = y + 36;
-            const badge = info.clubId ? clubBadge(info.clubId) : null;
+            /* the slot headline is read raw from storage, so the club is found by
+               its EA team id — or, for an older save, through the old numbering */
+            const BGs = (typeof window !== 'undefined' && window.MG_BADGES) || null;
+            const slotEa = info.clubEa || (info.clubId && BGs && BGs.legacyEa ? BGs.legacyEa(info.clubId) : 0);
+            const badge = (slotEa && BGs && BGs.byEa) ? BGs.byEa.img(slotEa) : null;
             if (badge) drawFit(ctx, badge, cx - 21, cy - 21, 42, 42);
             else {
               const cols = (info.colors && info.colors.length) ? info.colors : [SL.good, SL.gold];
@@ -6088,17 +6217,18 @@
         if (!su.team) return 'Pick a real club, or create your own. Nothing is chosen for you.';
         if (su.team.kind === 'own')
           return 'The 14 host-nation starter cards — USA, Mexico and Canada. The underdog start.' + blue;
-        const pv = takeoverPreview(clubAlbumSquad(su.team.club));
-        const l1 = pv.brought
-          ? pv.brought + ' of their players are album cards and come with you'
-            + (pv.base ? ', average rating ' + pv.base + '.' : '.')
-          : 'None of their players are album cards — the album holds national-team players only.';
-        const l2 = !pv.fill ? ''
-          : pv.brought
-            ? ' Host-nation starters fill the other ' + pv.fill + (pv.fill === 1 ? ' place' : ' places')
-              + (pv.gk ? '.' : ', your keeper among them.')
-            : ' You take the name, badge and colours, with the 14 host-nation starters.';
-        return l1 + l2 + blue;
+        const cs = clubSquad(su.team.club);
+        const pv = takeoverPreview(cs.pids);
+        if (!pv.brought)
+          return 'This build carries no squad for them, so you start from the 14 host-nation starters.' + blue;
+        const l1 = 'Their real squad: ' + pv.brought + ' players, average rating ' + pv.base + '.';
+        const l2 = (pv.star ? ' Best: ' + pv.star + '.' : '') + (pv.keeper ? ' In goal: ' + pv.keeper + '.' : '');
+        const l3 = !pv.fill ? ''
+          : ' Host-nation starters fill ' + pv.fill + (pv.fill === 1 ? ' place' : ' places')
+            + (pv.gk ? '.' : ', your keeper among them.');
+        const l4 = cs.icons.length ? ' ' + cs.icons.join(' and ') + ' stay' + (cs.icons.length === 1 ? 's' : '')
+          + ' a pack-only icon.' : '';
+        return l1 + l2 + l3 + l4 + blue;
       }
 
       function drawSetup(ctx) {
@@ -6235,13 +6365,13 @@
         if (su.team.kind === 'real') {
           const c = su.team.club;
           const B = (typeof window !== 'undefined' && window.MG_BADGES) || null;
-          const squad = clubAlbumSquad(c);
+          const squad = clubSquad(c).pids;
           createCareer(key, Object.assign(base, {
-            clubName: c.name, crest: nc.crest, clubId: c.id, squad,
+            clubName: c.name, crest: nc.crest, clubId: c.id, clubEa: c.ea, squad,
             colors: B ? B.colors(c.id) : ['#e9bf63', '#2f8f52'],
           }));
-          msg = 'You are the manager of ' + c.name + '.'
-            + (squad.length ? ' ' + squad.length + ' of their players came with you.' : '');
+          msg = 'You are the manager of ' + c.name + '. The whole squad came with you: '
+            + squad.length + ' players.';
         } else {
           const o = su.team;
           createCareer(key, Object.assign(base, {
@@ -6259,7 +6389,7 @@
          the league, then the club. Both paged rather than scrolled — this
          canvas has no scroll, and a pager is one tap either way. */
       let pickUI = null;
-      const PICK_ROWS = 6, PICK_COLS = 2;
+      const PICK_ROWS = 6, PICK_COLS = 2, PICK_LEAGUES = 40;
       const PICK_PER = PICK_ROWS * PICK_COLS;
 
       function openPicker() {
@@ -6275,7 +6405,10 @@
         if (!R) return [];
         /* Strongest first: he is far likelier to want the Premier League than
            the Azerbaijani top flight, and alphabetical would bury it. */
-        return R.leagues().slice().sort((a, b) => b.strength - a.strength || a.name.localeCompare(b.name));
+        /* addendum 34: the top 40 leagues by strength — the owner's "all teams in
+           the top 40 leagues" — which is also where squads are deepest */
+        return R.leagues().slice().sort((a, b) => b.strength - a.strength || a.name.localeCompare(b.name))
+          .slice(0, PICK_LEAGUES);
       }
 
       function pickClubs(leagueId) {
@@ -6422,7 +6555,7 @@
 
         if (!onClubs) {
           label(ctx, 'PICK A LEAGUE', 128, 36, 24, SL.gold);
-          caps(items.length + ' LEAGUES · STRONGEST FIRST', 128, 57, SL.dim);
+          caps('THE TOP ' + items.length + ' LEAGUES · STRONGEST FIRST', 128, 57, SL.dim);
         } else {
           const lg = R.league(pickUI.league);
           fitLine(String((lg && lg.name) || 'CLUBS').toUpperCase(), 128, 36, 480, 24, SL.gold);
@@ -6573,21 +6706,13 @@
         label(ctx, HONESTY, W / 2, 592, 12, SL.dim, 'center');
       }
 
-      /* The club's players who are album cards, best first — the only cards
-         this game deals in. The roster's `card` field is the album sid.
-         Cached per club: the takeover card reads it every frame. */
-      function clubAlbumSquad(club) {
-        const R = RSTR();
-        if (!R || !club) return [];
-        const C2 = clubAlbumSquad._c || (clubAlbumSquad._c = {});
+      /* The club's real squad as cards (addendum 34), cached per club: the
+         setup screen reads it every frame. */
+      function clubSquad(club) {
+        if (!club) return { pids: [], icons: [] };
+        const C2 = clubSquad._c || (clubSquad._c = {});
         const k = 'c' + club.id;
-        if (C2[k]) return C2[k];
-        let sq = [];
-        try { sq = R.playersOfClub(club.id) || []; } catch (e) { sq = []; }
-        C2[k] = sq.filter(q => q && q.card && isFieldable(q.card) && !isIcon(q.card))
-          .sort((a, b) => (b.ovr | 0) - (a.ovr | 0))
-          .map(q => q.card);
-        return C2[k];
+        return C2[k] || (C2[k] = clubSquadPids(club.id));
       }
 
       function drawNew(ctx) {
@@ -8655,6 +8780,9 @@
             ? 'UNDER-20 PROSPECT — the full attribute sheet is an album-card '
               + 'thing. What is known of him is real: rating, age, club and '
               + 'nation from EA\u2019s public FC ratings pages.'
+            : row.rost
+            ? 'CLUB SQUAD PLAYER — the full attribute sheet is an album-card thing. His '
+              + 'rating, age, club and nation are real, from EA\u2019s public FC ratings pages.'
             : 'No attribute sheet for this card — he is not in the album data.',
             SH_PAD.x, SH_PAD.y + 30, 15, SL.dim);
           return;
