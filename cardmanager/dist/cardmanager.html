@@ -10491,11 +10491,29 @@ window.MG_BADGES = {
             ctx.restore();
           }
         };
-        /* strength → stars, halved. The window is the roster's real spread
-           (clubs 53-86 once the 14-player filter has run, leagues 32-82), so
-           the bottom club still shows half a star rather than nothing. */
+        /* strength → stars, halved. The owner (2026-09-15, looking at LaLiga):
+           "not enough variance in the star ratings and att/mid/def ratings".
+           The old windows (clubs 50-86, leagues 30-82) were the roster's full
+           range, but half of all 745 clubs sit between strength 66 and 73 and
+           every one of the top 40 leagues showed 4 to 5 stars. The windows
+           now start near the roster's 10th percentile (clubs 62, leagues 64)
+           and end at its best (86, 82): five stars stays rare (5 clubs, the
+           top 3 leagues) and a LaLiga screen reads 5 · 5 · 4 · 4 · 3.5 … 2.5
+           instead of 5 · 5 · 4.5 · 4 · 4 · 4 · 4. Anything below the window
+           still shows half a star. The strength bar uses the same window. */
+        const PICK_WIN = { club: [62, 86], league: [64, 82] };
         const starsOf = (v, lo, hi) =>
           Math.max(0.5, Math.round(clamp((v - lo) / (hi - lo), 0, 1) * 10) / 2);
+        /* ATT/MID/DEF, spread for the eye. A line rating is the mean OVR of the
+           line's best 3-4 players, and a mean squashes the gaps: across all
+           clubs it runs 65-77 for the middle 80%. Shown as 70 + (mean - 70)
+           x 1.5, capped at 99 — the roster's median club stays 70, a 88 line
+           reads 97, a 74 line reads 76. Order between clubs is unchanged and
+           the real strength stays printed under the name. Display only: the
+           engine never reads these numbers. */
+        const LINE_MID = 70, LINE_SPREAD = 1.5;
+        const spreadLine = (v) =>
+          v ? clamp(Math.round(LINE_MID + (v - LINE_MID) * LINE_SPREAD), 1, 99) : 0;
 
         /* one stat cell: 12px uppercase label over a 15px number */
         const cell = (x, y, w2, lab, val, col) => {
@@ -10566,7 +10584,9 @@ window.MG_BADGES = {
            players per line, out of the same squad the career inherits. Cached on
            the function itself — 639 clubs is a bounded map, the decode costs a
            fraction of a millisecond per club, and this redraws every frame. */
-        const LINES = drawPick._lines || (drawPick._lines = {});
+        /* keyed by the spread too, so a changed LINE_SPREAD never serves stale
+           numbers from a cache built this session */
+        const LINES = drawPick._lines15 || (drawPick._lines15 = {});
         const linesOf = (club) => {
           const k = 'c' + club.id;
           if (LINES[k]) return LINES[k];
@@ -10583,7 +10603,8 @@ window.MG_BADGES = {
               for (let j = 0; j < c2; j++) t += v[j];
               return c2 ? Math.round(t / c2) : 0;
             };
-            out = { att: best('ATT', 3), mid: best('MID', 4), def: best('DEF', 4) };
+            out = { att: spreadLine(best('ATT', 3)), mid: spreadLine(best('MID', 4)),
+                    def: spreadLine(best('DEF', 4)) };
             if (!out.att && !out.mid && !out.def) out = null;   // nothing readable → fall back
           } catch (e) { out = null; }
           LINES[k] = out || { att: 0, mid: 0, def: 0 };
@@ -10645,11 +10666,12 @@ window.MG_BADGES = {
 
           /* strength bar — the progress fill is the one place the accent may
              carry a number, and it repeats the stars for the colour-blind eye */
-          const frac = clamp((it.strength - (onClubs ? 50 : 30)) / (onClubs ? 36 : 52), 0.04, 1);
+          const win = onClubs ? PICK_WIN.club : PICK_WIN.league;
+          const frac = clamp((it.strength - win[0]) / (win[1] - win[0]), 0.04, 1);
           ctx.fillStyle = SL.row; rr(ctx, 68, 56, 220, 6, 3); ctx.fill();
           ctx.fillStyle = acc; rr(ctx, 68, 56, Math.max(6, 220 * frac), 6, 3); ctx.fill();
 
-          starRow(438, 20, starsOf(it.strength, onClubs ? 50 : 30, onClubs ? 86 : 82));
+          starRow(438, 20, starsOf(it.strength, win[0], win[1]));
 
           if (onClubs) {
             const ln = linesOf(it);
