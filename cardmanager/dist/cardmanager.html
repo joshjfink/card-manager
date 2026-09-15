@@ -4765,7 +4765,10 @@ window.MG_BADGES = {
   /* addendum 35 (owner, 2026-09-15): "make Messi, Haaland, Gibson and the family
      members, Maradona, and elite players more scarce". Icons and guests went
      from 1 in 10,000 / 2,500 / 800 / 120 to the numbers below. */
-  const GRAIL_ONE_IN = { bronze: 30000, silver: 7500, gold: 2500, legend: 400 };
+  /* Owner, 2026-09-15: "make Messi, Haaland, Gibson and the family members,
+     Maradona, and elite players more scarce." Four times rarer than addendum
+     35's numbers, on both rolls. The shop prints whatever is here. */
+  const GRAIL_ONE_IN = { bronze: 120000, silver: 30000, gold: 10000, legend: 1600 };
   const isIcon = pid => ICON_PIDS.indexOf(pid) >= 0;
   const isGrail = pid => isIcon(pid) || !!(PIDX[pid] && PIDX[pid].cast);
 
@@ -4779,7 +4782,7 @@ window.MG_BADGES = {
    * club trades one to you. A club takeover still brings its real squad,
    * elites included, and cards already owned stay. */
   const ELITE_MIN = 88;
-  const ELITE_ONE_IN = { bronze: 500, silver: 120, gold: 25, legend: 4 };
+  const ELITE_ONE_IN = { bronze: 2000, silver: 480, gold: 100, legend: 16 };
   const ELITE_PIDS = ALBUM_PIDS.filter(pid => isFieldable(pid) && PIDX[pid].base >= ELITE_MIN && !isGrail(pid));
   const isElite = pid => ELITE_PIDS.indexOf(pid) >= 0;
   const isRare = pid => isGrail(pid) || isElite(pid);
@@ -6853,7 +6856,12 @@ window.MG_BADGES = {
     }
     return lost;
   }
-  /* The club's real squad as cards, best first, plus the icons it keeps back. */
+  /* The club's real squad as cards, best first.
+     Owner, 2026-09-15: "Messi and Suárez should be on Inter Miami." A takeover
+     hands over the club's ACTUAL squad, icons included — a real roster without
+     its best player is not that club. Rarity is unchanged everywhere else:
+     icons and elites are still pack-only in the market and in CPU trades, and
+     they still never arrive in a band roll (addenda 33 and 35). */
   function clubSquadPids(clubId) {
     const out = { pids: [], icons: [] };
     if (!RS_CARDS) return out;
@@ -6864,8 +6872,8 @@ window.MG_BADGES = {
     for (const pl of sq) {
       let pid = null;
       if (pl.card && PIDX[pl.card]) {
-        if (isIcon(pl.card)) { out.icons.push(PIDX[pl.card].name); continue; }
         pid = pl.card;
+        if (isIcon(pid)) out.icons.push(PIDX[pid].name);     // named on the setup card
       } else if (PIDX['y' + pl.ea]) pid = 'y' + pl.ea;
       else if (ensureRosterRow('r' + pl.ea)) pid = 'r' + pl.ea;
       if (pid && isFieldable(pid) && !seen.has(pid)) { seen.add(pid); out.pids.push(pid); }
@@ -10238,8 +10246,8 @@ window.MG_BADGES = {
         const l3 = !pv.fill ? ''
           : ' Host-nation starters fill ' + pv.fill + (pv.fill === 1 ? ' place' : ' places')
             + (pv.gk ? '.' : ', your keeper among them.');
-        const l4 = cs.icons.length ? ' ' + cs.icons.join(' and ') + ' stay' + (cs.icons.length === 1 ? 's' : '')
-          + ' a pack-only icon.' : '';
+        const l4 = cs.icons.length ? ' ' + cs.icons.join(' and ') + ' come'
+          + (cs.icons.length === 1 ? 's' : '') + ' with the club.' : '';
         return l1 + l2 + l3 + l4 + blue;
       }
 

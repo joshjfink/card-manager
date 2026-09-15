@@ -93,15 +93,23 @@ const real = (R.playersOfClub(clubId) || []).filter(Boolean);
 const sq = C.clubSquadPids(clubId);
 console.log('  ' + club.name + ' · ' + club.leagueName + ' · ' + real.length + ' players in EA’s squad');
 
-check('every player in the real squad becomes a card, less any icon',
-  sq.pids.length + sq.icons.length === real.length, sq.pids.length + ' cards + ' + sq.icons.length + ' icons of ' + real.length);
+check('every player in the real squad becomes a card, icons included',
+  sq.pids.length === real.length, sq.pids.length + ' cards of ' + real.length
+    + (sq.icons.length ? ' · icons named: ' + sq.icons.join(', ') : ''));
 check('  every one is a fieldable card with a row', sq.pids.every(id => C.isFieldable(id)));
 check('  the names are EA’s, in the same order of rating',
-  real.filter(pl => !(pl.card && C.ICON_PIDS.indexOf(pl.card) >= 0))
+  real.slice()
     .sort((a, b) => b.ovr - a.ovr).every((pl, i) => pl.card ? sq.pids[i] === pl.card
       : (C.PIDX[sq.pids[i]].name === pl.name && C.PIDX[sq.pids[i]].base === pl.ovr)));
-check('  an album player arrives as his album card', real.filter(pl => pl.card && C.ICON_PIDS.indexOf(pl.card) < 0)
+check('  an album player arrives as his album card', real.filter(pl => pl.card)
   .every(pl => sq.pids.indexOf(pl.card) >= 0), real.filter(pl => pl.card).map(pl => pl.card).join(',') || 'none in this squad');
+{
+  const mia = R.findClub('Inter Miami');
+  const ms = C.clubSquadPids(mia);
+  check('  Inter Miami brings Messi and Suárez', ms.pids.indexOf('arg17') >= 0
+    && ms.pids.some(id => /Su.rez/.test((C.PIDX[id] || {}).name || '')),
+    ms.pids.slice(0, 4).map(id => C.PIDX[id].name).join(', '));
+}
 
 C.setSave(C.freshSave());
 const p = C.createCareer('p1', { name: 'Gibson', clubName: club.name, crest: 0,

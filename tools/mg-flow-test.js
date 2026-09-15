@@ -720,15 +720,18 @@ section('F10 · icons and mystery guests: packs only, at the printed odds');
   const gold = packs.find(k => k.id === 'gold'), bronze = packs.find(k => k.id === 'bronze');
   check('no icon or guest sits in any pack band or guarantee pool',
     packs.every(pk => C.packPool(pC, pk).pool.every(id => !C.isGrail(id))));
-  check('the odds are addendum 35\'s: 1 in 30,000 / 7,500 / 2,500 / 400',
-    C.GRAIL_ONE_IN.bronze === 30000 && C.GRAIL_ONE_IN.silver === 7500 && C.GRAIL_ONE_IN.gold === 2500
-      && C.GRAIL_ONE_IN.legend === 400, JSON.stringify(C.GRAIL_ONE_IN));
+  check('the odds are addendum 37\'s: 1 in 120,000 / 30,000 / 10,000 / 1,600',
+    C.GRAIL_ONE_IN.bronze === 120000 && C.GRAIL_ONE_IN.silver === 30000 && C.GRAIL_ONE_IN.gold === 10000
+      && C.GRAIL_ONE_IN.legend === 1600, JSON.stringify(C.GRAIL_ONE_IN));
+  check('  and the elites are four times scarcer too: 1 in 2,000 / 480 / 100 / 16',
+    C.ELITE_ONE_IN.bronze === 2000 && C.ELITE_ONE_IN.silver === 480 && C.ELITE_ONE_IN.gold === 100
+      && C.ELITE_ONE_IN.legend === 16, JSON.stringify(C.ELITE_ONE_IN));
   check('an unspotted guest is not even in the rare roll',
     C.grailPool(pC, gold).every(id => !window.MG_DATA.cast.some(c => c[0] === id)) && C.grailPool(pC, gold).length === 5,
     C.grailPool(pC, gold).join(','));
   /* the rate, measured on the real pull: many gold packs, counters advanced */
   const saveOpened = pC.counters.packsOpened;
-  const N = 40000;                     // addendum 35's rarer odds need a bigger sample to measure
+  const N = 160000;                    // addendum 37's odds need a bigger sample again
   let cards = 0, grails = 0, strays = 0;
   for (let i = 0; i < N; i++) {
     pC.counters.packsOpened = 100000 + i;

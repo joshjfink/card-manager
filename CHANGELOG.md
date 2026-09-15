@@ -11,10 +11,14 @@ and could be bought in the market.
 
 | Pack | Elite player, per card | Icon or mystery guest, per card |
 |---|---|---|
-| Bronze | 1 in 500 (was 1 in 142) | 1 in 30,000 (was 1 in 10,000) |
-| Silver | 1 in 120 (was 1 in 17) | 1 in 7,500 (was 1 in 2,500) |
-| Gold | 1 in 25 (was about 2 per pack) | 1 in 2,500 (was 1 in 800) |
-| Legend prize | 1 in 4 (was every pack) | 1 in 400 (was 1 in 120) |
+| Bronze | 1 in 2,000 (was 1 in 142) | 1 in 120,000 (was 1 in 10,000) |
+| Silver | 1 in 480 (was 1 in 17) | 1 in 30,000 (was 1 in 2,500) |
+| Gold | 1 in 100 (was about 2 per pack) | 1 in 10,000 (was 1 in 800) |
+| Legend prize | 1 in 16 (was every pack) | 1 in 1,600 (was 1 in 120) |
+
+Per pack rather than per card, that is an icon or mystery guest about once in
+40,000 bronze packs, 2,000 gold packs or 1,600 legend prizes, and an elite
+about once in 20 gold packs.
 
 - **The elite players** are Vinícius Júnior, Mohamed Salah, Jude Bellingham,
   Rodri, Ousmane Dembélé, Lautaro Martínez, Thibaut Courtois, Alisson, Florian
@@ -25,8 +29,10 @@ and could be bought in the market.
   stop at 87, and the gold pack's guarantee is now one player rated 85 or
   better.
 - Elites can no longer be signed in the market, and no CPU club offers one in
-  a trade. Taking over a real club still brings its whole squad, elites
-  included. Cards you already own stay yours.
+  a trade. Cards you already own stay yours.
+- **Taking over a real club brings its whole squad, icons and elites included**
+  — Messi and Luis Suárez arrive with Inter Miami, and the setup screen names
+  the icons that come with the club. The market and CPU trades are unchanged.
 - A pulled elite gets its own "💎 ELITE!" reveal, after every ordinary card.
 - Fixed: the 1-in-4 legend-pack roll followed the pack counter's digits instead
   of behaving randomly. The rare roll now scrambles its hash first.
