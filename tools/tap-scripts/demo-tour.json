@@ -1,0 +1,14 @@
+[
+  {"wait": 1200},
+  {"expectState": "play", "timeout": 9000},
+  {"wait": 5200}, {"shot": "t06-levelup-ceremony"},
+  {"wait": 3800}, {"shot": "t10-pack"},
+  {"wait": 6000}, {"shot": "t16-training-plan"},
+  {"wait": 3200}, {"shot": "t19-halftime-call"},
+  {"wait": 2400}, {"shot": "t22-second-call"},
+  {"wait": 2600}, {"shot": "t24-ticker"},
+  {"wait": 3600}, {"shot": "t28-trade-offer"},
+  {"wait": 4200}, {"shot": "t32-after-trade"},
+  {"wait": 2600}, {"shot": "t34-team-news"},
+  {"wait": 3400}, {"shot": "t38-live-match"}
+]

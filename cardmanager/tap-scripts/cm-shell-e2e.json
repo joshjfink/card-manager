@@ -1,0 +1,92 @@
+[
+ {
+  "setStorage": {
+   "gs-mg-career": "{\"v\": 3, \"activeProfile\": \"p1\", \"profiles\": {\"p1\": {\"clubName\": \"Gibson Store FC\", \"coins\": 420, \"seasonNo\": 3, \"division\": 2}}}",
+   "gs-mg-career-slot-2": "{\"v\": 3, \"activeProfile\": \"p1\", \"profiles\": {\"p1\": {\"clubName\": \"Gibson Store FC\", \"coins\": 420, \"seasonNo\": 3, \"division\": 2}}}"
+  }
+ },
+ {
+  "wait": 900
+ },
+ {
+  "expectState": "play",
+  "timeout": 8000
+ },
+ {
+  "expectScreen": "stub/home",
+  "timeout": 4000
+ },
+ {
+  "shot": "01-home"
+ },
+ {
+  "tapId": "stub-juice"
+ },
+ {
+  "wait": 320
+ },
+ {
+  "tapId": "stub-juice"
+ },
+ {
+  "wait": 320
+ },
+ {
+  "shot": "02-juice"
+ },
+ {
+  "tapId": "stub-detail"
+ },
+ {
+  "expectScreen": "stub/detail",
+  "timeout": 4000
+ },
+ {
+  "shot": "03-detail"
+ },
+ {
+  "tapId": "stub-back"
+ },
+ {
+  "expectScreen": "stub/home",
+  "timeout": 4000
+ },
+ {
+  "tapId": "stub-detail"
+ },
+ {
+  "expectScreen": "stub/detail",
+  "timeout": 4000
+ },
+ {
+  "tapId": "stub-finish"
+ },
+ {
+  "expectState": "results",
+  "timeout": 6000
+ },
+ {
+  "expectScreen": "cm/results",
+  "timeout": 4000
+ },
+ {
+  "wait": 1100
+ },
+ {
+  "shot": "04-results"
+ },
+ {
+  "tapId": "cm-results-cta"
+ },
+ {
+  "expectState": "play",
+  "timeout": 8000
+ },
+ {
+  "expectScreen": "stub/home",
+  "timeout": 6000
+ },
+ {
+  "shot": "05-restarted"
+ }
+]

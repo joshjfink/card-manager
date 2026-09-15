@@ -1,0 +1,14 @@
+[
+ {"wait": 3000},
+ {"expectScreen": "welcome", "timeout": 25000},
+ {"tapId": "wel-new"},
+ {"wait": 800},
+ {"expectScreen": "start", "timeout": 10000},
+ {"tapId": "start-real"},
+ {"wait": 900},
+ {"expectScreen": "pick", "timeout": 10000},
+ {"shot": "01-leagues"},
+ {"tapId": "pick-0"},
+ {"wait": 1200},
+ {"shot": "02-clubs-badges"}
+]

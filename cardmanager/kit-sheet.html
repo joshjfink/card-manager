@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card Manager — kit contact sheet</title>
+<style>
+  :root{
+    --shellBg:#12161B; --shellDeep:#0C0E12; --panel:#1B222A; --panel2:#222A34;
+    --well:#10141A; --edge:#2B3542; --edgeSoft:#222B36;
+    --text:#E9EDF2; --textSoft:#C6D0DA; --dim:#98A3B0; --faint:#6B7684;
+    --gold:#E9BF63;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--shellDeep);color:var(--text);
+    font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+  .page{width:1400px;margin:0 auto;padding:0 0 60px}
+  header{padding:22px 24px 16px;background:linear-gradient(180deg,#171C22,#12161B);
+    border-bottom:1px solid var(--edge)}
+  h1{margin:0;font-size:22px;letter-spacing:.02em}
+  h1 span{color:var(--gold)}
+  .sub{margin:6px 0 0;color:var(--dim);font-size:12.5px;max-width:1100px}
+  section{margin:26px 24px 0;background:var(--panel);border:1px solid var(--edge);
+    border-radius:12px;overflow:hidden}
+  section > h2{margin:0;padding:11px 16px;font-size:13px;letter-spacing:.10em;
+    text-transform:uppercase;color:var(--textSoft);background:var(--panel2);
+    border-bottom:1px solid var(--edge)}
+  section > h2 em{font-style:normal;color:var(--faint);letter-spacing:.02em;
+    text-transform:none;margin-left:10px;font-size:12px}
+  .body{padding:14px 16px 18px;background:var(--well)}
+  canvas{display:block;image-rendering:auto}
+  .foot{margin:14px 24px 0;color:var(--faint);font-size:11.5px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>Card Manager — <span>kit contact sheet</span></h1>
+  <p class="sub">Every shirt below is drawn with canvas paths from the club's own two colours and the
+  player's FNV seed. No photographs, no image assets, no network, no likeness of any real person.
+  120 real album players, at binder size (44&nbsp;px) and profile size (160&nbsp;px).</p>
+</header>
+
+<section>
+  <h2>1 · The wall <em>120 players at 44 px — the binder test</em></h2>
+  <div class="body"><canvas id="wall44"></canvas></div>
+</section>
+
+<section>
+  <h2>2 · In situ <em>real binder cards, 116×162, kit in the card's art window</em></h2>
+  <div class="body"><canvas id="binder"></canvas></div>
+</section>
+
+<section>
+  <h2>3 · The pattern set <em>twelve designs plus the keeper colourways, 160 px</em></h2>
+  <div class="body"><canvas id="patterns"></canvas></div>
+</section>
+
+<section>
+  <h2>4 · The number <em>the kit font at 44 px (top) and 160 px (bottom)</em></h2>
+  <div class="body"><canvas id="digits"></canvas></div>
+</section>
+
+<section>
+  <h2>5 · Profiles A <em>players 1–32 at 160 px</em></h2>
+  <div class="body"><canvas id="big1"></canvas></div>
+</section>
+<section>
+  <h2>6 · Profiles B <em>players 33–64 at 160 px</em></h2>
+  <div class="body"><canvas id="big2"></canvas></div>
+</section>
+<section>
+  <h2>7 · Profiles C <em>players 65–96 at 160 px</em></h2>
+  <div class="body"><canvas id="big3"></canvas></div>
+</section>
+<section>
+  <h2>8 · Profiles D <em>players 97–120 at 160 px</em></h2>
+  <div class="body"><canvas id="big4"></canvas></div>
+</section>
+
+<p class="foot" id="stats">…</p>
+</div>
+
+<script src="../gibson/web/static/mg-manager-data.js"></script>
+<script src="../gibson/web/static/mg-kits.js"></script>
+<script>
+(function () {
+  'use strict';
+  var D = window.MG_DATA, K = window.MG_KIT;
+  var DPR = 2;
+
+  /* ---- pick 120 real players, round-robin across the 48 nations so the
+         sheet shows the club-colour spread and not one team's palette ---- */
+  var CLUB = {};
+  D.clubs.forEach(function (c) { CLUB[c.code] = c; });
+  var codes = Object.keys(D.players).filter(function (c) { return CLUB[c]; }).sort();
+  var pool = [];
+  for (var round = 1; round < 20 && pool.length < 400; round++) {
+    for (var i = 0; i < codes.length; i++) {
+      var rows = D.players[codes[i]];
+      var r = rows[round];
+      if (!r || r[4] === 'SPE') continue;
+      pool.push({ code: codes[i], num: r[1], name: r[2], short: r[3], pos: r[4], ovr: r[5], seed: r[8] && r[8].ps });
+    }
+  }
+  var PICK = pool.slice(0, 120);
+  PICK.forEach(function (p) {
+    p.club = CLUB[p.code];
+    p.kit = K.kitFor(p.seed != null ? p.seed : K.seedOf(p.name, p.code), p.club);
+  });
+
+  function cv(id, w, h) {
+    var c = document.getElementById(id);
+    c.width = w * DPR; c.height = h * DPR;
+    c.style.width = w + 'px'; c.style.height = h + 'px';
+    var x = c.getContext('2d');
+    x.setTransform(DPR, 0, 0, DPR, 0, 0);
+    return x;
+  }
+  function rr(x, a, b, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    x.beginPath();
+    x.moveTo(a + r, b);
+    x.arcTo(a + w, b, a + w, b + h, r);
+    x.arcTo(a + w, b + h, a, b + h, r);
+    x.arcTo(a, b + h, a, b, r);
+    x.arcTo(a, b, a + w, b, r);
+    x.closePath();
+  }
+  function txt(x, s, a, b, px, col, al, weight) {
+    x.font = (weight || 600) + ' ' + px + 'px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif';
+    x.fillStyle = col; x.textAlign = al || 'left'; x.textBaseline = 'alphabetic';
+    x.fillText(s, a, b);
+    x.textAlign = 'left';
+  }
+
+  /* ================= 1 · the 44px wall ================= */
+  (function () {
+    var COLS = 24, CELL = 54, ROWH = 70, PAD = 6;
+    var rows = Math.ceil(PICK.length / COLS);
+    var W = 1368 - 32, H = rows * ROWH + PAD * 2;
+    var x = cv('wall44', W, H);
+    x.fillStyle = '#10141A'; x.fillRect(0, 0, W, H);
+    PICK.forEach(function (p, i) {
+      var cx = PAD + (i % COLS) * CELL, cy = PAD + Math.floor(i / COLS) * ROWH;
+      rr(x, cx, cy, CELL - 6, 50, 7);
+      x.fillStyle = '#171D25'; x.fill();
+      x.strokeStyle = '#242E3A'; x.lineWidth = 1; x.stroke();
+      K.blit(x, cx + 2, cy + 2, 44, p.kit, { pose: 'card', w: 44, h: 44, number: p.num, clip: false });
+      txt(x, p.code, cx + (CELL - 6) / 2, cy + 62, 9, '#6B7684', 'center', 600);
+    });
+  })();
+
+  /* ================= 2 · in situ, real binder cards ================= */
+  (function () {
+    var CW = 116, CH = 162, GAP = 14, COLS = 10;
+    var W = 1368 - 32, H = 2 * (CH + 40) + 6;
+    var x = cv('binder', W, H);
+    x.fillStyle = '#10141A'; x.fillRect(0, 0, W, H);
+    var TIERS = D.parallels;
+    /* row 0: the art window mg-manager reserves today (0.84w x 0.34h)
+       row 1: the taller window a kit wants (0.76w x 0.50h) — the recommended
+              swap, shown so the difference is arguable rather than asserted */
+    var WINDOWS = [
+      { fw: 0.84, fh: 0.34, fy: 0.32, label: 'today: 0.84w x 0.34h band' },
+      { fw: 0.78, fh: 0.46, fy: 0.300, label: 'proposed: 0.78w x 0.46h window' }
+    ];
+    for (var row = 0; row < 2; row++) {
+      var win = WINDOWS[row];
+      txt(x, win.label, 8, 14 + row * (CH + 40), 11, '#98A3B0', 'left', 600);
+      for (var i = 0; i < COLS; i++) {
+        var p = PICK[(i * 7 + row * 3) % PICK.length];
+        var cx = 8 + i * (CW + GAP), cy = 22 + row * (CH + 40);
+        var tier = TIERS[(i * 3 + row) % 7];
+        var isBlack = tier.id === 'black';
+        rr(x, cx, cy, CW, CH, CW * 0.055);
+        var g = x.createLinearGradient(cx, cy, cx, cy + CH);
+        g.addColorStop(0, isBlack ? '#221E26' : '#F4F1E8');
+        g.addColorStop(1, isBlack ? '#131017' : '#D9D3C4');
+        x.fillStyle = g; x.fill();
+        x.strokeStyle = tier.frame; x.lineWidth = Math.max(2.5, CW * 0.038); x.stroke();
+        var ink = isBlack ? '#E9BF63' : '#241D15';
+        var px = cx + CW * (1 - win.fw) / 2, py = cy + CH * win.fy;
+        var pw = CW * win.fw, ph = CH * win.fh;
+        K.blit(x, px, py, pw, p.kit, {
+          pose: 'card', w: pw, h: ph, radius: 6, number: p.num, ground: true });
+        txt(x, String(p.ovr), cx + CW * 0.09, cy + CH * 0.185, Math.round(CH * 0.16), ink, 'left', 800);
+        txt(x, p.pos, cx + CW * 0.09, cy + CH * 0.275, 12, ink, 'left', 700);
+        txt(x, p.short, cx + CW / 2, cy + CH * 0.83, 12, ink, 'center', 700);
+        txt(x, p.code + ' · ' + p.kit.pattern, cx + CW / 2, cy + CH * 0.925, 9.5,
+          isBlack ? '#8b8398' : '#6b6355', 'center', 600);
+      }
+    }
+  })();
+
+  /* ================= 3 · the pattern set ================= */
+  (function () {
+    var COLS = 6, CELL = 200, ROWH = 210;
+    var W = 1368 - 32, H = 3 * ROWH + 10;
+    var x = cv('patterns', W, H);
+    x.fillStyle = '#10141A'; x.fillRect(0, 0, W, H);
+    /* one colourway for all twelve so the DESIGN is what differs */
+    var demo = { c1: '#D6202A', c2: '#F4F1E8', code: 'ZZZ' };
+    K.PATTERNS.forEach(function (name, i) {
+      var cx = 12 + (i % COLS) * CELL, cy = 8 + ((i / COLS) | 0) * ROWH;
+      rr(x, cx, cy, CELL - 14, 190, 10); x.fillStyle = '#151B23'; x.fill();
+      x.strokeStyle = '#242E3A'; x.lineWidth = 1; x.stroke();
+      /* force each pattern by hand-building the record off a real kit */
+      var base = K.kitFor(K.seedOf('pattern' + i, 'ZZZ'), demo);
+      var kit = Object.assign({}, base, { patternId: i, pattern: name, key: base.key + '|p' + i });
+      K.blit(x, cx + 11, cy + 8, 160, kit, { pose: 'detail', w: 160, h: 160, number: 9 });
+      txt(x, name.toUpperCase(), cx + (CELL - 14) / 2, cy + 182, 11, '#C6D0DA', 'center', 700);
+    });
+    /* the keeper row — opts.gk swaps the colourway, never the silhouette */
+    var GKS = ['ARG', 'BRA', 'ENG', 'GER', 'NED', 'ESP'];
+    GKS.forEach(function (code, i) {
+      var cx = 12 + i * CELL, cy = 8 + 2 * ROWH;
+      rr(x, cx, cy, CELL - 14, 190, 10); x.fillStyle = '#151B23'; x.fill();
+      x.strokeStyle = '#242E3A'; x.lineWidth = 1; x.stroke();
+      var kit = K.kitFor(K.seedOf('keeper', code), CLUB[code]);
+      K.blit(x, cx + 11, cy + 8, 160, kit, { pose: 'detail', w: 160, h: 160, number: 1, gk: true });
+      txt(x, code + ' KEEPER', cx + (CELL - 14) / 2, cy + 182, 11, '#C6D0DA', 'center', 700);
+    });
+  })();
+
+  /* ================= 4 · the number ================= */
+  (function () {
+    var NUMS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 23, 45, 67, 88, 99];
+    var W = 1368 - 32, H = 78 + 200;
+    var x = cv('digits', W, H);
+    x.fillStyle = '#10141A'; x.fillRect(0, 0, W, H);
+    var kit = K.kitFor(K.seedOf('numbers', 'ZZZ'), { c1: '#1E4C8A', c2: '#F4F1E8', code: 'ZZZ' });
+    NUMS.forEach(function (n, i) {
+      var cx = 12 + i * 52;
+      K.blit(x, cx, 8, 44, kit, { pose: 'card', w: 44, h: 44, number: n, clip: false });
+      txt(x, String(n), cx + 22, 68, 10, '#6B7684', 'center', 600);
+    });
+    var big = [7, 10, 18, 23, 88, 99, 4, 1];
+    big.forEach(function (n, i) {
+      K.blit(x, 12 + i * 170, 88, 160, kit, { pose: 'detail', w: 160, h: 160, number: n });
+    });
+  })();
+
+  /* ================= 5-8 · the 160px profiles ================= */
+  function bigPage(id, from, to) {
+    var COLS = 8, CELL = 170, ROWH = 196;
+    var list = PICK.slice(from, to);
+    var rows = Math.ceil(list.length / COLS);
+    var W = 1368 - 32, H = rows * ROWH + 8;
+    var x = cv(id, W, H);
+    x.fillStyle = '#10141A'; x.fillRect(0, 0, W, H);
+    list.forEach(function (p, i) {
+      var cx = 6 + (i % COLS) * CELL, cy = 4 + ((i / COLS) | 0) * ROWH;
+      rr(x, cx, cy, CELL - 8, 190, 12); x.fillStyle = '#151B23'; x.fill();
+      x.strokeStyle = '#242E3A'; x.lineWidth = 1; x.stroke();
+      K.blit(x, cx + 1, cy + 2, 160, p.kit, { pose: 'detail', w: 160, h: 160, number: p.num });
+      txt(x, p.short, cx + (CELL - 8) / 2, cy + 172, 11.5, '#E9EDF2', 'center', 700);
+      txt(x, p.code + ' · ' + p.pos + ' · ' + p.kit.pattern, cx + (CELL - 8) / 2, cy + 185, 9.5, '#6B7684', 'center', 500);
+    });
+  }
+  bigPage('big1', 0, 32);
+  bigPage('big2', 32, 64);
+  bigPage('big3', 64, 96);
+  bigPage('big4', 96, 120);
+
+  var counts = {};
+  PICK.forEach(function (p) { counts[p.kit.pattern] = (counts[p.kit.pattern] || 0) + 1; });
+  document.getElementById('stats').textContent =
+    PICK.length + ' players · ' + Object.keys(counts).length + ' patterns in play · ' +
+    Object.keys(counts).sort().map(function (k) { return k + ' ' + counts[k]; }).join(' · ') +
+    ' · cache ' + JSON.stringify(K.cacheStats());
+  window.__KIT_SHEET_READY = true;
+})();
+</script>
+</body>
+</html>

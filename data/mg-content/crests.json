@@ -1,0 +1,245 @@
+{
+  "kind": "crests",
+  "byCode": {
+    "ALG": {
+      "team": "Algeria",
+      "flavor": "A fennec fox with very big ears. It hears everything.",
+      "passive": "the fox listens — {team} hear the pass before it happens."
+    },
+    "ARG": {
+      "team": "Argentina",
+      "flavor": "Three stars and a sun that will not stop shining.",
+      "passive": "the sun beams — {team} free kicks feel a little golden."
+    },
+    "AUS": {
+      "team": "Australia",
+      "flavor": "A kangaroo that never learned to walk backwards.",
+      "passive": "the roo bounces — {team} only ever hop forward."
+    },
+    "AUT": {
+      "team": "Austria",
+      "flavor": "A tidy eagle between two red stripes. Very organised.",
+      "passive": "the eagle tidies up — {team} loose balls sort themselves out."
+    },
+    "BEL": {
+      "team": "Belgium",
+      "flavor": "The famous little red devil. Mostly well behaved.",
+      "passive": "the badge grins — {team} shots take a cheeky bend."
+    },
+    "BIH": {
+      "team": "Bosnia and Herzegovina",
+      "flavor": "Golden lilies on blue. Small flowers, big hearts.",
+      "passive": "the lilies bloom — {team} play braver at home."
+    },
+    "BRA": {
+      "team": "Brazil",
+      "flavor": "Five stars. They are not shy about it.",
+      "passive": "the stars twinkle — {team} skill moves feel like samba."
+    },
+    "CAN": {
+      "team": "Canada",
+      "flavor": "A maple leaf. Polite, and unbreakable.",
+      "passive": "the leaf holds firm — {team} never mind a cold snap."
+    },
+    "CIV": {
+      "team": "Côte d'Ivoire",
+      "flavor": "An elephant. It remembers every match.",
+      "passive": "the elephant remembers — {team} learn from every rebound."
+    },
+    "COD": {
+      "team": "DR Congo",
+      "flavor": "A leopard mid-prowl. Quiet paws, loud finish.",
+      "passive": "the leopard prowls — {team} counters arrive on soft feet."
+    },
+    "COL": {
+      "team": "Colombia",
+      "flavor": "A condor riding yellow, blue and red.",
+      "passive": "the condor soars — {team} long balls hang a beat longer."
+    },
+    "CPV": {
+      "team": "Cape Verde",
+      "flavor": "Ten islands, one badge, zero fear.",
+      "passive": "the sharks circle — {team} sense a loose ball in the box."
+    },
+    "CRO": {
+      "team": "Croatia",
+      "flavor": "The famous checkerboard. Every square counted twice.",
+      "passive": "the squares line up — {team} passes click into place."
+    },
+    "CUW": {
+      "team": "Curaçao",
+      "flavor": "Stars on ocean blue. Small island, big splash.",
+      "passive": "the stars sparkle — {team} play with holiday feet."
+    },
+    "CZE": {
+      "team": "Czechia",
+      "flavor": "A lion with two tails. Twice the swish.",
+      "passive": "both tails swish — {team} always get a second look."
+    },
+    "ECU": {
+      "team": "Ecuador",
+      "flavor": "A badge the colour of sunrise over the Andes.",
+      "passive": "the mountain air helps — {team} never seem to puff."
+    },
+    "EGY": {
+      "team": "Egypt",
+      "flavor": "A badge as old as the pyramids. Well, nearly.",
+      "passive": "the Pharaohs nod — {team} stand tall like monuments."
+    },
+    "ENG": {
+      "team": "England",
+      "flavor": "Three lions on a shirt. Still dreaming.",
+      "passive": "the lions roar — {team} believe right up to the whistle."
+    },
+    "ESP": {
+      "team": "Spain",
+      "flavor": "A royal crest with a lot going on. All of it wins.",
+      "passive": "the crown gleams — {team} keep the ball like treasure."
+    },
+    "FRA": {
+      "team": "France",
+      "flavor": "A rooster who crows first and asks later.",
+      "passive": "the rooster crows — {team} wake up fast after half time."
+    },
+    "GER": {
+      "team": "Germany",
+      "flavor": "An eagle and four stars. Built to specification.",
+      "passive": "the eagle inspects — {team} finish what they measure."
+    },
+    "GHA": {
+      "team": "Ghana",
+      "flavor": "One black star. It shines anyway.",
+      "passive": "the star glows — {team} shine brightest under the lights."
+    },
+    "HAI": {
+      "team": "Haiti",
+      "flavor": "A palm tree that has weathered every storm.",
+      "passive": "the palm bends, never breaks — {team} bounce back quick."
+    },
+    "IRN": {
+      "team": "Iran",
+      "flavor": "A badge quick as a cheetah. Blink and it's gone.",
+      "passive": "the cheetah stretches — {team} break faster than they look."
+    },
+    "IRQ": {
+      "team": "Iraq",
+      "flavor": "Lions from the land of two rivers.",
+      "passive": "the rivers run — {team} keep flowing forward."
+    },
+    "JOR": {
+      "team": "Jordan",
+      "flavor": "A new badge at the big dance. It practised in the mirror.",
+      "passive": "the badge beams — {team} play like it's the best day ever."
+    },
+    "JPN": {
+      "team": "Japan",
+      "flavor": "A crow with three legs. Extra balance, obviously.",
+      "passive": "the crow balances — {team} first touches land just so."
+    },
+    "KOR": {
+      "team": "South Korea",
+      "flavor": "A tiger in mid-leap. It skipped the warm-up.",
+      "passive": "the tiger leaps — {team} press before you're ready."
+    },
+    "KSA": {
+      "team": "Saudi Arabia",
+      "flavor": "A green falcon with excellent eyesight.",
+      "passive": "the falcon spots gaps — {team} passes find keyholes."
+    },
+    "MAR": {
+      "team": "Morocco",
+      "flavor": "An Atlas lion who climbed a mountain to get here.",
+      "passive": "the lion stands guard — {team} defend like a mountain pass."
+    },
+    "MEX": {
+      "team": "Mexico",
+      "flavor": "An eagle perched on a cactus. Comfortable anywhere.",
+      "passive": "the eagle settles — {team} feel at home in any stadium."
+    },
+    "NED": {
+      "team": "Netherlands",
+      "flavor": "An orange lion. The paint was on purpose.",
+      "passive": "the lion swaggers — {team} try the fancy thing first."
+    },
+    "NOR": {
+      "team": "Norway",
+      "flavor": "A lion in the cold. It didn't notice.",
+      "passive": "the north wind pushes — {team} finish strong in the rain."
+    },
+    "NZL": {
+      "team": "New Zealand",
+      "flavor": "A silver fern. Delicate looking. It is not.",
+      "passive": "the fern unfurls — {team} grow into every match."
+    },
+    "PAN": {
+      "team": "Panama",
+      "flavor": "A badge that bridges two oceans.",
+      "passive": "the canal connects — {team} link up from box to box."
+    },
+    "PAR": {
+      "team": "Paraguay",
+      "flavor": "A lion under a star, guarding the badge.",
+      "passive": "the guard lion watches — {team} sniff out sneaky passes."
+    },
+    "POR": {
+      "team": "Portugal",
+      "flavor": "An old explorer's sphere. It has seen the whole map.",
+      "passive": "the sphere spins — {team} shots come from strange places."
+    },
+    "QAT": {
+      "team": "Qatar",
+      "flavor": "A maroon badge, calm as a desert evening.",
+      "passive": "the desert cools — {team} stay patient when it's tense."
+    },
+    "RSA": {
+      "team": "South Africa",
+      "flavor": "A badge with a rainbow behind it. Always.",
+      "passive": "the rainbow arcs — {team} chipped passes look extra pretty."
+    },
+    "SCO": {
+      "team": "Scotland",
+      "flavor": "A prickly thistle. Handle with care.",
+      "passive": "the thistle prickles — {team} are no fun to tackle."
+    },
+    "SEN": {
+      "team": "Senegal",
+      "flavor": "A lion of Teranga. Fierce, and a wonderful host.",
+      "passive": "the lion welcomes you in — then {team} take the ball back."
+    },
+    "SUI": {
+      "team": "Switzerland",
+      "flavor": "A white cross, punctual to the second.",
+      "passive": "the badge keeps time — {team} never miss a kickoff beat."
+    },
+    "SWE": {
+      "team": "Sweden",
+      "flavor": "Three crowns. One would have been fine.",
+      "passive": "the crowns sit level — {team} keep a cool blue head."
+    },
+    "TUN": {
+      "team": "Tunisia",
+      "flavor": "An eagle of Carthage, older than most trophies.",
+      "passive": "the old eagle circles — {team} wait for the right moment."
+    },
+    "TUR": {
+      "team": "Türkiye",
+      "flavor": "A crescent moon and star. Night games feel special.",
+      "passive": "the moon rises — {team} glow in evening kickoffs."
+    },
+    "URU": {
+      "team": "Uruguay",
+      "flavor": "Four stars on a small badge. Punching up is tradition.",
+      "passive": "the stars stack — {team} play bigger than they look."
+    },
+    "USA": {
+      "team": "United States",
+      "flavor": "Stars, stripes, and a lot of running.",
+      "passive": "the stripes streak — {team} run all day and ask for extra."
+    },
+    "UZB": {
+      "team": "Uzbekistan",
+      "flavor": "The Huma bird. Legend says it never lands.",
+      "passive": "the Huma flies on — {team} never stop moving."
+    }
+  }
+}

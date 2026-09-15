@@ -1,0 +1,113 @@
+{
+  "kind": "clubs",
+  "clubs": [
+    {
+      "code": "ALG",
+      "managerName": "Fenn Foxley",
+      "style": "attacking",
+      "tier": 2,
+      "motto": "Quick as the fennec.",
+      "tauntLine": "Blink and we're gone.",
+      "colors": ["#0f7a3d", "#ffffff"]
+    },
+    {
+      "code": "ARG",
+      "managerName": "Tito Tango",
+      "style": "attacking",
+      "tier": 4,
+      "motto": "Dance first. Score second.",
+      "tauntLine": "We brought the trophy polish.",
+      "colors": ["#6cace4", "#12246e"]
+    },
+    {
+      "code": "AUS",
+      "managerName": "Joey Bouncer",
+      "style": "balanced",
+      "tier": 2,
+      "motto": "Bounce back. Always.",
+      "tauntLine": "Hope you can jump, mate.",
+      "colors": ["#ffb81c", "#00843d"]
+    },
+    {
+      "code": "AUT",
+      "managerName": "Al Pine",
+      "style": "attacking",
+      "tier": 2,
+      "motto": "Climb every match.",
+      "tauntLine": "You're playing uphill today.",
+      "colors": ["#ed2939", "#ffffff"]
+    },
+    {
+      "code": "BEL",
+      "managerName": "Vic Van Waffel",
+      "style": "balanced",
+      "tier": 3,
+      "motto": "Sweet passes. Golden goals.",
+      "tauntLine": "No free waffles today.",
+      "colors": ["#e30613", "#1c1c1c"]
+    },
+    {
+      "code": "BIH",
+      "managerName": "Deni Blockovic",
+      "style": "defensive",
+      "tier": 1,
+      "motto": "Heart of the mountains.",
+      "tauntLine": "Our wall was built by mountains.",
+      "colors": ["#002f6c", "#f5c518"]
+    },
+    {
+      "code": "BRA",
+      "managerName": "Zé Samba",
+      "style": "attacking",
+      "tier": 4,
+      "motto": "Play beautiful.",
+      "tauntLine": "Try to keep up with the drums.",
+      "colors": ["#ffdc02", "#009739"]
+    },
+    {
+      "code": "CAN",
+      "managerName": "Marty McMaple",
+      "style": "attacking",
+      "tier": 2,
+      "motto": "Nice off the pitch. Not on it.",
+      "tauntLine": "Sorry about the score in advance.",
+      "colors": ["#d80621", "#ffffff"]
+    },
+    {
+      "code": "CIV",
+      "managerName": "Sekou Tusk",
+      "style": "balanced",
+      "tier": 2,
+      "motto": "Elephants never forget the score.",
+      "tauntLine": "You look small from up here.",
+      "colors": ["#ff8200", "#009a44"]
+    },
+    {
+      "code": "COD",
+      "managerName": "Leo Pardieu",
+      "style": "defensive",
+      "tier": 1,
+      "motto": "Move quiet. Strike loud.",
+      "tauntLine": "You won't hear us coming.",
+      "colors": ["#0085ca", "#f7d618"]
+    },
+    {
+      "code": "COL",
+      "managerName": "Carlos Cafetero",
+      "style": "balanced",
+      "tier": 3,
+      "motto": "Strong coffee. Stronger midfield.",
+      "tauntLine": "We had our coffee. Did you?",
+      "colors": ["#fcd116", "#003893"]
+    },
+    {
+      "code": "CPV",
+      "managerName": "Nino Sharkinho",
+      "style": "defensive",
+      "tier": 1,
+      "motto": "Small islands. Big bite.",
+      "tauntLine": "The sharks are circling.",
+      "colors": ["#0c4da2", "#cf2027"]
+    }
+  ]
+}

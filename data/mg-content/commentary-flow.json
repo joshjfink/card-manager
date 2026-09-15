@@ -1,0 +1,93 @@
+{
+  "kind": "commentary",
+  "byEvent": {
+    "buildup": [
+      "{player} carries it forward with purpose.",
+      "Patient passing in midfield.",
+      "{player} looks up for options.",
+      "The tempo rises as we pass minute {minute}.",
+      "A neat little triangle out on the wing.",
+      "{player} demands the ball. He gets it.",
+      "Space is opening up here.",
+      "A clever switch of play finds {player}.",
+      "The crowd senses something building.",
+      "{player} drives straight at the defence."
+    ],
+    "goal": [
+      "GOAL! {player} finds the corner!",
+      "It's in! {player} makes no mistake!",
+      "GOAL! A finish worthy of the sticker album!",
+      "{player} scores! The bench is bouncing!",
+      "What a hit! {player} leaves {keeper} rooted!",
+      "GOAL in minute {minute}! {player} wheels away!",
+      "{player} taps it home. Cool as you like.",
+      "It's a golazo! {player} takes a bow!",
+      "GOAL! {player} buries it low and hard!",
+      "The net ripples! {player} has done it!",
+      "{player} rises highest and heads it in!",
+      "GOAL! {keeper} got a glove to it, but not enough!"
+    ],
+    "save": [
+      "Brilliant save by {keeper}!",
+      "{keeper} gets down fast to deny {player}.",
+      "What a stop! {keeper} tips it away!",
+      "{player} shoots — {keeper} says no!",
+      "{keeper} plucks it out of the air. Easy.",
+      "Strong hands from {keeper}.",
+      "{keeper} spreads himself and blocks it!",
+      "A flying save! {keeper} is up for this.",
+      "{player} hits it well. {keeper} hits back better.",
+      "{keeper} holds on at the second attempt."
+    ],
+    "post": [
+      "Off the post! So close for {player}!",
+      "{player} rattles the crossbar!",
+      "CLANG! The woodwork rescues {keeper}.",
+      "Inches away! {player} strikes the upright.",
+      "The post shivers. {player} can't believe it.",
+      "Crossbar! {keeper} was beaten, the frame was not."
+    ],
+    "wide": [
+      "{player} drags it wide.",
+      "Over the bar! {player} looks skyward.",
+      "Wide! The ball boys are busy today.",
+      "{player} slices it into the stands.",
+      "Just past the post. {keeper} watched it all the way.",
+      "A big chance goes begging for {player}."
+    ],
+    "tackle": [
+      "A firm, fair challenge from {player}.",
+      "{player} times the tackle perfectly.",
+      "Nothing gets past {player} today.",
+      "A superb sliding tackle by {player}!",
+      "{player} wins it back cleanly.",
+      "The move ends right there. {player} says no."
+    ],
+    "halftime": [
+      "Half-time. Time for oranges and a team talk.",
+      "The whistle goes. Forty-five in the book.",
+      "Half-time here. The managers head down the tunnel.",
+      "That's the half. Deep breaths all round."
+    ],
+    "fulltime": [
+      "Full-time! The whistle ends it.",
+      "That's it! The final whistle blows.",
+      "All over! Handshakes on the pitch.",
+      "Full-time. The story is written."
+    ],
+    "penalty-scored": [
+      "{player} steps up... and scores! Ice cold.",
+      "Penalty converted! {keeper} went the wrong way.",
+      "{player} sends {keeper} diving and rolls it in.",
+      "Smashed down the middle! {player} never doubted it.",
+      "Top corner! {keeper} had no chance."
+    ],
+    "penalty-missed": [
+      "Saved! {keeper} guesses right!",
+      "{player} blazes it over the bar!",
+      "{keeper} makes himself huge and keeps it out!",
+      "Off the post! {player} covers his eyes.",
+      "{player} hits it — {keeper} holds on! What a stop!"
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "kind": "taunts",
+  "note": "Rival manager quotes for Card Manager. Family-safe, gentle, one sentence, kid-legible. {team} = the player's club name.",
+  "placeholders": { "team": "the player's club name" },
+  "personas": {
+    "suarez_fc": {
+      "name": "Suárez FC",
+      "style": "cheeky rule-bender",
+      "taunts": [
+        "Handballs? I call them hugs for the ball.",
+        "I only bite into sandwiches these days. Promise.",
+        "Rules are more like suggestions, no?",
+        "Check your shin pads. Actually, check everything.",
+        "The referee and I are very good friends. Too good, some say.",
+        "We win one way or another. Usually another."
+      ],
+      "pre_match": [
+        "Good luck, {team}. You will need it. I made sure.",
+        "I have studied the rulebook. For loopholes.",
+        "My team is hungry today. Not like that. Mostly.",
+        "Play your best. We will play our sneakiest.",
+        "The pitch is fine. Ignore anything you find in it.",
+        "May the best team win. Or, you know, us."
+      ],
+      "post_win": [
+        "A fair result. Stop looking at me like that.",
+        "Every goal was legal. Nearly every goal.",
+        "We won with heart. And maybe a hand.",
+        "Delicious victory. I could just bite it.",
+        "The ref saw nothing. Because nothing happened.",
+        "You played well. We played creatively."
+      ],
+      "post_loss": [
+        "The referee saw everything today. So unfair.",
+        "We were robbed. By people playing properly.",
+        "Fine. You won. This time the rules worked.",
+        "I demand a rematch. And softer rules.",
+        "Losing tastes terrible. I know. I bit it.",
+        "Well played, {team}. I hate saying that."
+      ]
+    },
+    "kane_united": {
+      "name": "Kane United",
+      "style": "bottles the big moments",
+      "taunts": [
+        "This is our year. It is always our year.",
+        "We never lose finals. We avoid them entirely.",
+        "Second place is just first place with humility.",
+        "We are unbeatable. Until roughly minute eighty.",
+        "Our trophy cabinet is spotless. And empty.",
+        "You should worry. We nearly win everything."
+      ],
+      "pre_match": [
+        "Today is the day. I can feel it. Again.",
+        "We have a good feeling. We always do.",
+        "No slip-ups this time. Probably.",
+        "We practised penalties all week. Mostly the sky.",
+        "History says we fade late. Ignore history.",
+        "Win or learn. We have learned so much."
+      ],
+      "post_win": [
+        "See? Told you it was our year. Finally.",
+        "We did not bottle it! Someone write this down.",
+        "Held our nerve. First time for everything.",
+        "Never in doubt. Only slightly in doubt.",
+        "The curse is broken. Nobody touch anything.",
+        "We won! Quick, end the season now."
+      ],
+      "post_loss": [
+        "So close. We are always so close.",
+        "We led for ages. The ending is just details.",
+        "Next year is our year. I am certain again.",
+        "We ran out of minutes, not talent.",
+        "That one went over. The important ones always do.",
+        "Typical. Brilliant until it mattered."
+      ]
+    },
+    "haaland_machine": {
+      "name": "Golazo City",
+      "style": "machine confidence",
+      "taunts": [
+        "Analysis complete. You lose.",
+        "I do not predict goals. I schedule them.",
+        "Resistance noted. Outcome unchanged.",
+        "My striker is not human. This is not an insult.",
+        "Your defence has one flaw. It is facing us.",
+        "We do not do drama. We do goals."
+      ],
+      "pre_match": [
+        "Forecast: goals. Heavy in places.",
+        "We have run the numbers. All of them.",
+        "The plan is simple. Score. Repeat.",
+        "Kickoff is a formality. So is the rest.",
+        "Good luck, {team}. Luck is not a variable we use.",
+        "Warm-up complete. Victory loading."
+      ],
+      "post_win": [
+        "As calculated.",
+        "Of course. It is always of course.",
+        "The machine does not celebrate. Much.",
+        "Result matches forecast. Goodbye.",
+        "That was efficiency. Take notes.",
+        "Update complete. Victory installed."
+      ],
+      "post_loss": [
+        "Error detected. Recalibrating.",
+        "Unexpected outcome. It will not repeat.",
+        "Even machines have off days. Apparently.",
+        "You beat the numbers today. Impressive.",
+        "Logging this loss. Deleting it soon.",
+        "Congratulations, {team}. Statistically remarkable."
+      ]
+    },
+    "maradona_maverick": {
+      "name": "The Maverick",
+      "style": "flamboyant magician, a little cheeky",
+      "taunts": [
+        "The ball loves me. It told me so.",
+        "I invented tricks your tricks dream about.",
+        "Genius cannot be marked. Try anyway.",
+        "Football is art. I am the paint.",
+        "My left foot has its own fan club.",
+        "Play beautiful or go home. You may do both."
+      ],
+      "pre_match": [
+        "Today we dance. You may watch.",
+        "Tactics? The ball and I have an understanding.",
+        "Bring your best. I will bring magic.",
+        "I dreamed we scored a wonder goal. I trust my dreams.",
+        "The pitch is my canvas. Kickoff is the brush.",
+        "Watch closely. You may learn something impossible."
+      ],
+      "post_win": [
+        "Beautiful, no? Even the goalposts applauded.",
+        "That was not football. That was music.",
+        "The magic showed up. It usually does.",
+        "Some goals are cheeky. All of mine are art.",
+        "We painted a masterpiece. You were the frame.",
+        "I told the ball where to go. It listened."
+      ],
+      "post_loss": [
+        "Even artists have off days. Rare, historic days.",
+        "You beat the magic today. Enjoy the legend.",
+        "The ball betrayed me. We have made up already.",
+        "Every masterpiece needs a rival. Today, bravo.",
+        "Defeat is ugly. I refuse to look at it.",
+        "Tomorrow the magic returns. Bigger. Cheekier."
+      ]
+    },
+    "zidane_stoic": {
+      "name": "The Stoic",
+      "style": "calm, elegant, few words",
+      "taunts": [
+        "We are calm. You should worry about that.",
+        "I say little. My team says the rest.",
+        "Elegance wins. Eventually. Usually today.",
+        "No noise. Just football.",
+        "You talk. We glide.",
+        "Composure is a tactic. Ours."
+      ],
+      "pre_match": [
+        "We are ready. That is all.",
+        "The game will speak. I will not.",
+        "Play well. We intend to.",
+        "No predictions. Only preparation.",
+        "Small things decide matches. We practise small things.",
+        "Good luck. Sincerely."
+      ],
+      "post_win": [
+        "As expected. No celebration required.",
+        "The game spoke. Quietly, for us.",
+        "Control, from the first minute to the last.",
+        "A clean win. We will not mention it again.",
+        "Well played, {team}. Better played, us.",
+        "That is football, done properly."
+      ],
+      "post_loss": [
+        "You deserved it. I do not say that often.",
+        "We were beaten. It happens. Rarely.",
+        "No excuses. Only notes for next time.",
+        "A quiet loss. We will answer loudly.",
+        "Well played, {team}. Truly.",
+        "One word on that defeat: enough."
+      ]
+    },
+    "generic": {
+      "name": "Any Rival",
+      "style": "all-purpose rival manager",
+      "taunts": [
+        "Nice team. Ours is nicer.",
+        "We studied your tactics. It took a minute.",
+        "Bring a raincoat. We forecast goals.",
+        "Our mascot worries more about lunch than about you.",
+        "You are good. We plan to be less polite about it.",
+        "Hope you like running. You will do lots of it.",
+        "Your keeper should stretch. A lot.",
+        "We came to play. Also to win. Mostly to win.",
+        "Big talk from a club with small shin pads.",
+        "Enjoy the first half. It is the kind one.",
+        "We counted your trophies. It was quick.",
+        "Save your best. You will need every bit."
+      ],
+      "pre_match": [
+        "Three points are on the table. We brought forks.",
+        "Both teams want this. Only one of us packed boots.",
+        "May it be a classic. With us winning it.",
+        "The lads are ready. The bus is warmed up.",
+        "We respect {team}. For ninety minutes, slightly less.",
+        "Big game. Small talk. Kickoff soon.",
+        "Our plan is secret. It rhymes with more goals.",
+        "Fresh grass, clean kits. Perfect day for it.",
+        "We watched your last match. Twice. For fun.",
+        "Whatever happens, we shake hands after. First, football.",
+        "The table does not lie. Today we edit it.",
+        "Boots laced. Speeches done. Let us play."
+      ],
+      "post_win": [
+        "Good game. Better result.",
+        "The plan worked. I will pretend it always does.",
+        "Three points, zero complaints.",
+        "We take the win and the bus home. In that order.",
+        "Credit to {team}. Now, about that scoreline.",
+        "The lads were brilliant. The snacks helped.",
+        "That is exactly how we practise it. Honestly.",
+        "A win is a win. This one was also fun.",
+        "We will celebrate sensibly. One extra biscuit each.",
+        "Job done. See you in the return match.",
+        "The table looks nicer already.",
+        "Handshakes all round. Especially ours."
+      ],
+      "post_loss": [
+        "Well played, {team}. We will be back.",
+        "No excuses. Just a better week of training ahead.",
+        "The better team won. Annoyingly.",
+        "We lost the match, not the plot.",
+        "Lessons learned. Several. Loudly.",
+        "Congratulations. Enjoy it. Briefly.",
+        "The scoreboard disagrees with my plans.",
+        "We go again. That is the whole speech.",
+        "One bad day. The bus ride will be quiet.",
+        "You were sharp today. We were Tuesday-sharp.",
+        "Fair result. I checked twice, hoping.",
+        "Beaten, not broken. See you next round."
+      ]
+    }
+  }
+}

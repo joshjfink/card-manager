@@ -1,0 +1,19 @@
+{
+  "name": "card-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Card Manager — a Football-Manager-style career game built on the Panini World Cup 2026 sticker album",
+  "scripts": {
+    "build": "bash cardmanager/build.sh",
+    "test": "node tools/mg-harness.js --sims 200 && node tools/mg-flow-test.js",
+    "test:harness": "node tools/mg-harness.js --sims 200",
+    "test:flow": "node tools/mg-flow-test.js",
+    "tap:boot": "node tools/mg-tap-suite.js --page cardmanager/dist/cardmanager.html --device iphone --script tools/tap-scripts/career-boot.json",
+    "tap:realclub": "node tools/mg-tap-suite.js --page cardmanager/dist/cardmanager.html --device iphone --script cardmanager/tap-scripts/cm-realclub.json",
+    "tap:welcome": "node tools/mg-tap-suite.js --page cardmanager/dist/cardmanager.html --device iphone --script cardmanager/tap-scripts/cm-welcome.json"
+  },
+  "devDependencies": {
+    "@puppeteer/browsers": "2.3.0",
+    "puppeteer-core": "22.15.0"
+  }
+}

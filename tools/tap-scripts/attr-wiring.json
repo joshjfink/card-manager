@@ -1,0 +1,34 @@
+[
+  {"wait": 1400},
+  {"expectScreen": "welcome", "timeout": 20000},
+  {"tapId": "wel-new"},
+  {"expectScreen": "start", "timeout": 8000},
+  {"tapId": "start-own"},
+  {"expectScreen": "new", "timeout": 8000},
+  {"tapId": "kickoff"},
+  {"expectScreen": "hub*", "timeout": 10000},
+
+  {"tapId": "side-1"},
+  {"expectScreen": "hub/squad", "timeout": 6000},
+  {"tapId": "sq-tab-1"},
+  {"wait": 500},
+  {"shot": "squad-list-kits"},
+
+  {"tapId": "lrow-*"},
+  {"expectScreen": "hub/squad/sheet/profile", "timeout": 6000},
+  {"wait": 400},
+  {"shot": "sheet-profile"},
+  {"tapId": "sh-tab-1"},
+  {"expectScreen": "hub/squad/sheet/stats", "timeout": 6000},
+  {"wait": 400},
+  {"shot": "sheet-stats"},
+  {"tapId": "sheet-close"},
+  {"expectScreen": "hub/squad", "timeout": 6000},
+
+  {"tapId": "sq-tab-0"},
+  {"wait": 400},
+  {"shot": "squad-pitch"},
+  {"tapId": "sq-tab-2"},
+  {"wait": 400},
+  {"shot": "squad-training"}
+]

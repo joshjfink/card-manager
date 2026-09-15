@@ -1,0 +1,10 @@
+[
+  {"setStorage": {"gs-mg-career": "@tools/fixtures/saves-v2/five-season.json"}},
+  {"wait": 1400},
+  {"expectState": "play", "timeout": 9000},
+  {"expectScreen": "hub/inbox", "timeout": 6000},
+  {"shot": "migrated-hub"},
+  {"tapId": "side-8"},
+  {"wait": 500},
+  {"shot": "migrated-club-record"}
+]

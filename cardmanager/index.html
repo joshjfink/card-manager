@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card Manager</title>
+<meta name="description" content="Card Manager — an FM-style career game built on the Panini parallel ladder. 980 players, 48 nations, seven colour versions.">
+<!-- Phones default to a 980px layout viewport when nothing says otherwise,
+     which throws every tap coordinate off. viewport-fit=cover lets the stage
+     run under the notch; the safe-area padding below keeps content clear. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0d1f16">
+<meta name="color-scheme" content="dark">
+
+<!-- Installable app: own icon, fullscreen, no browser chrome. The manifest
+     and icons are data URIs so the page stays one self-contained file. -->
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Card%20Manager%22%2C%22short_name%22%3A%22Card%20Mgr%22%2C%22description%22%3A%22Card%20Manager%20%5Cu2014%20the%20FM-style%20career%20game.%20Collect%20the%20parallel%20versions%2C%20run%20the%20club.%22%2C%22id%22%3A%22%2Fcardmanager%2F%22%2C%22start_url%22%3A%22.%22%2C%22scope%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22orientation%22%3A%22any%22%2C%22background_color%22%3A%22%230d1f16%22%2C%22theme_color%22%3A%22%230d1f16%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAFjUlEQVR42u3dPY7USBiH8SoLbboRKyIiRIAQQitxBK7BCTbhJCR7gr0GR0BajRAiQEQToZ1oUxI2GqmZtae77Pqy6%2FdEiA%2B3u%2Bf%2FvO%2FrKreJoTMevnz8I%2BCw3Fxdx57OJwo7RpYiCj1GliEKPkYWIQo%2BRhYhCj5GFiEKPkYWYRJ%2B7IncGYuCj5G7wST8GLkbxF7D%2F%2Bndaz%2FhA%2FH87fsuO0HsJfwCT4gWEsSW4Rd65JRhjQSxRfgFH6VESJUg1gy%2F4KOGCCkSxBrhXxP8khdNqE%2FtDFwqQewl%2FAJPiBYSxNbhF3witJSgiACCj14ys0mAEuEXfNTOz30STMKPsKMVoDUX0%2FdlOeYS4L4TE3zk7gapmVrqAlPp2xyEHz1kZynTU0lThR%2BlJMi1qTqVGn2EH71JMJftSeXHyJ1g8uUWhIG%2FRDOp%2Fhi5C0w5q7%2FwYw8rQ6dZn9zWjDDo3aZZH4ui%2BmOP%2BwNT6vij%2BuMIXeA285Pqj5G7wOSjxMhMW1uM6o%2BeukDqiK4DYOwOYPcXYeBdYR0AQxMv7QCjzf%2FfPnw%2B1Pt59OpZGGn589JsPlADjh38u%2B%2FryCKsgQAHDz4RrAIJv%2FdMAIAAKqH3TgCAACqgz4AAAAEQ7APgJ37%2F880h39fff%2Fzlh6sDAAQACAAQAAQACAAQACAAQACAAAABAAIABAAIABAAIAAQfCEm%2BOIIdACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAALshkevng0fgNE%2FgwdqQF1ePH1y9u98%2FPLVB0WAehXw24fPTQN%2F7t%2BUEkIHJEBXwT93LJ2BAN13gXPBvyTES8fIKYLqT4DZQGwRYSm4qYE9%2Fftzx3zx9MlqCQSfAEVEmAtqjkp9e4y7x0%2BVQPAJUKRS%2Fvbv9yqrOHMi3P76n19%2F8QML9gGqUyv8544%2Fdx7QAapSc4VmaSyCDtCk%2Brdanjx9XV2AAE1HH%2BdFgCHD33pz6u7rk4AAh5z7g3uHCGDEMAoRQPXXBQigquoCwT7AnqttiVsnPn75am%2BAAGG3t0m77dkI5DsCwQ4vAQ6465sa6rUS2B0mAECAI3w90ihEAIAAAAEAAgAECKPsHNsQIwBAgNacPnUhxwZVyep%2Fen6eFkGAXY5CRp%2FgZrijS1DqQVogQKixs5vj1uWeH8hrBMLidYDzHVCA52%2Ff%2F%2B%2F3Pr177f4e59OUuQzOZVUHGKiqqv4JHeDm6jr6GPZddc3%2B67i5uo46wMbq2jp8d19f9S94Eew6oO%2BQjRb%2BrfO%2Fa4DGu8M5q7%2FK33AZdOTVoNMw1hKh5mvtqfqvFiDlQji1xYw2CpUO5tzxVf%2F0bN5mfurNyD1KMHdhnFuEuWPOvbbqX2EE0gUu7wZbRVg6hqqfJ5M%2FjT4PXz7%2BsdXC0eU49yyeLf9PsPDnyd3pyL9aABLUfzjt6FU%2FV95OBZiW%2FgD5rw16OFaw%2BxsXRyBdoI%2FOIOx1qv%2BsACTAKOHPtgy6dCI2yNBL%2BEPKMmjOawESoIfsLGV6MeipY9AlJ2wkQqscLQkwpf6DLSemG6Cn8N%2FbAUp2At0AtTJzrpAXEYAI6CUjmwWoIQERBL9F%2BC8WoJYEhBD4muFPEmCrBC6CUav4pSzgJK%2F0bJWACCjZ9VNXL1dteOWQgAjIPe6uWbpfveObSwIyCH2r8G8SoIQEhBD4muHfLEBpCYCS4Q8hw92gvkSDvYY%2FSwfQDbDH4Bd5MpxugD2FP3sH0A2wl%2BAXF4AI2MNUUW1kIQJ6HKerz%2BxEQE%2FXkU0vWsmA1osn3a3akELYa%2FIf%2BHa0ohx2jbQAAAAASUVORK5CYII%3D%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAQLklEQVR42u3dPY4UVxeA4VNXLVIiRo6IEIFlIWTJS%2FA2vAInXgmJV%2BBtsARLFrIsAuSIyIJo0klwROAfYLq7fu4553mkL%2FvAQ3Wpzlv3VvUswZQePX%2F8wVEAKnj%2F6u3iKMzHh2LAAwgEAYBhDyAKBAAGPoAgEAAY%2BACCQAAY%2BgCIAQFg6AMgBgSAoQ%2BAGBAABj8AQkAAGPoAiAEBYPADIAQEgMEPgBAQAAY%2FAEJAABj8AAgBAWDwAyAEzjUMfwDoNzsWHx4A9FsNWAx%2BAOgXAsPwB4B%2BM2bxoQBAv9WAYfgDQL%2FZM3wAANBvBi0OOgBEuy2BYfgDQL%2FZNBxgAOg3oxYHFQCi3ZbAMPwBoN%2FsGg4gAPSbYYsDl8sfL753EIApffPTSwch8mwHLIa%2FIQ8gDvpFwGL4G%2FgAgqBfBCyGv4EPIAj6RcBi%2BBv6AGKgXwQshr%2BhDyAG%2BkXAYvgb%2BgBioF8ELIa%2FwQ8gBPpFwGL4G%2FwAQqBfBCyGv6EPIAb6RcAw%2FA1%2FgLAaG922xBfD3%2BAHsBrQbyVgMfwNfgAh0C8CFsPf4AcQAv0iQAAkHP5%2B4xbguln7ulkiADIN%2F5lOYEMeEAe9r61bR8Bi%2BM9xghr4gCBwvd0zAhbD%2F7iT0dAHxIDr71ER0DoAjjjxDH0A1%2BSyAWD4G%2FoArtFzR8Bi%2BBv8AK7X%2FSJg6TT8nUgAQiDz9XvNCGgTAHucPAY%2FgGt5uwDoPPwNfgDX9WwRsBj%2BBj%2BAEOgXAaUDYKsTw%2BAHcL3PHgDD8Df8AcIv%2FEn1Ow7WmL1LxQDY4gMz%2BAH6rgbMOAOuXQUYhr%2FhD2A1IN9KwLUzeBj%2Bhj%2BACOgXAUuVAFj7gzH4AcKWQIL5cOlWwDD8DX8AqwF5VwIuncnDqWH4A7i29zPc%2FTtBAERAv1WAYV%2FH8AcQAXW%2BI2CTAJjp7t%2FwB0AEXD6jhxPB8Adw7Q%2FPAHS6%2B3cCAIiArqsAo%2Bu%2Bv%2BEPQMUIWDUAZrn7N%2FwBEAHrzOzhgwZABLz0DEAUXvo3%2FAHYckZk2goYGZb%2FDX8ARECsug3gq4ABILwG6O4fAKsADVYBhg8SAPrNjlH5wT%2FDH4CjZsjsDwSOLL%2F1DwCI1bYBhrt%2FAOi3CjAMfwDoFwHD8j8ARLttgKHUAKDfbBlVf9sfAJhtZwRA5uV%2Fd%2F8AmDFxr22AoZAAoN%2BMG8oMAPrNmqGMAKDfrBsV9v%2Fd%2FQNg5sRZzwH4dcAAEH4dcGRbEnH3D0CmVYBZtgGsAABA5xWAjPv%2F7v4BMIPioucAhiciAaDf7LMFAADhIcCw9AIA9WfRsPwPAP1m4IjI%2FQuAAIA4%2B0HAYckFAPrNJA8BAkB4CDDs%2FwNA%2FVk4LLUAQL%2FZZAsAAMIWAAAgAML%2BPwAUnImnTN8BYP%2Bftfz162sHgX%2F46ruvHQSunlFZbnAfPX%2F84eQjw8CH%2F54jgoDqBAAGP3zm3BECCAAw%2BBECIADA4EcIQHgLAAx%2FnGcgAMIrgLgo43yDeWfj8AogLsbgvKPfrLIFgIswOP8IWwDg4gvOQwQAuOiC8xEBAC624LxEAAAAAgDcZeH8BAEAAAgAcHeF8xQEAAAgAMBdFc5XEAAAgAAAAAQAACAACPup4LwFAQAACAAAQAAAAAIAAAQAACAAAICaTg4BHXz78w8OAmf57cdfHASsAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAEgEMAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAANjRySGgg99%2B%2FMVBALACAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAEgEMAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAEAAOAQAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAgAAAAAQAACAAAAABAAAIANjQV9997SDgvAUBAAAIAABAAAAAAoCwnwrOVxAAAIAAwF0VOE8RAABAEyeHgGx3V3%2F9%2BtqBOMOzp08u%2FrO%2Fv%2FnTAXT3jwAAqg76c%2F9OYQACAKwCFBr4l%2F63BYG7fwQAiICiQ%2F%2B%2BP1fHGDD8EQAgAloN%2Fs%2F9rF1CwPBHAIAIaDv0u64KGP4IABABBn%2BzVQHDHwEAIsDgbxYChj8CAESAwd8sBAx%2FBABMfHHOEgJ7DP9rhuzWP9%2Bzp0%2FSRIDBjwAAITDt4F97mP7f37f2zz77aoDBjwAAITDd8D9iaP77v7nWv2e21QCDHwEABZ%2FYPioI1hqWMw3Kjz%2FLGv%2B2IyPAwEcAgC9vWd3N7V2pof%2Bln%2B%2BaGPj4Z989fOBEBQEAeV07%2FDM%2BKb%2FGqsDN7Z0IAAEA%2FYZ%2FhS%2FNuTYERAAIAGgz%2FCt%2Bbe41ISACYBvDIQDD%2F6g3CPZ8hgKwAgDTDf9Ov0L30tUAKwFgBQAM%2F6arAVYCQACA4S8CgLAFAKmGf%2FfBf%2B2WgO0AsAIAhn%2FT1QArASAAwPAXAYAAgFqvwDlOgACApHf%2Fhtp2EWAVAAQAGP4iABAAYPiLAEAAAAACANz9WwUAAQAY%2FiIABADgNTbHFQQAuPt3V%2BnzAgEAuEt1fEEAgLtJw2nCCLAKAAIAABAA4O7fKgAgAABAAAAeTHPcQQBAWP7H5wgCAHAX6vhDCSeHAPrcNT57%2BqTlUL25vYt3Dx84sUEAQB%2F3Gfqf%2Bv%2B7w4awBQDkulN%2B9vTJ2cN%2Fi7%2FDNgBYAYCw%2FD%2FfHf85f2fmYWsbAKwAQNm7zq3v1mddDbAKAAIAwl5%2FtIwAQACA4S8CAAEAUXr%2F%2F6hhnDECfCkQCACICvvNRw%2FhmSLAcwAgACAs%2B1sJAAQAACAAwN2%2FVQBAAACAAIDwBkDM%2FaDZrHfbM%2Fxc9%2Fl8vAkAAgAABAAAIACAsMweHgYEAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQDEVL%2BLIPPPBwgAABAAAIAAgJbePXwQVX7lbdef6z6fz30%2BZxAAAIAAANxth4f%2FQAAAAAIAaHjX7e4fBAC0MMODgLMM35mG%2F0yfCwgAiHpvAlgJyHvn7w0AEAAQtgMs%2B4MAAESA4Q8CYEZ%2FvPjep0XYbz52OM86%2FO3%2FY1YlCIBvfnrpDCHsE287pNce1Fv8nT5XOHY22gKAonedawztDIPf3T9c5uQQQLR5NuA%2Bw9IePwgAiM7bADe3dx4UtK0D4SFAICw%2FO%2F4gAMBdIz5HyBsA71%2B9XcLrFeAu1HGHNjPq%2Fau3y%2BjyugMAhFcAbQFArLh87G50zrt%2Fy%2F8gAACAzAHgOQCsArj7d%2FeP2ZQ4ADwHgAfTcHwJ%2B%2F9WAMCrZPi8QACEbQDcpeK4YiZtHACZvgsAMtxVGlbHDX93%2FxBf%2FA6Aw1cAPAeACMDwJ%2Bz%2F2wII2wAAmEUCAKwCuPt39w9FA8A2ACIAw5%2Bw%2FH9cAGR8ENA2ACLA8Df8MYPi7AcAbQGA19gcJwhbAJFxKcQqAJm%2BcMZwW%2Ff4uPsn493%2FLFvfVgBABBj%2B0H0FIOsXAlkFIGMECIHLj4Xhj5kTV%2B3%2FT7UC4G0AOn7%2FfPcIuOTfb%2FgTnv63BWAVABFg%2BINZUyAArALQOQK6hMCl%2F1bDH3f%2FGwdA5l8MZBWA7L%2BOtnoEXPrvM%2FwxY2LV%2Ff8ptwCsAiAC6q0GXPNvMvxx9%2B8ZAKsAtImAKiFw7b%2FB8Mds2TkAMm8DQKUIyBoCa%2FzMhj%2FEZsv%2FERGfHPSPnj%2F%2BkLm2bCUwo5vbu1X%2Bnt%2Ff%2FFn2K3wNfqrd%2FR89j9IFgAhABOQIgTVXJwx%2FDP%2F9AuD0uT8wQwRAFNwSWCsC%2Fj189wiCrbYjDH%2FYb%2Fh%2FdgXAKgDkWg3YYpVgj2cPDH7c%2FR8TAKcOH6AIoMNqQMbvFjD88dT%2Fcb74tH%2BFVQArAVgNMPih28z50ht9Jx81zDUUK4eAwQ%2BJVgCsAoAVAYMfd%2F%2B17v4jEn0T4BoH1LcEkm1ofvyfnx8M%2F%2FBVwCKAvjHgZwWzIfbcAoiYYxtgzQ%2FJdgBhi8ASPxScK%2Ff9Ov90ASAC4PggMPAx%2FOedJ6sHgAiAfmFg0GP41xz%2BEV4D9EVBhHfuwfDvaGxVFpHgrQAnAoDh3%2FHuP%2F1bACIAAMN%2Fp9cAZ1oFEAEAGP6XzebhlBABAK7t4RmA7qsAThQAw7%2F63X%2FEma8BxqSvBG45uL0hAGDwzzwTLg2Asfd%2FMNNKgNUAAMO%2F4vC%2F%2BhkAEQCA4Z9v%2BEdcsQUQE28FbDm0bQkA9HrQb9br%2FrUBMI7%2BATKtBFgNADD8Kwz%2FVVYAZl4F2HpgWw0AcI1vHQCdI0AIALiuZxv%2BqwZA9wgQAgCu5VmGf6sA2HP%2FXggAuH63CoAMEeBEAjD4M16v137ofpMn%2BEWAEABwjZ53%2BG8WACJADAC4Js87%2FNsHwNHv9osBwNB3%2FS0XACJADAC43s77ZXubf4ufCBAEgIHv2jrfN%2B3u8jW%2BmSIgw9f9igPAdbP2dXOPr9kXAL7zH6C0jDdNZQIgawQIAQCDv%2BLw3zUAMkeAEAAw%2BCsN%2F90DIHsECAEAg7%2FC8I%2BIGNX%2FgU4wAMPf8J9gBaDKSoAVAQBDP%2FON8aF341UiQAgAGPzZVsUPX46vFAFCAMDgz7IlPsV%2BfLUIEAMAhv7sz8NN80Be1QgQAwCG%2FowPw0%2F1RH71CBADAL3fsJrpTbjpXsnrEgGCADDwe5ntNfgp38nvGAGCADDwDf%2F2ASACxAFgyBv%2BTQNABABg%2BEedrwLu9LXBABj%2BAkAEAGD4hy2AsCUAgMFvBcBqAACGvwAQAQCYTWELIGwJAGDw910BsBoAgBnUPABEAABmT%2FTbAghbAgAY%2FD1XAKwGAGDGNF8BsBoAgMHfPACEAAAGf%2FTYArAtAIDZYQXAagAABr8AEAIAGPytA0AIANB9m9j%2BuBAAMPgFgBBwFAAMfgEgBgAw9AWAEADA4BcAYgAAQ18AiAEADH0BIAYAMPQFgCAAwMAXAIIAAANfAIgCAMMeAYBAAAx4NvU39XE67Kel6lMAAAAASUVORK5CYII%3D%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Card Manager">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFJUlEQVR42u3dPW7cRhiAYc5ASJvKhitXggrDEIwAPoKukROk8UnU5AS5ho9gIBACwYWRSpURVW7d2IWxwGbNXZGcGXJ25nmrIJD2R/v400cuvQ5DBT178/LboLPv8e4hbP0YAsBqCXiAWC3hDhCrJdwBZLUEO8Kslk4GBJDV0rSOMKulaR1AVkvTOtSE+f72xqt5hr1+974a1GFLzAADnht1WBszxHCXRB3Wwgwy2GugDqUxg6wcsKeiDjVhLnFwofKt9TpPQR22xgxxn7hLoc4OesoTghjupRaSQOfGDDLYpVFHmLX1geDcHfyUzZAD9KkHBLJKWDk2pSPMqmVaz5nUx4zGUm9rw6zSNsasxhK/PmDWUtSpb8TF3KsGzFoT9aHZaDKrpUkd/UjVUnHuumE6q7YpvW83OqOhls58RJeCamjoSr6Yeu7ZdFYNU3pn2EGh2jwotG6ohbUjOhhUSweH0YfFaGjo05fs0Opvhx7bYawbWnPtmLpHX/jx/ejzh49n/fhfvH3lRQT6/CEfPo/eYV+A3Obz6hV2hNlzBFoC2uTyXIGWgDax+n3OJrQGp+0a67c/f2/iefz9x19WDpwFtAS0BLQEtICWgJaAloCWgBbQEtAS0BLQEtAaXA/dV64jNqEloCWgJaAFtAS0BLQEtAS0gJaAloCWgJaAFtAS0BLQEtAS0AJaAloCWgJaAlpAS0BLQEtAS0ALaAloCWgJaAloAS0BLQEtAS2gJaAloCWgJaAFtAS0BLQEtAS0gJaAloBeuRdvX3X3Avf2nE1oNdVFjxPr84ePxe/n+uryya/559O/pjPQ9TYF8bGvL40baFO6GORTt5ELdo/TuesJvXvBU2CfgjwF5tj3p8LuFbKVIxH2GMa5CPe//vD2rq8uZ91e75CBXgji+ZevRQ7udrexD3v33//9+osXaHDaLnulMD91e2P3KxM6K+aSZyXGpvXzL19NahO6LLhW7gfojqfz2sj278/qAXSRvdnjAdqqYfUAuudVw+oBtOS0XenpnOMdxf3v292e03hAD7VceZf7QiRZOaq4jDTHVXoCuui6kXJNtINDoCWga/kbK1YPoCWgBbQEtAT04OIlb7AALQE9tf1rJFLe+Cjx9fuPx7UcQFe1elg1BhcnnRvqnFfbCeiktWN3rcTcD30phde6YeUQ0D/3+t37n/7f/e2Ng8Nhm+tEWp/OY7bGDJrQFXzK6ODipbIT+vHuIfgxTJvSHk/dPd49hJj7V4PVw6qxpanJoKfuMFYPq0bu5thz2m7BabzSf9F1DLJVY8aETtmje1k7jqHKPUV7xpxiaWc4lhr9LaM+BHZ9dZkMe+w2xu7LurHCynF/e9Md9sMVZMm/anXqD0FvkHP9pv/fqvHszctvKXfe6wTP+XECPU7kVE/7K7ODwowIU2A76NvwWo5jf3J6OkA8tV9PxTn3603nmSvHnLXD6qEaMB+eoYsljkB7n9TabhjGp8Q7P61az2iMWY1Tv3DJeUKoNcdEyqpxdIdesktPwWuvBjmnj2Og49xvWPqATGuYS2M+OaFLTWrTGuRSmIuAnjuR4e7zgG/p654Meg3UcPd11qIU5smg10StwdVzCcd0sw78lqIGWym/feecoJj9JkoKarBBLol5EegcqOGGuATmxaBzogYc4FyYk0CXQi2lXE+U5UIksLU15CHnR4H59CXVYig7RNNaWw7DWPsDFMybTmjTWlsOvdWmKdwQr3E/m6wHcEPcFGjAAS7Vd9KKjQtnyxq6AAAAAElFTkSuQmCC">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAFjUlEQVR42u3dPY7USBiH8SoLbboRKyIiRIAQQitxBK7BCTbhJCR7gr0GR0BajRAiQEQToZ1oUxI2GqmZtae77Pqy6/dEiA+3u+f/vO/rKreJoTMevnz8I+Cw3Fxdx57OJwo7RpYiCj1GliEKPkYWIQo+RhYhCj5GFiEKPkYWYRJ+7IncGYuCj5G7wST8GLkbxF7D/+ndaz/hA/H87fsuO0HsJfwCT4gWEsSW4Rd65JRhjQSxRfgFH6VESJUg1gy/4KOGCCkSxBrhXxP8khdNqE/tDFwqQewl/AJPiBYSxNbhF3witJSgiACCj14ys0mAEuEXfNTOz30STMKPsKMVoDUX0/dlOeYS4L4TE3zk7gapmVrqAlPp2xyEHz1kZynTU0lThR+lJMi1qTqVGn2EH71JMJftSeXHyJ1g8uUWhIG/RDOp/hi5C0w5q7/wYw8rQ6dZn9zWjDDo3aZZH4ui+mOP+wNT6vij+uMIXeA285Pqj5G7wOSjxMhMW1uM6o+eukDqiK4DYOwOYPcXYeBdYR0AQxMv7QCjzf/fPnw+1Pt59OpZGGn589JsPlADjh38u+/ryCKsgQAHDz4RrAIJv/dMAIAAKqH3TgCAACqgz4AAAAEQ7APgJ37/880h39fff/zlh6sDAAQACAAQAAQACAAQACAAQACAAAABAAIABAAIABAAIAAQfCEm+OIIdACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAALshkevng0fgNE/gwdqQF1ePH1y9u98/PLVB0WAehXw24fPTQN/7t+UEkIHJEBXwT93LJ2BAN13gXPBvyTES8fIKYLqT4DZQGwRYSm4qYE9/ftzx3zx9MlqCQSfAEVEmAtqjkp9e4y7x0+VQPAJUKRS/vbv9yqrOHMi3P76n19/8QML9gGqUyv8544/dx7QAapSc4VmaSyCDtCk+rdanjx9XV2AAE1HH+dFgCHD33pz6u7rk4AAh5z7g3uHCGDEMAoRQPXXBQigquoCwT7AnqttiVsnPn75am+AAGG3t0m77dkI5DsCwQ4vAQ6465sa6rUS2B0mAECAI3w90ihEAIAAAAEAAgAECKPsHNsQIwBAgNacPnUhxwZVyep/en6eFkGAXY5CRp/gZrijS1DqQVogQKixs5vj1uWeH8hrBMLidYDzHVCA52/f/+/3Pr177f4e59OUuQzOZVUHGKiqqv4JHeDm6jr6GPZddc3+67i5uo46wMbq2jp8d19f9S94Eew6oO+QjRb+rfO/a4DGu8M5q7/K33AZdOTVoNMw1hKh5mvtqfqvFiDlQji1xYw2CpUO5tzxVf/0bN5mfurNyD1KMHdhnFuEuWPOvbbqX2EE0gUu7wZbRVg6hqqfJ5M/jT4PXz7+sdXC0eU49yyeLf9PsPDnyd3pyL9aABLUfzjt6FU/V95OBZiW/gD5rw16OFaw+xsXRyBdoI/OIOx1qv+sACTAKOHPtgy6dCI2yNBL+EPKMmjOawESoIfsLGV6MeipY9AlJ2wkQqscLQkwpf6DLSemG6Cn8N/bAUp2At0AtTJzrpAXEYAI6CUjmwWoIQERBL9F+C8WoJYEhBD4muFPEmCrBC6CUav4pSzgJK/0bJWACCjZ9VNXL1dteOWQgAjIPe6uWbpfveObSwIyCH2r8G8SoIQEhBD4muHfLEBpCYCS4Q8hw92gvkSDvYY/SwfQDbDH4Bd5MpxugD2FP3sH0A2wl+AXF4AI2MNUUW1kIQJ6HKerz+xEQE/XkU0vWsmA1osn3a3akELYa/If+Ha0ohx2jbQAAAAASUVORK5CYII=">
+
+<style>
+  :root { color-scheme: dark; }
+  html, body {
+    margin: 0; padding: 0; height: 100%; background: #0d1f16; color: #eaf2e6;
+    font: 14px/1.5 ui-rounded, system-ui, -apple-system, sans-serif;
+    overflow: hidden; overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
+  }
+  /* Nothing on this page is a document: no selection, no long-press menu,
+     no double-tap zoom, no rubber-band. The stage owns every gesture. */
+  body, #mgScrim, #mgScrim canvas {
+    touch-action: none;
+    -webkit-user-select: none; user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Splash. The bundle carries about a megabyte of game; never a blank flash. */
+  #cmSplash {
+    position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+    align-content: center; gap: 18px; background: #0d1f16;
+    transition: opacity .45s ease;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+             env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  #cmSplash.gone { opacity: 0; pointer-events: none; }
+  .cmCrest {
+    width: 96px; height: 96px; border-radius: 22px; display: grid; place-items: center;
+    background: linear-gradient(160deg, #1b3b26, #15301e);
+    border: 3px solid #e9bf63; box-shadow: 0 12px 40px rgba(0,0,0,.5);
+    animation: cmFloat 2.6s ease-in-out infinite;
+  }
+  .cmCrest::after { content: '\1F3C6'; font-size: 44px; }
+  .cmName { font: 800 26px/1 ui-rounded, system-ui, sans-serif; color: #e9bf63;
+            letter-spacing: .14em; text-align: center; }
+  .cmSub { color: #93ab99; font-size: 13px; text-align: center; max-width: 340px;
+           padding: 0 20px; }
+  .cmBar { width: 180px; height: 5px; border-radius: 3px; background: #1b3b26; overflow: hidden; }
+  .cmBar i { display: block; height: 100%; width: 40%; border-radius: 3px; background: #e9bf63;
+             animation: cmSlide 1.2s ease-in-out infinite; }
+  .cmFine { color: #5d7266; font-size: 11px; text-align: center; max-width: 360px;
+            padding: 0 20px; line-height: 1.5; }
+  @keyframes cmFloat { 50% { transform: translateY(-8px); } }
+  @keyframes cmSlide { 0% { transform: translateX(-110%); } 100% { transform: translateX(260%); } }
+  @media (prefers-reduced-motion: reduce) { .cmCrest, .cmBar i { animation: none; } }
+</style>
+</head>
+<body>
+
+<div id="cmSplash">
+  <div class="cmCrest"></div>
+  <div class="cmName">CARD MANAGER</div>
+  <div class="cmSub">980 players &middot; 48 nations &middot; seven parallel versions</div>
+  <div class="cmBar"><i></i></div>
+  <div class="cmFine">Player ratings are sourced from EA’s public FC ratings pages.
+    This game is not affiliated with, endorsed by, or licensed by EA.</div>
+</div>
+
+<script>
+/* Installed-app behaviour: when launched from the home screen, keep the
+   screen awake (a manager screen is read, not tapped, and a phone that
+   sleeps mid-season is maddening) and take the orientation lock if the
+   browser offers one. The shell rotates the board itself either way. */
+(function () {
+  var standalone = window.navigator.standalone === true
+    || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  if (!standalone) return;
+  document.documentElement.classList.add('cm-app');
+  addEventListener('DOMContentLoaded', function () {
+    if (navigator.wakeLock) {
+      var grab = function () {
+        navigator.wakeLock.request('screen').catch(function () {});
+      };
+      grab();
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') grab();
+      });
+    }
+  });
+})();
+</script>
+
+<!-- SCRIPT ORDER IS LOAD-BEARING
+     1. cm-shell.js   defines window.CM_SHELL (and the harness shim)
+     2. cm-boot.js    settles the save namespace BEFORE any game code reads it
+     3. data          window.MG_DATA
+     4. roster        window.MG_ROSTER — the EA FC layer, AFTER MG_DATA
+                      (it reads the album merge). Decodes nothing at load.
+     5. kits          window.MG_KIT, which the game reads at draw time. This
+                      slot used to be mg-portraits.js; the owner's verdict on
+                      the procedural faces was "get rid of them and use kits
+                      with numbers instead", so the shirt engine ships and the
+                      face engine does not. mg-portraits.js stays on disk (the
+                      design notes and its contact sheet still point at it) and
+                      mg-manager.js no longer calls MG_PORTRAIT anywhere.
+     6. the game      registers itself; cm-boot starts it on DOMContentLoaded -->
+<script src="cm-shell.js"></script>
+<script src="cm-boot.js"></script>
+<script src="../gibson/web/static/mg-manager-data.js"></script>
+<script src="../gibson/web/static/mg-roster.js"></script>
+<script src="../gibson/web/static/mg-kits.js"></script>
+<!-- Club badges: one crest per club, embedded as a data URI. The artifact
+     viewer blocks external images outright — a linked badge does not load
+     slowly there, it never loads and says nothing about why. -->
+<script src="../gibson/web/static/mg-badges.js"></script>
+<script src="../gibson/web/static/mg-manager.js"></script>
+</body>
+</html>

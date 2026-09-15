@@ -1,0 +1,18 @@
+[
+ {
+  "wait": 2500
+ },
+ {
+  "expectState": "play",
+  "timeout": 25000
+ },
+ {
+  "shot": "01-boot"
+ },
+ {
+  "wait": 1200
+ },
+ {
+  "shot": "02-settled"
+ }
+]

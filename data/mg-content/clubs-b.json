@@ -1,0 +1,308 @@
+{
+  "version": 1,
+  "kind": "club-identities",
+  "chunk": "clubs-b",
+  "note": "Authored identities for 12 of the 48 countries. Generator merges into MG_DATA.clubs; tier/formation/mentality/squad are generator-derived and never authored here. Scout lines state only album facts and real quirk mechanics.",
+  "clubs": {
+    "CRO": {
+      "id": "CRO",
+      "name": "Croatia",
+      "short": "CRO",
+      "nickname": "The Blazers",
+      "flag": "🇭🇷",
+      "c1": "#ffffff",
+      "c2": "#d6202a",
+      "manager": { "name": "Luka Modrić", "card": "CRO 9" },
+      "lines": {
+        "intro": "Slow down. Watch. Learn.",
+        "win": "Age is just a number, little one.",
+        "lose": "Well played. We will pass even better next time."
+      },
+      "taunt": [
+        "I have seen a thousand midfields. Yours is cute.",
+        "We never stop running. Ever.",
+        "Bring your best passer. I brought me."
+      ],
+      "scout": [
+        "Modrić runs the whole match from midfield.",
+        "No tricks here — just passing, passing, passing."
+      ],
+      "fact": "Croatia reached the 2018 World Cup final."
+    },
+    "CUW": {
+      "id": "CUW",
+      "name": "Curaçao",
+      "short": "CUW",
+      "nickname": "The Blue Wave",
+      "flag": "🇨🇼",
+      "c1": "#002b7f",
+      "c2": "#f9e814",
+      "manager": { "name": "Leandro Bacuna", "card": "CUW 12" },
+      "lines": {
+        "intro": "Smallest island, biggest heart.",
+        "win": "Tell everyone back home — the island won!",
+        "lose": "We dance anyway. See you next time."
+      },
+      "taunt": [
+        "Ever played against a whole island?",
+        "We crossed an ocean just to beat you.",
+        "Small country. Big surprises."
+      ],
+      "scout": [
+        "Two Bacuna brothers in midfield — 11 and 12 in the album.",
+        "No stars, no fear — they play with a smile."
+      ],
+      "fact": "Curaçao is the smallest nation ever to reach a World Cup."
+    },
+    "CZE": {
+      "id": "CZE",
+      "name": "Czechia",
+      "short": "CZE",
+      "nickname": "The Lions",
+      "flag": "🇨🇿",
+      "c1": "#d7141a",
+      "c2": "#11457e",
+      "manager": { "name": "Patrik Schick", "card": "CZE 20" },
+      "lines": {
+        "intro": "I can score from anywhere. Even from here.",
+        "win": "Did you see that one from halfway?",
+        "lose": "Next time I shoot from even further out."
+      },
+      "taunt": [
+        "If I cross the halfway line, start worrying.",
+        "My best goal came from 45 metres away.",
+        "Better Czech your defence twice."
+      ],
+      "scout": [
+        "Schick once scored from halfway — keep your keeper at home.",
+        "Striker Schick is number 20 — and danger number one."
+      ],
+      "fact": "Patrik Schick scored from the halfway line at Euro 2020."
+    },
+    "ECU": {
+      "id": "ECU",
+      "name": "Ecuador",
+      "short": "ECU",
+      "nickname": "La Tri",
+      "flag": "🇪🇨",
+      "c1": "#ffdd00",
+      "c2": "#034ea2",
+      "manager": { "name": "Enner Valencia", "card": "ECU 20" },
+      "lines": {
+        "intro": "Ecuador goals are my job. All of them.",
+        "win": "Who scored? Take one guess.",
+        "lose": "More goals next time. I always bring more."
+      },
+      "taunt": [
+        "I once scored six World Cup goals in a row for Ecuador.",
+        "La Tri never stops climbing.",
+        "We train in the mountains. Try keeping up."
+      ],
+      "scout": [
+        "Captain Valencia leads the attack — number 20.",
+        "Young Kendry Páez pulls the strings in midfield."
+      ],
+      "fact": "Valencia once scored six Ecuador World Cup goals in a row."
+    },
+    "EGY": {
+      "id": "EGY",
+      "name": "Egypt",
+      "short": "EGY",
+      "nickname": "The Pharaohs",
+      "flag": "🇪🇬",
+      "c1": "#ce1126",
+      "c2": "#ffffff",
+      "manager": { "name": "Mohamed Salah", "card": "EGY 17" },
+      "lines": {
+        "intro": "I smile. Then I score. Nothing personal.",
+        "win": "For Egypt, always.",
+        "lose": "You played well today. We meet again soon."
+      },
+      "taunt": [
+        "Seven African titles. We collect trophies.",
+        "We built pyramids. Your defence looks smaller.",
+        "Catch Salah first. Then we talk."
+      ],
+      "scout": [
+        "Salah cuts in from the right — attacker, number 17.",
+        "Marmoush and Salah share the goals up front."
+      ],
+      "fact": "Egypt has won the Africa Cup of Nations a record seven times."
+    },
+    "ENG": {
+      "id": "ENG",
+      "name": "England",
+      "short": "ENG",
+      "nickname": "The Three Lions",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "c1": "#ffffff",
+      "c2": "#0b2c5f",
+      "manager": { "name": "Harry Kane", "card": "ENG 18" },
+      "lines": {
+        "intro": "Give me one penalty. Just one.",
+        "win": "Calm heads, cool finishes. England.",
+        "lose": "We go again. Next penalty is mine."
+      },
+      "taunt": [
+        "Three lions on the shirt. All three are hungry.",
+        "I practise penalties every single day.",
+        "Football is coming home with us."
+      ],
+      "scout": [
+        "Kane's penalties nearly always go in — unless he skies one.",
+        "Never give England a penalty. Seriously. Never."
+      ],
+      "fact": "England won the World Cup in 1966."
+    },
+    "ESP": {
+      "id": "ESP",
+      "name": "Spain",
+      "short": "ESP",
+      "nickname": "La Roja",
+      "flag": "🇪🇸",
+      "c1": "#c60b1e",
+      "c2": "#f5c518",
+      "manager": { "name": "Lamine Yamal", "card": "ESP 15" },
+      "lines": {
+        "intro": "We are kids. We are fearless. Good luck.",
+        "win": "Too young to be scared, too good to lose!",
+        "lose": "We are still learning. Imagine us next year."
+      },
+      "taunt": [
+        "I am younger than your boots.",
+        "Homework first, golazos second.",
+        "Our wingers are faster than your wifi."
+      ],
+      "scout": [
+        "Yamal is the wonderkid on the right wing — number 15.",
+        "All the tricks, none of the fear. That is Spain."
+      ],
+      "fact": "Spain won Euro 2024 with a 17-year-old on the wing."
+    },
+    "FRA": {
+      "id": "FRA",
+      "name": "France",
+      "short": "FRA",
+      "nickname": "Les Bleus",
+      "flag": "🇫🇷",
+      "c1": "#22346b",
+      "c2": "#ffffff",
+      "manager": { "name": "Wembanyama", "card": null, "cast": "wemby" },
+      "lines": {
+        "intro": "Bonjour. I am the goal now.",
+        "win": "You cannot shoot over me. No one can.",
+        "lose": "Even walls learn. À bientôt."
+      },
+      "taunt": [
+        "Our keeper is 2.24 metres of nope.",
+        "Shoot high, shoot low. I reach both.",
+        "Les Bleus, plus one friendly giant."
+      ],
+      "scout": [
+        "Wembanyama in goal — shots and penalties both wilt near him.",
+        "Mbappé leads the attack — striker, number 20."
+      ],
+      "fact": "France won the World Cup in 1998 and 2018."
+    },
+    "GER": {
+      "id": "GER",
+      "name": "Germany",
+      "short": "GER",
+      "nickname": "Die Mannschaft",
+      "flag": "🇩🇪",
+      "c1": "#f4f4f0",
+      "c2": "#1c1c1c",
+      "manager": { "name": "Joshua Kimmich", "card": "GER 10" },
+      "lines": {
+        "intro": "We have a plan. We always have a plan.",
+        "win": "Precisely as planned.",
+        "lose": "Interesting. We will adjust the plan."
+      },
+      "taunt": [
+        "Four World Cups. We keep them polished.",
+        "Our passing is measured in millimetres.",
+        "Efficiency is our favourite word."
+      ],
+      "scout": [
+        "Kimmich runs the engine room from midfield — number 10.",
+        "Wirtz creates them, Musiala finishes them."
+      ],
+      "fact": "Germany has won four World Cups."
+    },
+    "GHA": {
+      "id": "GHA",
+      "name": "Ghana",
+      "short": "GHA",
+      "nickname": "The Black Stars",
+      "flag": "🇬🇭",
+      "c1": "#ffffff",
+      "c2": "#006b3f",
+      "manager": { "name": "André Ayew", "card": "GHA 17" },
+      "lines": {
+        "intro": "My brother is here too. Family beats everything.",
+        "win": "The Black Stars shine again!",
+        "lose": "Stars come out again every night. So will we."
+      },
+      "taunt": [
+        "Two Ayews, one dream, zero fear.",
+        "The Black Stars never blink.",
+        "Our drums are louder than your crowd."
+      ],
+      "scout": [
+        "Both Ayew brothers start up front — 16 and 17 in the album.",
+        "Kudus is the midfield spark. Watch him."
+      ],
+      "fact": "The Ayew brothers, Jordan and André, both play for Ghana."
+    },
+    "HAI": {
+      "id": "HAI",
+      "name": "Haiti",
+      "short": "HAI",
+      "nickname": "Les Grenadiers",
+      "flag": "🇭🇹",
+      "c1": "#00209f",
+      "c2": "#d21034",
+      "manager": { "name": "Duckens Nazon", "card": "HAI 18" },
+      "lines": {
+        "intro": "Haiti waited 52 years for this. We will enjoy it.",
+        "win": "Fifty-two years. Worth the wait!",
+        "lose": "We waited 52 years. We can wait one more match."
+      },
+      "taunt": [
+        "First World Cup since 1974. We came to party.",
+        "Les Grenadiers fear nobody.",
+        "You have never faced us before. That is the danger."
+      ],
+      "scout": [
+        "Pierrot and Nazon lead the line — big, brave, new to you.",
+        "No famous names, just heart. Lots of heart."
+      ],
+      "fact": "This is Haiti's first World Cup since 1974."
+    },
+    "IRN": {
+      "id": "IRN",
+      "name": "Iran",
+      "short": "IRN",
+      "nickname": "Team Melli",
+      "flag": "🇮🇷",
+      "c1": "#ffffff",
+      "c2": "#239f40",
+      "manager": { "name": "Mehdi Taremi", "card": "IRN 18" },
+      "lines": {
+        "intro": "Team Melli travels far. We finish what we start.",
+        "win": "Precision. That is all.",
+        "lose": "We fall, we rise. Team Melli always rises."
+      },
+      "taunt": [
+        "Mark Taremi or mark Azmoun. You cannot do both.",
+        "Our fans sing for ninety minutes straight.",
+        "We crossed half the world to win this match."
+      ],
+      "scout": [
+        "Taremi and Azmoun both start up front — twin trouble.",
+        "Keeper Beiranvand can throw past the halfway line."
+      ],
+      "fact": "Iran's fans call the team 'Team Melli' — the national team."
+    }
+  }
+}

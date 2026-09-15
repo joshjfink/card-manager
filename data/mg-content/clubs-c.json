@@ -1,0 +1,321 @@
+{
+  "kind": "clubs",
+  "batch": "clubs-c",
+  "version": 1,
+  "note": "Club identities for 12 of the 48 countries. Generator merges into MG_DATA and still assigns tier/formation/mentality from squad shape. 'manager.card' is the album ref of the captain/star (drawChar subject). All lines: one sentence, <=70 chars, family-safe, gentle. Scout lines state only real album facts or real quirk mechanics. Norway carries the Golazo City legacy (Haaland captain).",
+  "countries": {
+    "IRQ": {
+      "code": "IRQ",
+      "name": "Iraq",
+      "short": "IRQ",
+      "nickname": "The Lions of Mesopotamia",
+      "c1": "#007a3d",
+      "c2": "#f4f1e8",
+      "crestCard": "IRQ 1",
+      "manager": {
+        "card": "IRQ 19",
+        "name": "Aymen Hussein",
+        "voice": "calm striker who celebrates goals by sitting down"
+      },
+      "taunt": [
+        "Score if you like — I still won't blink.",
+        "The Lions of Mesopotamia don't hurry.",
+        "I celebrate goals sitting down — saves energy."
+      ],
+      "scout": [
+        "Aymen Hussein leads their line — calm, patient, deadly.",
+        "Zidane Iqbal runs their midfield — great name, great feet."
+      ],
+      "win": "Good game — now sit with us and rest a while.",
+      "lose": "You beat the Lions today — we will remember, kindly.",
+      "fact": "Iraq won the Asian Cup in 2007 and the whole country danced."
+    },
+    "JOR": {
+      "code": "JOR",
+      "name": "Jordan",
+      "short": "JOR",
+      "nickname": "The Brave Ones",
+      "c1": "#ffffff",
+      "c2": "#ce1126",
+      "crestCard": "JOR 1",
+      "manager": {
+        "card": "JOR 15",
+        "name": "Mousa Al-Taamari",
+        "voice": "fearless underdog with rocket speed"
+      },
+      "taunt": [
+        "Nobody believes in Jordan — perfect, we like it that way.",
+        "I run faster than your defenders can turn.",
+        "The Brave Ones fear nobody, not even you."
+      ],
+      "scout": [
+        "Mousa Al-Taamari is their star — pure speed down the wing.",
+        "They beat giants at the Asian Cup — never nap on Jordan."
+      ],
+      "win": "The Brave Ones win again — told you belief is enough.",
+      "lose": "You out-braved the Brave Ones — that takes some doing.",
+      "fact": "Jordan reached the Asian Cup final in 2024 — their first ever."
+    },
+    "JPN": {
+      "code": "JPN",
+      "name": "Japan",
+      "short": "JPN",
+      "nickname": "Samurai Blue",
+      "c1": "#143c8c",
+      "c2": "#ffffff",
+      "crestCard": "JPN 1",
+      "manager": {
+        "card": "JPN 12",
+        "name": "Takefusa Kubo",
+        "voice": "polite, precise, endlessly practiced"
+      },
+      "taunt": [
+        "We will pass until you feel dizzy.",
+        "Every touch is practiced ten thousand times.",
+        "Samurai Blue never blinks first."
+      ],
+      "scout": [
+        "Kubo pulls the strings in midfield — tiny, tricky, brilliant.",
+        "Junya Ito and Ueda finish what Kubo starts — watch both."
+      ],
+      "win": "A tidy win — we bow, we thank you, we move on.",
+      "lose": "You beat Samurai Blue — we will study this match all night.",
+      "fact": "Japan's fans famously tidy the stadium after every match."
+    },
+    "KOR": {
+      "code": "KOR",
+      "name": "South Korea",
+      "short": "KOR",
+      "nickname": "The Taegeuk Warriors",
+      "c1": "#cd2e3a",
+      "c2": "#1c1c1c",
+      "crestCard": "KOR 1",
+      "manager": {
+        "card": "KOR 18",
+        "name": "Son Heung-min",
+        "voice": "the nicest smile in football, hiding a finisher"
+      },
+      "taunt": [
+        "I will smile the whole match — especially after I score.",
+        "Both feet, kiddo — you never know which one is coming.",
+        "The Taegeuk Warriors never stop running."
+      ],
+      "scout": [
+        "Son Heung-min is their captain and finisher — the main threat.",
+        "Kim Min-jae is a monster in defence — good luck getting past."
+      ],
+      "win": "Great game — high five, then we celebrate quietly.",
+      "lose": "You beat us fair and square — I'm still smiling, promise.",
+      "fact": "Son Heung-min captains Korea with the nicest smile in football."
+    },
+    "KSA": {
+      "code": "KSA",
+      "name": "Saudi Arabia",
+      "short": "KSA",
+      "nickname": "The Green Falcons",
+      "c1": "#165b33",
+      "c2": "#ffffff",
+      "crestCard": "KSA 1",
+      "manager": {
+        "card": "KSA 16",
+        "name": "Salem Aldawsari",
+        "voice": "giant-slayer who celebrates with backflips"
+      },
+      "taunt": [
+        "We beat the world champions once — ask anyone.",
+        "The Green Falcons swoop when you least expect it.",
+        "Underestimate us and I will do a backflip about it."
+      ],
+      "scout": [
+        "Salem Aldawsari is the danger — he scored against Argentina.",
+        "Feras Albrikan and Alshehri share the goals up front."
+      ],
+      "win": "The Falcons flew today — backflips all round!",
+      "lose": "You clipped the Falcons' wings — we'll fly again soon.",
+      "fact": "Saudi Arabia beat Argentina in 2022 — biggest shock ever."
+    },
+    "MAR": {
+      "code": "MAR",
+      "name": "Morocco",
+      "short": "MAR",
+      "nickname": "The Atlas Lions",
+      "c1": "#c1272d",
+      "c2": "#006233",
+      "crestCard": "MAR 1",
+      "manager": {
+        "card": "MAR 4",
+        "name": "Achraf Hakimi",
+        "voice": "cool full-back who defends and attacks in the same breath"
+      },
+      "taunt": [
+        "Try our left side — or the right — both doors are locked.",
+        "The Atlas Lions have climbed higher mountains than you.",
+        "I defend, I attack, I don't get tired — pick your problem."
+      ],
+      "scout": [
+        "Hakimi is a defender who loves to attack — watch him fly.",
+        "Bounou in goal saves everything — even penalties."
+      ],
+      "win": "The Lions roar again — good game, little club.",
+      "lose": "You climbed the Atlas today — enjoy the view up there.",
+      "fact": "Morocco reached the 2022 semis — a first for all of Africa."
+    },
+    "MEX": {
+      "code": "MEX",
+      "name": "Mexico",
+      "short": "MEX",
+      "nickname": "El Tri",
+      "c1": "#006847",
+      "c2": "#ce1126",
+      "crestCard": "MEX 1",
+      "manager": {
+        "card": "MEX 16",
+        "name": "Santiago Giménez",
+        "voice": "goal-hungry hero of a hundred thousand singing fans"
+      },
+      "taunt": [
+        "One hundred thousand fans sing for El Tri — hear them yet?",
+        "Feed me one chance and the net will know about it.",
+        "El Tri plays with the whole country behind us."
+      ],
+      "scout": [
+        "Santiago Giménez leads their attack — a born goal-poacher.",
+        "Edson Álvarez guards their midfield — nothing gets through."
+      ],
+      "win": "Viva México — what a game, amigos!",
+      "lose": "You silenced El Tri today — the rematch will be louder.",
+      "fact": "Mexico co-hosts 2026 — the Azteca's third World Cup."
+    },
+    "NED": {
+      "code": "NED",
+      "name": "Netherlands",
+      "short": "NED",
+      "nickname": "Oranje",
+      "c1": "#ff7318",
+      "c2": "#ffffff",
+      "crestCard": "NED 1",
+      "manager": {
+        "card": "NED 3",
+        "name": "van Dijk",
+        "voice": "the calmest giant in football"
+      },
+      "taunt": [
+        "I don't chase strikers — they simply stop trying.",
+        "Orange is the colour of champions-in-waiting.",
+        "Stay calm, play simple, win — that's the Dutch way."
+      ],
+      "scout": [
+        "Van Dijk anchors their defence — the calmest giant around.",
+        "Gakpo and Depay finish the moves Frenkie de Jong starts."
+      ],
+      "win": "Tidy football, tidy result — well played all the same.",
+      "lose": "You beat the Oranje with our own calm — impressive stuff.",
+      "fact": "The Dutch invented Total Football — everyone plays everywhere."
+    },
+    "NOR": {
+      "code": "NOR",
+      "name": "Norway",
+      "short": "NOR",
+      "nickname": "The Lions",
+      "legacy": "golazocity",
+      "c1": "#ba0c2f",
+      "c2": "#1c2a56",
+      "crestCard": "NOR 1",
+      "manager": {
+        "card": "NOR 15",
+        "name": "Haaland",
+        "voice": "few words, all of them about scoring"
+      },
+      "taunt": [
+        "Of course we will win.",
+        "I score goals — that is the whole plan.",
+        "Bring an extra keeper."
+      ],
+      "scout": [
+        "Haaland is ice-cold — from the penalty spot he never wobbles.",
+        "Ødegaard supplies, Haaland finishes — stop one or suffer both."
+      ],
+      "win": "Of course we won.",
+      "lose": "Well earned, kiddo — it will not happen twice.",
+      "fact": "Norway's plan is simple: give the ball to Haaland."
+    },
+    "NZL": {
+      "code": "NZL",
+      "name": "New Zealand",
+      "short": "NZL",
+      "nickname": "The All Whites",
+      "c1": "#f4f4f0",
+      "c2": "#1c1c1c",
+      "crestCard": "NZL 1",
+      "manager": {
+        "card": "NZL 17",
+        "name": "Chris Wood",
+        "voice": "friendly kiwi tower, deadly in the air"
+      },
+      "taunt": [
+        "Just kick it to the big fella — works every time.",
+        "The All Whites flew farther than anyone to be here.",
+        "We're friendly right up until kickoff, mate."
+      ],
+      "scout": [
+        "Chris Wood is the tower up front — cross it and duck.",
+        "Every long ball is aimed at Wood's forehead — honestly."
+      ],
+      "win": "Good on ya — the big fella did it again.",
+      "lose": "Fair play, mate — we'll get you at the next one.",
+      "fact": "New Zealand went unbeaten at the 2010 World Cup — truly."
+    },
+    "PAN": {
+      "code": "PAN",
+      "name": "Panama",
+      "short": "PAN",
+      "nickname": "The Red Tide",
+      "c1": "#d21034",
+      "c2": "#005293",
+      "crestCard": "PAN 1",
+      "manager": {
+        "card": "PAN 12",
+        "name": "Carrasquilla",
+        "voice": "tireless engine of a small country with a giant heart"
+      },
+      "taunt": [
+        "The Red Tide is rising — hope you can swim.",
+        "Panama never stops running, not even at full time.",
+        "Small country, giant heart — you'll feel it."
+      ],
+      "scout": [
+        "Carrasquilla is their engine — he never stops moving.",
+        "Murillo marshals their defence — tough but always fair."
+      ],
+      "win": "The Red Tide rolled you — swim practice, maybe?",
+      "lose": "The tide went out today — it always comes back in.",
+      "fact": "When Panama first qualified, the president declared a holiday."
+    },
+    "PAR": {
+      "code": "PAR",
+      "name": "Paraguay",
+      "short": "PAR",
+      "nickname": "La Albirroja",
+      "c1": "#d6202a",
+      "c2": "#ffffff",
+      "crestCard": "PAR 1",
+      "manager": {
+        "card": "PAR 17",
+        "name": "Almirón",
+        "voice": "always smiling, always sprinting"
+      },
+      "taunt": [
+        "I smile before the match and even more after it.",
+        "La Albirroja never, ever stops fighting.",
+        "Fast feet, brave hearts — that's Paraguay."
+      ],
+      "scout": [
+        "Almirón and Enciso bring the magic — quick and fearless.",
+        "Gustavo Gómez leads their defence like a general."
+      ],
+      "win": "Paraguay wins and I can't stop smiling — sorry!",
+      "lose": "You beat La Albirroja — smiling is harder today.",
+      "fact": "Paraguay is back at the World Cup after sixteen long years."
+    }
+  }
+}

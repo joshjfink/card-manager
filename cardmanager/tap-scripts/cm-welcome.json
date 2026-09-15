@@ -1,0 +1,19 @@
+[
+ {"setStorage": {"gs-mg-career": "@tools/fixtures/career-live.json"}},
+ {"wait": 3000},
+ {"expectScreen": "welcome", "timeout": 25000},
+ {"shot": "01-welcome"},
+ {"tapId": "wel-load"},
+ {"wait": 900},
+ {"shot": "02-load"},
+ {"tapId": "wel-back"},
+ {"wait": 700},
+ {"tapId": "wel-save"},
+ {"wait": 900},
+ {"shot": "03-save"},
+ {"tapId": "wel-back"},
+ {"wait": 700},
+ {"tapId": "wel-continue"},
+ {"expectScreen": "hub*", "timeout": 20000},
+ {"shot": "04-continue-into-hub"}
+]

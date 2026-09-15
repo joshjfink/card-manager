@@ -1,0 +1,15 @@
+[
+  {"wait": 900},
+  {"expectState": "count", "timeout": 5000},
+  {"expectState": "play", "timeout": 9000},
+  {"key": "Escape"},
+  {"expectState": "menu", "timeout": 3000},
+  {"shot": "menu"},
+  {"tapGame": [480, 275]},
+  {"expectState": "count", "timeout": 3000},
+  {"expectState": "play", "timeout": 9000},
+  {"shot": "back-in-play"},
+  {"key": "Escape"},
+  {"expectState": "menu", "timeout": 3000},
+  {"shot": "menu-again"}
+]

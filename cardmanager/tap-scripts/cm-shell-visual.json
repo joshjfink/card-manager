@@ -1,0 +1,11 @@
+[
+  {"wait": 1200},
+  {"expectState": "play", "timeout": 8000},
+  {"shot": "01-true-map-home"},
+  {"key": "Enter"},
+  {"wait": 500},
+  {"shot": "02-after-key"},
+  {"key": "m"},
+  {"wait": 300},
+  {"shot": "03-muted"}
+]

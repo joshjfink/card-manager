@@ -1,0 +1,2584 @@
+{
+ "inbox": [
+  {
+   "source": "results",
+   "type": "win",
+   "weight": 2,
+   "title": "Match Report: Victory",
+   "body": "We beat {opponent} {score} in Round {round}. {scorer} did the business. Three points in the bag."
+  },
+  {
+   "source": "results",
+   "type": "win",
+   "weight": 2,
+   "title": "Three Points Secured",
+   "body": "{opponent} came to play. We played better. {score} — and {scorer} takes the headlines."
+  },
+  {
+   "source": "results",
+   "type": "win",
+   "weight": 1,
+   "title": "Job Done",
+   "body": "A professional {score} win over {opponent}. The coaches will talk about {scorer}'s finish for a week."
+  },
+  {
+   "source": "results",
+   "type": "win",
+   "weight": 1,
+   "title": "Winning Feels Good",
+   "body": "Round {round}: {opponent} beaten {score}. Someone has put a drawing of {scorer}'s goal on the fridge."
+  },
+  {
+   "source": "results",
+   "type": "win",
+   "weight": 1,
+   "title": "The Board Is Pleased",
+   "body": "The board watched the {score} win over {opponent} and nodded slowly. That is board language for delighted."
+  },
+  {
+   "source": "results",
+   "type": "win",
+   "weight": 1,
+   "title": "Fan Mail Received",
+   "body": "A young fan sent a drawing of {scorer} scoring against {opponent}. The likeness is questionable. The joy is real."
+  },
+  {
+   "source": "results",
+   "type": "loss",
+   "weight": 2,
+   "title": "Match Report: Defeat",
+   "body": "Lost {score} to {opponent} in Round {round}. It stings. Next match, we go again."
+  },
+  {
+   "source": "results",
+   "type": "loss",
+   "weight": 1,
+   "title": "A Quiet Bus Ride",
+   "body": "{opponent} beat us {score}. The bus ride home was quiet. Training tomorrow will not be."
+  },
+  {
+   "source": "results",
+   "type": "loss",
+   "weight": 1,
+   "title": "Lessons Learned",
+   "body": "{score} against {opponent}. {scorer} kept fighting to the very end. That is the bit to keep."
+  },
+  {
+   "source": "results",
+   "type": "loss",
+   "weight": 1,
+   "title": "Chin Up, Boss",
+   "body": "The kit man says every great manager loses one like this. {score} to {opponent}. He also lost the cones."
+  },
+  {
+   "source": "results",
+   "type": "loss",
+   "weight": 1,
+   "title": "We Go Again",
+   "body": "Round {round} did not go our way. {opponent}, {score}. The table forgets fast. So should we."
+  },
+  {
+   "source": "results",
+   "type": "draw",
+   "weight": 2,
+   "title": "Match Report: Draw",
+   "body": "{score} against {opponent} in Round {round}. One point each. Nobody sings about a draw. Nobody cries either."
+  },
+  {
+   "source": "results",
+   "type": "draw",
+   "weight": 1,
+   "title": "Honours Even",
+   "body": "A {score} draw with {opponent}. {scorer} scored ours. The handshakes were extremely polite."
+  },
+  {
+   "source": "results",
+   "type": "draw",
+   "weight": 1,
+   "title": "A Point Shared",
+   "body": "{opponent} held us to {score}. The analysts call it a chess match. The chess club disagrees."
+  },
+  {
+   "source": "results",
+   "type": "draw",
+   "weight": 1,
+   "title": "So Close",
+   "body": "So close against {opponent}. {score} it finished. One more pass and this is a different inbox."
+  },
+  {
+   "source": "results",
+   "type": "thrashing",
+   "weight": 2,
+   "title": "Match Report: Statement Win",
+   "body": "{score}! {opponent} could not live with us. {scorer} was unplayable. Frame this one."
+  },
+  {
+   "source": "results",
+   "type": "thrashing",
+   "weight": 1,
+   "title": "Goals, Goals, Goals",
+   "body": "We hit {opponent} for plenty — {score} in Round {round}. The scoreboard operator has asked for a rest."
+  },
+  {
+   "source": "results",
+   "type": "thrashing",
+   "weight": 1,
+   "title": "Total Football",
+   "body": "A {score} demolition of {opponent}. {scorer} ran the whole show. The highlight reel is very long."
+  },
+  {
+   "source": "results",
+   "type": "thrashing",
+   "weight": 1,
+   "title": "That Was Loud",
+   "body": "{score} over {opponent}. The fans lost their voices in Round {round}. Worth it, they say."
+  },
+  {
+   "source": "results",
+   "type": "upset",
+   "weight": 2,
+   "title": "Giant Toppled",
+   "body": "Nobody gave us a chance against {opponent}. Final score: {score}. Cut out the newspaper. Keep it forever."
+  },
+  {
+   "source": "results",
+   "type": "upset",
+   "weight": 1,
+   "title": "Shock of the Season",
+   "body": "{opponent} arrived as favourites. They left beaten, {score}. {scorer} wrote the story."
+  },
+  {
+   "source": "results",
+   "type": "upset",
+   "weight": 1,
+   "title": "Believe It",
+   "body": "Round {round}, and it actually happened. {opponent} beaten, {score}. The dressing room is still bouncing."
+  },
+  {
+   "source": "results",
+   "type": "upset",
+   "weight": 1,
+   "title": "Not On Paper",
+   "body": "On paper, {opponent} win easily. Football is not played on paper. {score}."
+  },
+  {
+   "source": "results",
+   "type": "cleansheet",
+   "weight": 2,
+   "title": "Clean Sheet Secured",
+   "body": "Not one goal past us against {opponent}. The keeper wants the match ball. The defenders want it too."
+  },
+  {
+   "source": "results",
+   "type": "cleansheet",
+   "weight": 1,
+   "title": "The Wall Held",
+   "body": "{opponent} tried everything. Nothing went in. {score}, and the back line walked off grinning."
+  },
+  {
+   "source": "results",
+   "type": "cleansheet",
+   "weight": 1,
+   "title": "Zero Is Beautiful",
+   "body": "A clean sheet in Round {round}. The goalkeeping coach has printed the stat and laminated it."
+  },
+  {
+   "source": "results",
+   "type": "cleansheet",
+   "weight": 1,
+   "title": "Nothing Got Through",
+   "body": "{opponent} huffed and puffed. Our goal stayed shut. Free hot chocolate for the defenders on the bus."
+  },
+  {
+   "source": "results",
+   "type": "rivalPreview",
+   "weight": 2,
+   "title": "Next Up: {opponent}",
+   "body": "Round {round} brings {opponent} to town. Their manager has been talking. Let the football answer."
+  },
+  {
+   "source": "results",
+   "type": "rivalPreview",
+   "weight": 1,
+   "title": "Scout Report: {opponent}",
+   "body": "The scouts watched {opponent} twice. Verdict: dangerous, but beatable. Set the tactics well, boss."
+  },
+  {
+   "source": "results",
+   "type": "rivalPreview",
+   "weight": 1,
+   "title": "Big Match Ahead",
+   "body": "Everyone is talking about Round {round}: us against {opponent}. Tickets went fast. Nerves are normal."
+  },
+  {
+   "source": "results",
+   "type": "rivalPreview",
+   "weight": 1,
+   "title": "The Papers Are Talking",
+   "body": "The local paper calls {opponent} favourites. The squad pinned the article to the wall. Motivation sorted."
+  },
+  {
+   "source": "results",
+   "type": "rivalPreview",
+   "weight": 1,
+   "title": "Match Day Approaches",
+   "body": "{opponent} in Round {round}. The kit is washed. The boots are polished. The plan is yours, boss."
+  },
+  {
+   "source": "results",
+   "type": "tableMove",
+   "weight": 2,
+   "title": "Climbing the Table",
+   "body": "The results are in. We move up to {position}. Keep winning and keep climbing."
+  },
+  {
+   "source": "results",
+   "type": "tableMove",
+   "weight": 1,
+   "title": "League Table Update",
+   "body": "We now sit {position} in the league. The board checked the table twice. Then smiled."
+  },
+  {
+   "source": "results",
+   "type": "tableMove",
+   "weight": 1,
+   "title": "A Slip in the Standings",
+   "body": "The table says {position}. It reads worse than it feels. One win changes everything."
+  },
+  {
+   "source": "results",
+   "type": "tableMove",
+   "weight": 1,
+   "title": "Eyes on the Prize",
+   "body": "{position} after Round {round}. The gap at the top is shrinking. So is the excuse list."
+  },
+  {
+   "source": "results",
+   "type": "seasonMilestone",
+   "weight": 1,
+   "title": "A New Season Begins",
+   "body": "Fresh grass, fresh hopes, zero points for everyone. A whole season ahead. Make it count, boss."
+  },
+  {
+   "source": "results",
+   "type": "seasonMilestone",
+   "weight": 1,
+   "title": "Halfway There",
+   "body": "Round {round} complete — half the season gone. We sit {position}. The second half decides everything."
+  },
+  {
+   "source": "results",
+   "type": "seasonMilestone",
+   "weight": 1,
+   "title": "The Run-In Begins",
+   "body": "Only a few rounds left. We stand {position}. Every match is a final now."
+  },
+  {
+   "source": "results",
+   "type": "seasonMilestone",
+   "weight": 1,
+   "title": "Club Milestone Reached",
+   "body": "The club marks a milestone this week. The trophy cabinet has been dusted. Just in case."
+  },
+  {
+   "source": "club",
+   "id": "club-train-01",
+   "type": "training_complete",
+   "body": "{player} steps up to {tier}. The whole yard clapped.",
+   "from": "— the coach",
+   "title": "TRAINING COMPLETE"
+  },
+  {
+   "source": "club",
+   "id": "club-train-02",
+   "type": "training_complete",
+   "body": "{player} hit every cone. {tier} looks well earned.",
+   "from": "— the coach",
+   "title": "TRAINING REPORT"
+  },
+  {
+   "source": "club",
+   "id": "club-train-03",
+   "type": "training_complete",
+   "body": "{player} trained hard for this. {tier}, done and dusted.",
+   "from": "— the coach",
+   "title": "NEW TIER EARNED"
+  },
+  {
+   "source": "club",
+   "id": "club-train-04",
+   "type": "training_complete",
+   "body": "{player} stayed late again. That is {tier} form.",
+   "from": "— the coach",
+   "title": "SESSION OVER"
+  },
+  {
+   "source": "club",
+   "id": "club-train-05",
+   "type": "training_complete",
+   "body": "Textbook week from {player}. {tier}, signed and sealed.",
+   "from": "— the coach",
+   "title": "COACH'S NOTES"
+  },
+  {
+   "source": "club",
+   "id": "club-upgrade-01",
+   "type": "tier_upgrade",
+   "body": "{player} shines in {tier} now. Hold it up to the light.",
+   "from": "— the kit man",
+   "title": "CARD UPGRADED"
+  },
+  {
+   "source": "club",
+   "id": "club-upgrade-02",
+   "type": "tier_upgrade",
+   "body": "Same {player}, better sparkle. {tier} looks the part.",
+   "from": "— the kit man",
+   "title": "UPGRADE NEWS"
+  },
+  {
+   "source": "club",
+   "id": "club-upgrade-03",
+   "type": "tier_upgrade",
+   "body": "{player} just went {tier}. The binder looks better already.",
+   "from": "— the kit man",
+   "title": "SHINY NEW TIER"
+  },
+  {
+   "source": "club",
+   "id": "club-upgrade-04",
+   "type": "tier_upgrade",
+   "body": "Your {player} is now {tier}. No coins spent. Lucky day.",
+   "from": "— the kit man",
+   "title": "UPGRADE COMPLETE"
+  },
+  {
+   "source": "club",
+   "id": "club-upgrade-05",
+   "type": "tier_upgrade",
+   "body": "One step up for {player}. {tier} today, who knows tomorrow.",
+   "from": "— the coach",
+   "title": "LADDER CLIMBED"
+  },
+  {
+   "source": "club",
+   "id": "club-pack-01",
+   "type": "pack_earned",
+   "body": "{feat} complete. A pack is waiting in your tray.",
+   "from": "— club HQ",
+   "title": "PACK EARNED"
+  },
+  {
+   "source": "club",
+   "id": "club-pack-02",
+   "type": "pack_earned",
+   "body": "One pack, earned the honest way. Open it when ready.",
+   "from": "— club HQ",
+   "title": "PRIZE DELIVERY"
+  },
+  {
+   "source": "club",
+   "id": "club-pack-03",
+   "type": "pack_earned",
+   "body": "A new pack just landed. {feat} made it happen.",
+   "from": "— the kit man",
+   "title": "TRAY UPDATE"
+  },
+  {
+   "source": "club",
+   "id": "club-pack-04",
+   "type": "pack_earned",
+   "body": "No rush. The pack will wait right there in your tray.",
+   "from": "— club HQ",
+   "title": "YOU EARNED THIS"
+  },
+  {
+   "source": "club",
+   "id": "club-dupe-01",
+   "type": "dupe_converted",
+   "body": "Two of {player} is one too many. {coins} coins to the club.",
+   "from": "— the kit man",
+   "title": "DUPLICATE SWAPPED"
+  },
+  {
+   "source": "club",
+   "id": "club-dupe-02",
+   "type": "dupe_converted",
+   "body": "The spare {player} found a new home. {coins} coins in.",
+   "from": "— the kit man",
+   "title": "SWAP COMPLETE"
+  },
+  {
+   "source": "club",
+   "id": "club-dupe-03",
+   "type": "dupe_converted",
+   "body": "A duplicate {player} became {coins} coins. Tidy business.",
+   "from": "— club HQ",
+   "title": "COIN NEWS"
+  },
+  {
+   "source": "club",
+   "id": "club-dupe-04",
+   "type": "dupe_converted",
+   "body": "One {player} stays, one goes. {coins} coins for the jar.",
+   "from": "— the kit man",
+   "title": "BINDER TIDIED"
+  },
+  {
+   "source": "club",
+   "id": "club-energy-01",
+   "type": "energy_note",
+   "body": "{player} is running on empty. A round off fixes everything.",
+   "from": "— the bench",
+   "title": "FITNESS REPORT"
+  },
+  {
+   "source": "club",
+   "id": "club-energy-02",
+   "type": "energy_note",
+   "body": "{player} gave everything out there. Fresh legs beat tired ones.",
+   "from": "— the coach",
+   "title": "REST ADVISED"
+  },
+  {
+   "source": "club",
+   "id": "club-energy-03",
+   "type": "energy_note",
+   "body": "Tired boots, heavy touches. Give {player} a breather.",
+   "from": "— the coach",
+   "title": "SQUAD ROTATION"
+  },
+  {
+   "source": "club",
+   "id": "club-energy-04",
+   "type": "energy_note",
+   "body": "{player} is back to full battery. Ready when you are.",
+   "from": "— the bench",
+   "title": "FRESH LEGS ALERT"
+  },
+  {
+   "source": "club",
+   "id": "club-morale-01",
+   "type": "morale_note",
+   "body": "{player} is ON FIRE. Keep that name on the team sheet.",
+   "from": "— the coach",
+   "title": "MOOD WATCH"
+  },
+  {
+   "source": "club",
+   "id": "club-morale-02",
+   "type": "morale_note",
+   "body": "{player} WANTS TO PLAY. A start would fix that frown.",
+   "from": "— the coach",
+   "title": "DRESSING ROOM NEWS"
+  },
+  {
+   "source": "club",
+   "id": "club-morale-03",
+   "type": "morale_note",
+   "body": "{player} is feeling COLD. One goal turns it all around.",
+   "from": "— the coach",
+   "title": "A QUIET WEEK"
+  },
+  {
+   "source": "club",
+   "id": "club-morale-04",
+   "type": "morale_note",
+   "body": "Good mood in the yard. {player} led the singing.",
+   "from": "— the kit man",
+   "title": "ALL SMILES"
+  },
+  {
+   "source": "club",
+   "id": "club-scout-01",
+   "type": "scout_tip",
+   "body": "Keep an eye on {player}. {tier} would change matches.",
+   "from": "— the scout",
+   "title": "SCOUT'S TIP"
+  },
+  {
+   "source": "club",
+   "id": "club-scout-02",
+   "type": "scout_tip",
+   "body": "{player} is ready for more. {tier} is within reach.",
+   "from": "— the scout",
+   "title": "ONE TO TRAIN"
+  },
+  {
+   "source": "club",
+   "id": "club-scout-03",
+   "type": "scout_tip",
+   "body": "I watched {player} train twice. Trust me on this one.",
+   "from": "— the scout",
+   "title": "TALENT SPOTTED"
+  },
+  {
+   "source": "club",
+   "id": "club-scout-04",
+   "type": "scout_tip",
+   "body": "{coins} coins takes {player} to {tier}. Money well spent.",
+   "from": "— the scout",
+   "title": "TRAINING TIP"
+  },
+  {
+   "source": "club",
+   "id": "club-scout-05",
+   "type": "scout_tip",
+   "body": "{player} has that look. {tier} next, mark my words.",
+   "from": "— the scout",
+   "title": "FROM THE SCOUT"
+  },
+  {
+   "source": "club",
+   "id": "club-board-01",
+   "type": "board_note",
+   "body": "The board met at breakfast. Verdict: proud of you.",
+   "from": "— the board",
+   "title": "FROM THE BOARD"
+  },
+  {
+   "source": "club",
+   "id": "club-board-02",
+   "type": "board_note",
+   "body": "Win or learn. That is the whole plan. We like the plan.",
+   "from": "— the board",
+   "title": "BOARD EXPECTATIONS"
+  },
+  {
+   "source": "club",
+   "id": "club-board-03",
+   "type": "board_note",
+   "body": "The board suggests chasing {feat}. Biscuits either way.",
+   "from": "— the board",
+   "title": "NOTE FROM UPSTAIRS"
+  },
+  {
+   "source": "club",
+   "id": "club-board-04",
+   "type": "board_note",
+   "body": "Keep training, keep smiling. Trophies follow teams like that.",
+   "from": "— the board",
+   "title": "CLUB VISION"
+  }
+ ],
+ "taunts": {
+  "placeholders": {
+   "team": "the player's club name"
+  },
+  "personas": {
+   "suarez_fc": {
+    "name": "Suárez FC",
+    "style": "cheeky rule-bender",
+    "taunts": [
+     "Handballs? I call them hugs for the ball.",
+     "I only bite into sandwiches these days. Promise.",
+     "Rules are more like suggestions, no?",
+     "Check your shin pads. Actually, check everything.",
+     "The referee and I are very good friends. Too good, some say.",
+     "We win one way or another. Usually another."
+    ],
+    "pre_match": [
+     "Good luck, {team}. You will need it. I made sure.",
+     "I have studied the rulebook. For loopholes.",
+     "My team is hungry today. Not like that. Mostly.",
+     "Play your best. We will play our sneakiest.",
+     "The pitch is fine. Ignore anything you find in it.",
+     "May the best team win. Or, you know, us."
+    ],
+    "post_win": [
+     "A fair result. Stop looking at me like that.",
+     "Every goal was legal. Nearly every goal.",
+     "We won with heart. And maybe a hand.",
+     "Delicious victory. I could just bite it.",
+     "The ref saw nothing. Because nothing happened.",
+     "You played well. We played creatively."
+    ],
+    "post_loss": [
+     "The referee saw everything today. So unfair.",
+     "We were robbed. By people playing properly.",
+     "Fine. You won. This time the rules worked.",
+     "I demand a rematch. And softer rules.",
+     "Losing tastes terrible. I know. I bit it.",
+     "Well played, {team}. I hate saying that."
+    ]
+   },
+   "kane_united": {
+    "name": "Kane United",
+    "style": "bottles the big moments",
+    "taunts": [
+     "This is our year. It is always our year.",
+     "We never lose finals. We avoid them entirely.",
+     "Second place is just first place with humility.",
+     "We are unbeatable. Until roughly minute eighty.",
+     "Our trophy cabinet is spotless. And empty.",
+     "You should worry. We nearly win everything."
+    ],
+    "pre_match": [
+     "Today is the day. I can feel it. Again.",
+     "We have a good feeling. We always do.",
+     "No slip-ups this time. Probably.",
+     "We practised penalties all week. Mostly the sky.",
+     "History says we fade late. Ignore history.",
+     "Win or learn. We have learned so much."
+    ],
+    "post_win": [
+     "See? Told you it was our year. Finally.",
+     "We did not bottle it! Someone write this down.",
+     "Held our nerve. First time for everything.",
+     "Never in doubt. Only slightly in doubt.",
+     "The curse is broken. Nobody touch anything.",
+     "We won! Quick, end the season now."
+    ],
+    "post_loss": [
+     "So close. We are always so close.",
+     "We led for ages. The ending is just details.",
+     "Next year is our year. I am certain again.",
+     "We ran out of minutes, not talent.",
+     "That one went over. The important ones always do.",
+     "Typical. Brilliant until it mattered."
+    ]
+   },
+   "haaland_machine": {
+    "name": "Golazo City",
+    "style": "machine confidence",
+    "taunts": [
+     "Analysis complete. You lose.",
+     "I do not predict goals. I schedule them.",
+     "Resistance noted. Outcome unchanged.",
+     "My striker is not human. This is not an insult.",
+     "Your defence has one flaw. It is facing us.",
+     "We do not do drama. We do goals."
+    ],
+    "pre_match": [
+     "Forecast: goals. Heavy in places.",
+     "We have run the numbers. All of them.",
+     "The plan is simple. Score. Repeat.",
+     "Kickoff is a formality. So is the rest.",
+     "Good luck, {team}. Luck is not a variable we use.",
+     "Warm-up complete. Victory loading."
+    ],
+    "post_win": [
+     "As calculated.",
+     "Of course. It is always of course.",
+     "The machine does not celebrate. Much.",
+     "Result matches forecast. Goodbye.",
+     "That was efficiency. Take notes.",
+     "Update complete. Victory installed."
+    ],
+    "post_loss": [
+     "Error detected. Recalibrating.",
+     "Unexpected outcome. It will not repeat.",
+     "Even machines have off days. Apparently.",
+     "You beat the numbers today. Impressive.",
+     "Logging this loss. Deleting it soon.",
+     "Congratulations, {team}. Statistically remarkable."
+    ]
+   },
+   "maradona_maverick": {
+    "name": "The Maverick",
+    "style": "flamboyant magician, a little cheeky",
+    "taunts": [
+     "The ball loves me. It told me so.",
+     "I invented tricks your tricks dream about.",
+     "Genius cannot be marked. Try anyway.",
+     "Football is art. I am the paint.",
+     "My left foot has its own fan club.",
+     "Play beautiful or go home. You may do both."
+    ],
+    "pre_match": [
+     "Today we dance. You may watch.",
+     "Tactics? The ball and I have an understanding.",
+     "Bring your best. I will bring magic.",
+     "I dreamed we scored a wonder goal. I trust my dreams.",
+     "The pitch is my canvas. Kickoff is the brush.",
+     "Watch closely. You may learn something impossible."
+    ],
+    "post_win": [
+     "Beautiful, no? Even the goalposts applauded.",
+     "That was not football. That was music.",
+     "The magic showed up. It usually does.",
+     "Some goals are cheeky. All of mine are art.",
+     "We painted a masterpiece. You were the frame.",
+     "I told the ball where to go. It listened."
+    ],
+    "post_loss": [
+     "Even artists have off days. Rare, historic days.",
+     "You beat the magic today. Enjoy the legend.",
+     "The ball betrayed me. We have made up already.",
+     "Every masterpiece needs a rival. Today, bravo.",
+     "Defeat is ugly. I refuse to look at it.",
+     "Tomorrow the magic returns. Bigger. Cheekier."
+    ]
+   },
+   "zidane_stoic": {
+    "name": "The Stoic",
+    "style": "calm, elegant, few words",
+    "taunts": [
+     "We are calm. You should worry about that.",
+     "I say little. My team says the rest.",
+     "Elegance wins. Eventually. Usually today.",
+     "No noise. Just football.",
+     "You talk. We glide.",
+     "Composure is a tactic. Ours."
+    ],
+    "pre_match": [
+     "We are ready. That is all.",
+     "The game will speak. I will not.",
+     "Play well. We intend to.",
+     "No predictions. Only preparation.",
+     "Small things decide matches. We practise small things.",
+     "Good luck. Sincerely."
+    ],
+    "post_win": [
+     "As expected. No celebration required.",
+     "The game spoke. Quietly, for us.",
+     "Control, from the first minute to the last.",
+     "A clean win. We will not mention it again.",
+     "Well played, {team}. Better played, us.",
+     "That is football, done properly."
+    ],
+    "post_loss": [
+     "You deserved it. I do not say that often.",
+     "We were beaten. It happens. Rarely.",
+     "No excuses. Only notes for next time.",
+     "A quiet loss. We will answer loudly.",
+     "Well played, {team}. Truly.",
+     "One word on that defeat: enough."
+    ]
+   },
+   "generic": {
+    "name": "Any Rival",
+    "style": "all-purpose rival manager",
+    "taunts": [
+     "Nice team. Ours is nicer.",
+     "We studied your tactics. It took a minute.",
+     "Bring a raincoat. We forecast goals.",
+     "Our mascot worries more about lunch than about you.",
+     "You are good. We plan to be less polite about it.",
+     "Hope you like running. You will do lots of it.",
+     "Your keeper should stretch. A lot.",
+     "We came to play. Also to win. Mostly to win.",
+     "Big talk from a club with small shin pads.",
+     "Enjoy the first half. It is the kind one.",
+     "We counted your trophies. It was quick.",
+     "Save your best. You will need every bit."
+    ],
+    "pre_match": [
+     "Three points are on the table. We brought forks.",
+     "Both teams want this. Only one of us packed boots.",
+     "May it be a classic. With us winning it.",
+     "The lads are ready. The bus is warmed up.",
+     "We respect {team}. For ninety minutes, slightly less.",
+     "Big game. Small talk. Kickoff soon.",
+     "Our plan is secret. It rhymes with more goals.",
+     "Fresh grass, clean kits. Perfect day for it.",
+     "We watched your last match. Twice. For fun.",
+     "Whatever happens, we shake hands after. First, football.",
+     "The table does not lie. Today we edit it.",
+     "Boots laced. Speeches done. Let us play."
+    ],
+    "post_win": [
+     "Good game. Better result.",
+     "The plan worked. I will pretend it always does.",
+     "Three points, zero complaints.",
+     "We take the win and the bus home. In that order.",
+     "Credit to {team}. Now, about that scoreline.",
+     "The lads were brilliant. The snacks helped.",
+     "That is exactly how we practise it. Honestly.",
+     "A win is a win. This one was also fun.",
+     "We will celebrate sensibly. One extra biscuit each.",
+     "Job done. See you in the return match.",
+     "The table looks nicer already.",
+     "Handshakes all round. Especially ours."
+    ],
+    "post_loss": [
+     "Well played, {team}. We will be back.",
+     "No excuses. Just a better week of training ahead.",
+     "The better team won. Annoyingly.",
+     "We lost the match, not the plot.",
+     "Lessons learned. Several. Loudly.",
+     "Congratulations. Enjoy it. Briefly.",
+     "The scoreboard disagrees with my plans.",
+     "We go again. That is the whole speech.",
+     "One bad day. The bus ride will be quiet.",
+     "You were sharp today. We were Tuesday-sharp.",
+     "Fair result. I checked twice, hoping.",
+     "Beaten, not broken. See you next round."
+    ]
+   }
+  }
+ },
+ "commentary": {
+  "byName": {
+   "Haaland": [
+    "Haaland scores. Of course he does.",
+    "Minute {minute}: Haaland. The big man does not miss twice.",
+    "Ice cold from Haaland — the keeper never moved.",
+    "Haaland leathers it in! That poor net.",
+    "Feed the machine and the machine scores.",
+    "Haaland again — he treats goals like breakfast.",
+    "The hammer falls in minute {minute} — Haaland!",
+    "One touch, one thunderbolt. Haaland.",
+    "Haaland barely celebrates — this is normal for him.",
+    "Goal! Haaland was jogging back before it landed."
+   ],
+   "Yamal": [
+    "Yamal curls it top corner — a painting!",
+    "He's a kid and he just did THAT.",
+    "Yamal cuts inside… oh, that is gorgeous!",
+    "Golazo! Yamal bends one in from miles out.",
+    "Minute {minute}: Yamal makes the ball sing.",
+    "Left foot, top bins — Yamal, take a bow.",
+    "Yamal dances past two and picks his corner.",
+    "Homework can wait — Yamal is scoring worldies.",
+    "That is not a goal, that is art class.",
+    "Yamal again — someone check his age."
+   ],
+   "Kane": [
+    "Kane blazes it over. Sky high. Again.",
+    "Oh Harry — row Z gets another souvenir.",
+    "Kane leans back and the ball leaves the stadium.",
+    "That one is still climbing in minute {minute}.",
+    "Over the bar! Kane cannot believe it either.",
+    "The pigeons on the roof duck when Kane shoots.",
+    "Kane has the power — just not the postcode.",
+    "A satellite may have caught that one.",
+    "Kane picks his spot — sadly it is in the car park.",
+    "He will score the next one — he always says that."
+   ],
+   "Suárez": [
+    "Ruled out! Suárez used the wrong tool for the job.",
+    "Suárez pats it in with a hand — the ref saw everything.",
+    "No goal — hands are for goalkeepers, Luis.",
+    "Suárez shrugs. Define handball, he says.",
+    "The whistle blows — Suárez was up to his old tricks.",
+    "Suárez looks hungry today — keep the ball away from him.",
+    "Chomp! Er — we mean a firm challenge from Suárez.",
+    "Suárez argues with the ref, the post, and a seagull.",
+    "Disallowed in minute {minute} — cheeky, Luis, very cheeky.",
+    "He plays fair. Mostly. Define fair."
+   ],
+   "Messi": [
+    "Messi. That's it. That's the commentary.",
+    "The little magician waves his wand again.",
+    "Messi glides past three like traffic cones.",
+    "Minute {minute}: Messi does a Messi thing.",
+    "He does not run, he floats — and he finishes.",
+    "Goal! Messi placed that with a teaspoon.",
+    "Messi's left foot belongs in a museum.",
+    "Slow motion in real time — Messi scores.",
+    "Even the other team wanted to clap that one.",
+    "The ball just does what Messi asks."
+   ],
+   "Ronaldo": [
+    "Ronaldo leaps, hangs, and thumps it in — SIUUU!",
+    "SIUUU! You can hear it from the car park.",
+    "Ronaldo spins, jumps… you know the rest. SIUUU!",
+    "Minute {minute} and the whole ground yells SIUUU!",
+    "Header! Ronaldo was up there for ages.",
+    "The knees slide, the arms drop — SIUUU!",
+    "Top corner, no doubt, full celebration. SIUUU!",
+    "Gravity called — Ronaldo left it on read.",
+    "He practised that jump ten thousand times and it shows.",
+    "Ronaldo scores and strikes the pose. Calma? Never."
+   ],
+   "Mbappé": [
+    "Mbappé hits warp speed — goal!",
+    "Blink and you missed Mbappé's whole run.",
+    "Mbappé outruns the ball, waits for it, scores.",
+    "Zoom! Minute {minute} belongs to Mbappé.",
+    "The turtle celebration is out — Mbappé strikes.",
+    "Mbappé goes halfway to goal in four seconds flat.",
+    "Someone check Mbappé's boots for rockets.",
+    "Too fast, too smooth, too good — Mbappé.",
+    "The defenders saw a blur; the net saw the ball.",
+    "Mbappé is already back for kickoff — that is pace."
+   ],
+   "Phoenix": [
+    "Phoenix catches it clean — good dog!",
+    "Snagged mid-air! Phoenix will not drop this one.",
+    "The shot was going in until Phoenix said no.",
+    "Phoenix pounces — ball secured, tail wagging.",
+    "Caught! Phoenix wants a belly rub for that.",
+    "Fetch complete — Phoenix keeps it out in minute {minute}.",
+    "Phoenix guards that goal like it is the good couch.",
+    "Nothing gets past those paws today.",
+    "Phoenix catches, sits, and stays. Perfect save.",
+    "Who's a good keeper? Phoenix is."
+   ],
+   "Wembanyama": [
+    "He just… reaches.",
+    "Top corner? Not with Wembanyama's arms.",
+    "The crossbar has to look UP at Wembanyama.",
+    "Wemby palms it away without leaving the ground.",
+    "That is not a save, that is a ceiling.",
+    "Minute {minute}: shot on target, arm in the way. Denied.",
+    "Wembanyama covers both posts at the same time.",
+    "Shooters need a ladder against this keeper.",
+    "The Wall stands — Wembanyama swallows it up.",
+    "Nine feet of nope."
+   ],
+   "Maradona": [
+    "Goal… by the Hand of God — cheeky, Diego!",
+    "The ref missed it, the crowd did not — the cheeky goal stands.",
+    "Maradona pats it in and grins — the Hand of God returns.",
+    "A little hand, a lot of history — Maradona scores.",
+    "Minute {minute}: Maradona and a very suspicious fist.",
+    "That was handball and he KNOWS it — cheeky, cheeky.",
+    "Maradona points at the sky — the sky is not taking the blame.",
+    "The oldest trick in his book, and it still works.",
+    "Diego winks at the camera — goal given, giggles everywhere.",
+    "History repeats — the Hand of God, minute {minute}."
+   ],
+   "Gibson": [
+    "Stepover, stepover, GOAL — Gibson!",
+    "Gibson dances through and buries it — that's our boy!",
+    "The stepover king strikes in minute {minute}!",
+    "Gibson sells the dummy and the whole defence buys it.",
+    "GIBSON! The shop floor is bouncing!",
+    "Twinkle toes, thunder finish — Gibson scores.",
+    "Gibson tries one stepover too many… no, it works!",
+    "Straight off the sticker and into the net — Gibson!",
+    "Gibson's boots are on fire and the net knows it.",
+    "Family goal! Gibson wheels away with the biggest grin."
+   ],
+   "Ellis": [
+    "NUTMEG! Ellis slips it through and scores!",
+    "Ellis goes through the legs — cheeky and brilliant!",
+    "Small player, giant goal — ELLIS!",
+    "Ellis nutmegs one, two… and finishes cool as you like.",
+    "Minute {minute}: Ellis threads the needle again!",
+    "The littlest legs, the biggest moment — Ellis scores!",
+    "Through the legs, into the net — classic Ellis.",
+    "Ellis is too small to see and too good to stop.",
+    "ELLIS! Grandpa cheered so loud the wall shook.",
+    "Tunnel vision — Ellis finds the gap every time."
+   ]
+  },
+  "byEvent": {
+   "buildup": [
+    "{player} carries it forward with purpose.",
+    "Patient passing in midfield.",
+    "{player} looks up for options.",
+    "The tempo rises as we pass minute {minute}.",
+    "A neat little triangle out on the wing.",
+    "{player} demands the ball. He gets it.",
+    "Space is opening up here.",
+    "A clever switch of play finds {player}.",
+    "The crowd senses something building.",
+    "{player} drives straight at the defence."
+   ],
+   "goal": [
+    "GOAL! {player} finds the corner!",
+    "It's in! {player} makes no mistake!",
+    "GOAL! A finish worthy of the sticker album!",
+    "{player} scores! The bench is bouncing!",
+    "What a hit! {player} leaves {keeper} rooted!",
+    "GOAL in minute {minute}! {player} wheels away!",
+    "{player} taps it home. Cool as you like.",
+    "It's a golazo! {player} takes a bow!",
+    "GOAL! {player} buries it low and hard!",
+    "The net ripples! {player} has done it!",
+    "{player} rises highest and heads it in!",
+    "GOAL! {keeper} got a glove to it, but not enough!"
+   ],
+   "save": [
+    "Brilliant save by {keeper}!",
+    "{keeper} gets down fast to deny {player}.",
+    "What a stop! {keeper} tips it away!",
+    "{player} shoots — {keeper} says no!",
+    "{keeper} plucks it out of the air. Easy.",
+    "Strong hands from {keeper}.",
+    "{keeper} spreads himself and blocks it!",
+    "A flying save! {keeper} is up for this.",
+    "{player} hits it well. {keeper} hits back better.",
+    "{keeper} holds on at the second attempt."
+   ],
+   "post": [
+    "Off the post! So close for {player}!",
+    "{player} rattles the crossbar!",
+    "CLANG! The woodwork rescues {keeper}.",
+    "Inches away! {player} strikes the upright.",
+    "The post shivers. {player} can't believe it.",
+    "Crossbar! {keeper} was beaten, the frame was not."
+   ],
+   "wide": [
+    "{player} drags it wide.",
+    "Over the bar! {player} looks skyward.",
+    "Wide! The ball boys are busy today.",
+    "{player} slices it into the stands.",
+    "Just past the post. {keeper} watched it all the way.",
+    "A big chance goes begging for {player}."
+   ],
+   "tackle": [
+    "A firm, fair challenge from {player}.",
+    "{player} times the tackle perfectly.",
+    "Nothing gets past {player} today.",
+    "A superb sliding tackle by {player}!",
+    "{player} wins it back cleanly.",
+    "The move ends right there. {player} says no."
+   ],
+   "halftime": [
+    "Half-time. Time for oranges and a team talk.",
+    "The whistle goes. Forty-five in the book.",
+    "Half-time here. The managers head down the tunnel.",
+    "That's the half. Deep breaths all round."
+   ],
+   "fulltime": [
+    "Full-time! The whistle ends it.",
+    "That's it! The final whistle blows.",
+    "All over! Handshakes on the pitch.",
+    "Full-time. The story is written."
+   ],
+   "penalty-scored": [
+    "{player} steps up... and scores! Ice cold.",
+    "Penalty converted! {keeper} went the wrong way.",
+    "{player} sends {keeper} diving and rolls it in.",
+    "Smashed down the middle! {player} never doubted it.",
+    "Top corner! {keeper} had no chance."
+   ],
+   "penalty-missed": [
+    "Saved! {keeper} guesses right!",
+    "{player} blazes it over the bar!",
+    "{keeper} makes himself huge and keeps it out!",
+    "Off the post! {player} covers his eyes.",
+    "{player} hits it — {keeper} holds on! What a stop!"
+   ]
+  }
+ },
+ "clubs": [
+  {
+   "code": "ALG",
+   "manager": {
+    "name": "Fenn Foxley"
+   },
+   "style": "attacking",
+   "tier": 2,
+   "motto": "Quick as the fennec.",
+   "taunt": [
+    "Blink and we're gone."
+   ],
+   "c1": "#0f7a3d",
+   "c2": "#ffffff"
+  },
+  {
+   "code": "ARG",
+   "manager": {
+    "name": "Tito Tango"
+   },
+   "style": "attacking",
+   "tier": 4,
+   "motto": "Dance first. Score second.",
+   "taunt": [
+    "We brought the trophy polish."
+   ],
+   "c1": "#6cace4",
+   "c2": "#12246e"
+  },
+  {
+   "code": "AUS",
+   "manager": {
+    "name": "Joey Bouncer"
+   },
+   "style": "balanced",
+   "tier": 2,
+   "motto": "Bounce back. Always.",
+   "taunt": [
+    "Hope you can jump, mate."
+   ],
+   "c1": "#ffb81c",
+   "c2": "#00843d"
+  },
+  {
+   "code": "AUT",
+   "manager": {
+    "name": "Al Pine"
+   },
+   "style": "attacking",
+   "tier": 2,
+   "motto": "Climb every match.",
+   "taunt": [
+    "You're playing uphill today."
+   ],
+   "c1": "#ed2939",
+   "c2": "#ffffff"
+  },
+  {
+   "code": "BEL",
+   "manager": {
+    "name": "Vic Van Waffel"
+   },
+   "style": "balanced",
+   "tier": 3,
+   "motto": "Sweet passes. Golden goals.",
+   "taunt": [
+    "No free waffles today."
+   ],
+   "c1": "#e30613",
+   "c2": "#1c1c1c"
+  },
+  {
+   "code": "BIH",
+   "manager": {
+    "name": "Deni Blockovic"
+   },
+   "style": "defensive",
+   "tier": 1,
+   "motto": "Heart of the mountains.",
+   "taunt": [
+    "Our wall was built by mountains."
+   ],
+   "c1": "#002f6c",
+   "c2": "#f5c518"
+  },
+  {
+   "code": "BRA",
+   "manager": {
+    "name": "Zé Samba"
+   },
+   "style": "attacking",
+   "tier": 4,
+   "motto": "Play beautiful.",
+   "taunt": [
+    "Try to keep up with the drums."
+   ],
+   "c1": "#ffdc02",
+   "c2": "#009739"
+  },
+  {
+   "code": "CAN",
+   "manager": {
+    "name": "Marty McMaple"
+   },
+   "style": "attacking",
+   "tier": 2,
+   "motto": "Nice off the pitch. Not on it.",
+   "taunt": [
+    "Sorry about the score in advance."
+   ],
+   "c1": "#d80621",
+   "c2": "#ffffff"
+  },
+  {
+   "code": "CIV",
+   "manager": {
+    "name": "Sekou Tusk"
+   },
+   "style": "balanced",
+   "tier": 2,
+   "motto": "Elephants never forget the score.",
+   "taunt": [
+    "You look small from up here."
+   ],
+   "c1": "#ff8200",
+   "c2": "#009a44"
+  },
+  {
+   "code": "COD",
+   "manager": {
+    "name": "Leo Pardieu"
+   },
+   "style": "defensive",
+   "tier": 1,
+   "motto": "Move quiet. Strike loud.",
+   "taunt": [
+    "You won't hear us coming."
+   ],
+   "c1": "#0085ca",
+   "c2": "#f7d618"
+  },
+  {
+   "code": "COL",
+   "manager": {
+    "name": "Carlos Cafetero"
+   },
+   "style": "balanced",
+   "tier": 3,
+   "motto": "Strong coffee. Stronger midfield.",
+   "taunt": [
+    "We had our coffee. Did you?"
+   ],
+   "c1": "#fcd116",
+   "c2": "#003893"
+  },
+  {
+   "code": "CPV",
+   "manager": {
+    "name": "Nino Sharkinho"
+   },
+   "style": "defensive",
+   "tier": 1,
+   "motto": "Small islands. Big bite.",
+   "taunt": [
+    "The sharks are circling."
+   ],
+   "c1": "#0c4da2",
+   "c2": "#cf2027"
+  },
+  {
+   "code": "CRO",
+   "name": "Croatia",
+   "short": "CRO",
+   "nickname": "The Blazers",
+   "flag": "🇭🇷",
+   "c1": "#ffffff",
+   "c2": "#d6202a",
+   "manager": {
+    "name": "Luka Modrić",
+    "card": "CRO 9"
+   },
+   "lines": {
+    "intro": "Slow down. Watch. Learn.",
+    "win": "Age is just a number, little one.",
+    "lose": "Well played. We will pass even better next time."
+   },
+   "taunt": [
+    "I have seen a thousand midfields. Yours is cute.",
+    "We never stop running. Ever.",
+    "Bring your best passer. I brought me."
+   ],
+   "scout": [
+    "Modrić runs the whole match from midfield.",
+    "No tricks here — just passing, passing, passing."
+   ],
+   "fact": "Croatia reached the 2018 World Cup final."
+  },
+  {
+   "code": "CUW",
+   "name": "Curaçao",
+   "short": "CUW",
+   "nickname": "The Blue Wave",
+   "flag": "🇨🇼",
+   "c1": "#002b7f",
+   "c2": "#f9e814",
+   "manager": {
+    "name": "Leandro Bacuna",
+    "card": "CUW 12"
+   },
+   "lines": {
+    "intro": "Smallest island, biggest heart.",
+    "win": "Tell everyone back home — the island won!",
+    "lose": "We dance anyway. See you next time."
+   },
+   "taunt": [
+    "Ever played against a whole island?",
+    "We crossed an ocean just to beat you.",
+    "Small country. Big surprises."
+   ],
+   "scout": [
+    "Two Bacuna brothers in midfield — 11 and 12 in the album.",
+    "No stars, no fear — they play with a smile."
+   ],
+   "fact": "Curaçao is the smallest nation ever to reach a World Cup."
+  },
+  {
+   "code": "CZE",
+   "name": "Czechia",
+   "short": "CZE",
+   "nickname": "The Lions",
+   "flag": "🇨🇿",
+   "c1": "#d7141a",
+   "c2": "#11457e",
+   "manager": {
+    "name": "Patrik Schick",
+    "card": "CZE 20"
+   },
+   "lines": {
+    "intro": "I can score from anywhere. Even from here.",
+    "win": "Did you see that one from halfway?",
+    "lose": "Next time I shoot from even further out."
+   },
+   "taunt": [
+    "If I cross the halfway line, start worrying.",
+    "My best goal came from 45 metres away.",
+    "Better Czech your defence twice."
+   ],
+   "scout": [
+    "Schick once scored from halfway — keep your keeper at home.",
+    "Striker Schick is number 20 — and danger number one."
+   ],
+   "fact": "Patrik Schick scored from the halfway line at Euro 2020."
+  },
+  {
+   "code": "ECU",
+   "name": "Ecuador",
+   "short": "ECU",
+   "nickname": "La Tri",
+   "flag": "🇪🇨",
+   "c1": "#ffdd00",
+   "c2": "#034ea2",
+   "manager": {
+    "name": "Enner Valencia",
+    "card": "ECU 20"
+   },
+   "lines": {
+    "intro": "Ecuador goals are my job. All of them.",
+    "win": "Who scored? Take one guess.",
+    "lose": "More goals next time. I always bring more."
+   },
+   "taunt": [
+    "I once scored six World Cup goals in a row for Ecuador.",
+    "La Tri never stops climbing.",
+    "We train in the mountains. Try keeping up."
+   ],
+   "scout": [
+    "Captain Valencia leads the attack — number 20.",
+    "Young Kendry Páez pulls the strings in midfield."
+   ],
+   "fact": "Valencia once scored six Ecuador World Cup goals in a row."
+  },
+  {
+   "code": "EGY",
+   "name": "Egypt",
+   "short": "EGY",
+   "nickname": "The Pharaohs",
+   "flag": "🇪🇬",
+   "c1": "#ce1126",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Mohamed Salah",
+    "card": "EGY 17"
+   },
+   "lines": {
+    "intro": "I smile. Then I score. Nothing personal.",
+    "win": "For Egypt, always.",
+    "lose": "You played well today. We meet again soon."
+   },
+   "taunt": [
+    "Seven African titles. We collect trophies.",
+    "We built pyramids. Your defence looks smaller.",
+    "Catch Salah first. Then we talk."
+   ],
+   "scout": [
+    "Salah cuts in from the right — attacker, number 17.",
+    "Marmoush and Salah share the goals up front."
+   ],
+   "fact": "Egypt has won the Africa Cup of Nations a record seven times."
+  },
+  {
+   "code": "ENG",
+   "name": "England",
+   "short": "ENG",
+   "nickname": "The Three Lions",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "c1": "#ffffff",
+   "c2": "#0b2c5f",
+   "manager": {
+    "name": "Harry Kane",
+    "card": "ENG 18"
+   },
+   "lines": {
+    "intro": "Give me one penalty. Just one.",
+    "win": "Calm heads, cool finishes. England.",
+    "lose": "We go again. Next penalty is mine."
+   },
+   "taunt": [
+    "Three lions on the shirt. All three are hungry.",
+    "I practise penalties every single day.",
+    "Football is coming home with us."
+   ],
+   "scout": [
+    "Kane's penalties nearly always go in — unless he skies one.",
+    "Never give England a penalty. Seriously. Never."
+   ],
+   "fact": "England won the World Cup in 1966."
+  },
+  {
+   "code": "ESP",
+   "name": "Spain",
+   "short": "ESP",
+   "nickname": "La Roja",
+   "flag": "🇪🇸",
+   "c1": "#c60b1e",
+   "c2": "#f5c518",
+   "manager": {
+    "name": "Lamine Yamal",
+    "card": "ESP 15"
+   },
+   "lines": {
+    "intro": "We are kids. We are fearless. Good luck.",
+    "win": "Too young to be scared, too good to lose!",
+    "lose": "We are still learning. Imagine us next year."
+   },
+   "taunt": [
+    "I am younger than your boots.",
+    "Homework first, golazos second.",
+    "Our wingers are faster than your wifi."
+   ],
+   "scout": [
+    "Yamal is the wonderkid on the right wing — number 15.",
+    "All the tricks, none of the fear. That is Spain."
+   ],
+   "fact": "Spain won Euro 2024 with a 17-year-old on the wing."
+  },
+  {
+   "code": "FRA",
+   "name": "France",
+   "short": "FRA",
+   "nickname": "Les Bleus",
+   "flag": "🇫🇷",
+   "c1": "#22346b",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Wembanyama",
+    "card": null,
+    "cast": "wemby"
+   },
+   "lines": {
+    "intro": "Bonjour. I am the goal now.",
+    "win": "You cannot shoot over me. No one can.",
+    "lose": "Even walls learn. À bientôt."
+   },
+   "taunt": [
+    "Our keeper is 2.24 metres of nope.",
+    "Shoot high, shoot low. I reach both.",
+    "Les Bleus, plus one friendly giant."
+   ],
+   "scout": [
+    "Wembanyama in goal — shots and penalties both wilt near him.",
+    "Mbappé leads the attack — striker, number 20."
+   ],
+   "fact": "France won the World Cup in 1998 and 2018."
+  },
+  {
+   "code": "GER",
+   "name": "Germany",
+   "short": "GER",
+   "nickname": "Die Mannschaft",
+   "flag": "🇩🇪",
+   "c1": "#f4f4f0",
+   "c2": "#1c1c1c",
+   "manager": {
+    "name": "Joshua Kimmich",
+    "card": "GER 10"
+   },
+   "lines": {
+    "intro": "We have a plan. We always have a plan.",
+    "win": "Precisely as planned.",
+    "lose": "Interesting. We will adjust the plan."
+   },
+   "taunt": [
+    "Four World Cups. We keep them polished.",
+    "Our passing is measured in millimetres.",
+    "Efficiency is our favourite word."
+   ],
+   "scout": [
+    "Kimmich runs the engine room from midfield — number 10.",
+    "Wirtz creates them, Musiala finishes them."
+   ],
+   "fact": "Germany has won four World Cups."
+  },
+  {
+   "code": "GHA",
+   "name": "Ghana",
+   "short": "GHA",
+   "nickname": "The Black Stars",
+   "flag": "🇬🇭",
+   "c1": "#ffffff",
+   "c2": "#006b3f",
+   "manager": {
+    "name": "André Ayew",
+    "card": "GHA 17"
+   },
+   "lines": {
+    "intro": "My brother is here too. Family beats everything.",
+    "win": "The Black Stars shine again!",
+    "lose": "Stars come out again every night. So will we."
+   },
+   "taunt": [
+    "Two Ayews, one dream, zero fear.",
+    "The Black Stars never blink.",
+    "Our drums are louder than your crowd."
+   ],
+   "scout": [
+    "Both Ayew brothers start up front — 16 and 17 in the album.",
+    "Kudus is the midfield spark. Watch him."
+   ],
+   "fact": "The Ayew brothers, Jordan and André, both play for Ghana."
+  },
+  {
+   "code": "HAI",
+   "name": "Haiti",
+   "short": "HAI",
+   "nickname": "Les Grenadiers",
+   "flag": "🇭🇹",
+   "c1": "#00209f",
+   "c2": "#d21034",
+   "manager": {
+    "name": "Duckens Nazon",
+    "card": "HAI 18"
+   },
+   "lines": {
+    "intro": "Haiti waited 52 years for this. We will enjoy it.",
+    "win": "Fifty-two years. Worth the wait!",
+    "lose": "We waited 52 years. We can wait one more match."
+   },
+   "taunt": [
+    "First World Cup since 1974. We came to party.",
+    "Les Grenadiers fear nobody.",
+    "You have never faced us before. That is the danger."
+   ],
+   "scout": [
+    "Pierrot and Nazon lead the line — big, brave, new to you.",
+    "No famous names, just heart. Lots of heart."
+   ],
+   "fact": "This is Haiti's first World Cup since 1974."
+  },
+  {
+   "code": "IRN",
+   "name": "Iran",
+   "short": "IRN",
+   "nickname": "Team Melli",
+   "flag": "🇮🇷",
+   "c1": "#ffffff",
+   "c2": "#239f40",
+   "manager": {
+    "name": "Mehdi Taremi",
+    "card": "IRN 18"
+   },
+   "lines": {
+    "intro": "Team Melli travels far. We finish what we start.",
+    "win": "Precision. That is all.",
+    "lose": "We fall, we rise. Team Melli always rises."
+   },
+   "taunt": [
+    "Mark Taremi or mark Azmoun. You cannot do both.",
+    "Our fans sing for ninety minutes straight.",
+    "We crossed half the world to win this match."
+   ],
+   "scout": [
+    "Taremi and Azmoun both start up front — twin trouble.",
+    "Keeper Beiranvand can throw past the halfway line."
+   ],
+   "fact": "Iran's fans call the team 'Team Melli' — the national team."
+  },
+  {
+   "code": "IRQ",
+   "name": "Iraq",
+   "short": "IRQ",
+   "nickname": "The Lions of Mesopotamia",
+   "c1": "#007a3d",
+   "c2": "#f4f1e8",
+   "crestCard": "IRQ 1",
+   "manager": {
+    "card": "IRQ 19",
+    "name": "Aymen Hussein",
+    "voice": "calm striker who celebrates goals by sitting down"
+   },
+   "taunt": [
+    "Score if you like — I still won't blink.",
+    "The Lions of Mesopotamia don't hurry.",
+    "I celebrate goals sitting down — saves energy."
+   ],
+   "scout": [
+    "Aymen Hussein leads their line — calm, patient, deadly.",
+    "Zidane Iqbal runs their midfield — great name, great feet."
+   ],
+   "win": "Good game — now sit with us and rest a while.",
+   "lose": "You beat the Lions today — we will remember, kindly.",
+   "fact": "Iraq won the Asian Cup in 2007 and the whole country danced."
+  },
+  {
+   "code": "JOR",
+   "name": "Jordan",
+   "short": "JOR",
+   "nickname": "The Brave Ones",
+   "c1": "#ffffff",
+   "c2": "#ce1126",
+   "crestCard": "JOR 1",
+   "manager": {
+    "card": "JOR 15",
+    "name": "Mousa Al-Taamari",
+    "voice": "fearless underdog with rocket speed"
+   },
+   "taunt": [
+    "Nobody believes in Jordan — perfect, we like it that way.",
+    "I run faster than your defenders can turn.",
+    "The Brave Ones fear nobody, not even you."
+   ],
+   "scout": [
+    "Mousa Al-Taamari is their star — pure speed down the wing.",
+    "They beat giants at the Asian Cup — never nap on Jordan."
+   ],
+   "win": "The Brave Ones win again — told you belief is enough.",
+   "lose": "You out-braved the Brave Ones — that takes some doing.",
+   "fact": "Jordan reached the Asian Cup final in 2024 — their first ever."
+  },
+  {
+   "code": "JPN",
+   "name": "Japan",
+   "short": "JPN",
+   "nickname": "Samurai Blue",
+   "c1": "#143c8c",
+   "c2": "#ffffff",
+   "crestCard": "JPN 1",
+   "manager": {
+    "card": "JPN 12",
+    "name": "Takefusa Kubo",
+    "voice": "polite, precise, endlessly practiced"
+   },
+   "taunt": [
+    "We will pass until you feel dizzy.",
+    "Every touch is practiced ten thousand times.",
+    "Samurai Blue never blinks first."
+   ],
+   "scout": [
+    "Kubo pulls the strings in midfield — tiny, tricky, brilliant.",
+    "Junya Ito and Ueda finish what Kubo starts — watch both."
+   ],
+   "win": "A tidy win — we bow, we thank you, we move on.",
+   "lose": "You beat Samurai Blue — we will study this match all night.",
+   "fact": "Japan's fans famously tidy the stadium after every match."
+  },
+  {
+   "code": "KOR",
+   "name": "South Korea",
+   "short": "KOR",
+   "nickname": "The Taegeuk Warriors",
+   "c1": "#cd2e3a",
+   "c2": "#1c1c1c",
+   "crestCard": "KOR 1",
+   "manager": {
+    "card": "KOR 18",
+    "name": "Son Heung-min",
+    "voice": "the nicest smile in football, hiding a finisher"
+   },
+   "taunt": [
+    "I will smile the whole match — especially after I score.",
+    "Both feet, kiddo — you never know which one is coming.",
+    "The Taegeuk Warriors never stop running."
+   ],
+   "scout": [
+    "Son Heung-min is their captain and finisher — the main threat.",
+    "Kim Min-jae is a monster in defence — good luck getting past."
+   ],
+   "win": "Great game — high five, then we celebrate quietly.",
+   "lose": "You beat us fair and square — I'm still smiling, promise.",
+   "fact": "Son Heung-min captains Korea with the nicest smile in football."
+  },
+  {
+   "code": "KSA",
+   "name": "Saudi Arabia",
+   "short": "KSA",
+   "nickname": "The Green Falcons",
+   "c1": "#165b33",
+   "c2": "#ffffff",
+   "crestCard": "KSA 1",
+   "manager": {
+    "card": "KSA 16",
+    "name": "Salem Aldawsari",
+    "voice": "giant-slayer who celebrates with backflips"
+   },
+   "taunt": [
+    "We beat the world champions once — ask anyone.",
+    "The Green Falcons swoop when you least expect it.",
+    "Underestimate us and I will do a backflip about it."
+   ],
+   "scout": [
+    "Salem Aldawsari is the danger — he scored against Argentina.",
+    "Feras Albrikan and Alshehri share the goals up front."
+   ],
+   "win": "The Falcons flew today — backflips all round!",
+   "lose": "You clipped the Falcons' wings — we'll fly again soon.",
+   "fact": "Saudi Arabia beat Argentina in 2022 — biggest shock ever."
+  },
+  {
+   "code": "MAR",
+   "name": "Morocco",
+   "short": "MAR",
+   "nickname": "The Atlas Lions",
+   "c1": "#c1272d",
+   "c2": "#006233",
+   "crestCard": "MAR 1",
+   "manager": {
+    "card": "MAR 4",
+    "name": "Achraf Hakimi",
+    "voice": "cool full-back who defends and attacks in the same breath"
+   },
+   "taunt": [
+    "Try our left side — or the right — both doors are locked.",
+    "The Atlas Lions have climbed higher mountains than you.",
+    "I defend, I attack, I don't get tired — pick your problem."
+   ],
+   "scout": [
+    "Hakimi is a defender who loves to attack — watch him fly.",
+    "Bounou in goal saves everything — even penalties."
+   ],
+   "win": "The Lions roar again — good game, little club.",
+   "lose": "You climbed the Atlas today — enjoy the view up there.",
+   "fact": "Morocco reached the 2022 semis — a first for all of Africa."
+  },
+  {
+   "code": "MEX",
+   "name": "Mexico",
+   "short": "MEX",
+   "nickname": "El Tri",
+   "c1": "#006847",
+   "c2": "#ce1126",
+   "crestCard": "MEX 1",
+   "manager": {
+    "card": "MEX 16",
+    "name": "Santiago Giménez",
+    "voice": "goal-hungry hero of a hundred thousand singing fans"
+   },
+   "taunt": [
+    "One hundred thousand fans sing for El Tri — hear them yet?",
+    "Feed me one chance and the net will know about it.",
+    "El Tri plays with the whole country behind us."
+   ],
+   "scout": [
+    "Santiago Giménez leads their attack — a born goal-poacher.",
+    "Edson Álvarez guards their midfield — nothing gets through."
+   ],
+   "win": "Viva México — what a game, amigos!",
+   "lose": "You silenced El Tri today — the rematch will be louder.",
+   "fact": "Mexico co-hosts 2026 — the Azteca's third World Cup."
+  },
+  {
+   "code": "NED",
+   "name": "Netherlands",
+   "short": "NED",
+   "nickname": "Oranje",
+   "c1": "#ff7318",
+   "c2": "#ffffff",
+   "crestCard": "NED 1",
+   "manager": {
+    "card": "NED 3",
+    "name": "van Dijk",
+    "voice": "the calmest giant in football"
+   },
+   "taunt": [
+    "I don't chase strikers — they simply stop trying.",
+    "Orange is the colour of champions-in-waiting.",
+    "Stay calm, play simple, win — that's the Dutch way."
+   ],
+   "scout": [
+    "Van Dijk anchors their defence — the calmest giant around.",
+    "Gakpo and Depay finish the moves Frenkie de Jong starts."
+   ],
+   "win": "Tidy football, tidy result — well played all the same.",
+   "lose": "You beat the Oranje with our own calm — impressive stuff.",
+   "fact": "The Dutch invented Total Football — everyone plays everywhere."
+  },
+  {
+   "code": "NOR",
+   "name": "Norway",
+   "short": "NOR",
+   "nickname": "The Lions",
+   "legacy": "golazocity",
+   "c1": "#ba0c2f",
+   "c2": "#1c2a56",
+   "crestCard": "NOR 1",
+   "manager": {
+    "card": "NOR 15",
+    "name": "Haaland",
+    "voice": "few words, all of them about scoring"
+   },
+   "taunt": [
+    "Of course we will win.",
+    "I score goals — that is the whole plan.",
+    "Bring an extra keeper."
+   ],
+   "scout": [
+    "Haaland is ice-cold — from the penalty spot he never wobbles.",
+    "Ødegaard supplies, Haaland finishes — stop one or suffer both."
+   ],
+   "win": "Of course we won.",
+   "lose": "Well earned, kiddo — it will not happen twice.",
+   "fact": "Norway's plan is simple: give the ball to Haaland."
+  },
+  {
+   "code": "NZL",
+   "name": "New Zealand",
+   "short": "NZL",
+   "nickname": "The All Whites",
+   "c1": "#f4f4f0",
+   "c2": "#1c1c1c",
+   "crestCard": "NZL 1",
+   "manager": {
+    "card": "NZL 17",
+    "name": "Chris Wood",
+    "voice": "friendly kiwi tower, deadly in the air"
+   },
+   "taunt": [
+    "Just kick it to the big fella — works every time.",
+    "The All Whites flew farther than anyone to be here.",
+    "We're friendly right up until kickoff, mate."
+   ],
+   "scout": [
+    "Chris Wood is the tower up front — cross it and duck.",
+    "Every long ball is aimed at Wood's forehead — honestly."
+   ],
+   "win": "Good on ya — the big fella did it again.",
+   "lose": "Fair play, mate — we'll get you at the next one.",
+   "fact": "New Zealand went unbeaten at the 2010 World Cup — truly."
+  },
+  {
+   "code": "PAN",
+   "name": "Panama",
+   "short": "PAN",
+   "nickname": "The Red Tide",
+   "c1": "#d21034",
+   "c2": "#005293",
+   "crestCard": "PAN 1",
+   "manager": {
+    "card": "PAN 12",
+    "name": "Carrasquilla",
+    "voice": "tireless engine of a small country with a giant heart"
+   },
+   "taunt": [
+    "The Red Tide is rising — hope you can swim.",
+    "Panama never stops running, not even at full time.",
+    "Small country, giant heart — you'll feel it."
+   ],
+   "scout": [
+    "Carrasquilla is their engine — he never stops moving.",
+    "Murillo marshals their defence — tough but always fair."
+   ],
+   "win": "The Red Tide rolled you — swim practice, maybe?",
+   "lose": "The tide went out today — it always comes back in.",
+   "fact": "When Panama first qualified, the president declared a holiday."
+  },
+  {
+   "code": "PAR",
+   "name": "Paraguay",
+   "short": "PAR",
+   "nickname": "La Albirroja",
+   "c1": "#d6202a",
+   "c2": "#ffffff",
+   "crestCard": "PAR 1",
+   "manager": {
+    "card": "PAR 17",
+    "name": "Almirón",
+    "voice": "always smiling, always sprinting"
+   },
+   "taunt": [
+    "I smile before the match and even more after it.",
+    "La Albirroja never, ever stops fighting.",
+    "Fast feet, brave hearts — that's Paraguay."
+   ],
+   "scout": [
+    "Almirón and Enciso bring the magic — quick and fearless.",
+    "Gustavo Gómez leads their defence like a general."
+   ],
+   "win": "Paraguay wins and I can't stop smiling — sorry!",
+   "lose": "You beat La Albirroja — smiling is harder today.",
+   "fact": "Paraguay is back at the World Cup after sixteen long years."
+  },
+  {
+   "code": "POR",
+   "name": "Portugal",
+   "short": "POR",
+   "nickname": "A Selecao",
+   "c1": "#c8102e",
+   "c2": "#046a38",
+   "manager": {
+    "name": "Ronaldo",
+    "card": "POR 15"
+   },
+   "lines": {
+    "intro": "Watch closely. This is how it is done.",
+    "win": "Siiiu! Did you see? Of course you saw.",
+    "lose": "Impossible. We go again, and I will score twice."
+   },
+   "taunt": [
+    "I have played in five World Cups. You have played in zero.",
+    "My free kicks have their own fan club.",
+    "Bring your best card. It is still not me."
+   ],
+   "scout": [
+    "Ronaldo is their best card. He shoots from anywhere.",
+    "Bruno Fernandes pulls the strings in midfield."
+   ],
+   "fact": "Ronaldo has played in five World Cups — more than anyone."
+  },
+  {
+   "code": "QAT",
+   "name": "Qatar",
+   "short": "QAT",
+   "nickname": "The Maroon",
+   "c1": "#8a1538",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Afif",
+    "card": "QAT 18"
+   },
+   "lines": {
+    "intro": "Welcome. I brought tricks. Lots of tricks.",
+    "win": "The tricks worked! They always work.",
+    "lose": "You saw the tricks, at least. Next time they end in goals."
+   },
+   "taunt": [
+    "Afif was named Asia's best player. Twice.",
+    "We won the Asian Cup with a wink and a chip.",
+    "Hope you like skill moves. We have all of them."
+   ],
+   "scout": [
+    "Afif is the star — quick feet, quicker smile.",
+    "Almoez Ali scores the big goals for Qatar."
+   ],
+   "fact": "Qatar hosted the 2022 World Cup and has won the Asian Cup twice."
+  },
+  {
+   "code": "RSA",
+   "name": "South Africa",
+   "short": "RSA",
+   "nickname": "Bafana Bafana",
+   "c1": "#ffb81c",
+   "c2": "#007749",
+   "manager": {
+    "name": "Williams",
+    "card": "RSA 2"
+   },
+   "lines": {
+    "intro": "I am the captain AND the keeper. Good luck scoring.",
+    "win": "Bafana Bafana! The boys did the job and the door stayed shut.",
+    "lose": "You got past me. Very few do. Enjoy it."
+   },
+   "taunt": [
+    "I once saved four penalties in one shootout. Four.",
+    "My gloves are ready. Are your strikers?",
+    "Shoot all you like. I catch everything."
+   ],
+   "scout": [
+    "Their captain is the goalkeeper — Williams, a penalty-stopping wall.",
+    "Teboho Mokoena hits rockets from midfield."
+   ],
+   "fact": "Keeper Ronwen Williams once saved four penalties in a single shootout."
+  },
+  {
+   "code": "SCO",
+   "name": "Scotland",
+   "short": "SCO",
+   "nickname": "The Tartan Army",
+   "c1": "#1a2a56",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Robertson",
+    "card": "SCO 6"
+   },
+   "lines": {
+    "intro": "The Tartan Army is singing. Try not to let it rattle you.",
+    "win": "Aye, that'll do nicely. All of Scotland heard that roar.",
+    "lose": "Hard luck for us, well played you. We'll be louder next time."
+   },
+   "taunt": [
+    "Our fans out-sing everyone. Even when we're losing.",
+    "McTominay scores goals now. Nobody knows how to stop it.",
+    "It's always a battle against Scotland. Bring your boots."
+   ],
+   "scout": [
+    "McTominay arrives late in the box and scores.",
+    "Captain Robertson charges up the left wing all match."
+   ],
+   "fact": "Scotland's fans, the Tartan Army, are famous for never stopping singing."
+  },
+  {
+   "code": "SEN",
+   "name": "Senegal",
+   "short": "SEN",
+   "nickname": "Lions of Teranga",
+   "c1": "#ffffff",
+   "c2": "#00853f",
+   "manager": {
+    "name": "Mané",
+    "card": "SEN 15"
+   },
+   "lines": {
+    "intro": "We are the Lions of Teranga. We welcome you. Then we roar.",
+    "win": "The lions roared today. Senegal dances tonight.",
+    "lose": "Even lions rest. We will hunt again next match."
+   },
+   "taunt": [
+    "Mané has been Africa's best player. Twice.",
+    "Our whole team runs like the wind off the ocean.",
+    "Koulibaly has been a wall for years. Good luck."
+   ],
+   "scout": [
+    "Mané is the star — fast, direct, always dangerous.",
+    "Kalidou Koulibaly leads the defence like a fortress."
+   ],
+   "fact": "Senegal won their first Africa Cup of Nations in 2022 — on penalties."
+  },
+  {
+   "code": "SUI",
+   "name": "Switzerland",
+   "short": "SUI",
+   "nickname": "La Nati",
+   "c1": "#d6202a",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Xhaka",
+    "card": "SUI 9"
+   },
+   "lines": {
+    "intro": "Switzerland is precise. Like our watches. Like my passing.",
+    "win": "Precise. Punctual. Three points, exactly on time.",
+    "lose": "Even a Swiss watch skips a beat. It will not happen twice."
+   },
+   "taunt": [
+    "My passes arrive on time. To the second.",
+    "We beat the big teams when it matters. Ask around.",
+    "Climb a mountain before you face us. For practice."
+   ],
+   "scout": [
+    "Xhaka controls the middle — every attack goes through him.",
+    "Keeper Gregor Kobel is one of the best around."
+   ],
+   "fact": "Switzerland reached the knockout rounds at three straight World Cups."
+  },
+  {
+   "code": "SWE",
+   "name": "Sweden",
+   "short": "SWE",
+   "nickname": "Blagult",
+   "c1": "#ffcd00",
+   "c2": "#006aa7",
+   "manager": {
+    "name": "Gyökeres",
+    "card": "SWE 20"
+   },
+   "lines": {
+    "intro": "When I score, the mask comes on. Prepare to see the mask.",
+    "win": "The mask! You saw the mask. Sweden marches on.",
+    "lose": "No mask today. Next match it returns, I promise."
+   },
+   "taunt": [
+    "Gyökeres out-scored everyone in Europe. Then did it again.",
+    "Isak glides. Gyökeres smashes. Pick your problem.",
+    "Our strikers are faster than your defenders. Simple maths."
+   ],
+   "scout": [
+    "Two big strikers: Isak the smooth one, Gyökeres the strong one.",
+    "Watch the counter-attack — Sweden breaks at full speed."
+   ],
+   "fact": "Gyökeres celebrates goals with an invisible mask over his face."
+  },
+  {
+   "code": "TUN",
+   "name": "Tunisia",
+   "short": "TUN",
+   "nickname": "Eagles of Carthage",
+   "c1": "#e70013",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Hannibal",
+    "card": "TUN 14"
+   },
+   "lines": {
+    "intro": "My name is Hannibal. The Eagles of Carthage fly with me.",
+    "win": "The eagles soar! Carthage remembers this one.",
+    "lose": "Eagles circle back. We always circle back."
+   },
+   "taunt": [
+    "We beat France at the last World Cup. Look it up.",
+    "The Eagles of Carthage have sharp talons and sharper passing.",
+    "Hannibal crossed the Alps. A football pitch is easy."
+   ],
+   "scout": [
+    "Hannibal Mejbri brings the energy and the tricks.",
+    "Ellyes Skhiri covers every blade of grass in midfield."
+   ],
+   "fact": "Tunisia beat France 1-0 at the 2022 World Cup."
+  },
+  {
+   "code": "TUR",
+   "name": "Türkiye",
+   "short": "TUR",
+   "nickname": "The Crescent-Stars",
+   "c1": "#e30a17",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Çalhanoğlu",
+    "card": "TUR 11"
+   },
+   "lines": {
+    "intro": "Give me one free kick. That is all Türkiye needs.",
+    "win": "Türkiye celebrates! The crescent and star shine tonight.",
+    "lose": "You dodged my free kicks today. You cannot dodge them forever."
+   },
+   "taunt": [
+    "Arda Güler is called the Little Prince. Wait until he is king.",
+    "My shots bend around walls. Build a bigger wall.",
+    "Our fans make more noise than a rocket launch."
+   ],
+   "scout": [
+    "Çalhanoğlu's long shots are the danger. Stand off him and pay.",
+    "Young Arda Güler can unlock any defence with one pass."
+   ],
+   "fact": "Türkiye's young star Arda Güler is nicknamed the Little Prince."
+  },
+  {
+   "code": "URU",
+   "name": "Uruguay",
+   "short": "URU",
+   "nickname": "La Celeste",
+   "c1": "#55b5e5",
+   "c2": "#0b2c5f",
+   "manager": {
+    "name": "Suárez",
+    "card": "URU 15"
+   },
+   "lines": {
+    "intro": "I play fair. Mostly. Define fair.",
+    "win": "Told you it was fair. The scoreboard agrees with me.",
+    "lose": "Fine. That was fair too. Barely."
+   },
+   "taunt": [
+    "I score with my feet, my head, and... mostly my feet.",
+    "Uruguay has won two World Cups. How many has your shop won?",
+    "Valverde's shots could dent a bus."
+   ],
+   "scout": [
+    "Suárez sometimes uses his hand — the ref spots it every time.",
+    "Valverde hits thunderbolts from midfield."
+   ],
+   "fact": "Uruguay won the very first World Cup in 1930 — at home."
+  },
+  {
+   "code": "USA",
+   "name": "United States",
+   "short": "USA",
+   "nickname": "The Stars and Stripes",
+   "c1": "#3f5aa8",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Pulisic",
+    "card": "USA 16"
+   },
+   "lines": {
+    "intro": "Captain America reporting. Caruso is here too. He hustles.",
+    "win": "USA! USA! That one is for the home fans.",
+    "lose": "We will sprint it back. That is the American way."
+   },
+   "taunt": [
+    "It is called soccer here, and we are getting scary good at it.",
+    "Caruso will chase you down. He chases everyone down.",
+    "Home crowd, home noise, home win. That is the plan."
+   ],
+   "scout": [
+    "Pulisic is the star — quick cuts, cool finishes.",
+    "Caruso's tackles can stop an attack dead. He hustles every play."
+   ],
+   "fact": "The USA is hosting the 2026 World Cup with Mexico and Canada."
+  },
+  {
+   "code": "UZB",
+   "name": "Uzbekistan",
+   "short": "UZB",
+   "nickname": "The White Wolves",
+   "c1": "#0099b5",
+   "c2": "#ffffff",
+   "manager": {
+    "name": "Khusanov",
+    "card": "UZB 9"
+   },
+   "lines": {
+    "intro": "First World Cup for Uzbekistan. The White Wolves are hungry.",
+    "win": "The wolves feast! All of Tashkent is dancing.",
+    "lose": "Wolves learn from every hunt. We are learning fast."
+   },
+   "taunt": [
+    "Nobody dribbles past Khusanov. Nobody.",
+    "New to the World Cup. Not new to winning.",
+    "The White Wolves hunt as a pack. You face all of us."
+   ],
+   "scout": [
+    "Khusanov is the rock in defence — fast and fearless.",
+    "Shomurodov leads the line and takes the big chances."
+   ],
+   "fact": "This is Uzbekistan's first ever World Cup."
+  }
+ ],
+ "feats": [
+  {
+   "id": "first-win",
+   "name": "First Whistle",
+   "how": "Win your first career match.",
+   "reward": "Gibson joins your club (white card)",
+   "celebrationLine": "Gibson signs for your club. He heard there was a trophy in it."
+  },
+  {
+   "id": "comeback-win",
+   "name": "Never Give Up",
+   "how": "Win a match after being behind.",
+   "reward": "Ellis joins your club (white card)",
+   "celebrationLine": "Ellis joins up. Small player. Enormous plans."
+  },
+  {
+   "id": "clean-5",
+   "name": "Guard Dog",
+   "how": "Keep 5 clean sheets in your career.",
+   "reward": "Phoenix joins your club (white card)",
+   "celebrationLine": "Phoenix reports for training. Good dog. Great keeper."
+  },
+  {
+   "id": "season-done",
+   "name": "The Long Game",
+   "how": "Play a full season, all the way to the end.",
+   "reward": "Grandpa Fink joins your club (white card)",
+   "celebrationLine": "Grandpa Fink laces up. Slowly. But he laces up."
+  },
+  {
+   "id": "lockdown",
+   "name": "The Lockdown",
+   "how": "Win a match where the other team takes 10 shots and never scores.",
+   "reward": "Lu Dort joins your club (white card)",
+   "celebrationLine": "Lu Dort arrives. Strikers, form a queue to nowhere."
+  },
+  {
+   "id": "hustle",
+   "name": "The Hustle",
+   "how": "Win a match when the other team's ratings are 3 points better than yours.",
+   "reward": "Caruso joins your club (white card)",
+   "celebrationLine": "Caruso signs. Ratings? He doesn't read those."
+  },
+  {
+   "id": "wall-3",
+   "name": "The Wall",
+   "how": "Win 3 matches in a row without letting in a goal.",
+   "reward": "Wembanyama joins your club (white card)",
+   "celebrationLine": "Wembanyama is in goal now. The goal looks smaller already."
+  },
+  {
+   "id": "bite-back",
+   "name": "Bite Back",
+   "how": "Beat Suárez FC in a competitive match.",
+   "reward": "Suárez joins your club (white card)",
+   "celebrationLine": "Suárez joins you. He says he plays fair. Mostly."
+  },
+  {
+   "id": "cup-champ",
+   "name": "Champion of Champions",
+   "how": "Win the Gibson Cup.",
+   "reward": "Maradona joins your club (white card)",
+   "celebrationLine": "Maradona is here. The cup gleams. Keep both eyes on his hands."
+  },
+  {
+   "id": "goals-10",
+   "name": "Ten Goal Salute",
+   "how": "Score 10 goals in your career.",
+   "reward": "+100 coins",
+   "celebrationLine": "Double figures. The net needed a rest anyway."
+  },
+  {
+   "id": "goals-50",
+   "name": "Half Century",
+   "how": "Score 50 goals in your career.",
+   "reward": "Gold pack",
+   "celebrationLine": "Fifty goals. The groundskeeper is buying stronger nets."
+  },
+  {
+   "id": "first-blue",
+   "name": "Into the Blue",
+   "how": "Train any card up to blue for the first time.",
+   "reward": "+50 coins",
+   "celebrationLine": "Your first blue. The shine is real."
+  },
+  {
+   "id": "black-card",
+   "name": "The One of One",
+   "how": "Own a black card.",
+   "reward": "+1,000 coins",
+   "celebrationLine": "A black card. There is only one. It is yours."
+  },
+  {
+   "id": "squad-85",
+   "name": "Galaxy XI",
+   "how": "Field a starting team with an average rating of 85 or higher.",
+   "reward": "Gold pack",
+   "celebrationLine": "That team sheet belongs in a frame."
+  },
+  {
+   "id": "hotseat-10",
+   "name": "Friendly Rivals",
+   "how": "Play 10 hot-seat friendlies.",
+   "reward": "+250 coins",
+   "celebrationLine": "Ten friendlies. Still speaking to each other. Mostly."
+  },
+  {
+   "id": "undefeated",
+   "name": "The Invincibles",
+   "how": "Finish a whole season without losing a match.",
+   "reward": "Gold pack",
+   "celebrationLine": "A season with zero losses. Print the posters."
+  },
+  {
+   "id": "pack-20",
+   "name": "Pack Animal",
+   "how": "Open 20 packs.",
+   "reward": "+200 coins",
+   "celebrationLine": "Twenty packs opened. The wrappers form a small mountain."
+  },
+  {
+   "id": "boss-down",
+   "name": "Giant Slayer",
+   "how": "Beat Legends XI.",
+   "reward": "+200 coins",
+   "celebrationLine": "The Legends XI just lost. To you. Write down the date."
+  },
+  {
+   "id": "draft-day",
+   "name": "Draft Day",
+   "how": "Win a Draft Duel.",
+   "reward": "+75 coins",
+   "celebrationLine": "Drafted well. Played better."
+  },
+  {
+   "id": "hat-hero",
+   "name": "Hat-Trick Hero",
+   "how": "One of your players scores 3 goals in one match.",
+   "reward": "+50 coins",
+   "celebrationLine": "Three goals in one match. Keep the ball."
+  },
+  {
+   "id": "collector-100",
+   "name": "The Collector",
+   "how": "Own 100 different cards.",
+   "reward": "Silver pack",
+   "celebrationLine": "One hundred cards. The binder creaks with pride."
+  }
+ ],
+ "crests": {
+  "ALG": {
+   "team": "Algeria",
+   "flavor": "A fennec fox with very big ears. It hears everything.",
+   "passive": "the fox listens — {team} hear the pass before it happens."
+  },
+  "ARG": {
+   "team": "Argentina",
+   "flavor": "Three stars and a sun that will not stop shining.",
+   "passive": "the sun beams — {team} free kicks feel a little golden."
+  },
+  "AUS": {
+   "team": "Australia",
+   "flavor": "A kangaroo that never learned to walk backwards.",
+   "passive": "the roo bounces — {team} only ever hop forward."
+  },
+  "AUT": {
+   "team": "Austria",
+   "flavor": "A tidy eagle between two red stripes. Very organised.",
+   "passive": "the eagle tidies up — {team} loose balls sort themselves out."
+  },
+  "BEL": {
+   "team": "Belgium",
+   "flavor": "The famous little red devil. Mostly well behaved.",
+   "passive": "the badge grins — {team} shots take a cheeky bend."
+  },
+  "BIH": {
+   "team": "Bosnia and Herzegovina",
+   "flavor": "Golden lilies on blue. Small flowers, big hearts.",
+   "passive": "the lilies bloom — {team} play braver at home."
+  },
+  "BRA": {
+   "team": "Brazil",
+   "flavor": "Five stars. They are not shy about it.",
+   "passive": "the stars twinkle — {team} skill moves feel like samba."
+  },
+  "CAN": {
+   "team": "Canada",
+   "flavor": "A maple leaf. Polite, and unbreakable.",
+   "passive": "the leaf holds firm — {team} never mind a cold snap."
+  },
+  "CIV": {
+   "team": "Côte d'Ivoire",
+   "flavor": "An elephant. It remembers every match.",
+   "passive": "the elephant remembers — {team} learn from every rebound."
+  },
+  "COD": {
+   "team": "DR Congo",
+   "flavor": "A leopard mid-prowl. Quiet paws, loud finish.",
+   "passive": "the leopard prowls — {team} counters arrive on soft feet."
+  },
+  "COL": {
+   "team": "Colombia",
+   "flavor": "A condor riding yellow, blue and red.",
+   "passive": "the condor soars — {team} long balls hang a beat longer."
+  },
+  "CPV": {
+   "team": "Cape Verde",
+   "flavor": "Ten islands, one badge, zero fear.",
+   "passive": "the sharks circle — {team} sense a loose ball in the box."
+  },
+  "CRO": {
+   "team": "Croatia",
+   "flavor": "The famous checkerboard. Every square counted twice.",
+   "passive": "the squares line up — {team} passes click into place."
+  },
+  "CUW": {
+   "team": "Curaçao",
+   "flavor": "Stars on ocean blue. Small island, big splash.",
+   "passive": "the stars sparkle — {team} play with holiday feet."
+  },
+  "CZE": {
+   "team": "Czechia",
+   "flavor": "A lion with two tails. Twice the swish.",
+   "passive": "both tails swish — {team} always get a second look."
+  },
+  "ECU": {
+   "team": "Ecuador",
+   "flavor": "A badge the colour of sunrise over the Andes.",
+   "passive": "the mountain air helps — {team} never seem to puff."
+  },
+  "EGY": {
+   "team": "Egypt",
+   "flavor": "A badge as old as the pyramids. Well, nearly.",
+   "passive": "the Pharaohs nod — {team} stand tall like monuments."
+  },
+  "ENG": {
+   "team": "England",
+   "flavor": "Three lions on a shirt. Still dreaming.",
+   "passive": "the lions roar — {team} believe right up to the whistle."
+  },
+  "ESP": {
+   "team": "Spain",
+   "flavor": "A royal crest with a lot going on. All of it wins.",
+   "passive": "the crown gleams — {team} keep the ball like treasure."
+  },
+  "FRA": {
+   "team": "France",
+   "flavor": "A rooster who crows first and asks later.",
+   "passive": "the rooster crows — {team} wake up fast after half time."
+  },
+  "GER": {
+   "team": "Germany",
+   "flavor": "An eagle and four stars. Built to specification.",
+   "passive": "the eagle inspects — {team} finish what they measure."
+  },
+  "GHA": {
+   "team": "Ghana",
+   "flavor": "One black star. It shines anyway.",
+   "passive": "the star glows — {team} shine brightest under the lights."
+  },
+  "HAI": {
+   "team": "Haiti",
+   "flavor": "A palm tree that has weathered every storm.",
+   "passive": "the palm bends, never breaks — {team} bounce back quick."
+  },
+  "IRN": {
+   "team": "Iran",
+   "flavor": "A badge quick as a cheetah. Blink and it's gone.",
+   "passive": "the cheetah stretches — {team} break faster than they look."
+  },
+  "IRQ": {
+   "team": "Iraq",
+   "flavor": "Lions from the land of two rivers.",
+   "passive": "the rivers run — {team} keep flowing forward."
+  },
+  "JOR": {
+   "team": "Jordan",
+   "flavor": "A new badge at the big dance. It practised in the mirror.",
+   "passive": "the badge beams — {team} play like it's the best day ever."
+  },
+  "JPN": {
+   "team": "Japan",
+   "flavor": "A crow with three legs. Extra balance, obviously.",
+   "passive": "the crow balances — {team} first touches land just so."
+  },
+  "KOR": {
+   "team": "South Korea",
+   "flavor": "A tiger in mid-leap. It skipped the warm-up.",
+   "passive": "the tiger leaps — {team} press before you're ready."
+  },
+  "KSA": {
+   "team": "Saudi Arabia",
+   "flavor": "A green falcon with excellent eyesight.",
+   "passive": "the falcon spots gaps — {team} passes find keyholes."
+  },
+  "MAR": {
+   "team": "Morocco",
+   "flavor": "An Atlas lion who climbed a mountain to get here.",
+   "passive": "the lion stands guard — {team} defend like a mountain pass."
+  },
+  "MEX": {
+   "team": "Mexico",
+   "flavor": "An eagle perched on a cactus. Comfortable anywhere.",
+   "passive": "the eagle settles — {team} feel at home in any stadium."
+  },
+  "NED": {
+   "team": "Netherlands",
+   "flavor": "An orange lion. The paint was on purpose.",
+   "passive": "the lion swaggers — {team} try the fancy thing first."
+  },
+  "NOR": {
+   "team": "Norway",
+   "flavor": "A lion in the cold. It didn't notice.",
+   "passive": "the north wind pushes — {team} finish strong in the rain."
+  },
+  "NZL": {
+   "team": "New Zealand",
+   "flavor": "A silver fern. Delicate looking. It is not.",
+   "passive": "the fern unfurls — {team} grow into every match."
+  },
+  "PAN": {
+   "team": "Panama",
+   "flavor": "A badge that bridges two oceans.",
+   "passive": "the canal connects — {team} link up from box to box."
+  },
+  "PAR": {
+   "team": "Paraguay",
+   "flavor": "A lion under a star, guarding the badge.",
+   "passive": "the guard lion watches — {team} sniff out sneaky passes."
+  },
+  "POR": {
+   "team": "Portugal",
+   "flavor": "An old explorer's sphere. It has seen the whole map.",
+   "passive": "the sphere spins — {team} shots come from strange places."
+  },
+  "QAT": {
+   "team": "Qatar",
+   "flavor": "A maroon badge, calm as a desert evening.",
+   "passive": "the desert cools — {team} stay patient when it's tense."
+  },
+  "RSA": {
+   "team": "South Africa",
+   "flavor": "A badge with a rainbow behind it. Always.",
+   "passive": "the rainbow arcs — {team} chipped passes look extra pretty."
+  },
+  "SCO": {
+   "team": "Scotland",
+   "flavor": "A prickly thistle. Handle with care.",
+   "passive": "the thistle prickles — {team} are no fun to tackle."
+  },
+  "SEN": {
+   "team": "Senegal",
+   "flavor": "A lion of Teranga. Fierce, and a wonderful host.",
+   "passive": "the lion welcomes you in — then {team} take the ball back."
+  },
+  "SUI": {
+   "team": "Switzerland",
+   "flavor": "A white cross, punctual to the second.",
+   "passive": "the badge keeps time — {team} never miss a kickoff beat."
+  },
+  "SWE": {
+   "team": "Sweden",
+   "flavor": "Three crowns. One would have been fine.",
+   "passive": "the crowns sit level — {team} keep a cool blue head."
+  },
+  "TUN": {
+   "team": "Tunisia",
+   "flavor": "An eagle of Carthage, older than most trophies.",
+   "passive": "the old eagle circles — {team} wait for the right moment."
+  },
+  "TUR": {
+   "team": "Türkiye",
+   "flavor": "A crescent moon and star. Night games feel special.",
+   "passive": "the moon rises — {team} glow in evening kickoffs."
+  },
+  "URU": {
+   "team": "Uruguay",
+   "flavor": "Four stars on a small badge. Punching up is tradition.",
+   "passive": "the stars stack — {team} play bigger than they look."
+  },
+  "USA": {
+   "team": "United States",
+   "flavor": "Stars, stripes, and a lot of running.",
+   "passive": "the stripes streak — {team} run all day and ask for extra."
+  },
+  "UZB": {
+   "team": "Uzbekistan",
+   "flavor": "The Huma bird. Legend says it never lands.",
+   "passive": "the Huma flies on — {team} never stop moving."
+  }
+ }
+}

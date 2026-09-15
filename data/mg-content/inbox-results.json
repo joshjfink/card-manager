@@ -1,0 +1,245 @@
+{
+  "kind": "inbox",
+  "items": [
+    {
+      "type": "win",
+      "weight": 2,
+      "title": "Match Report: Victory",
+      "body": "We beat {opponent} {score} in Round {round}. {scorer} did the business. Three points in the bag."
+    },
+    {
+      "type": "win",
+      "weight": 2,
+      "title": "Three Points Secured",
+      "body": "{opponent} came to play. We played better. {score} — and {scorer} takes the headlines."
+    },
+    {
+      "type": "win",
+      "weight": 1,
+      "title": "Job Done",
+      "body": "A professional {score} win over {opponent}. The coaches will talk about {scorer}'s finish for a week."
+    },
+    {
+      "type": "win",
+      "weight": 1,
+      "title": "Winning Feels Good",
+      "body": "Round {round}: {opponent} beaten {score}. Someone has put a drawing of {scorer}'s goal on the fridge."
+    },
+    {
+      "type": "win",
+      "weight": 1,
+      "title": "The Board Is Pleased",
+      "body": "The board watched the {score} win over {opponent} and nodded slowly. That is board language for delighted."
+    },
+    {
+      "type": "win",
+      "weight": 1,
+      "title": "Fan Mail Received",
+      "body": "A young fan sent a drawing of {scorer} scoring against {opponent}. The likeness is questionable. The joy is real."
+    },
+    {
+      "type": "loss",
+      "weight": 2,
+      "title": "Match Report: Defeat",
+      "body": "Lost {score} to {opponent} in Round {round}. It stings. Next match, we go again."
+    },
+    {
+      "type": "loss",
+      "weight": 1,
+      "title": "A Quiet Bus Ride",
+      "body": "{opponent} beat us {score}. The bus ride home was quiet. Training tomorrow will not be."
+    },
+    {
+      "type": "loss",
+      "weight": 1,
+      "title": "Lessons Learned",
+      "body": "{score} against {opponent}. {scorer} kept fighting to the very end. That is the bit to keep."
+    },
+    {
+      "type": "loss",
+      "weight": 1,
+      "title": "Chin Up, Boss",
+      "body": "The kit man says every great manager loses one like this. {score} to {opponent}. He also lost the cones."
+    },
+    {
+      "type": "loss",
+      "weight": 1,
+      "title": "We Go Again",
+      "body": "Round {round} did not go our way. {opponent}, {score}. The table forgets fast. So should we."
+    },
+    {
+      "type": "draw",
+      "weight": 2,
+      "title": "Match Report: Draw",
+      "body": "{score} against {opponent} in Round {round}. One point each. Nobody sings about a draw. Nobody cries either."
+    },
+    {
+      "type": "draw",
+      "weight": 1,
+      "title": "Honours Even",
+      "body": "A {score} draw with {opponent}. {scorer} scored ours. The handshakes were extremely polite."
+    },
+    {
+      "type": "draw",
+      "weight": 1,
+      "title": "A Point Shared",
+      "body": "{opponent} held us to {score}. The analysts call it a chess match. The chess club disagrees."
+    },
+    {
+      "type": "draw",
+      "weight": 1,
+      "title": "So Close",
+      "body": "So close against {opponent}. {score} it finished. One more pass and this is a different inbox."
+    },
+    {
+      "type": "thrashing",
+      "weight": 2,
+      "title": "Match Report: Statement Win",
+      "body": "{score}! {opponent} could not live with us. {scorer} was unplayable. Frame this one."
+    },
+    {
+      "type": "thrashing",
+      "weight": 1,
+      "title": "Goals, Goals, Goals",
+      "body": "We hit {opponent} for plenty — {score} in Round {round}. The scoreboard operator has asked for a rest."
+    },
+    {
+      "type": "thrashing",
+      "weight": 1,
+      "title": "Total Football",
+      "body": "A {score} demolition of {opponent}. {scorer} ran the whole show. The highlight reel is very long."
+    },
+    {
+      "type": "thrashing",
+      "weight": 1,
+      "title": "That Was Loud",
+      "body": "{score} over {opponent}. The fans lost their voices in Round {round}. Worth it, they say."
+    },
+    {
+      "type": "upset",
+      "weight": 2,
+      "title": "Giant Toppled",
+      "body": "Nobody gave us a chance against {opponent}. Final score: {score}. Cut out the newspaper. Keep it forever."
+    },
+    {
+      "type": "upset",
+      "weight": 1,
+      "title": "Shock of the Season",
+      "body": "{opponent} arrived as favourites. They left beaten, {score}. {scorer} wrote the story."
+    },
+    {
+      "type": "upset",
+      "weight": 1,
+      "title": "Believe It",
+      "body": "Round {round}, and it actually happened. {opponent} beaten, {score}. The dressing room is still bouncing."
+    },
+    {
+      "type": "upset",
+      "weight": 1,
+      "title": "Not On Paper",
+      "body": "On paper, {opponent} win easily. Football is not played on paper. {score}."
+    },
+    {
+      "type": "cleansheet",
+      "weight": 2,
+      "title": "Clean Sheet Secured",
+      "body": "Not one goal past us against {opponent}. The keeper wants the match ball. The defenders want it too."
+    },
+    {
+      "type": "cleansheet",
+      "weight": 1,
+      "title": "The Wall Held",
+      "body": "{opponent} tried everything. Nothing went in. {score}, and the back line walked off grinning."
+    },
+    {
+      "type": "cleansheet",
+      "weight": 1,
+      "title": "Zero Is Beautiful",
+      "body": "A clean sheet in Round {round}. The goalkeeping coach has printed the stat and laminated it."
+    },
+    {
+      "type": "cleansheet",
+      "weight": 1,
+      "title": "Nothing Got Through",
+      "body": "{opponent} huffed and puffed. Our goal stayed shut. Free hot chocolate for the defenders on the bus."
+    },
+    {
+      "type": "rivalPreview",
+      "weight": 2,
+      "title": "Next Up: {opponent}",
+      "body": "Round {round} brings {opponent} to town. Their manager has been talking. Let the football answer."
+    },
+    {
+      "type": "rivalPreview",
+      "weight": 1,
+      "title": "Scout Report: {opponent}",
+      "body": "The scouts watched {opponent} twice. Verdict: dangerous, but beatable. Set the tactics well, boss."
+    },
+    {
+      "type": "rivalPreview",
+      "weight": 1,
+      "title": "Big Match Ahead",
+      "body": "Everyone is talking about Round {round}: us against {opponent}. Tickets went fast. Nerves are normal."
+    },
+    {
+      "type": "rivalPreview",
+      "weight": 1,
+      "title": "The Papers Are Talking",
+      "body": "The local paper calls {opponent} favourites. The squad pinned the article to the wall. Motivation sorted."
+    },
+    {
+      "type": "rivalPreview",
+      "weight": 1,
+      "title": "Match Day Approaches",
+      "body": "{opponent} in Round {round}. The kit is washed. The boots are polished. The plan is yours, boss."
+    },
+    {
+      "type": "tableMove",
+      "weight": 2,
+      "title": "Climbing the Table",
+      "body": "The results are in. We move up to {position}. Keep winning and keep climbing."
+    },
+    {
+      "type": "tableMove",
+      "weight": 1,
+      "title": "League Table Update",
+      "body": "We now sit {position} in the league. The board checked the table twice. Then smiled."
+    },
+    {
+      "type": "tableMove",
+      "weight": 1,
+      "title": "A Slip in the Standings",
+      "body": "The table says {position}. It reads worse than it feels. One win changes everything."
+    },
+    {
+      "type": "tableMove",
+      "weight": 1,
+      "title": "Eyes on the Prize",
+      "body": "{position} after Round {round}. The gap at the top is shrinking. So is the excuse list."
+    },
+    {
+      "type": "seasonMilestone",
+      "weight": 1,
+      "title": "A New Season Begins",
+      "body": "Fresh grass, fresh hopes, zero points for everyone. A whole season ahead. Make it count, boss."
+    },
+    {
+      "type": "seasonMilestone",
+      "weight": 1,
+      "title": "Halfway There",
+      "body": "Round {round} complete — half the season gone. We sit {position}. The second half decides everything."
+    },
+    {
+      "type": "seasonMilestone",
+      "weight": 1,
+      "title": "The Run-In Begins",
+      "body": "Only a few rounds left. We stand {position}. Every match is a final now."
+    },
+    {
+      "type": "seasonMilestone",
+      "weight": 1,
+      "title": "Club Milestone Reached",
+      "body": "The club marks a milestone this week. The trophy cabinet has been dusted. Just in case."
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "file": "inbox-club",
+  "version": 1,
+  "description": "Inbox templates for club life: training, upgrades, packs, dupes, energy, morale, scout tips, board notes. FM-straight chrome, whimsy in the words. Placeholders: {player} {tier} {coins} {feat}.",
+  "placeholders": ["player", "tier", "coins", "feat"],
+  "templates": [
+    {
+      "id": "club-train-01",
+      "type": "training_complete",
+      "headline": "TRAINING COMPLETE",
+      "body": "{player} steps up to {tier}. The whole yard clapped.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-train-02",
+      "type": "training_complete",
+      "headline": "TRAINING REPORT",
+      "body": "{player} hit every cone. {tier} looks well earned.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-train-03",
+      "type": "training_complete",
+      "headline": "NEW TIER EARNED",
+      "body": "{player} trained hard for this. {tier}, done and dusted.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-train-04",
+      "type": "training_complete",
+      "headline": "SESSION OVER",
+      "body": "{player} stayed late again. That is {tier} form.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-train-05",
+      "type": "training_complete",
+      "headline": "COACH'S NOTES",
+      "body": "Textbook week from {player}. {tier}, signed and sealed.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-upgrade-01",
+      "type": "tier_upgrade",
+      "headline": "CARD UPGRADED",
+      "body": "{player} shines in {tier} now. Hold it up to the light.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-upgrade-02",
+      "type": "tier_upgrade",
+      "headline": "UPGRADE NEWS",
+      "body": "Same {player}, better sparkle. {tier} looks the part.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-upgrade-03",
+      "type": "tier_upgrade",
+      "headline": "SHINY NEW TIER",
+      "body": "{player} just went {tier}. The binder looks better already.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-upgrade-04",
+      "type": "tier_upgrade",
+      "headline": "UPGRADE COMPLETE",
+      "body": "Your {player} is now {tier}. No coins spent. Lucky day.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-upgrade-05",
+      "type": "tier_upgrade",
+      "headline": "LADDER CLIMBED",
+      "body": "One step up for {player}. {tier} today, who knows tomorrow.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-pack-01",
+      "type": "pack_earned",
+      "headline": "PACK EARNED",
+      "body": "{feat} complete. A pack is waiting in your tray.",
+      "from": "— club HQ"
+    },
+    {
+      "id": "club-pack-02",
+      "type": "pack_earned",
+      "headline": "PRIZE DELIVERY",
+      "body": "One pack, earned the honest way. Open it when ready.",
+      "from": "— club HQ"
+    },
+    {
+      "id": "club-pack-03",
+      "type": "pack_earned",
+      "headline": "TRAY UPDATE",
+      "body": "A new pack just landed. {feat} made it happen.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-pack-04",
+      "type": "pack_earned",
+      "headline": "YOU EARNED THIS",
+      "body": "No rush. The pack will wait right there in your tray.",
+      "from": "— club HQ"
+    },
+    {
+      "id": "club-dupe-01",
+      "type": "dupe_converted",
+      "headline": "DUPLICATE SWAPPED",
+      "body": "Two of {player} is one too many. {coins} coins to the club.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-dupe-02",
+      "type": "dupe_converted",
+      "headline": "SWAP COMPLETE",
+      "body": "The spare {player} found a new home. {coins} coins in.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-dupe-03",
+      "type": "dupe_converted",
+      "headline": "COIN NEWS",
+      "body": "A duplicate {player} became {coins} coins. Tidy business.",
+      "from": "— club HQ"
+    },
+    {
+      "id": "club-dupe-04",
+      "type": "dupe_converted",
+      "headline": "BINDER TIDIED",
+      "body": "One {player} stays, one goes. {coins} coins for the jar.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-energy-01",
+      "type": "energy_note",
+      "headline": "FITNESS REPORT",
+      "body": "{player} is running on empty. A round off fixes everything.",
+      "from": "— the bench"
+    },
+    {
+      "id": "club-energy-02",
+      "type": "energy_note",
+      "headline": "REST ADVISED",
+      "body": "{player} gave everything out there. Fresh legs beat tired ones.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-energy-03",
+      "type": "energy_note",
+      "headline": "SQUAD ROTATION",
+      "body": "Tired boots, heavy touches. Give {player} a breather.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-energy-04",
+      "type": "energy_note",
+      "headline": "FRESH LEGS ALERT",
+      "body": "{player} is back to full battery. Ready when you are.",
+      "from": "— the bench"
+    },
+    {
+      "id": "club-morale-01",
+      "type": "morale_note",
+      "headline": "MOOD WATCH",
+      "body": "{player} is ON FIRE. Keep that name on the team sheet.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-morale-02",
+      "type": "morale_note",
+      "headline": "DRESSING ROOM NEWS",
+      "body": "{player} WANTS TO PLAY. A start would fix that frown.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-morale-03",
+      "type": "morale_note",
+      "headline": "A QUIET WEEK",
+      "body": "{player} is feeling COLD. One goal turns it all around.",
+      "from": "— the coach"
+    },
+    {
+      "id": "club-morale-04",
+      "type": "morale_note",
+      "headline": "ALL SMILES",
+      "body": "Good mood in the yard. {player} led the singing.",
+      "from": "— the kit man"
+    },
+    {
+      "id": "club-scout-01",
+      "type": "scout_tip",
+      "headline": "SCOUT'S TIP",
+      "body": "Keep an eye on {player}. {tier} would change matches.",
+      "from": "— the scout"
+    },
+    {
+      "id": "club-scout-02",
+      "type": "scout_tip",
+      "headline": "ONE TO TRAIN",
+      "body": "{player} is ready for more. {tier} is within reach.",
+      "from": "— the scout"
+    },
+    {
+      "id": "club-scout-03",
+      "type": "scout_tip",
+      "headline": "TALENT SPOTTED",
+      "body": "I watched {player} train twice. Trust me on this one.",
+      "from": "— the scout"
+    },
+    {
+      "id": "club-scout-04",
+      "type": "scout_tip",
+      "headline": "TRAINING TIP",
+      "body": "{coins} coins takes {player} to {tier}. Money well spent.",
+      "from": "— the scout"
+    },
+    {
+      "id": "club-scout-05",
+      "type": "scout_tip",
+      "headline": "FROM THE SCOUT",
+      "body": "{player} has that look. {tier} next, mark my words.",
+      "from": "— the scout"
+    },
+    {
+      "id": "club-board-01",
+      "type": "board_note",
+      "headline": "FROM THE BOARD",
+      "body": "The board met at breakfast. Verdict: proud of you.",
+      "from": "— the board"
+    },
+    {
+      "id": "club-board-02",
+      "type": "board_note",
+      "headline": "BOARD EXPECTATIONS",
+      "body": "Win or learn. That is the whole plan. We like the plan.",
+      "from": "— the board"
+    },
+    {
+      "id": "club-board-03",
+      "type": "board_note",
+      "headline": "NOTE FROM UPSTAIRS",
+      "body": "The board suggests chasing {feat}. Biscuits either way.",
+      "from": "— the board"
+    },
+    {
+      "id": "club-board-04",
+      "type": "board_note",
+      "headline": "CLUB VISION",
+      "body": "Keep training, keep smiling. Trophies follow teams like that.",
+      "from": "— the board"
+    }
+  ]
+}

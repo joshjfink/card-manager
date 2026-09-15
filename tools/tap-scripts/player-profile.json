@@ -1,0 +1,71 @@
+[
+  {"wait": 1400},
+  {"expectScreen": "welcome", "timeout": 20000},
+  {"tapId": "wel-new"},
+  {"expectScreen": "start", "timeout": 8000},
+  {"tapId": "start-own"},
+  {"expectScreen": "new", "timeout": 8000},
+  {"tapId": "kickoff"},
+  {"expectScreen": "hub*", "timeout": 10000},
+
+  {"tapId": "side-5"},
+  {"expectScreen": "hub/binder", "timeout": 6000},
+  {"shot": "binder"},
+
+  {"tapId": "bind-0"},
+  {"expectScreen": "hub/binder/sheet/profile", "timeout": 6000},
+  {"wait": 400},
+  {"shot": "profile"},
+
+  {"tapId": "sh-tab-1"},
+  {"expectScreen": "hub/binder/sheet/stats", "timeout": 6000},
+  {"wait": 300},
+  {"shot": "stats"},
+
+  {"tapId": "sh-tab-2"},
+  {"expectScreen": "hub/binder/sheet/ladder", "timeout": 6000},
+  {"wait": 300},
+  {"shot": "ladder"},
+
+  {"tapId": "sh-tab-3"},
+  {"expectScreen": "hub/binder/sheet/quests", "timeout": 6000},
+  {"wait": 300},
+  {"shot": "quests"},
+
+  {"tapId": "sh-tab-4"},
+  {"expectScreen": "hub/binder/sheet/career", "timeout": 6000},
+  {"wait": 300},
+  {"shot": "career"},
+
+  {"tapId": "sh-tab-5"},
+  {"expectScreen": "hub/binder/sheet/links", "timeout": 6000},
+  {"wait": 300},
+  {"shot": "links"},
+
+  {"tapId": "sheet-close"},
+  {"expectScreen": "hub/binder", "timeout": 6000},
+  {"shot": "back-in-binder"},
+
+  {"tapId": "side-1"},
+  {"expectScreen": "hub/squad", "timeout": 6000},
+  {"tapId": "sq-tab-1"},
+  {"wait": 400},
+  {"tapId": "lrow-*"},
+  {"expectScreen": "hub/squad/sheet/profile", "timeout": 6000},
+  {"wait": 300},
+  {"shot": "from-squad-list"},
+  {"tapId": "sheet-close"},
+  {"expectScreen": "hub/squad", "timeout": 6000},
+
+  {"tapId": "side-8"},
+  {"expectScreen": "hub/club", "timeout": 6000},
+  {"tapId": "draft"},
+  {"expectScreen": "draft", "timeout": 8000},
+  {"wait": 400},
+  {"tapId": "ddinfo-*"},
+  {"expectScreen": "draft/sheet/profile", "timeout": 6000},
+  {"wait": 300},
+  {"shot": "from-draft-board"},
+  {"tapId": "sheet-close"},
+  {"expectScreen": "draft", "timeout": 6000}
+]

@@ -1,0 +1,162 @@
+<title>Card Manager</title>
+<!-- ── installable app (PWA) ──────────────────────────────────────────
+     Add to Home Screen gives a real app: own icon, fullscreen, no browser
+     chrome, landscape-locked. The manifest and icons are data URIs so the
+     whole app stays one self-contained file. -->
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Card%20Manager%22%2C%20%22short_name%22%3A%20%22Card%20Mgr%22%2C%20%22description%22%3A%20%22Gibson%20Store%20Card%20Manager%20%5Cu2014%20the%20FM-style%20career%20game.%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22orientation%22%3A%20%22landscape%22%2C%20%22background_color%22%3A%20%22%230d1f16%22%2C%20%22theme_color%22%3A%20%22%230d1f16%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAFjUlEQVR42u3dPY7USBiH8SoLbboRKyIiRIAQQitxBK7BCTbhJCR7gr0GR0BajRAiQEQToZ1oUxI2GqmZtae77Pqy6/dEiA%2B3u%2Bf/vO/rKreJoTMevnz8I%2BCw3Fxdx57OJwo7RpYiCj1GliEKPkYWIQo%2BRhYhCj5GFiEKPkYWYRJ%2B7IncGYuCj5G7wST8GLkbxF7D/%2Bndaz/hA/H87fsuO0HsJfwCT4gWEsSW4Rd65JRhjQSxRfgFH6VESJUg1gy/4KOGCCkSxBrhXxP8khdNqE/tDFwqQewl/AJPiBYSxNbhF3witJSgiACCj14ys0mAEuEXfNTOz30STMKPsKMVoDUX0/dlOeYS4L4TE3zk7gapmVrqAlPp2xyEHz1kZynTU0lThR%2BlJMi1qTqVGn2EH71JMJftSeXHyJ1g8uUWhIG/RDOp/hi5C0w5q7/wYw8rQ6dZn9zWjDDo3aZZH4ui%2BmOP%2BwNT6vij%2BuMIXeA285Pqj5G7wOSjxMhMW1uM6o%2BeukDqiK4DYOwOYPcXYeBdYR0AQxMv7QCjzf/fPnw%2B1Pt59OpZGGn589JsPlADjh38u%2B/ryCKsgQAHDz4RrAIJv/dMAIAAKqH3TgCAACqgz4AAAAEQ7APgJ37/880h39fff/zlh6sDAAQACAAQAAQACAAQACAAQACAAAABAAIABAAIABAAIAAQfCEm%2BOIIdACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAALshkevng0fgNE/gwdqQF1ePH1y9u98/PLVB0WAehXw24fPTQN/7t%2BUEkIHJEBXwT93LJ2BAN13gXPBvyTES8fIKYLqT4DZQGwRYSm4qYE9/ftzx3zx9MlqCQSfAEVEmAtqjkp9e4y7x0%2BVQPAJUKRS/vbv9yqrOHMi3P76n19/8QML9gGqUyv8544/dx7QAapSc4VmaSyCDtCk%2Brdanjx9XV2AAE1HH%2BdFgCHD33pz6u7rk4AAh5z7g3uHCGDEMAoRQPXXBQigquoCwT7AnqttiVsnPn75am%2BAAGG3t0m77dkI5DsCwQ4vAQ6465sa6rUS2B0mAECAI3w90ihEAIAAAAEAAgAECKPsHNsQIwBAgNacPnUhxwZVyep/en6eFkGAXY5CRp/gZrijS1DqQVogQKixs5vj1uWeH8hrBMLidYDzHVCA52/f/%2B/3Pr177f4e59OUuQzOZVUHGKiqqv4JHeDm6jr6GPZddc3%2B67i5uo46wMbq2jp8d19f9S94Eew6oO%2BQjRb%2BrfO/a4DGu8M5q7/K33AZdOTVoNMw1hKh5mvtqfqvFiDlQji1xYw2CpUO5tzxVf/0bN5mfurNyD1KMHdhnFuEuWPOvbbqX2EE0gUu7wZbRVg6hqqfJ5M/jT4PXz7%2BsdXC0eU49yyeLf9PsPDnyd3pyL9aABLUfzjt6FU/V95OBZiW/gD5rw16OFaw%2BxsXRyBdoI/OIOx1qv%2BsACTAKOHPtgy6dCI2yNBL%2BEPKMmjOawESoIfsLGV6MeipY9AlJ2wkQqscLQkwpf6DLSemG6Cn8N/bAUp2At0AtTJzrpAXEYAI6CUjmwWoIQERBL9F%2BC8WoJYEhBD4muFPEmCrBC6CUav4pSzgJK/0bJWACCjZ9VNXL1dteOWQgAjIPe6uWbpfveObSwIyCH2r8G8SoIQEhBD4muHfLEBpCYCS4Q8hw92gvkSDvYY/SwfQDbDH4Bd5MpxugD2FP3sH0A2wl%2BAXF4AI2MNUUW1kIQJ6HKerz%2BxEQE/XkU0vWsmA1osn3a3akELYa/If%2BHa0ohx2jbQAAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22192x192%22%2C%20%22type%22%3A%20%22image/png%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAQLklEQVR42u3dPY4UVxeA4VNXLVIiRo6IEIFlIWTJS/A2vAInXgmJV%2BBtsARLFrIsAuSIyIJo0klwROAfYLq7fu4553mkL/vAQ3Wpzlv3VvUswZQePX/8wVEAKnj/6u3iKMzHh2LAAwgEAYBhDyAKBAAGPoAgEAAY%2BACCQAAY%2BgCIAQFg6AMgBgSAoQ%2BAGBAABj8AQkAAGPoAiAEBYPADIAQEgMEPgBAQAAY/AEJAABj8AAgBAWDwAyAEzjUMfwDoNzsWHx4A9FsNWAx%2BAOgXAsPwB4B%2BM2bxoQBAv9WAYfgDQL/ZM3wAANBvBi0OOgBEuy2BYfgDQL/ZNBxgAOg3oxYHFQCi3ZbAMPwBoN/sGg4gAPSbYYsDl8sfL753EIApffPTSwch8mwHLIa/IQ8gDvpFwGL4G/gAgqBfBCyGv4EPIAj6RcBi%2BBv6AGKgXwQshr%2BhDyAG%2BkXAYvgb%2BgBioF8ELIa/wQ8gBPpFwGL4G/wAQqBfBCyGv6EPIAb6RcAw/A1/gLAaG922xBfD3%2BAHsBrQbyVgMfwNfgAh0C8CFsPf4AcQAv0iQAAkHP5%2B4xbguln7ulkiADIN/5lOYEMeEAe9r61bR8Bi%2BM9xghr4gCBwvd0zAhbD/7iT0dAHxIDr71ER0DoAjjjxDH0A1%2BSyAWD4G/oArtFzR8Bi%2BBv8AK7X/SJg6TT8nUgAQiDz9XvNCGgTAHucPAY/gGt5uwDoPPwNfgDX9WwRsBj%2BBj%2BAEOgXAaUDYKsTw%2BAHcL3PHgDD8Df8AcIv/En1Ow7WmL1LxQDY4gMz%2BAH6rgbMOAOuXQUYhr/hD2A1IN9KwLUzeBj%2Bhj%2BACOgXAUuVAFj7gzH4AcKWQIL5cOlWwDD8DX8AqwF5VwIuncnDqWH4A7i29zPc/TtBAERAv1WAYV/H8AcQAXW%2BI2CTAJjp7t/wB0AEXD6jhxPB8Adw7Q/PAHS6%2B3cCAIiArqsAo%2Bu%2Bv%2BEPQMUIWDUAZrn7N/wBEAHrzOzhgwZABLz0DEAUXvo3/AHYckZk2goYGZb/DX8ARECsug3gq4ABILwG6O4fAKsADVYBhg8SAPrNjlH5wT/DH4CjZsjsDwSOLL/1DwCI1bYBhrt/AOi3CjAMfwDoFwHD8j8ARLttgKHUAKDfbBlVf9sfAJhtZwRA5uV/d/8AmDFxr22AoZAAoN%2BMG8oMAPrNmqGMAKDfrBsV9v/d/QNg5sRZzwH4dcAAEH4dcGRbEnH3D0CmVYBZtgGsAABA5xWAjPv/7v4BMIPioucAhiciAaDf7LMFAADhIcCw9AIA9WfRsPwPAP1m4IjI/QuAAIA4%2B0HAYckFAPrNJA8BAkB4CDDs/wNA/Vk4LLUAQL/ZZAsAAMIWAAAgAML%2BPwAUnImnTN8BYP%2Bftfz162sHgX/46ruvHQSunlFZbnAfPX/84eQjw8CH/54jgoDqBAAGP3zm3BECCAAw%2BBECIADA4EcIQHgLAAx/nGcgAMIrgLgo43yDeWfj8AogLsbgvKPfrLIFgIswOP8IWwDg4gvOQwQAuOiC8xEBAC624LxEAAAAAgDcZeH8BAEAAAgAcHeF8xQEAAAgAMBdFc5XEAAAgAAAAAQAACAACPup4LwFAQAACAAAQAAAAAIAAAQAACAAAICaTg4BHXz78w8OAmf57cdfHASsAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAEgEMAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAANjRySGgg99%2B/MVBALACAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAEgEMAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAEAAOAQAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAgAAAAAQAACAAAAABAAAIANjQV9997SDgvAUBAAAIAABAAAAAAoCwnwrOVxAAAIAAwF0VOE8RAABAEyeHgGx3V3/9%2BtqBOMOzp08u/rO/v/nTAXT3jwAAqg76c/9OYQACAKwCFBr4l/63BYG7fwQAiICiQ/%2B%2BP1fHGDD8EQAgAloN/s/9rF1CwPBHAIAIaDv0u64KGP4IABABBn%2BzVQHDHwEAIsDgbxYChj8CAESAwd8sBAx/BABMfHHOEgJ7DP9rhuzWP9%2Bzp0/SRIDBjwAAITDt4F97mP7f37f2zz77aoDBjwAAITDd8D9iaP77v7nWv2e21QCDHwEABZ/YPioI1hqWMw3Kjz/LGv%2B2IyPAwEcAgC9vWd3N7V2pof%2Bln%2B%2BaGPj4Z989fOBEBQEAeV07/DM%2BKb/GqsDN7Z0IAAEA/YZ/hS/NuTYERAAIAGgz/Ct%2Bbe41ISACYBvDIQDD/6g3CPZ8hgKwAgDTDf9Ov0L30tUAKwFgBQAM/6arAVYCQACA4S8CgLAFAKmGf/fBf%2B2WgO0AsAIAhn/T1QArASAAwPAXAYAAgFqvwDlOgACApHf/htp2EWAVAAQAGP4iABAAYPiLAEAAAAACANz9WwUAAQAY/iIABADgNTbHFQQAuPt3V%2BnzAgEAuEt1fEEAgLtJw2nCCLAKAAIAABAA4O7fKgAgAABAAAAeTHPcQQBAWP7H5wgCAHAX6vhDCSeHAPrcNT57%2BqTlUL25vYt3Dx84sUEAQB/3Gfqf%2Bv%2B7w4awBQDkulN%2B9vTJ2cN/i7/DNgBYAYCw/D/fHf85f2fmYWsbAKwAQNm7zq3v1mddDbAKAAIAwl5/tIwAQACA4S8CAAEAUXr//6hhnDECfCkQCACICvvNRw/hmSLAcwAgACAs%2B1sJAAQAACAAwN2/VQBAAACAAIDwBkDM/aDZrHfbM/xc9/l8vAkAAgAABAAAIACAsMweHgYEAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQDEVL%2BLIPPPBwgAABAAAIAAgJbePXwQVX7lbdef6z6fz30%2BZxAAAIAAANxth4f/QAAAAAIAaHjX7e4fBAC0MMODgLMM35mG/0yfCwgAiHpvAlgJyHvn7w0AEAAQtgMs%2B4MAAESA4Q8CYEZ/vPjep0XYbz52OM86/O3/Y1YlCIBvfnrpDCHsE287pNce1Fv8nT5XOHY22gKAonedawztDIPf3T9c5uQQQLR5NuA%2Bw9IePwgAiM7bADe3dx4UtK0D4SFAICw/O/4gAMBdIz5HyBsA71%2B9XcLrFeAu1HGHNjPq/au3y%2BjyugMAhFcAbQFArLh87G50zrt/y/8gAACAzAHgOQCsArj7d/eP2ZQ4ADwHgAfTcHwJ%2B/9WAMCrZPi8QACEbQDcpeK4YiZtHACZvgsAMtxVGlbHDX93/xBf/A6Aw1cAPAeACMDwJ%2Bz/2wII2wAAmEUCAKwCuPt39w9FA8A2ACIAw5%2Bw/H9cAGR8ENA2ACLA8Df8MYPi7AcAbQGA19gcJwhbAJFxKcQqAJm%2BcMZwW/f4uPsn493/LFvfVgBABBj%2B0H0FIOsXAlkFIGMECIHLj4Xhj5kTV%2B3/T7UC4G0AOn7/fPcIuOTfb/gTnv63BWAVABFg%2BINZUyAArALQOQK6hMCl/1bDH3f/GwdA5l8MZBWA7L%2BOtnoEXPrvM/wxY2LV/f8ptwCsAiAC6q0GXPNvMvxx9%2B8ZAKsAtImAKiFw7b/B8Mds2TkAMm8DQKUIyBoCa/zMhj/EZsv/ERGfHPSPnj/%2BkLm2bCUwo5vbu1X%2Bnt/f/Fn2K3wNfqrd/R89j9IFgAhABOQIgTVXJwx/DP/9AuD0uT8wQwRAFNwSWCsC/j189wiCrbYjDH/Yb/h/dgXAKgDkWg3YYpVgj2cPDH7c/R8TAKcOH6AIoMNqQMbvFjD88dT/cb74tH%2BFVQArAVgNMPih28z50ht9Jx81zDUUK4eAwQ%2BJVgCsAoAVAYMfd/%2B17v4jEn0T4BoH1LcEkm1ofvyfnx8M//BVwCKAvjHgZwWzIfbcAoiYYxtgzQ/JdgBhi8ASPxScK/f9Ov90ASAC4PggMPAx/OedJ6sHgAiAfmFg0GP41xz%2BEV4D9EVBhHfuwfDvaGxVFpHgrQAnAoDh3/HuP/1bACIAAMN/p9cAZ1oFEAEAGP6XzebhlBABAK7t4RmA7qsAThQAw7/63X/Ema8BxqSvBG45uL0hAGDwzzwTLg2Asfd/MNNKgNUAAMO/4vC/%2BhkAEQCA4Z9v%2BEdcsQUQE28FbDm0bQkA9HrQb9br/rUBMI7%2BATKtBFgNADD8Kwz/VVYAZl4F2HpgWw0AcI1vHQCdI0AIALiuZxv%2BqwZA9wgQAgCu5VmGf6sA2HP/XggAuH63CoAMEeBEAjD4M16v137ofpMn%2BEWAEABwjZ53%2BG8WACJADAC4Js87/NsHwNHv9osBwNB3/S0XACJADAC43s77ZXubf4ufCBAEgIHv2jrfN%2B3u8jW%2BmSIgw9f9igPAdbP2dXOPr9kXAL7zH6C0jDdNZQIgawQIAQCDv%2BLw3zUAMkeAEAAw%2BCsN/90DIHsECAEAg7/C8I%2BIGNX/gU4wAMPf8J9gBaDKSoAVAQBDP/ON8aF341UiQAgAGPzZVsUPX46vFAFCAMDgz7IlPsV%2BfLUIEAMAhv7sz8NN80Be1QgQAwCG/owPw0/1RH71CBADAL3fsJrpTbjpXsnrEgGCADDwe5ntNfgp38nvGAGCADDwDf/2ASACxAFgyBv%2BTQNABABg%2BEedrwLu9LXBABj%2BAkAEAGD4hy2AsCUAgMFvBcBqAACGvwAQAQCYTWELIGwJAGDw910BsBoAgBnUPABEAABmT/TbAghbAgAY/D1XAKwGAGDGNF8BsBoAgMHfPACEAAAGf/TYArAtAIDZYQXAagAABr8AEAIAGPytA0AIANB9m9j%2BuBAAMPgFgBBwFAAMfgEgBgAw9AWAEADA4BcAYgAAQ18AiAEADH0BIAYAMPQFgCAAwMAXAIIAAANfAIgCAMMeAYBAAAx4NvU39XE67Kel6lMAAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%20maskable%22%7D%5D%7D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Card Manager">
+<meta name="theme-color" content="#0d1f16">
+<link rel="apple-touch-icon" sizes="180x180"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFJUlEQVR42u3dPW7cRhiAYc5ASJvKhitXggrDEIwAPoKukROk8UnU5AS5ho9gIBACwYWRSpURVW7d2IWxwGbNXZGcGXJ25nmrIJD2R/v400cuvQ5DBT178/LboLPv8e4hbP0YAsBqCXiAWC3hDhCrJdwBZLUEO8Kslk4GBJDV0rSOMKulaR1AVkvTOtSE+f72xqt5hr1+974a1GFLzAADnht1WBszxHCXRB3Wwgwy2GugDqUxg6wcsKeiDjVhLnFwofKt9TpPQR22xgxxn7hLoc4OesoTghjupRaSQOfGDDLYpVFHmLX1geDcHfyUzZAD9KkHBLJKWDk2pSPMqmVaz5nUx4zGUm9rw6zSNsasxhK/PmDWUtSpb8TF3KsGzFoT9aHZaDKrpUkd/UjVUnHuumE6q7YpvW83OqOhls58RJeCamjoSr6Yeu7ZdFYNU3pn2EGh2jwotG6ohbUjOhhUSweH0YfFaGjo05fs0Opvhx7bYawbWnPtmLpHX/jx/ejzh49n/fhfvH3lRQT6/CEfPo/eYV+A3Obz6hV2hNlzBFoC2uTyXIGWgDax+n3OJrQGp+0a67c/f2/iefz9x19WDpwFtAS0BLQEtICWgJaAloCWgBbQEtAS0BLQEtAaXA/dV64jNqEloCWgJaAFtAS0BLQEtAS0gJaAloCWgJaAFtAS0BLQEtAS0AJaAloCWgJaAlpAS0BLQEtAS0ALaAloCWgJaAloAS0BLQEtAS2gJaAloCWgJaAFtAS0BLQEtAS0gJaAloBeuRdvX3X3Avf2nE1oNdVFjxPr84ePxe/n+uryya/559O/pjPQ9TYF8bGvL40baFO6GORTt5ELdo/TuesJvXvBU2CfgjwF5tj3p8LuFbKVIxH2GMa5CPe//vD2rq8uZ91e75CBXgji+ZevRQ7udrexD3v33//9+osXaHDaLnulMD91e2P3KxM6K+aSZyXGpvXzL19NahO6LLhW7gfojqfz2sj278/qAXSRvdnjAdqqYfUAuudVw+oBtOS0XenpnOMdxf3v292e03hAD7VceZf7QiRZOaq4jDTHVXoCuui6kXJNtINDoCWga/kbK1YPoCWgBbQEtAT04OIlb7AALQE9tf1rJFLe+Cjx9fuPx7UcQFe1elg1BhcnnRvqnFfbCeiktWN3rcTcD30phde6YeUQ0D/3+t37n/7f/e2Ng8Nhm+tEWp/OY7bGDJrQFXzK6ODipbIT+vHuIfgxTJvSHk/dPd49hJj7V4PVw6qxpanJoKfuMFYPq0bu5thz2m7BabzSf9F1DLJVY8aETtmje1k7jqHKPUV7xpxiaWc4lhr9LaM+BHZ9dZkMe+w2xu7LurHCynF/e9Md9sMVZMm/anXqD0FvkHP9pv/fqvHszctvKXfe6wTP+XECPU7kVE/7K7ODwowIU2A76NvwWo5jf3J6OkA8tV9PxTn3603nmSvHnLXD6qEaMB+eoYsljkB7n9TabhjGp8Q7P61az2iMWY1Tv3DJeUKoNcdEyqpxdIdesktPwWuvBjmnj2Og49xvWPqATGuYS2M+OaFLTWrTGuRSmIuAnjuR4e7zgG/p654Meg3UcPd11qIU5smg10StwdVzCcd0sw78lqIGWym/feecoJj9JkoKarBBLol5EegcqOGGuATmxaBzogYc4FyYk0CXQi2lXE+U5UIksLU15CHnR4H59CXVYig7RNNaWw7DWPsDFMybTmjTWlsOvdWmKdwQr3E/m6wHcEPcFGjAAS7Vd9KKjQtnyxq6AAAAAElFTkSuQmCC">
+<link rel="icon" type="image/png" sizes="192x192"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAFjUlEQVR42u3dPY7USBiH8SoLbboRKyIiRIAQQitxBK7BCTbhJCR7gr0GR0BajRAiQEQToZ1oUxI2GqmZtae77Pqy6/dEiA+3u+f/vO/rKreJoTMevnz8I+Cw3Fxdx57OJwo7RpYiCj1GliEKPkYWIQo+RhYhCj5GFiEKPkYWYRJ+7IncGYuCj5G7wST8GLkbxF7D/+ndaz/hA/H87fsuO0HsJfwCT4gWEsSW4Rd65JRhjQSxRfgFH6VESJUg1gy/4KOGCCkSxBrhXxP8khdNqE/tDFwqQewl/AJPiBYSxNbhF3witJSgiACCj14ys0mAEuEXfNTOz30STMKPsKMVoDUX0/dlOeYS4L4TE3zk7gapmVrqAlPp2xyEHz1kZynTU0lThR+lJMi1qTqVGn2EH71JMJftSeXHyJ1g8uUWhIG/RDOp/hi5C0w5q7/wYw8rQ6dZn9zWjDDo3aZZH4ui+mOP+wNT6vij+uMIXeA285Pqj5G7wOSjxMhMW1uM6o+eukDqiK4DYOwOYPcXYeBdYR0AQxMv7QCjzf/fPnw+1Pt59OpZGGn589JsPlADjh38u+/ryCKsgQAHDz4RrAIJv/dMAIAAKqH3TgCAACqgz4AAAAEQ7APgJ37/880h39fff/zlh6sDAAQACAAQAAQACAAQACAAQACAAAABAAIABAAIABAAIAAQfCEm+OIIdACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAALshkevng0fgNE/gwdqQF1ePH1y9u98/PLVB0WAehXw24fPTQN/7t+UEkIHJEBXwT93LJ2BAN13gXPBvyTES8fIKYLqT4DZQGwRYSm4qYE9/ftzx3zx9MlqCQSfAEVEmAtqjkp9e4y7x0+VQPAJUKRS/vbv9yqrOHMi3P76n19/8QML9gGqUyv8544/dx7QAapSc4VmaSyCDtCk+rdanjx9XV2AAE1HH+dFgCHD33pz6u7rk4AAh5z7g3uHCGDEMAoRQPXXBQigquoCwT7AnqttiVsnPn75am+AAGG3t0m77dkI5DsCwQ4vAQ6465sa6rUS2B0mAECAI3w90ihEAIAAAAEAAgAECKPsHNsQIwBAgNacPnUhxwZVyep/en6eFkGAXY5CRp/gZrijS1DqQVogQKixs5vj1uWeH8hrBMLidYDzHVCA52/f/+/3Pr177f4e59OUuQzOZVUHGKiqqv4JHeDm6jr6GPZddc3+67i5uo46wMbq2jp8d19f9S94Eew6oO+QjRb+rfO/a4DGu8M5q7/K33AZdOTVoNMw1hKh5mvtqfqvFiDlQji1xYw2CpUO5tzxVf/0bN5mfurNyD1KMHdhnFuEuWPOvbbqX2EE0gUu7wZbRVg6hqqfJ5M/jT4PXz7+sdXC0eU49yyeLf9PsPDnyd3pyL9aABLUfzjt6FU/V95OBZiW/gD5rw16OFaw+xsXRyBdoI/OIOx1qv+sACTAKOHPtgy6dCI2yNBL+EPKMmjOawESoIfsLGV6MeipY9AlJ2wkQqscLQkwpf6DLSemG6Cn8N/bAUp2At0AtTJzrpAXEYAI6CUjmwWoIQERBL9F+C8WoJYEhBD4muFPEmCrBC6CUav4pSzgJK/0bJWACCjZ9VNXL1dteOWQgAjIPe6uWbpfveObSwIyCH2r8G8SoIQEhBD4muHfLEBpCYCS4Q8hw92gvkSDvYY/SwfQDbDH4Bd5MpxugD2FP3sH0A2wl+AXF4AI2MNUUW1kIQJ6HKerz+xEQE/XkU0vWsmA1osn3a3akELYa/If+Ha0ohx2jbQAAAAASUVORK5CYII=">
+<script>
+/* Installed-app behaviour: when launched from the home screen, drop the
+   marketing intro, lock landscape where the browser allows it, and keep the
+   screen awake during a match. */
+(function () {
+  var standalone = window.navigator.standalone === true
+    || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  if (!standalone) return;
+  document.documentElement.classList.add('gp-app');
+  addEventListener('DOMContentLoaded', function () {
+    var intro = document.querySelector('.intro');
+    if (intro) intro.remove();
+    try {
+      if (screen.orientation && screen.orientation.lock)
+        screen.orientation.lock('landscape').catch(function () {});
+    } catch (e) {}
+    /* Keep the display on while playing — a manager screen is read, not
+       tapped, and a sleeping phone mid-season is maddening. */
+    if (navigator.wakeLock) {
+      var lock = null;
+      var grab = function () {
+        navigator.wakeLock.request('screen').then(function (l) { lock = l; })
+          .catch(function () {});
+      };
+      grab();
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') grab();
+      });
+    }
+  });
+})();
+</script>
+<style>
+  /* Installed: the game fills the device, no page furniture. */
+  .gp-app body { background: #0d1f16; }
+  .gp-app .intro { display: none !important; }
+  #gpInstall {
+    position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+    z-index: 500; max-width: 92vw; padding: 9px 16px; border-radius: 999px;
+    background: #15301e; border: 1px solid #2a4b33; color: #93ab99;
+    font: 500 12px/1.4 ui-rounded, system-ui, sans-serif; text-align: center;
+  }
+  .gp-app #gpInstall { display: none; }
+</style>
+
+<script>
+/* Phones default to a 980px layout viewport when no meta says otherwise —
+   which threw every tap coordinate off and buried the canvas below the fold.
+   Injected from JS so it holds no matter what wraps this page. */
+(function () {
+  if (!document.querySelector('meta[name="viewport"]')) {
+    var m = document.createElement('meta');
+    m.name = 'viewport';
+    m.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover';
+    (document.head || document.documentElement).appendChild(m);
+  }
+  var st = document.createElement('style');
+  /* On a portrait phone a 960x600 board renders at ~0.40x, which makes a
+     48px control 19 CSS px — under the tappable minimum. Rotating it onto
+     the long axis takes that to ~0.63x. Pure CSS with !important because
+     the canvas's inline styles are rewritten at runtime; vw/vh maths is the
+     same min() the JS was computing. Pointer mapping is unaffected: the game
+     maps taps through the live bounding rect. */
+  st.textContent =
+      '#mgScrim, #mgScrim canvas { touch-action: none; }'
+    + ' body { overscroll-behavior: none; }'
+    + ' @media (max-width: 820px) and (orientation: portrait) {'
+    + '   #mgScrim { display: flex !important; align-items: center !important;'
+    + '     justify-content: center !important; padding: 0 !important;'
+    + '     overflow: hidden !important; }'
+    + '   #mgScrim canvas {'
+    + '     width: min(96vh, 153.6vw) !important;'
+    + '     height: min(60vh, 96vw) !important;'
+    + '     max-width: none !important; aspect-ratio: auto !important;'
+    + '     transform: rotate(90deg) !important; transform-origin: center !important; }'
+    + ' }';
+  (document.head || document.documentElement).appendChild(st);
+})();
+</script>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#0d1f16; color:#eaf2e6;
+         font:14px/1.5 ui-rounded, system-ui, -apple-system, sans-serif;
+         padding: env(safe-area-inset-top) env(safe-area-inset-right)
+                  env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  /* Splash — the page carries ~400KB of game; never show a blank flash. */
+  #gpSplash { position:fixed; inset:0; z-index:9999; display:grid;
+    place-items:center; background:#0d1f16; transition:opacity .45s ease;
+    gap:18px; grid-auto-flow:row; align-content:center; }
+  #gpSplash.gone { opacity:0; pointer-events:none; }
+  .gpCrest { width:96px; height:96px; border-radius:22px; position:relative;
+    background:linear-gradient(160deg,#1b3b26,#15301e);
+    border:3px solid #e9bf63; display:grid; place-items:center;
+    box-shadow:0 12px 40px rgba(0,0,0,.5); animation:gpFloat 2.6s ease-in-out infinite; }
+  .gpCrest::after { content:'⚽'; font-size:44px; }
+  .gpName { font:800 26px/1 ui-rounded,system-ui,sans-serif; color:#e9bf63;
+    letter-spacing:.14em; text-align:center; }
+  .gpSub { color:#93ab99; font-size:13px; text-align:center; max-width:340px;
+    padding:0 20px; }
+  .gpBar { width:180px; height:5px; border-radius:3px; background:#1b3b26;
+    overflow:hidden; }
+  .gpBar i { display:block; height:100%; width:40%; border-radius:3px;
+    background:#e9bf63; animation:gpSlide 1.2s ease-in-out infinite; }
+  @keyframes gpFloat { 50% { transform:translateY(-8px); } }
+  @keyframes gpSlide { 0%{transform:translateX(-110%)} 100%{transform:translateX(260%)} }
+  @media (prefers-reduced-motion:reduce){ .gpCrest,.gpBar i{animation:none} }
+  .intro { max-width:640px; margin:20px auto 6px; padding:0 16px; text-align:center; }
+  .intro h1 { color:#e9bf63; letter-spacing:.08em; margin:0 0 6px; font-size:21px; }
+  .intro p { color:#93ab99; font-size:12.5px; line-height:1.5; margin:4px 0; }
+</style>
+<div id="gpSplash">
+  <div class="gpCrest"></div>
+  <div class="gpName">CARD MANAGER</div>
+  <div class="gpSub">980 players · 48 nations · seven parallel versions</div>
+  <div class="gpBar"><i></i></div>
+</div>
+<div id="gpInstall">
+  Add to Home Screen for the full-screen app &mdash; Share &rarr; Add to Home Screen
+</div>
+<div class="intro">
+  <h1>CARD MANAGER</h1>
+  <p>A football management RPG. 980 collectible cards in seven parallel
+     versions, real clubs and leagues, a league pyramid and a Champions
+     League. Tap everything. M mutes the music.</p>
+  <p>Player ratings sourced from EA&rsquo;s public FC ratings pages. Not affiliated
+     with, endorsed by, or licensed by EA.</p>
+</div>
+<script>
+/* Hide the splash once the arcade has actually opened (or after 8s, so a
+   failure never leaves a permanent curtain over the page). */
+(function () {
+  var t0 = Date.now();
+  function done() {
+    var s = document.getElementById('gpSplash');
+    if (s && !s.classList.contains('gone')) {
+      s.classList.add('gone');
+      setTimeout(function () { s.remove(); }, 500);
+    }
+  }
+  var iv = setInterval(function () {
+    var up = document.querySelector('#mgScrim canvas');
+    if ((up && !document.getElementById('mgScrim').hidden) || Date.now() - t0 > 8000) {
+      clearInterval(iv); done();
+    }
+  }, 120);
+})();
+</script>

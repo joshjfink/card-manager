@@ -1,0 +1,152 @@
+{
+  "kind": "feats",
+  "feats": [
+    {
+      "id": "first-win",
+      "name": "First Whistle",
+      "how": "Win your first career match.",
+      "reward": "Gibson joins your club (white card)",
+      "celebrationLine": "Gibson signs for your club. He heard there was a trophy in it."
+    },
+    {
+      "id": "comeback-win",
+      "name": "Never Give Up",
+      "how": "Win a match after being behind.",
+      "reward": "Ellis joins your club (white card)",
+      "celebrationLine": "Ellis joins up. Small player. Enormous plans."
+    },
+    {
+      "id": "clean-5",
+      "name": "Guard Dog",
+      "how": "Keep 5 clean sheets in your career.",
+      "reward": "Phoenix joins your club (white card)",
+      "celebrationLine": "Phoenix reports for training. Good dog. Great keeper."
+    },
+    {
+      "id": "season-done",
+      "name": "The Long Game",
+      "how": "Play a full season, all the way to the end.",
+      "reward": "Grandpa Fink joins your club (white card)",
+      "celebrationLine": "Grandpa Fink laces up. Slowly. But he laces up."
+    },
+    {
+      "id": "lockdown",
+      "name": "The Lockdown",
+      "how": "Win a match where the other team takes 10 shots and never scores.",
+      "reward": "Lu Dort joins your club (white card)",
+      "celebrationLine": "Lu Dort arrives. Strikers, form a queue to nowhere."
+    },
+    {
+      "id": "hustle",
+      "name": "The Hustle",
+      "how": "Win a match when the other team's ratings are 3 points better than yours.",
+      "reward": "Caruso joins your club (white card)",
+      "celebrationLine": "Caruso signs. Ratings? He doesn't read those."
+    },
+    {
+      "id": "wall-3",
+      "name": "The Wall",
+      "how": "Win 3 matches in a row without letting in a goal.",
+      "reward": "Wembanyama joins your club (white card)",
+      "celebrationLine": "Wembanyama is in goal now. The goal looks smaller already."
+    },
+    {
+      "id": "bite-back",
+      "name": "Bite Back",
+      "how": "Beat Suárez FC in a competitive match.",
+      "reward": "Suárez joins your club (white card)",
+      "celebrationLine": "Suárez joins you. He says he plays fair. Mostly."
+    },
+    {
+      "id": "cup-champ",
+      "name": "Champion of Champions",
+      "how": "Win the Gibson Cup.",
+      "reward": "Maradona joins your club (white card)",
+      "celebrationLine": "Maradona is here. The cup gleams. Keep both eyes on his hands."
+    },
+    {
+      "id": "goals-10",
+      "name": "Ten Goal Salute",
+      "how": "Score 10 goals in your career.",
+      "reward": "+100 coins",
+      "celebrationLine": "Double figures. The net needed a rest anyway."
+    },
+    {
+      "id": "goals-50",
+      "name": "Half Century",
+      "how": "Score 50 goals in your career.",
+      "reward": "Gold pack",
+      "celebrationLine": "Fifty goals. The groundskeeper is buying stronger nets."
+    },
+    {
+      "id": "first-blue",
+      "name": "Into the Blue",
+      "how": "Train any card up to blue for the first time.",
+      "reward": "+50 coins",
+      "celebrationLine": "Your first blue. The shine is real."
+    },
+    {
+      "id": "black-card",
+      "name": "The One of One",
+      "how": "Own a black card.",
+      "reward": "+1,000 coins",
+      "celebrationLine": "A black card. There is only one. It is yours."
+    },
+    {
+      "id": "squad-85",
+      "name": "Galaxy XI",
+      "how": "Field a starting team with an average rating of 85 or higher.",
+      "reward": "Gold pack",
+      "celebrationLine": "That team sheet belongs in a frame."
+    },
+    {
+      "id": "hotseat-10",
+      "name": "Friendly Rivals",
+      "how": "Play 10 hot-seat friendlies.",
+      "reward": "+250 coins",
+      "celebrationLine": "Ten friendlies. Still speaking to each other. Mostly."
+    },
+    {
+      "id": "undefeated",
+      "name": "The Invincibles",
+      "how": "Finish a whole season without losing a match.",
+      "reward": "Gold pack",
+      "celebrationLine": "A season with zero losses. Print the posters."
+    },
+    {
+      "id": "pack-20",
+      "name": "Pack Animal",
+      "how": "Open 20 packs.",
+      "reward": "+200 coins",
+      "celebrationLine": "Twenty packs opened. The wrappers form a small mountain."
+    },
+    {
+      "id": "boss-down",
+      "name": "Giant Slayer",
+      "how": "Beat Legends XI.",
+      "reward": "+200 coins",
+      "celebrationLine": "The Legends XI just lost. To you. Write down the date."
+    },
+    {
+      "id": "draft-day",
+      "name": "Draft Day",
+      "how": "Win a Draft Duel.",
+      "reward": "+75 coins",
+      "celebrationLine": "Drafted well. Played better."
+    },
+    {
+      "id": "hat-hero",
+      "name": "Hat-Trick Hero",
+      "how": "One of your players scores 3 goals in one match.",
+      "reward": "+50 coins",
+      "celebrationLine": "Three goals in one match. Keep the ball."
+    },
+    {
+      "id": "collector-100",
+      "name": "The Collector",
+      "how": "Own 100 different cards.",
+      "reward": "Silver pack",
+      "celebrationLine": "One hundred cards. The binder creaks with pride."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+ {"wait": 3000},
+ {"expectScreen": "welcome", "timeout": 25000},
+ {"tapId": "wel-new"},
+ {"wait": 700},
+ {"expectScreen": "start", "timeout": 8000},
+ {"shot": "00-who-will-you-manage"},
+ {"tapId": "start-real"},
+ {"wait": 900},
+ {"expectScreen": "pick", "timeout": 8000},
+ {"shot": "01-leagues"},
+ {"tapId": "pick-0"},
+ {"wait": 900},
+ {"shot": "02-clubs"},
+ {"tapId": "pick-0"},
+ {"wait": 900},
+ {"expectScreen": "pick", "timeout": 4000},
+ {"shot": "03-takeover-card"},
+ {"tapId": "pick-go"},
+ {"wait": 1200},
+ {"expectScreen": "hub*", "timeout": 12000},
+ {"shot": "04-managing-them"}
+]

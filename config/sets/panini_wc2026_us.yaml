@@ -1,0 +1,3777 @@
+set_id: panini_wc2026_us
+set_name: Panini FIFA World Cup 2026
+edition: US / North American
+year: 2026
+publisher: Panini
+total_stickers: 992
+sections:
+  ALG: Algeria
+  ARG: Argentina
+  AUS: Australia
+  AUT: Austria
+  BEL: Belgium
+  BIH: Bosnia and Herzegovina
+  BRA: Brazil
+  CAN: Canada
+  CC: Coca-Cola Stars
+  CIV: Côte d'Ivoire
+  COD: DR Congo
+  COL: Colombia
+  CPV: Cape Verde
+  CRO: Croatia
+  CUW: Curaçao
+  CZE: Czechia
+  ECU: Ecuador
+  EGY: Egypt
+  ENG: England
+  ESP: Spain
+  FRA: France
+  FWC: FIFA World Cup
+  GER: Germany
+  GHA: Ghana
+  HAI: Haiti
+  IRN: Iran
+  IRQ: Iraq
+  JOR: Jordan
+  JPN: Japan
+  KOR: South Korea
+  KSA: Saudi Arabia
+  MAR: Morocco
+  MEX: Mexico
+  NED: Netherlands
+  NOR: Norway
+  NZL: New Zealand
+  PAN: Panama
+  PAR: Paraguay
+  POR: Portugal
+  QAT: Qatar
+  RSA: South Africa
+  SCO: Scotland
+  SEN: Senegal
+  SUI: Switzerland
+  SWE: Sweden
+  TUN: Tunisia
+  TUR: Türkiye
+  URU: Uruguay
+  USA: United States
+  UZB: Uzbekistan
+premium_sections:
+  FWC: 1.6
+  CC: 2.5
+star_players:
+- Alphonso Davies
+- Antonee Robinson
+- Edson Álvarez
+- Gabriel Magalhães
+- Harry Kane
+- Jefferson Lerma
+- Joshua Kimmich
+- Lamine Yamal
+- Lautaro Martínez
+- Santiago Giménez
+- Virgil van Dijk
+- Weston McKennie
+players:
+  ALG 1: Algeria Team Crest
+  ALG 10: Hicham Boudaoui
+  ALG 11: Ramiz Zerrouki
+  ALG 12: Nabil Bentaleb
+  ALG 13: Algeria Team Photo
+  ALG 14: Farès Chaïbi
+  ALG 15: Riyad Mahrez
+  ALG 16: Saïd Benrahma
+  ALG 17: Anis Hadj Moussa
+  ALG 18: Amine Gouiri
+  ALG 19: Baghdad Bounedjah
+  ALG 2: Alexis Guendouz
+  ALG 20: Mohammed Amoura
+  ALG 3: Ramy Bensebaini
+  ALG 4: Youcef Atal
+  ALG 5: Rayan Aït-Nouri
+  ALG 6: Mohamed Amine Tougai
+  ALG 7: Aïssa Mandi
+  ALG 8: Ismaël Bennacer
+  ALG 9: Houssem Aouar
+  ARG 1: Argentina Team Crest
+  ARG 10: Rodrigo De Paul
+  ARG 11: Exequiel Palacios
+  ARG 12: Leandro Paredes
+  ARG 13: Argentina Team Photo
+  ARG 14: Nico Paz
+  ARG 15: Franco Mastantuono
+  ARG 16: Nicolás González
+  ARG 17: Lionel Messi
+  ARG 18: Lautaro Martínez
+  ARG 19: Julián Álvarez
+  ARG 2: Emiliano Martínez
+  ARG 20: Giuliano Simeone
+  ARG 3: Nahuel Molina
+  ARG 4: Cristian Romero
+  ARG 5: Nicolás Otamendi
+  ARG 6: Nicolás Tagliafico
+  ARG 7: Leonardo Balerdi
+  ARG 8: Enzo Fernández
+  ARG 9: Alexis Mac Allister
+  AUS 1: Australia Team Crest
+  AUS 10: Milos Degenek
+  AUS 11: Jackson Irvine
+  AUS 12: Riley McGree
+  AUS 13: Australia Team Photo
+  AUS 14: Aiden O'Neill
+  AUS 15: Connor Metcalfe
+  AUS 16: Patrick Yazbek
+  AUS 17: Craig Goodwin
+  AUS 18: Kusini Yengi
+  AUS 19: Nestory Irankunda
+  AUS 2: Mathew Ryan
+  AUS 20: Mohamed Touré
+  AUS 3: Joe Gauci
+  AUS 4: Harry Souttar
+  AUS 5: Alessandro Circati
+  AUS 6: Jordan Bos
+  AUS 7: Aziz Behich
+  AUS 8: Cameron Burgess
+  AUS 9: Lewis Miller
+  AUT 1: Austria Team Crest
+  AUT 10: Xaver Schlager
+  AUT 11: Marcel Sabitzer
+  AUT 12: Konrad Laimer
+  AUT 13: Austria Team Photo
+  AUT 14: Florian Grillitsch
+  AUT 15: Nicolas Seiwald
+  AUT 16: Romano Schmid
+  AUT 17: Patrick Wimmer
+  AUT 18: Christoph Baumgartner
+  AUT 19: Michael Gregoritsch
+  AUT 2: Alexander Schlager
+  AUT 20: Marko Arnautović
+  AUT 3: Patrick Pentz
+  AUT 4: David Alaba
+  AUT 5: Kevin Danso
+  AUT 6: Philipp Lienhart
+  AUT 7: Stefan Posch
+  AUT 8: Phillipp Mwene
+  AUT 9: Alexander Prass
+  BEL 1: Belgium Team Crest
+  BEL 10: Amadou Onana
+  BEL 11: Nicolas Raskin
+  BEL 12: Alexis Saelemaekers
+  BEL 13: Belgium Team Photo
+  BEL 14: Hans Vanaken
+  BEL 15: Kevin De Bruyne
+  BEL 16: Jérémy Doku
+  BEL 17: Charles De Ketelaere
+  BEL 18: Leandro Trossard
+  BEL 19: Loïs Openda
+  BEL 2: Thibaut Courtois
+  BEL 20: Romelu Lukaku
+  BEL 3: Arthur Theate
+  BEL 4: Timothy Castagne
+  BEL 5: Zeno Debast
+  BEL 6: Brandon Mechele
+  BEL 7: Maxim De Cuyper
+  BEL 8: Thomas Meunier
+  BEL 9: Youri Tielemans
+  BIH 1: Bosnia and Herzegovina Team Crest
+  BIH 10: Armin Gigović
+  BIH 11: Ivan Šunjić
+  BIH 12: Ivan Bašić
+  BIH 13: Bosnia and Herzegovina Team Photo
+  BIH 14: Dženis Burnić
+  BIH 15: Esmir Bajraktarević
+  BIH 16: Amar Memić
+  BIH 17: Ermedin Demirović
+  BIH 18: Edin Džeko
+  BIH 19: Samed Baždar
+  BIH 2: Nikola Vasilj
+  BIH 20: Haris Tabacovič
+  BIH 3: Amar Dedić
+  BIH 4: Sead Kolašinac
+  BIH 5: Tarik Muharemović
+  BIH 6: Nihad Mujakić
+  BIH 7: Nikola Katić
+  BIH 8: Amir Hadžiahmetović
+  BIH 9: Benjamin Tahirović
+  BRA 1: Brazil Team Crest
+  BRA 10: Casemiro
+  BRA 11: Bruno Guimarães
+  BRA 12: Luiz Henrique
+  BRA 13: Brazil Team Photo
+  BRA 14: Vinícius Júnior
+  BRA 15: Rodrygo
+  BRA 16: João Pedro
+  BRA 17: Matheus Cunha
+  BRA 18: Gabriel Martinelli
+  BRA 19: Raphinha
+  BRA 2: Alisson
+  BRA 20: Estêvão
+  BRA 3: Bento
+  BRA 4: Marquinhos
+  BRA 5: Éder Militão
+  BRA 6: Gabriel Magalhães
+  BRA 7: Danilo
+  BRA 8: Wesley
+  BRA 9: Lucas Paquetá
+  CAN 1: Canada Team Crest
+  CAN 10: Stephen Eustáquio
+  CAN 11: Ismaël Koné
+  CAN 12: Jonathan Osorio
+  CAN 13: Canada Team Photo
+  CAN 14: Jacob Shaffelburg
+  CAN 15: Mathieu Choinière
+  CAN 16: Niko Sigur
+  CAN 17: Tajon Buchanan
+  CAN 18: Liam Millar
+  CAN 19: Cyle Larin
+  CAN 2: Dayne St. Clair
+  CAN 20: Jonathan David
+  CAN 3: Alphonso Davies
+  CAN 4: Alistair Johnston
+  CAN 5: Samuel Adekugbe
+  CAN 6: Richie Laryea
+  CAN 7: Derek Cornelius
+  CAN 8: Moïse Bombito
+  CAN 9: Kamal Miller
+  CC 1: Lamine Yamal
+  CC 10: Weston McKennie
+  CC 11: Lautaro Martínez
+  CC 12: Gabriel Magalhães
+  CC 2: Joshua Kimmich
+  CC 3: Harry Kane
+  CC 4: Santiago Giménez
+  CC 5: Antonee Robinson
+  CC 6: Jefferson Lerma
+  CC 7: Edson Álvarez
+  CC 8: Virgil van Dijk
+  CC 9: Alphonso Davies
+  CIV 1: Côte d'Ivoire Team Crest
+  CIV 10: Franck Kessié
+  CIV 11: Seko Fofana
+  CIV 12: Ibrahim Sangaré
+  CIV 13: Côte d'Ivoire Team Photo
+  CIV 14: Jean-Philippe Gbamin
+  CIV 15: Amad Diallo
+  CIV 16: Sébastien Haller
+  CIV 17: Simon Adingra
+  CIV 18: Yan Diomande
+  CIV 19: Evann Guessand
+  CIV 2: Yahia Fofana
+  CIV 20: Oumar Diakité
+  CIV 3: Ghislain Konan
+  CIV 4: Wilfried Singo
+  CIV 5: Odilon Kossounou
+  CIV 6: Evan Ndicka
+  CIV 7: Willy Boly
+  CIV 8: Emmanuel Agbadou
+  CIV 9: Ousmane Diomande
+  COD 1: Congo DR Team Crest
+  COD 10: Edo Kayembe
+  COD 11: Samuel Moutoussamy
+  COD 12: Noah Sadiki
+  COD 13: Congo DR Team Photo
+  COD 14: Théo Bongonda
+  COD 15: Meschak Elia
+  COD 16: Yoane Wissa
+  COD 17: Brian Cipenga
+  COD 18: Fiston Mayele
+  COD 19: Cédric Bakambu
+  COD 2: Lionel Mpasi-Nzau
+  COD 20: Nathanaël Mbuku
+  COD 3: Aaron Wan-Bissaka
+  COD 4: Axel Tuanzebe
+  COD 5: Arthur Masuaku
+  COD 6: Chancel Mbemba
+  COD 7: Joris Kayembe
+  COD 8: Charles Pickel
+  COD 9: Ngal'ayel Mukau
+  COL 1: Colombia Team Crest
+  COL 10: Jefferson Lerma
+  COL 11: Kevin Castaño
+  COL 12: Richard Ríos
+  COL 13: Colombia Team Photo
+  COL 14: James Rodríguez
+  COL 15: Juan Fernando Quintero
+  COL 16: Jorge Carrascal
+  COL 17: Jhon Arias
+  COL 18: Jhon Córdoba
+  COL 19: Luis Suárez
+  COL 2: Camilo Vargas
+  COL 20: Luis Díaz
+  COL 3: David Ospina
+  COL 4: Dávinson Sánchez
+  COL 5: Yerry Mina
+  COL 6: Daniel Muñoz
+  COL 7: Johan Mojica
+  COL 8: Jhon Lucumí
+  COL 9: Santiago Arias
+  CPV 1: Cape Verde Team Crest
+  CPV 10: Kevin Pina
+  CPV 11: Patrick Andrade
+  CPV 12: Jamiro Monteiro
+  CPV 13: Cape Verde Team Photo
+  CPV 14: Deroy Duarte
+  CPV 15: Garry Rodrigues
+  CPV 16: Jovane Cabral
+  CPV 17: Ryan Mendes
+  CPV 18: Dailon Livramento
+  CPV 19: Willy Semedo
+  CPV 2: Vozinha
+  CPV 20: Bebé
+  CPV 3: Logan Costa
+  CPV 4: Pico
+  CPV 5: Diney
+  CPV 6: Steven Moreira
+  CPV 7: Wagner Pina
+  CPV 8: João Paulo
+  CPV 9: Yannick Semedo
+  CRO 1: Croatia Team Crest
+  CRO 10: Mateo Kovačić
+  CRO 11: Martin Baturina
+  CRO 12: Lovro Majer
+  CRO 13: Croatia Team Photo
+  CRO 14: Mario Pašalić
+  CRO 15: Petar Sučić
+  CRO 16: Ivan Perišić
+  CRO 17: Marco Pašalić
+  CRO 18: Ante Budimir
+  CRO 19: Andrej Kramarić
+  CRO 2: Dominik Livaković
+  CRO 20: Franjo Ivanović
+  CRO 3: Duje Ćaleta-Car
+  CRO 4: Joško Gvardiol
+  CRO 5: Josip Stanišić
+  CRO 6: Luka Vušković
+  CRO 7: Josip Šutalo
+  CRO 8: Kristijan Jakić
+  CRO 9: Luka Modrić
+  CUW 1: Curaçao Team Crest
+  CUW 10: Godfried Roemeratoe
+  CUW 11: Juninho Bacuna
+  CUW 12: Leandro Bacuna
+  CUW 13: Curaçao Team Photo
+  CUW 14: Tahith Chong
+  CUW 15: Kenji Gorré
+  CUW 16: Jearl Margaritha
+  CUW 17: Jürgen Locadia
+  CUW 18: Jeremy Antonisse
+  CUW 19: Gervane Kastaneer
+  CUW 2: Eloy Room
+  CUW 20: Sontje Hansen
+  CUW 3: Armando Obispo
+  CUW 4: Sherel Floranus
+  CUW 5: Juriën Gaari
+  CUW 6: Joshua Brenet
+  CUW 7: Roshon van Eijma
+  CUW 8: Shurandy Sambo
+  CUW 9: Livano Comenencia
+  CZE 1: Czechia Team Crest
+  CZE 10: Lukáš Provod
+  CZE 11: Lukáš Červ
+  CZE 12: Tomáš Souček
+  CZE 13: Czechia Team Photo
+  CZE 14: Pavel Šulc
+  CZE 15: Matěj Vydra
+  CZE 16: Vasil Kušej
+  CZE 17: Tomáš Chorý
+  CZE 18: Václav Černý
+  CZE 19: Adam Hložek
+  CZE 2: Matěj Kovář
+  CZE 20: Patrik Schick
+  CZE 3: Jindřich Staněk
+  CZE 4: Ladislav Krejčí
+  CZE 5: Vladimír Coufal
+  CZE 6: Jaroslav Zelený
+  CZE 7: Tomáš Holeš
+  CZE 8: David Zima
+  CZE 9: Michal Sadílek
+  ECU 1: Ecuador Team Crest
+  ECU 10: Alan Franco
+  ECU 11: Kendry Páez
+  ECU 12: Pedro Vite
+  ECU 13: Ecuador Team Photo
+  ECU 14: John Yeboah
+  ECU 15: Leonardo Campana
+  ECU 16: Gonzalo Plata
+  ECU 17: Nilson Angulo
+  ECU 18: Alan Minda
+  ECU 19: Kevin Rodríguez
+  ECU 2: Hernán Galíndez
+  ECU 20: Enner Valencia
+  ECU 3: Gonzalo Valle
+  ECU 4: Piero Hincapié
+  ECU 5: Pervis Estupiñán
+  ECU 6: Willian Pacho
+  ECU 7: Ángelo Preciado
+  ECU 8: Joel Ordóñez
+  ECU 9: Moisés Caicedo
+  EGY 1: Egypt Team Crest
+  EGY 10: Marwan Attia
+  EGY 11: Zizo
+  EGY 12: Hamdy Fathy
+  EGY 13: Egypt Team Photo
+  EGY 14: Mohanad Lasheen
+  EGY 15: Emam Ashour
+  EGY 16: Osama Faisal
+  EGY 17: Mohamed Salah
+  EGY 18: Mostafa Mohamed
+  EGY 19: Trézéguet
+  EGY 2: Mohamed El Shenawy
+  EGY 20: Omar Marmoush
+  EGY 3: Mohamed Hany
+  EGY 4: Mohamed Hamdy
+  EGY 5: Yasser Ibrahim
+  EGY 6: Khaled Sobhi
+  EGY 7: Ramy Rabia
+  EGY 8: Hossam Abdelmaguid
+  EGY 9: Ahmed Fatouh
+  ENG 1: England Team Crest
+  ENG 10: Declan Rice
+  ENG 11: Jude Bellingham
+  ENG 12: Cole Palmer
+  ENG 13: England Team Photo
+  ENG 14: Morgan Rogers
+  ENG 15: Anthony Gordon
+  ENG 16: Phil Foden
+  ENG 17: Bukayo Saka
+  ENG 18: Harry Kane
+  ENG 19: Marcus Rashford
+  ENG 2: Jordan Pickford
+  ENG 20: Ollie Watkins
+  ENG 3: John Stones
+  ENG 4: Marc Guéhi
+  ENG 5: Ezri Konsa
+  ENG 6: Trent Alexander-Arnold
+  ENG 7: Reece James
+  ENG 8: Dan Burn
+  ENG 9: Jordan Henderson
+  ESP 1: Spain Team Crest
+  ESP 10: Rodri
+  ESP 11: Pedri
+  ESP 12: Fabián Ruiz
+  ESP 13: Spain Team Photo
+  ESP 14: Mikel Merino
+  ESP 15: Lamine Yamal
+  ESP 16: Dani Olmo
+  ESP 17: Nico Williams
+  ESP 18: Ferran Torres
+  ESP 19: Álvaro Morata
+  ESP 2: Unai Simón
+  ESP 20: Mikel Oyarzabal
+  ESP 3: Robin Le Normand
+  ESP 4: Aymeric Laporte
+  ESP 5: Dean Huijsen
+  ESP 6: Pedro Porro
+  ESP 7: Dani Carvajal
+  ESP 8: Marc Cucurella
+  ESP 9: Martín Zubimendi
+  FRA 1: France Team Crest
+  FRA 10: Eduardo Camavinga
+  FRA 11: Manu Koné
+  FRA 12: Adrien Rabiot
+  FRA 13: France Team Photo
+  FRA 14: Michael Olise
+  FRA 15: Ousmane Dembélé
+  FRA 16: Bradley Barcola
+  FRA 17: Désiré Doué
+  FRA 18: Kingsley Coman
+  FRA 19: Hugo Ekitiké
+  FRA 2: Mike Maignan
+  FRA 20: Kylian Mbappé
+  FRA 3: Théo Hernández
+  FRA 4: William Saliba
+  FRA 5: Jules Koundé
+  FRA 6: Ibrahima Konaté
+  FRA 7: Dayot Upamecano
+  FRA 8: Lucas Digne
+  FRA 9: Aurélien Tchouaméni
+  FWC 0: Panini Logo
+  FWC 1: Official Tournament Emblem (top)
+  FWC 10: 'Past Champions: Uruguay 1950 - World Cup History'
+  FWC 11: 'Past Champions: West Germany 1954 - World Cup History'
+  FWC 12: 'Past Champions: Brazil 1962 - World Cup History'
+  FWC 13: 'Past Champions: West Germany 1974 - World Cup History'
+  FWC 14: 'Past Champions: Argentina 1986 - World Cup History'
+  FWC 15: 'Past Champions: Brazil 1994 - World Cup History'
+  FWC 16: 'Past Champions: Brazil 2002 - World Cup History'
+  FWC 17: 'Past Champions: Italy 2006 - World Cup History'
+  FWC 18: 'Past Champions: Germany 2014 - World Cup History'
+  FWC 19: 'Past Champions: Argentina 2022 - World Cup History'
+  FWC 2: Official Tournament Emblem (bottom)
+  FWC 3: Official Mascots
+  FWC 4: Official Slogan
+  FWC 5: Official Match Ball of FIFA World Cup
+  FWC 6: 'Host Countries & Cities: Canada'
+  FWC 7: 'Host Countries & Cities: Mexico'
+  FWC 8: 'Host Countries & Cities: USA'
+  FWC 9: 'Past Champions: Italy 1934 - World Cup History'
+  GER 1: Germany Team Crest
+  GER 10: Joshua Kimmich
+  GER 11: Florian Wirtz
+  GER 12: Felix Nmecha
+  GER 13: Germany Team Photo
+  GER 14: Leon Goretzka
+  GER 15: Jamal Musiala
+  GER 16: Serge Gnabry
+  GER 17: Kai Havertz
+  GER 18: Leroy Sané
+  GER 19: Karim Adeyemi
+  GER 2: Marc-André ter Stegen
+  GER 20: Nick Woltemade
+  GER 3: Jonathan Tah
+  GER 4: David Raum
+  GER 5: Nico Schlotterbeck
+  GER 6: Antonio Rüdiger
+  GER 7: Waldemar Anton
+  GER 8: Ridle Baku
+  GER 9: Maximilian Mittelstädt
+  GHA 1: Ghana Team Crest
+  GHA 10: Thomas Partey
+  GHA 11: Salis Abdul Samed
+  GHA 12: Kamaldeen Sulemana
+  GHA 13: Ghana Team Photo
+  GHA 14: Mohammed Kudus
+  GHA 15: Iñaki Williams
+  GHA 16: Jordan Ayew
+  GHA 17: André Ayew
+  GHA 18: Joseph Paintsil
+  GHA 19: Osman Bukari
+  GHA 2: Lawrence Ati-Zigi
+  GHA 20: Antoine Semenyo
+  GHA 3: Tariq Lamptey
+  GHA 4: Mohammed Salisu
+  GHA 5: Alidu Seidu
+  GHA 6: Alexander Djiku
+  GHA 7: Gideon Mensah
+  GHA 8: Caleb Yirenkyi
+  GHA 9: Abdul Fatawu Issahaku
+  HAI 1: Haiti Team Crest
+  HAI 10: Leverton Pierre
+  HAI 11: Danley Jean Jacques
+  HAI 12: Jean-Ricner Bellegarde
+  HAI 13: Haiti Team Photo
+  HAI 14: Christopher Attys
+  HAI 15: Derrick Etienne Jr.
+  HAI 16: Josué Casimir
+  HAI 17: Ruben Providence
+  HAI 18: Duckens Nazon
+  HAI 19: Louicius Deedson
+  HAI 2: Johny Placide
+  HAI 20: Frantzdy Pierrot
+  HAI 3: Carlens Arcus
+  HAI 4: Martin Expérience
+  HAI 5: Jean-Kévin Duverne
+  HAI 6: Ricardo Adé
+  HAI 7: Duke Lacroix
+  HAI 8: Garven Metusala
+  HAI 9: Hannes Delcroix
+  IRN 1: Iran Team Crest
+  IRN 10: Saleh Hardani
+  IRN 11: Saeed Ezatolahi
+  IRN 12: Saman Ghoddos
+  IRN 13: Iran Team Photo
+  IRN 14: Omid Noorafkan
+  IRN 15: Roozbeh Cheshmi
+  IRN 16: Mohammad Mohebi
+  IRN 17: Sardar Azmoun
+  IRN 18: Mehdi Taremi
+  IRN 19: Alireza Jahanbakhsh
+  IRN 2: Alireza Beiranvand
+  IRN 20: Ali Gholizadeh
+  IRN 3: Morteza Pouraliganji
+  IRN 4: Ehsan Hajsafi
+  IRN 5: Milad Mohammadi
+  IRN 6: Shojae Khalilzadeh
+  IRN 7: Ramin Rezaeian
+  IRN 8: Hossein Kanaani
+  IRN 9: Sadegh Moharrami
+  IRQ 1: Iraq Team Crest
+  IRQ 10: Amir Al-Ammari
+  IRQ 11: Ibrahim Bayesh
+  IRQ 12: Ali Jasim
+  IRQ 13: Iraq Team Photo
+  IRQ 14: Youssef Amyn
+  IRQ 15: Aimar Sher
+  IRQ 16: Marko Farji
+  IRQ 17: Osama Rashid
+  IRQ 18: Ali Al-Hamadi
+  IRQ 19: Aymen Hussein
+  IRQ 2: Jalal Hassan
+  IRQ 20: Mohanad Ali
+  IRQ 3: Rebin Sulaka
+  IRQ 4: Hussein Ali
+  IRQ 5: Akam Hashem
+  IRQ 6: Merchas Doski
+  IRQ 7: Zaid Tahseen
+  IRQ 8: Manaf Younis
+  IRQ 9: Zidane Iqbal
+  JOR 1: Jordan Team Crest
+  JOR 10: Nizar Al-Rashdan
+  JOR 11: Noor Al-Rawabdeh
+  JOR 12: Mohannad Abu Taha
+  JOR 13: Jordan Team Photo
+  JOR 14: Amer Jamous
+  JOR 15: Mousa Al-Taamari
+  JOR 16: Yazan Al-Naimat
+  JOR 17: Mahmoud Al-Mardi
+  JOR 18: Ali Olwan
+  JOR 19: Mohammad Abu Zrayq
+  JOR 2: Yazeed Abulaila
+  JOR 20: Ibrahim Sabra
+  JOR 3: Ihsan Haddad
+  JOR 4: Mohammad Abu Hashish
+  JOR 5: Yazan Al-Arab
+  JOR 6: Abdallah Nasib
+  JOR 7: Saleem Obaid
+  JOR 8: Mohammad Abualnadi
+  JOR 9: Ibrahim Saadeh
+  JPN 1: Japan Team Crest
+  JPN 10: Ao Tanaka
+  JPN 11: Daichi Kamada
+  JPN 12: Takefusa Kubo
+  JPN 13: Japan Team Photo
+  JPN 14: Ritsu Doan
+  JPN 15: Keito Nakamura
+  JPN 16: Takumi Minamino
+  JPN 17: Shuto Machino
+  JPN 18: Junya Ito
+  JPN 19: Koki Ogawa
+  JPN 2: Zion Suzuki
+  JPN 20: Ayase Ueda
+  JPN 3: Henry Heroki Mochizuki
+  JPN 4: Ayumu Seko
+  JPN 5: Junnosuke Suzuki
+  JPN 6: Shogo Taniguchi
+  JPN 7: Tsuyoshi Watanabe
+  JPN 8: Kaishu Sano
+  JPN 9: Yuki Soma
+  KOR 1: South Korea Team Crest
+  KOR 10: Lee Jae-sung
+  KOR 11: Hwang In-beom
+  KOR 12: Lee Kang-in
+  KOR 13: South Korea Team Photo
+  KOR 14: Paik Seung-ho
+  KOR 15: Jens Castrop
+  KOR 16: Lee Dong-gyeong
+  KOR 17: Cho Gue-sung
+  KOR 18: Son Heung-min
+  KOR 19: Hwang Hee-chan
+  KOR 2: Jo Hyeon-woo
+  KOR 20: Oh Hyeon-gyu
+  KOR 3: Kim Seung-gyu
+  KOR 4: Kim Min-jae
+  KOR 5: Cho Yu-min
+  KOR 6: Seol Young-woo
+  KOR 7: Lee Han-beom
+  KOR 8: Lee Tae-seok
+  KOR 9: Lee Myung-jae
+  KSA 1: Saudi Arabia Team Crest
+  KSA 10: Ziyad Aljohani
+  KSA 11: Abdullah Alkhaibari
+  KSA 12: Nasser Aldawsari
+  KSA 13: Saudi Arabia Team Photo
+  KSA 14: Saleh Abu Alshamat
+  KSA 15: Marwan Alsahafi
+  KSA 16: Salem Aldawsari
+  KSA 17: Abdulrahman Alobud
+  KSA 18: Feras Albrikan
+  KSA 19: Saleh Alshehri
+  KSA 2: Nawaf Alaqidi
+  KSA 20: Abdullah Alhamdan
+  KSA 3: Abdulrahman Alsanbi
+  KSA 4: Saud Abdulhamid
+  KSA 5: Nawaf Buwashl
+  KSA 6: Jehad Thikri
+  KSA 7: Moteb Alharbi
+  KSA 8: Hassan Altambakti
+  KSA 9: Musab Aljuwayr
+  MAR 1: Morocco Team Crest
+  MAR 10: Sofyan Amrabat
+  MAR 11: Azzedine Ounahi
+  MAR 12: Eliesse Ben Seghir
+  MAR 13: Morocco Team Photo
+  MAR 14: Bilal El Khannouss
+  MAR 15: Ismael Saibari
+  MAR 16: Youssef En-Nesyri
+  MAR 17: Abde Ezzalzouli
+  MAR 18: Soufiane Rahimi
+  MAR 19: Brahim Díaz
+  MAR 2: Yassine Bounou
+  MAR 20: Ayoub El Kaabi
+  MAR 3: Munir El Kajoui
+  MAR 4: Achraf Hakimi
+  MAR 5: Noussair Mazraoui
+  MAR 6: Nayef Aguerd
+  MAR 7: Romain Saïss
+  MAR 8: Jawad El Yamiq
+  MAR 9: Adam Masina
+  MEX 1: Mexico Team Crest
+  MEX 10: Edson Álvarez
+  MEX 11: Orbelín Pineda
+  MEX 12: Marcel Ruiz
+  MEX 13: Mexico Team Photo
+  MEX 14: Érick Sánchez
+  MEX 15: Hirving Lozano
+  MEX 16: Santiago Giménez
+  MEX 17: Raúl Jiménez
+  MEX 18: Alexis Vega
+  MEX 19: Roberto Alvarado
+  MEX 2: Luis Malagón
+  MEX 20: César Huerta
+  MEX 3: Johan Vásquez
+  MEX 4: Jorge Sánchez
+  MEX 5: César Montes
+  MEX 6: Jesús Gallardo
+  MEX 7: Israel Reyes
+  MEX 8: Diego Lainez
+  MEX 9: Carlos Rodríguez
+  NED 1: Netherlands Team Crest
+  NED 10: Tijjani Reijnders
+  NED 11: Ryan Gravenberch
+  NED 12: Teun Koopmeiners
+  NED 13: Netherlands Team Photo
+  NED 14: Frenkie de Jong
+  NED 15: Xavi Simons
+  NED 16: Justin Kluivert
+  NED 17: Memphis Depay
+  NED 18: Donyell Malen
+  NED 19: Wout Weghorst
+  NED 2: Bart Verbruggen
+  NED 20: Cody Gakpo
+  NED 3: Virgil van Dijk
+  NED 4: Micky van de Ven
+  NED 5: Jurriën Timber
+  NED 6: Denzel Dumfries
+  NED 7: Nathan Aké
+  NED 8: Jeremie Frimpong
+  NED 9: Jan Paul van Hecke
+  NOR 1: Norway Team Crest
+  NOR 10: Martin Ødegaard
+  NOR 11: Sander Berge
+  NOR 12: Andreas Schjelderup
+  NOR 13: Norway Team Photo
+  NOR 14: Patrick Berg
+  NOR 15: Erling Haaland
+  NOR 16: Alexander Sørloth
+  NOR 17: Aron Dønnum
+  NOR 18: Jørgen Strand Larsen
+  NOR 19: Antonio Nusa
+  NOR 2: Ørjan Nyland
+  NOR 20: Oscar Bobb
+  NOR 3: Julian Ryerson
+  NOR 4: Leo Østigård
+  NOR 5: Kristoffer Vassbakk Ajer
+  NOR 6: Marcus Holmgren Pedersen
+  NOR 7: David Møller Wolfe
+  NOR 8: Torbjørn Heggem
+  NOR 9: Morten Thorsby
+  NZL 1: New Zealand Team Crest
+  NZL 10: Joe Bell
+  NZL 11: Sarpreet Singh
+  NZL 12: Ryan Thomas
+  NZL 13: New Zealand Team Photo
+  NZL 14: Matthew Garbett
+  NZL 15: Marko Stamenić
+  NZL 16: Ben Old
+  NZL 17: Chris Wood
+  NZL 18: Elijah Just
+  NZL 19: Callum McCowatt
+  NZL 2: Max Crocombe
+  NZL 20: Kosta Barbarouses
+  NZL 3: Alex Paulsen
+  NZL 4: Michael Boxall
+  NZL 5: Liberato Cacace
+  NZL 6: Tim Payne
+  NZL 7: Tyler Bindon
+  NZL 8: Francis de Vries
+  NZL 9: Finn Surman
+  PAN 1: Panama Team Crest
+  PAN 10: Cristian Martínez
+  PAN 11: Aníbal Godoy
+  PAN 12: Adalberto Carrasquilla
+  PAN 13: Panama Team Photo
+  PAN 14: Édgar Bárcenas
+  PAN 15: Carlos Harvey
+  PAN 16: Ismael Díaz
+  PAN 17: José Fajardo
+  PAN 18: Cecilio Waterman
+  PAN 19: José Luis Rodríguez
+  PAN 2: Orlando Mosquera
+  PAN 20: Alberto Quintero
+  PAN 3: Luis Mejía
+  PAN 4: Fidel Escobar
+  PAN 5: Andrés Andrade
+  PAN 6: Michael Amir Murillo
+  PAN 7: Eric Davis
+  PAN 8: José Córdoba
+  PAN 9: César Blackman
+  PAR 1: Paraguay Team Crest
+  PAR 10: Diego Gómez
+  PAR 11: Damián Bobadilla
+  PAR 12: Andrés Cubas
+  PAR 13: Paraguay Team Photo
+  PAR 14: Matías Galarza Fonda
+  PAR 15: Julio Enciso
+  PAR 16: Alejandro Romero Gamarra
+  PAR 17: Miguel Almirón
+  PAR 18: Ramón Sosa
+  PAR 19: Ángel Romero
+  PAR 2: Roberto Fernández
+  PAR 20: Antonio Sanabria
+  PAR 3: Orlando Gill
+  PAR 4: Gustavo Gómez
+  PAR 5: Fabián Balbuena
+  PAR 6: Juan José Cáceres
+  PAR 7: Omar Alderete
+  PAR 8: Júnior Alonso
+  PAR 9: Mathías Villasanti
+  POR 1: Portugal Team Crest
+  POR 10: Bruno Fernandes
+  POR 11: Rúben Neves
+  POR 12: Vitinha
+  POR 13: Portugal Team Photo
+  POR 14: João Neves
+  POR 15: Cristiano Ronaldo
+  POR 16: Francisco Trincão
+  POR 17: João Félix
+  POR 18: Gonçalo Ramos
+  POR 19: Pedro Neto
+  POR 2: Diogo Costa
+  POR 20: Rafael Leão
+  POR 3: José Sá
+  POR 4: Rúben Dias
+  POR 5: João Cancelo
+  POR 6: Diogo Dalot
+  POR 7: Nuno Mendes
+  POR 8: Gonçalo Inácio
+  POR 9: Bernardo Silva
+  QAT 1: Qatar Team Crest
+  QAT 10: Karim Boudiaf
+  QAT 11: Assim Madibo
+  QAT 12: Hamed Fatehi
+  QAT 13: Qatar Team Photo
+  QAT 14: Mohammed Waad
+  QAT 15: Abdulaziz Hatem
+  QAT 16: Hassan Al-Haydos
+  QAT 17: Edmílson Junior
+  QAT 18: Akram Hassan Afif
+  QAT 19: Ahmed Al-Ganehi
+  QAT 2: Meshaal Barsham
+  QAT 20: Almoez Ali
+  QAT 3: Sultan Albrake
+  QAT 4: Lucas Mendes
+  QAT 5: Homam Ahmed
+  QAT 6: Boualem Khoukhi
+  QAT 7: Pedro Miguel
+  QAT 8: Tarek Salman
+  QAT 9: Mohammed Mannai
+  RSA 1: South Africa Team Crest
+  RSA 10: Nkosinathi Sibisi
+  RSA 11: Teboho Mokoena
+  RSA 12: Thalente Mbatha
+  RSA 13: South Africa Team Photo
+  RSA 14: Bathusi Aubaas
+  RSA 15: Yaya Sithole
+  RSA 16: Sipho Mbule
+  RSA 17: Lyle Foster
+  RSA 18: Iqraam Rayners
+  RSA 19: Mohau Nkota
+  RSA 2: Ronwen Williams
+  RSA 20: Oswin Appollis
+  RSA 3: Sipho Chaine
+  RSA 4: Aubrey Modiba
+  RSA 5: Samukele Kabini
+  RSA 6: Mbekezeli Mbokazi
+  RSA 7: Khulumani Ndamane
+  RSA 8: Siyabonga Ngezana
+  RSA 9: Khuliso Mudau
+  SCO 1: Scotland Team Crest
+  SCO 10: Grant Hanley
+  SCO 11: Scott McTominay
+  SCO 12: Billy Gilmour
+  SCO 13: Scotland Team Photo
+  SCO 14: Lewis Ferguson
+  SCO 15: Ryan Christie
+  SCO 16: Kenny McLean
+  SCO 17: John McGinn
+  SCO 18: Lyndon Dykes
+  SCO 19: Ché Adams
+  SCO 2: Angus Gunn
+  SCO 20: Ben Gannon-Doak
+  SCO 3: Jack Hendry
+  SCO 4: Kieran Tierney
+  SCO 5: Aaron Hickey
+  SCO 6: Andrew Robertson
+  SCO 7: Scott McKenna
+  SCO 8: John Souttar
+  SCO 9: Anthony Ralston
+  SEN 1: Senegal Team Crest
+  SEN 10: Pape Matar Sarr
+  SEN 11: Pape Gueye
+  SEN 12: Habib Diarra
+  SEN 13: Senegal Team Photo
+  SEN 14: Lamine Camara
+  SEN 15: Sadio Mané
+  SEN 16: Ismaïla Sarr
+  SEN 17: Boulaye Dia
+  SEN 18: Iliman Ndiaye
+  SEN 19: Nicolas Jackson
+  SEN 2: Édouard Mendy
+  SEN 20: Krépin Diatta
+  SEN 3: Yehvann Diouf
+  SEN 4: Moussa Niakhaté
+  SEN 5: Abdoulaye Seck
+  SEN 6: Ismail Jakobs
+  SEN 7: El Hadji Malick Diouf
+  SEN 8: Kalidou Koulibaly
+  SEN 9: Idrissa Gana Gueye
+  SUI 1: Switzerland Team Crest
+  SUI 10: Denis Zakaria
+  SUI 11: Remo Freuler
+  SUI 12: Fabian Rieder
+  SUI 13: Switzerland Team Photo
+  SUI 14: Ardon Jashari
+  SUI 15: Johan Manzambi
+  SUI 16: Michel Aebischer
+  SUI 17: Breel Embolo
+  SUI 18: Rubén Vargas
+  SUI 19: Dan Ndoye
+  SUI 2: Gregor Kobel
+  SUI 20: Zeki Amdouni
+  SUI 3: Yvon Mvogo
+  SUI 4: Manuel Akanji
+  SUI 5: Ricardo Rodríguez
+  SUI 6: Nico Elvedi
+  SUI 7: Aurèle Amenda
+  SUI 8: Silvan Widmer
+  SUI 9: Granit Xhaka
+  SWE 1: Sweden Team Crest
+  SWE 10: Jesper Karlström
+  SWE 11: Yasin Ayari
+  SWE 12: Mattias Svanberg
+  SWE 13: Sweden Team Photo
+  SWE 14: Daniel Svensson
+  SWE 15: Ken Sema
+  SWE 16: Roony Bardghji
+  SWE 17: Dejan Kulusevski
+  SWE 18: Anthony Elanga
+  SWE 19: Alexander Isak
+  SWE 2: Viktor Johansson
+  SWE 20: Viktor Gyökeres
+  SWE 3: Isak Hien
+  SWE 4: Gabriel Gudmundsson
+  SWE 5: Emil Holm
+  SWE 6: Victor Nilsson Lindelöf
+  SWE 7: Gustaf Lagerbielke
+  SWE 8: Lucas Bergvall
+  SWE 9: Hugo Larsson
+  TUN 1: Tunisia Team Crest
+  TUN 10: Aïssa Laïdouni
+  TUN 11: Ferjani Sassi
+  TUN 12: Mohamed Ali Ben Romdhane
+  TUN 13: Tunisia Team Photo
+  TUN 14: Hannibal Mejbri
+  TUN 15: Elias Achouri
+  TUN 16: Elias Saad
+  TUN 17: Hazem Mastouri
+  TUN 18: Ismaël Gharbi
+  TUN 19: Sayfallah Ltaief
+  TUN 2: Bechir Ben Saïd
+  TUN 20: Naïm Sliti
+  TUN 3: Aymen Dahmen
+  TUN 4: Yan Valery
+  TUN 5: Montassar Talbi
+  TUN 6: Yassine Meriah
+  TUN 7: Ali Abdi
+  TUN 8: Dylan Bronn
+  TUN 9: Ellyes Skhiri
+  TUR 1: Türkiye Team Crest
+  TUR 10: İSMAİL YÜKSEK
+  TUR 11: Hakan Çalhanoğlu
+  TUR 12: Orkun Kökçü
+  TUR 13: Türkiye Team Photo
+  TUR 14: Arda Güler
+  TUR 15: İRFAN CAN KAHVECİ
+  TUR 16: Yunus Akgün
+  TUR 17: Can Uzun
+  TUR 18: Barış Alper Yılmaz
+  TUR 19: Kerem Aktürkoğlu
+  TUR 2: Uğurcan Çakır
+  TUR 20: Kenan Yıldız
+  TUR 3: Mert Müldür
+  TUR 4: ZEKİ ÇELİK
+  TUR 5: ABDÜLKERİM BARDAKCI
+  TUR 6: Çağlar Söyüncü
+  TUR 7: MERİH DEMİRAL
+  TUR 8: FERDİ KADIOĞLU
+  TUR 9: Kaan Ayhan
+  URU 1: Uruguay Team Crest
+  URU 10: Federico Valverde
+  URU 11: Giorgian de Arrascaeta
+  URU 12: Rodrigo Bentancur
+  URU 13: Uruguay Team Photo
+  URU 14: Manuel Ugarte
+  URU 15: Nicolás de la Cruz
+  URU 16: Maximiliano Araújo
+  URU 17: Darwin Núñez
+  URU 18: Federico Viñas
+  URU 19: Rodrigo Aguirre
+  URU 2: Sergio Rochet
+  URU 20: Facundo Pellistri
+  URU 3: Santiago Mele
+  URU 4: Ronald Araújo
+  URU 5: José María Giménez
+  URU 6: Sebastián Cáceres
+  URU 7: Mathías Olivera
+  URU 8: Guillermo Varela
+  URU 9: Nahitan Nández
+  USA 1: USA Team Crest
+  USA 10: Weston McKennie
+  USA 11: Cristian Roldan
+  USA 12: Timothy Weah
+  USA 13: USA Team Photo
+  USA 14: Diego Luna
+  USA 15: Malik Tillman
+  USA 16: Christian Pulisic
+  USA 17: Brenden Aaronson
+  USA 18: Ricardo Pepi
+  USA 19: Haji Wright
+  USA 2: Matt Freese
+  USA 20: Folarin Balogun
+  USA 3: Chris Richards
+  USA 4: Tim Ream
+  USA 5: Mark McKenzie
+  USA 6: Alex Freeman
+  USA 7: Antonee Robinson
+  USA 8: Tyler Adams
+  USA 9: Tanner Tessmann
+  UZB 1: Uzbekistan Team Crest
+  UZB 10: Odiljon Hamrobekov
+  UZB 11: Otabek Shukurov
+  UZB 12: Jamshid Iskanderov
+  UZB 13: Uzbekistan Team Photo
+  UZB 14: Azizbek Turgunboev
+  UZB 15: Khojimat Erkinov
+  UZB 16: Eldor Shomurodov
+  UZB 17: Oston Urunov
+  UZB 18: Jaloliddin Masharipov
+  UZB 19: Igor Sergeev
+  UZB 2: Utkir Yusupov
+  UZB 20: Abbosbek Fayzullaev
+  UZB 3: Farrukh Sayfiev
+  UZB 4: Sherzod Nasrullaev
+  UZB 5: Umar Eshmurodov
+  UZB 6: Husniddin Aliqulov
+  UZB 7: Rustam Ashurmatov
+  UZB 8: Khojiakbar Alijonov
+  UZB 9: Abdukodir Khusanov
+special_stickers:
+  ALG 1: 1.3
+  ARG 1: 1.3
+  AUS 1: 1.3
+  AUT 1: 1.3
+  BEL 1: 1.3
+  BIH 1: 1.3
+  BRA 1: 1.3
+  CAN 1: 1.3
+  CIV 1: 1.3
+  COD 1: 1.3
+  COL 1: 1.3
+  CPV 1: 1.3
+  CRO 1: 1.3
+  CUW 1: 1.3
+  CZE 1: 1.3
+  ECU 1: 1.3
+  EGY 1: 1.3
+  ENG 1: 1.3
+  ESP 1: 1.3
+  FRA 1: 1.3
+  GER 1: 1.3
+  GHA 1: 1.3
+  HAI 1: 1.3
+  IRN 1: 1.3
+  IRQ 1: 1.3
+  JOR 1: 1.3
+  JPN 1: 1.3
+  KOR 1: 1.3
+  KSA 1: 1.3
+  MAR 1: 1.3
+  MEX 1: 1.3
+  NED 1: 1.3
+  NOR 1: 1.3
+  NZL 1: 1.3
+  PAN 1: 1.3
+  PAR 1: 1.3
+  POR 1: 1.3
+  QAT 1: 1.3
+  RSA 1: 1.3
+  SCO 1: 1.3
+  SEN 1: 1.3
+  SUI 1: 1.3
+  SWE 1: 1.3
+  TUN 1: 1.3
+  TUR 1: 1.3
+  URU 1: 1.3
+  USA 1: 1.3
+  UZB 1: 1.3
+sticker_teams:
+  CC 1: Spain
+  CC 10: United States
+  CC 11: Argentina
+  CC 12: Brazil
+  CC 2: Germany
+  CC 3: England
+  CC 4: Mexico
+  CC 5: United States
+  CC 6: Colombia
+  CC 7: Mexico
+  CC 8: Netherlands
+  CC 9: Canada
+  FWC 0: Panini
+  FWC 1: FIFA World Cup 2026
+  FWC 10: FIFA Museum
+  FWC 11: FIFA Museum
+  FWC 12: FIFA Museum
+  FWC 13: FIFA Museum
+  FWC 14: FIFA Museum
+  FWC 15: FIFA Museum
+  FWC 16: FIFA Museum
+  FWC 17: FIFA Museum
+  FWC 18: FIFA Museum
+  FWC 19: FIFA Museum
+  FWC 2: FIFA World Cup 2026
+  FWC 3: FIFA World Cup 2026
+  FWC 4: FIFA World Cup 2026
+  FWC 5: FIFA World Cup 2026
+  FWC 6: FIFA World Cup 2026
+  FWC 7: FIFA World Cup 2026
+  FWC 8: FIFA World Cup 2026
+  FWC 9: FIFA Museum
+player_facts:
+  ALG 10:
+    dob: '1999-09-23'
+    club: OGC Nice
+  ALG 11:
+    dob: '1998-05-26'
+    club: Feyenoord
+  ALG 12:
+    dob: '1994-11-24'
+    club: LOSC Lille
+  ALG 14:
+    dob: '2002-11-28'
+    club: Eintracht Frankfurt
+  ALG 15:
+    dob: '1991-02-21'
+    club: Al-Ahli Saudi FC
+  ALG 16:
+    dob: '1995-08-10'
+    club: NEOM SC
+  ALG 17:
+    dob: '2002-02-11'
+    club: Feyenoord
+  ALG 18:
+    dob: '2000-02-16'
+    club: Olympique Marseille
+  ALG 19:
+    dob: '1991-11-24'
+    club: Al-Shamal
+  ALG 2:
+    dob: '1996-01-26'
+    club: Persepolis FC
+  ALG 20:
+    dob: '2000-05-09'
+    club: VfL Wolfsburg
+  ALG 3:
+    dob: '1995-04-16'
+    club: Borussia Dortmund
+  ALG 4:
+    dob: '1996-05-17'
+    club: Al-Sadd
+  ALG 5:
+    dob: '2001-06-06'
+    club: Manchester City
+  ALG 6:
+    dob: '2000-01-22'
+    club: Espérance de Tunis
+  ALG 7:
+    dob: '1991-10-22'
+    club: LOSC Lille
+  ALG 8:
+    dob: '1997-12-01'
+    club: Olympique Marseille
+  ALG 9:
+    dob: '1998-06-30'
+    club: Al-Ittihad
+  ARG 10:
+    dob: '1994-05-24'
+    club: Atlético Madrid
+  ARG 11:
+    dob: '1998-10-05'
+    club: Bayer Leverkusen
+  ARG 12:
+    dob: '1994-06-29'
+    club: AS Roma
+  ARG 14:
+    dob: '2004-09-08'
+    club: Como 1907
+  ARG 15:
+    dob: '2007-08-14'
+    club: River Plate
+  ARG 16:
+    dob: '1998-04-06'
+    club: Juventus
+  ARG 17:
+    dob: '1987-06-24'
+    club: Inter Miami
+  ARG 18:
+    dob: '1997-08-22'
+    club: Inter Milan
+  ARG 19:
+    dob: '2000-01-31'
+    club: Atlético Madrid
+  ARG 2:
+    dob: '1992-09-02'
+    club: Aston Villa
+  ARG 20:
+    dob: '2002-12-18'
+    club: Atlético Madrid
+  ARG 3:
+    dob: '1998-04-06'
+    club: Atlético Madrid
+  ARG 4:
+    dob: '1998-04-27'
+    club: Tottenham Hotspur
+  ARG 5:
+    dob: '1988-02-12'
+    club: SL Benfica
+  ARG 6:
+    dob: '1992-08-31'
+    club: Olympique Lyonnais
+  ARG 7:
+    dob: '1999-01-26'
+    club: Olympique Marseille
+  ARG 8:
+    dob: '2001-01-17'
+    club: Chelsea
+  ARG 9:
+    dob: '1998-12-24'
+    club: Liverpool FC
+  AUS 10:
+    dob: '1994-04-28'
+    club: APOEL
+  AUS 11:
+    dob: '1993-03-07'
+    club: St. Pauli
+  AUS 12:
+    dob: '1998-11-02'
+    club: Middlesbrough FC
+  AUS 14:
+    dob: '1998-07-04'
+    club: New York City FC
+  AUS 15:
+    dob: '1999-11-05'
+    club: St. Pauli
+  AUS 16:
+    dob: '2002-04-05'
+    club: Nashville SC
+  AUS 17:
+    dob: '1991-12-16'
+    club: Al-Wehda
+  AUS 18:
+    dob: '1999-01-15'
+    club: Machida Zelvia
+  AUS 19:
+    dob: '2006-02-09'
+    club: Watford FC
+  AUS 2:
+    dob: '1992-04-08'
+    club: Levante
+  AUS 20:
+    dob: '2004-03-26'
+    club: Norwich City
+  AUS 3:
+    dob: '2000-07-04'
+    club: Aston Villa
+  AUS 4:
+    dob: '1998-10-22'
+    club: Leicester City
+  AUS 5:
+    dob: '2003-10-10'
+    club: Parma Calcio
+  AUS 6:
+    dob: '2002-04-29'
+    club: Feyenoord
+  AUS 7:
+    dob: '1990-12-16'
+    club: Melbourne City
+  AUS 8:
+    dob: '1995-10-21'
+    club: Swansea City
+  AUS 9:
+    dob: '2000-08-24'
+    club: Motherwell
+  AUT 10:
+    dob: '1997-09-28'
+    club: RB Leipzig
+  AUT 11:
+    dob: '1994-03-17'
+    club: Borussia Dortmund
+  AUT 12:
+    dob: '1997-05-27'
+    club: Bayern Munich
+  AUT 14:
+    dob: '1995-08-07'
+    club: TSG Hoffenheim
+  AUT 15:
+    dob: '2001-05-04'
+    club: RB Leipzig
+  AUT 16:
+    dob: '2000-01-27'
+    club: Werder Bremen
+  AUT 17:
+    dob: '2001-05-30'
+    club: VfL Wolfsburg
+  AUT 18:
+    dob: '1999-08-01'
+    club: RB Leipzig
+  AUT 19:
+    dob: '1994-04-18'
+    club: SC Freiburg
+  AUT 2:
+    dob: '1996-02-01'
+    club: Red Bull Salzburg
+  AUT 20:
+    dob: '1989-04-19'
+    club: Inter Milan
+  AUT 3:
+    dob: '1997-01-02'
+    club: Bayer Leverkusen
+  AUT 4:
+    dob: '1992-06-24'
+    club: Real Madrid
+  AUT 5:
+    dob: '1998-09-19'
+    club: Tottenham Hotspur
+  AUT 6:
+    dob: '1996-07-11'
+    club: SC Freiburg
+  AUT 7:
+    dob: '1997-05-14'
+    club: Bologna FC
+  AUT 8:
+    dob: '1994-01-29'
+    club: 1. FSV Mainz 05
+  AUT 9:
+    dob: '2001-05-26'
+    club: TSG Hoffenheim
+  BEL 10:
+    dob: '2001-08-16'
+    club: Aston Villa
+  BEL 11:
+    dob: '2001-02-23'
+    club: Rangers
+  BEL 12:
+    dob: '1999-06-27'
+    club: AS Roma
+  BEL 14:
+    dob: '1992-08-24'
+    club: Club Brugge
+  BEL 15:
+    dob: '1991-06-28'
+    club: Manchester City
+  BEL 16:
+    dob: '2002-05-27'
+    club: Manchester City
+  BEL 17:
+    dob: '2001-03-10'
+    club: Atalanta
+  BEL 18:
+    dob: '1994-12-04'
+    club: Arsenal FC
+  BEL 19:
+    dob: '2000-02-16'
+    club: RB Leipzig
+  BEL 2:
+    dob: '1992-05-11'
+    club: Real Madrid
+  BEL 20:
+    dob: '1993-05-13'
+    club: SSC Napoli
+  BEL 3:
+    dob: '2000-05-25'
+    club: Eintracht Frankfurt
+  BEL 4:
+    dob: '1995-12-05'
+    club: Fulham
+  BEL 5:
+    dob: '2003-10-24'
+    club: Sporting CP
+  BEL 6:
+    dob: '1993-01-28'
+    club: Club Brugge
+  BEL 7:
+    dob: '2000-12-22'
+    club: Club Brugge
+  BEL 8:
+    dob: '1991-09-12'
+    club: LOSC Lille
+  BEL 9:
+    dob: '1997-05-07'
+    club: Aston Villa
+  BIH 10:
+    dob: '2002-03-06'
+    club: Holstein Kiel
+  BIH 11:
+    dob: '1996-11-09'
+    club: Pafos
+  BIH 12:
+    dob: '2002-04-30'
+    club: VfB Bochum
+  BIH 14:
+    dob: '1998-05-22'
+    club: Karlsruher SC
+  BIH 15:
+    dob: '2005-03-10'
+    club: PSV Eindhoven
+  BIH 16:
+    dob: '2001-01-20'
+    club: Viktoria Plzeň
+  BIH 17:
+    dob: '1998-03-25'
+    club: VfB Stuttgart
+  BIH 18:
+    dob: '1986-03-17'
+    club: Schalke 04
+  BIH 19:
+    dob: '2004-01-31'
+    club: Jagiellonia Białystok
+  BIH 2:
+    dob: '1995-02-02'
+    club: St. Pauli
+  BIH 20:
+    dob: '1994-06-20'
+    club: Borussia Mönchengladbach
+  BIH 3:
+    dob: '2002-10-18'
+    club: Olympique Marseille
+  BIH 4:
+    dob: '1993-06-20'
+    club: Atalanta
+  BIH 5:
+    dob: '2003-02-28'
+    club: Leeds United
+  BIH 6:
+    dob: '1998-04-19'
+    club: Partizan
+  BIH 7:
+    dob: '1996-10-10'
+    club: FC Zürich
+  BIH 8:
+    dob: '1997-03-08'
+    club: Beşiktaş
+  BIH 9:
+    dob: '2003-03-03'
+    club: Brøndby
+  BRA 10:
+    dob: '1992-02-23'
+    club: Manchester United
+  BRA 11:
+    dob: '1997-11-16'
+    club: Newcastle United
+  BRA 12:
+    dob: '2000-01-02'
+    club: Zenit Saint Petersburg
+  BRA 14:
+    dob: '2000-07-12'
+    club: Real Madrid
+  BRA 15:
+    dob: '2001-01-09'
+    club: Real Madrid
+  BRA 16:
+    dob: '2001-09-26'
+    club: Chelsea
+  BRA 17:
+    dob: '1999-05-27'
+    club: Manchester United
+  BRA 18:
+    dob: '2001-06-18'
+    club: Arsenal FC
+  BRA 19:
+    dob: '1996-12-14'
+    club: FC Barcelona
+  BRA 2:
+    dob: '1992-10-02'
+    club: Liverpool FC
+  BRA 20:
+    dob: '2007-04-24'
+    club: Chelsea
+  BRA 3:
+    dob: '1999-06-10'
+    club: Al-Nassr
+  BRA 4:
+    dob: '1994-05-14'
+    club: Paris Saint-Germain
+  BRA 5:
+    dob: '1998-01-18'
+    club: Real Madrid
+  BRA 6:
+    dob: '1997-12-19'
+    club: Arsenal FC
+  BRA 7:
+    dob: '1991-04-29'
+    club: Flamengo
+  BRA 8:
+    dob: '2003-09-06'
+    club: Flamengo
+  BRA 9:
+    dob: '1997-08-27'
+    club: Flamengo
+  CAN 10:
+    dob: '1996-12-21'
+    club: Los Angeles FC
+  CAN 11:
+    dob: '2002-06-16'
+    club: Sassuolo
+  CAN 12:
+    dob: '1992-06-12'
+    club: Toronto FC
+  CAN 14:
+    dob: '1999-11-26'
+    club: Los Angeles FC
+  CAN 15:
+    dob: '1999-02-07'
+    club: Los Angeles FC
+  CAN 16:
+    dob: '2004-05-17'
+    club: Hajduk Split
+  CAN 17:
+    dob: '1999-02-08'
+    club: Villarreal CF
+  CAN 18:
+    dob: '1999-09-27'
+    club: Hull City
+  CAN 19:
+    dob: '1995-04-17'
+    club: Southampton
+  CAN 2:
+    dob: '1997-05-09'
+    club: Inter Miami
+  CAN 20:
+    dob: '2000-01-14'
+    club: Juventus
+  CAN 3:
+    dob: '2000-11-02'
+    club: Bayern Munich
+  CAN 4:
+    dob: '1998-10-08'
+    club: Celtic
+  CAN 5:
+    dob: '1995-01-16'
+    club: Vancouver Whitecaps
+  CAN 6:
+    dob: '1995-01-07'
+    club: Toronto FC
+  CAN 7:
+    dob: '1997-11-25'
+    club: Rangers
+  CAN 8:
+    dob: '2000-03-30'
+    club: OGC Nice
+  CAN 9:
+    dob: '1997-05-16'
+    club: Portland Timbers
+  CC 1:
+    dob: '2007-07-13'
+    club: FC Barcelona
+  CC 10:
+    dob: '1998-08-28'
+    club: Juventus
+  CC 11:
+    dob: '1997-08-22'
+    club: Inter Milan
+  CC 12:
+    dob: '1997-12-19'
+    club: Arsenal FC
+  CC 2:
+    dob: '1995-02-08'
+    club: Bayern Munich
+  CC 3:
+    dob: '1993-07-28'
+    club: Bayern Munich
+  CC 4:
+    dob: '2001-04-18'
+    club: AC Milan
+  CC 5:
+    dob: '1997-08-08'
+    club: Fulham
+  CC 6:
+    dob: '1994-10-25'
+    club: Crystal Palace
+  CC 7:
+    dob: '1997-10-24'
+    club: Fenerbahçe
+  CC 8:
+    dob: '1991-07-08'
+    club: Liverpool FC
+  CC 9:
+    dob: '2000-11-02'
+    club: Bayern Munich
+  CIV 10:
+    dob: '1996-12-19'
+    club: Al-Ahli Saudi FC
+  CIV 11:
+    dob: '1995-05-13'
+    club: Stade Rennais
+  CIV 12:
+    dob: '1997-12-02'
+    club: Nottingham Forest
+  CIV 14:
+    dob: '1995-09-25'
+    club: FC Zürich
+  CIV 15:
+    dob: '2002-07-11'
+    club: Manchester United
+  CIV 16:
+    dob: '1994-06-22'
+    club: FC Utrecht
+  CIV 17:
+    dob: '2002-11-01'
+    club: Sunderland AFC
+  CIV 18:
+    dob: '2005-11-14'
+    club: RB Leipzig
+  CIV 19:
+    dob: '2001-07-01'
+    club: Aston Villa
+  CIV 2:
+    dob: '2000-08-21'
+    club: Angers SCO
+  CIV 20:
+    dob: '2003-12-16'
+    club: Stade de Reims
+  CIV 3:
+    dob: '1995-12-27'
+    club: Al-Fayha
+  CIV 4:
+    dob: '2000-12-25'
+    club: Galatasaray
+  CIV 5:
+    dob: '2001-01-04'
+    club: Atalanta
+  CIV 6:
+    dob: '1999-08-20'
+    club: AS Roma
+  CIV 7:
+    dob: '1991-02-03'
+    club: Nottingham Forest
+  CIV 8:
+    dob: '1997-06-17'
+    club: Wolverhampton Wanderers
+  CIV 9:
+    dob: '2003-12-04'
+    club: Sporting CP
+  COD 10:
+    dob: '1998-06-03'
+    club: Watford FC
+  COD 11:
+    dob: '1996-08-12'
+    club: Fortuna Sittard
+  COD 12:
+    dob: '2004-12-17'
+    club: Sunderland AFC
+  COD 14:
+    dob: '1995-11-20'
+    club: Spartak Moscow
+  COD 15:
+    dob: '1997-08-06'
+    club: BSC Young Boys
+  COD 16:
+    dob: '1996-09-03'
+    club: Brentford FC
+  COD 17:
+    dob: '1998-03-11'
+    club: CD Castellón
+  COD 18:
+    dob: '1994-06-24'
+    club: Pyramids FC
+  COD 19:
+    dob: '1991-04-11'
+    club: Real Betis
+  COD 2:
+    dob: '1994-08-01'
+    club: Rodez AF
+  COD 20:
+    dob: '2002-03-16'
+    club: Montpellier HSC
+  COD 3:
+    dob: '1997-11-26'
+    club: West Ham United
+  COD 4:
+    dob: '1997-11-14'
+    club: Burnley FC
+  COD 5:
+    dob: '1993-11-07'
+    club: Beşiktaş
+  COD 6:
+    dob: '1994-08-08'
+    club: Olympique Marseille
+  COD 7:
+    dob: '1994-08-08'
+    club: KRC Genk
+  COD 8:
+    dob: '1997-05-15'
+    club: US Cremonese
+  COD 9:
+    dob: '2004-11-03'
+    club: LOSC Lille
+  COL 10:
+    dob: '1994-10-25'
+    club: Crystal Palace
+  COL 11:
+    dob: '2000-09-29'
+    club: River Plate
+  COL 12:
+    dob: '2000-06-02'
+    club: SL Benfica
+  COL 14:
+    dob: '1991-07-12'
+    club: Minnesota United FC
+  COL 15:
+    dob: '1993-01-18'
+    club: River Plate
+  COL 16:
+    dob: '1998-05-25'
+    club: Flamengo
+  COL 17:
+    dob: '1997-09-21'
+    club: Palmeiras
+  COL 18:
+    dob: '1993-05-11'
+    club: Krasnodar
+  COL 19:
+    dob: '1997-12-02'
+    club: Sporting CP
+  COL 2:
+    dob: '1989-03-09'
+    club: Atlas FC
+  COL 20:
+    dob: '1997-01-13'
+    club: Bayern Munich
+  COL 3:
+    dob: '1988-08-31'
+    club: Atlético Nacional
+  COL 4:
+    dob: '1996-06-12'
+    club: Galatasaray
+  COL 5:
+    dob: '1994-09-23'
+    club: Cagliari Calcio
+  COL 6:
+    dob: '1996-05-26'
+    club: Crystal Palace
+  COL 7:
+    dob: '1992-08-21'
+    club: RCD Mallorca
+  COL 8:
+    dob: '1998-01-26'
+    club: Bologna FC
+  COL 9:
+    dob: '1992-03-13'
+    club: Bahia
+  CPV 10:
+    dob: '2003-01-27'
+    club: Krasnodar
+  CPV 11:
+    dob: '1993-02-09'
+    club: Esteghlal FC
+  CPV 12:
+    dob: '1993-11-23'
+    club: PEC Zwolle
+  CPV 14:
+    dob: '1999-07-04'
+    club: Ludogorets Razgrad
+  CPV 15:
+    dob: '1990-11-27'
+    club: Apollon Limassol
+  CPV 16:
+    dob: '1998-06-14'
+    club: Estrela Amadora
+  CPV 17:
+    dob: '1990-01-08'
+    club: Iğdır FK
+  CPV 18:
+    dob: '2001-05-04'
+    club: Casa Pia
+  CPV 19:
+    dob: '1994-04-27'
+    club: Omonia
+  CPV 2:
+    dob: '1986-02-03'
+    club: Chaves
+  CPV 20:
+    dob: '1990-07-12'
+    club: Rayo Vallecano
+  CPV 3:
+    dob: '2001-04-01'
+    club: Villarreal CF
+  CPV 4:
+    dob: '1992-10-17'
+    club: Shamrock Rovers
+  CPV 5:
+    dob: '1995-01-17'
+    club: Al Bataeh
+  CPV 6:
+    dob: '1994-08-13'
+    club: Columbus Crew
+  CPV 7:
+    dob: '2002-11-03'
+    club: Trabzonspor
+  CPV 8:
+    dob: '1996-12-07'
+    club: FCSB
+  CPV 9:
+    dob: '1996-09-28'
+    club: Farense
+  CRO 10:
+    dob: '1994-06-06'
+    club: Manchester City
+  CRO 11:
+    dob: '2003-02-16'
+    club: Dinamo Zagreb
+  CRO 12:
+    dob: '1998-01-17'
+    club: VfL Wolfsburg
+  CRO 14:
+    dob: '1995-02-09'
+    club: Atalanta
+  CRO 15:
+    dob: '2003-10-25'
+    club: Dinamo Zagreb
+  CRO 16:
+    dob: '1989-02-02'
+    club: PSV Eindhoven
+  CRO 17:
+    dob: '2000-09-14'
+    club: Orlando City
+  CRO 18:
+    dob: '1991-07-22'
+    club: Osasuna
+  CRO 19:
+    dob: '1991-06-19'
+    club: TSG Hoffenheim
+  CRO 2:
+    dob: '1995-01-09'
+    club: Fenerbahçe
+  CRO 20:
+    dob: '2003-10-01'
+    club: Union Saint-Gilloise
+  CRO 3:
+    dob: '1996-09-17'
+    club: Real Sociedad
+  CRO 4:
+    dob: '2002-01-23'
+    club: Manchester City
+  CRO 5:
+    dob: '2000-04-02'
+    club: Bayern Munich
+  CRO 6:
+    dob: '2007-02-24'
+    club: Westerlo
+  CRO 7:
+    dob: '2000-02-28'
+    club: Ajax
+  CRO 8:
+    dob: '1997-05-14'
+    club: FC Augsburg
+  CRO 9:
+    dob: '1985-09-09'
+    club: Real Madrid
+  CUW 10:
+    dob: '1999-02-19'
+    club: RKC Waalwijk
+  CUW 11:
+    dob: '1997-08-12'
+    club: FC Volendam
+  CUW 12:
+    dob: '1991-08-21'
+    club: Iğdır FK
+  CUW 14:
+    dob: '1999-12-04'
+    club: Sheffield United
+  CUW 15:
+    dob: '1994-09-29'
+    club: Maccabi Haifa
+  CUW 16:
+    dob: '2000-04-01'
+    club: SK Beveren
+  CUW 17:
+    dob: '1993-11-07'
+    club: Miami FC
+  CUW 18:
+    dob: '2002-02-18'
+    club: AE Kifisia
+  CUW 19:
+    dob: '1996-06-09'
+    club: Terengganu FC
+  CUW 2:
+    dob: '1989-02-06'
+    club: Miami FC
+  CUW 20:
+    dob: '2002-05-18'
+    club: Middlesbrough FC
+  CUW 3:
+    dob: '1999-03-05'
+    club: PSV Eindhoven
+  CUW 4:
+    dob: '1998-10-11'
+    club: PEC Zwolle
+  CUW 5:
+    dob: '1993-12-23'
+    club: Abha Club
+  CUW 6:
+    dob: '1994-03-20'
+    club: Kayserispor
+  CUW 7:
+    dob: '2002-03-04'
+    club: RKC Waalwijk
+  CUW 8:
+    dob: '2001-08-19'
+    club: Sparta Rotterdam
+  CUW 9:
+    dob: '2004-02-03'
+    club: FC Zürich
+  CZE 10:
+    dob: '1996-10-23'
+    club: Slavia Prague
+  CZE 11:
+    dob: '2001-04-17'
+    club: Viktoria Plzeň
+  CZE 12:
+    dob: '1995-02-27'
+    club: West Ham United
+  CZE 14:
+    dob: '2000-12-29'
+    club: Olympique Lyonnais
+  CZE 15:
+    dob: '1992-05-01'
+    club: Viktoria Plzeň
+  CZE 16:
+    dob: '2000-05-24'
+    club: Slavia Prague
+  CZE 17:
+    dob: '1995-01-26'
+    club: Slavia Prague
+  CZE 18:
+    dob: '1997-10-17'
+    club: Rangers
+  CZE 19:
+    dob: '2002-07-25'
+    club: TSG Hoffenheim
+  CZE 2:
+    dob: '2000-05-17'
+    club: PSV Eindhoven
+  CZE 20:
+    dob: '1996-01-24'
+    club: Bayer Leverkusen
+  CZE 3:
+    dob: '1996-04-27'
+    club: Slavia Prague
+  CZE 4:
+    dob: '1999-04-20'
+    club: Wolverhampton Wanderers
+  CZE 5:
+    dob: '1992-08-22'
+    club: TSG Hoffenheim
+  CZE 6:
+    dob: '1992-08-20'
+    club: Sparta Prague
+  CZE 7:
+    dob: '1993-03-31'
+    club: Slavia Prague
+  CZE 8:
+    dob: '2000-11-08'
+    club: Slavia Prague
+  CZE 9:
+    dob: '1999-05-31'
+    club: Slavia Prague
+  ECU 10:
+    dob: '1998-08-21'
+    club: Atlético Mineiro
+  ECU 11:
+    dob: '2007-05-04'
+    club: River Plate
+  ECU 12:
+    dob: '2002-03-09'
+    club: Pumas UNAM
+  ECU 14:
+    dob: '2000-12-23'
+    club: Venezia FC
+  ECU 15:
+    dob: '2000-07-24'
+    club: New England Revolution
+  ECU 16:
+    dob: '2000-11-01'
+    club: Flamengo
+  ECU 17:
+    dob: '2003-06-19'
+    club: Sunderland AFC
+  ECU 18:
+    dob: '2003-03-14'
+    club: Atlético Mineiro
+  ECU 19:
+    dob: '2000-03-04'
+    club: Union Saint-Gilloise
+  ECU 2:
+    dob: '1987-03-30'
+    club: Huracán
+  ECU 20:
+    dob: '1989-11-04'
+    club: Pachuca
+  ECU 3:
+    dob: '1996-02-28'
+    club: LDU Quito
+  ECU 4:
+    dob: '2002-01-09'
+    club: Arsenal FC
+  ECU 5:
+    dob: '1998-01-21'
+    club: AC Milan
+  ECU 6:
+    dob: '2001-10-16'
+    club: Paris Saint-Germain
+  ECU 7:
+    dob: '1998-02-18'
+    club: Atlético Mineiro
+  ECU 8:
+    dob: '2004-04-21'
+    club: Club Brugge
+  ECU 9:
+    dob: '2001-11-02'
+    club: Chelsea
+  EGY 10:
+    dob: '1998-08-12'
+    club: Al Ahly SC
+  EGY 11:
+    dob: '1996-01-10'
+    club: Zamalek SC
+  EGY 12:
+    dob: '1994-09-29'
+    club: Al-Wakrah
+  EGY 14:
+    dob: '1996-05-29'
+    club: Pyramids FC
+  EGY 15:
+    dob: '1998-02-20'
+    club: Al Ahly SC
+  EGY 16:
+    dob: '2001-07-01'
+    club: National Bank of Egypt SC
+  EGY 17:
+    dob: '1992-06-15'
+    club: Liverpool FC
+  EGY 18:
+    dob: '1997-11-28'
+    club: FC Nantes
+  EGY 19:
+    dob: '1994-10-01'
+    club: Al-Rayyan
+  EGY 2:
+    dob: '1988-12-18'
+    club: Al Ahly SC
+  EGY 20:
+    dob: '1999-02-07'
+    club: Manchester City
+  EGY 3:
+    dob: '1996-02-02'
+    club: Al Ahly SC
+  EGY 4:
+    dob: '1995-03-15'
+    club: Zamalek SC
+  EGY 5:
+    dob: '1993-02-10'
+    club: Al Ahly SC
+  EGY 6:
+    dob: '1995-05-04'
+    club: Ceramica Cleopatra FC
+  EGY 7:
+    dob: '1993-05-20'
+    club: Al Ahly SC
+  EGY 8:
+    dob: '2001-04-30'
+    club: Zamalek SC
+  EGY 9:
+    dob: '1998-03-22'
+    club: Zamalek SC
+  ENG 10:
+    dob: '1999-01-14'
+    club: Arsenal FC
+  ENG 11:
+    dob: '2003-06-29'
+    club: Real Madrid
+  ENG 12:
+    dob: '2002-05-06'
+    club: Chelsea
+  ENG 14:
+    dob: '2002-07-26'
+    club: Aston Villa
+  ENG 15:
+    dob: '2001-02-24'
+    club: Newcastle United
+  ENG 16:
+    dob: '2000-05-28'
+    club: Manchester City
+  ENG 17:
+    dob: '2001-09-05'
+    club: Arsenal FC
+  ENG 18:
+    dob: '1993-07-28'
+    club: Bayern Munich
+  ENG 19:
+    dob: '1997-10-31'
+    club: FC Barcelona
+  ENG 2:
+    dob: '1994-03-07'
+    club: Everton
+  ENG 20:
+    dob: '1995-12-30'
+    club: Aston Villa
+  ENG 3:
+    dob: '1994-05-15'
+    club: Manchester City
+  ENG 4:
+    dob: '2000-07-13'
+    club: Crystal Palace
+  ENG 5:
+    dob: '1997-10-23'
+    club: Aston Villa
+  ENG 6:
+    dob: '1998-10-07'
+    club: Real Madrid
+  ENG 7:
+    dob: '1999-12-08'
+    club: Chelsea
+  ENG 8:
+    dob: '1992-05-09'
+    club: Newcastle United
+  ENG 9:
+    dob: '1990-06-17'
+    club: Brentford FC
+  ESP 10:
+    dob: '1996-06-22'
+    club: Manchester City
+  ESP 11:
+    dob: '2002-11-25'
+    club: FC Barcelona
+  ESP 12:
+    dob: '1996-08-03'
+    club: Paris Saint-Germain
+  ESP 14:
+    dob: '1996-06-22'
+    club: Arsenal FC
+  ESP 15:
+    dob: '2007-07-13'
+    club: FC Barcelona
+  ESP 16:
+    dob: '1998-05-07'
+    club: FC Barcelona
+  ESP 17:
+    dob: '2002-07-12'
+    club: Athletic Club
+  ESP 18:
+    dob: '2000-02-29'
+    club: FC Barcelona
+  ESP 19:
+    dob: '1992-10-23'
+    club: Como 1907
+  ESP 2:
+    dob: '1997-06-11'
+    club: Athletic Club
+  ESP 20:
+    dob: '1997-04-21'
+    club: Real Sociedad
+  ESP 3:
+    dob: '1996-11-11'
+    club: Atlético Madrid
+  ESP 4:
+    dob: '1994-05-27'
+    club: Al-Nassr
+  ESP 5:
+    dob: '2005-04-14'
+    club: Real Madrid
+  ESP 6:
+    dob: '1999-09-13'
+    club: Tottenham Hotspur
+  ESP 7:
+    dob: '1992-01-11'
+    club: Real Madrid
+  ESP 8:
+    dob: '1998-07-22'
+    club: Chelsea
+  ESP 9:
+    dob: '1999-02-02'
+    club: Arsenal FC
+  FRA 10:
+    dob: '2002-11-10'
+    club: Real Madrid
+  FRA 11:
+    dob: '2001-05-17'
+    club: AS Roma
+  FRA 12:
+    dob: '1995-04-03'
+    club: Olympique Marseille
+  FRA 14:
+    dob: '2001-12-12'
+    club: Bayern Munich
+  FRA 15:
+    dob: '1997-05-15'
+    club: Paris Saint-Germain
+  FRA 16:
+    dob: '2002-09-02'
+    club: Paris Saint-Germain
+  FRA 17:
+    dob: '2005-06-03'
+    club: Paris Saint-Germain
+  FRA 18:
+    dob: '1996-06-13'
+    club: Bayern Munich
+  FRA 19:
+    dob: '2002-06-20'
+    club: Eintracht Frankfurt
+  FRA 2:
+    dob: '1995-07-03'
+    club: AC Milan
+  FRA 20:
+    dob: '1998-12-20'
+    club: Real Madrid
+  FRA 3:
+    dob: '1997-10-06'
+    club: AC Milan
+  FRA 4:
+    dob: '2001-03-24'
+    club: Arsenal FC
+  FRA 5:
+    dob: '1998-11-12'
+    club: FC Barcelona
+  FRA 6:
+    dob: '1999-05-25'
+    club: Liverpool FC
+  FRA 7:
+    dob: '1998-10-27'
+    club: Bayern Munich
+  FRA 8:
+    dob: '1993-07-20'
+    club: Aston Villa
+  FRA 9:
+    dob: '2000-01-27'
+    club: Real Madrid
+  GER 10:
+    dob: '1995-02-08'
+    club: Bayern Munich
+  GER 11:
+    dob: '2003-05-03'
+    club: Liverpool FC
+  GER 12:
+    dob: '2000-10-10'
+    club: Borussia Dortmund
+  GER 14:
+    dob: '1995-02-06'
+    club: Bayern Munich
+  GER 15:
+    dob: '2003-02-26'
+    club: Bayern Munich
+  GER 16:
+    dob: '1995-07-14'
+    club: Bayern Munich
+  GER 17:
+    dob: '1999-06-11'
+    club: Arsenal FC
+  GER 18:
+    dob: '1996-01-11'
+    club: Galatasaray
+  GER 19:
+    dob: '2002-01-18'
+    club: Borussia Dortmund
+  GER 2:
+    dob: '1992-04-30'
+    club: FC Barcelona
+  GER 20:
+    dob: '2002-02-14'
+    club: Newcastle United
+  GER 3:
+    dob: '1996-02-11'
+    club: Bayern Munich
+  GER 4:
+    dob: '1998-04-22'
+    club: RB Leipzig
+  GER 5:
+    dob: '2000-12-01'
+    club: Borussia Dortmund
+  GER 6:
+    dob: '1993-03-03'
+    club: Real Madrid
+  GER 7:
+    dob: '1996-07-20'
+    club: Borussia Dortmund
+  GER 8:
+    dob: '1998-04-08'
+    club: RB Leipzig
+  GER 9:
+    dob: '1997-03-18'
+    club: VfB Stuttgart
+  GHA 10:
+    dob: '1993-06-13'
+    club: Arsenal FC
+  GHA 11:
+    dob: '2000-03-26'
+    club: Sunderland AFC
+  GHA 12:
+    dob: '2002-02-15'
+    club: Atalanta
+  GHA 14:
+    dob: '2000-08-02'
+    club: West Ham United
+  GHA 15:
+    dob: '1994-06-15'
+    club: Athletic Club
+  GHA 16:
+    dob: '1991-09-11'
+    club: Leicester City
+  GHA 17:
+    dob: '1989-12-17'
+    club: Le Havre AC
+  GHA 18:
+    dob: '1998-02-01'
+    club: LA Galaxy
+  GHA 19:
+    dob: '1998-12-13'
+    club: Austin FC
+  GHA 2:
+    dob: '1996-11-29'
+    club: St. Gallen
+  GHA 20:
+    dob: '2000-01-07'
+    club: AFC Bournemouth
+  GHA 3:
+    dob: '2000-09-30'
+    club: Brighton & Hove Albion
+  GHA 4:
+    dob: '1999-04-17'
+    club: AS Monaco
+  GHA 5:
+    dob: '2000-06-04'
+    club: Stade Rennais
+  GHA 6:
+    dob: '1994-08-09'
+    club: Fenerbahçe
+  GHA 7:
+    dob: '1998-07-18'
+    club: AJ Auxerre
+  GHA 8:
+    dob: '2006-01-15'
+    club: FC Nordsjælland
+  GHA 9:
+    dob: '2004-03-08'
+    club: Leicester City
+  HAI 10:
+    dob: '1998-07-10'
+    club: Vizela
+  HAI 11:
+    dob: '2000-05-14'
+    club: Philadelphia Union
+  HAI 12:
+    dob: '1998-06-27'
+    club: Wolverhampton Wanderers
+  HAI 14:
+    dob: '2001-03-13'
+    club: Triestina
+  HAI 15:
+    dob: '1996-11-25'
+    club: Toronto FC
+  HAI 16:
+    dob: '2001-02-15'
+    club: AJ Auxerre
+  HAI 17:
+    dob: '2001-07-21'
+    club: Almere City
+  HAI 18:
+    dob: '1994-04-07'
+    club: Esteghlal FC
+  HAI 19:
+    dob: '2000-02-11'
+    club: Odense Boldklub
+  HAI 2:
+    dob: '1988-01-29'
+    club: SC Bastia
+  HAI 20:
+    dob: '1995-03-29'
+    club: Çaykur Rizespor
+  HAI 3:
+    dob: '1996-06-28'
+    club: Angers SCO
+  HAI 4:
+    dob: '1999-03-09'
+    club: Nancy
+  HAI 5:
+    dob: '1997-07-12'
+    club: KAA Gent
+  HAI 6:
+    dob: '1990-05-21'
+    club: LDU Quito
+  HAI 7:
+    dob: '1993-11-14'
+    club: Colorado Springs Switchbacks FC
+  HAI 8:
+    dob: '2000-03-16'
+    club: Colorado Springs Switchbacks FC
+  HAI 9:
+    dob: '1999-02-28'
+    club: Lugano
+  IRN 10:
+    dob: '1998-12-26'
+    club: Esteghlal FC
+  IRN 11:
+    dob: '1996-10-01'
+    club: Shabab Al-Ahli
+  IRN 12:
+    dob: '1993-09-06'
+    club: Kalba FC
+  IRN 14:
+    dob: '1997-04-09'
+    club: Sepahan SC
+  IRN 15:
+    dob: '1993-07-24'
+    club: Esteghlal FC
+  IRN 16:
+    dob: '1998-12-20'
+    club: FC Rostov
+  IRN 17:
+    dob: '1995-01-01'
+    club: Shabab Al-Ahli
+  IRN 18:
+    dob: '1992-07-18'
+    club: Olympiacos FC
+  IRN 19:
+    dob: '1993-10-08'
+    club: FCV Dender EH
+  IRN 2:
+    dob: '1992-09-21'
+    club: Tractor SC
+  IRN 20:
+    dob: '1996-03-10'
+    club: Lech Poznań
+  IRN 3:
+    dob: '1992-04-25'
+    club: Persepolis FC
+  IRN 4:
+    dob: '1990-02-25'
+    club: Sepahan SC
+  IRN 5:
+    dob: '1993-09-29'
+    club: Persepolis FC
+  IRN 6:
+    dob: '1989-05-14'
+    club: Tractor SC
+  IRN 7:
+    dob: '1990-03-21'
+    club: Esteghlal FC
+  IRN 8:
+    dob: '1994-03-23'
+    club: Persepolis FC
+  IRN 9:
+    dob: '1996-03-01'
+    club: Tractor SC
+  IRQ 10:
+    dob: '1997-07-27'
+    club: Cracovia
+  IRQ 11:
+    dob: '2000-05-01'
+    club: Al-Shorta
+  IRQ 12:
+    dob: '2004-01-20'
+    club: Como 1907
+  IRQ 14:
+    dob: '2003-08-21'
+    club: AEK Larnaca
+  IRQ 15:
+    dob: '2002-12-20'
+    club: Sarpsborg
+  IRQ 16:
+    dob: '2004-03-16'
+    club: Strømsgodset
+  IRQ 17:
+    dob: '1992-01-17'
+    club: Deportivo La Coruña
+  IRQ 18:
+    dob: '2002-03-01'
+    club: Ipswich Town
+  IRQ 19:
+    dob: '1996-03-22'
+    club: Al-Karma
+  IRQ 2:
+    dob: '1991-05-18'
+    club: Al-Zawraa
+  IRQ 20:
+    dob: '2000-06-20'
+    club: Dibba
+  IRQ 3:
+    dob: '1992-04-12'
+    club: Bangkok United
+  IRQ 4:
+    dob: '2002-03-01'
+    club: Al-Shorta
+  IRQ 5:
+    dob: '1998-08-16'
+    club: Al-Zawraa
+  IRQ 6:
+    dob: '1999-12-07'
+    club: FC Utrecht
+  IRQ 7:
+    dob: '2001-01-29'
+    club: Pakhtakor
+  IRQ 8:
+    dob: '1996-11-16'
+    club: Al-Shorta
+  IRQ 9:
+    dob: '2003-04-27'
+    club: FC Utrecht
+  JOR 10:
+    dob: '1999-03-23'
+    club: Al-Faisaly SC
+  JOR 11:
+    dob: '1997-02-24'
+    club: Al-Hussein SC
+  JOR 12:
+    dob: '2003-02-02'
+    club: Al-Wehdat
+  JOR 14:
+    dob: '2002-07-03'
+    club: Al-Hussein SC
+  JOR 15:
+    dob: '1997-06-10'
+    club: Montpellier HSC
+  JOR 16:
+    dob: '1999-06-04'
+    club: Al-Ahli Saudi FC
+  JOR 17:
+    dob: '1993-10-06'
+    club: Al-Hussein SC
+  JOR 18:
+    dob: '2000-03-26'
+    club: Al Jazira
+  JOR 19:
+    dob: '1997-12-30'
+    club: Al-Ramtha
+  JOR 2:
+    dob: '1993-01-08'
+    club: Maan SC
+  JOR 20:
+    dob: '2006-02-01'
+    club: Al-Wehdat
+  JOR 3:
+    dob: '1994-02-05'
+    club: Al-Hussein SC
+  JOR 4:
+    dob: '1995-05-09'
+    club: Al-Hussein SC
+  JOR 5:
+    dob: '1996-01-31'
+    club: Selangor FC
+  JOR 6:
+    dob: '1994-02-25'
+    club: Al-Hussein SC
+  JOR 7:
+    dob: '1992-01-17'
+    club: Al-Hussein SC
+  JOR 8:
+    dob: '2001-02-08'
+    club: Al-Hussein SC
+  JOR 9:
+    dob: '2000-04-27'
+    club: Al-Hussein SC
+  JPN 10:
+    dob: '1998-09-10'
+    club: Leeds United
+  JPN 11:
+    dob: '1996-08-05'
+    club: Crystal Palace
+  JPN 12:
+    dob: '2001-06-04'
+    club: Real Sociedad
+  JPN 14:
+    dob: '1998-06-16'
+    club: Eintracht Frankfurt
+  JPN 15:
+    dob: '2000-07-28'
+    club: Stade de Reims
+  JPN 16:
+    dob: '1995-01-16'
+    club: AS Monaco
+  JPN 17:
+    dob: '1999-09-30'
+    club: Holstein Kiel
+  JPN 18:
+    dob: '1993-03-09'
+    club: Stade de Reims
+  JPN 19:
+    dob: '1997-08-08'
+    club: NEC Nijmegen
+  JPN 2:
+    dob: '2002-08-21'
+    club: Parma Calcio
+  JPN 20:
+    dob: '1998-08-28'
+    club: Feyenoord
+  JPN 3:
+    dob: '2001-09-20'
+    club: VfB Stuttgart
+  JPN 4:
+    dob: '2000-06-07'
+    club: Grasshopper Club Zürich
+  JPN 5:
+    dob: '2003-07-12'
+    club: FC København
+  JPN 6:
+    dob: '1991-07-15'
+    club: Sint-Truiden
+  JPN 7:
+    dob: '1997-02-05'
+    club: KAA Gent
+  JPN 8:
+    dob: '2000-12-30'
+    club: 1. FSV Mainz 05
+  JPN 9:
+    dob: '1997-02-25'
+    club: Machida Zelvia
+  KOR 10:
+    dob: '1992-08-10'
+    club: 1. FSV Mainz 05
+  KOR 11:
+    dob: '1996-09-20'
+    club: Feyenoord
+  KOR 12:
+    dob: '2001-02-19'
+    club: Paris Saint-Germain
+  KOR 14:
+    dob: '1997-03-17'
+    club: Birmingham City
+  KOR 15:
+    dob: '2003-07-29'
+    club: Borussia Mönchengladbach
+  KOR 16:
+    dob: '1997-09-20'
+    club: Ulsan HD
+  KOR 17:
+    dob: '1998-01-25'
+    club: FC Midtjylland
+  KOR 18:
+    dob: '1992-07-08'
+    club: Los Angeles FC
+  KOR 19:
+    dob: '1996-01-26'
+    club: Wolverhampton Wanderers
+  KOR 2:
+    dob: '1991-09-25'
+    club: Ulsan HD
+  KOR 20:
+    dob: '2001-04-26'
+    club: Beşiktaş
+  KOR 3:
+    dob: '1990-09-30'
+    club: FC Tokyo
+  KOR 4:
+    dob: '1996-11-15'
+    club: Bayern Munich
+  KOR 5:
+    dob: '1996-11-17'
+    club: Sharjah FC
+  KOR 6:
+    dob: '1998-12-05'
+    club: Crvena zvezda
+  KOR 7:
+    dob: '2002-06-17'
+    club: FC Midtjylland
+  KOR 8:
+    dob: '2002-07-28'
+    club: Austria Wien
+  KOR 9:
+    dob: '1993-11-04'
+    club: Daejeon Hana Citizen
+  KSA 10:
+    dob: '2001-11-11'
+    club: Al-Ahli Saudi FC
+  KSA 11:
+    dob: '1996-08-15'
+    club: Al-Nassr
+  KSA 12:
+    dob: '1998-12-19'
+    club: Al-Hilal
+  KSA 14:
+    dob: '2002-09-14'
+    club: Al-Qadsiah
+  KSA 15:
+    dob: '2004-02-17'
+    club: Beerschot
+  KSA 16:
+    dob: '1991-08-19'
+    club: Al-Hilal
+  KSA 17:
+    dob: '1995-06-01'
+    club: Al-Ittihad
+  KSA 18:
+    dob: '2000-05-14'
+    club: Al-Ahli Saudi FC
+  KSA 19:
+    dob: '1993-11-01'
+    club: Al-Ittihad
+  KSA 2:
+    dob: '2000-05-10'
+    club: Al-Nassr
+  KSA 20:
+    dob: '1999-09-13'
+    club: Al-Nassr
+  KSA 3:
+    dob: '1997-02-21'
+    club: Al-Ahli Saudi FC
+  KSA 4:
+    dob: '1999-07-18'
+    club: Al-Hilal
+  KSA 5:
+    dob: '1999-09-16'
+    club: Al-Nassr
+  KSA 6:
+    dob: '2001-07-21'
+    club: Al-Qadsiah
+  KSA 7:
+    dob: '2000-02-19'
+    club: Al-Hilal
+  KSA 8:
+    dob: '1999-02-09'
+    club: Al-Hilal
+  KSA 9:
+    dob: '2003-06-20'
+    club: Al-Qadsiah
+  MAR 10:
+    dob: '1996-08-21'
+    club: Real Betis
+  MAR 11:
+    dob: '2000-04-19'
+    club: Girona FC
+  MAR 12:
+    dob: '2005-02-16'
+    club: Bayer Leverkusen
+  MAR 14:
+    dob: '2004-05-10'
+    club: VfB Stuttgart
+  MAR 15:
+    dob: '2001-01-28'
+    club: PSV Eindhoven
+  MAR 16:
+    dob: '1997-06-01'
+    club: Al-Ittihad
+  MAR 17:
+    dob: '2001-12-17'
+    club: Real Betis
+  MAR 18:
+    dob: '1996-06-02'
+    club: Al-Ain
+  MAR 19:
+    dob: '1999-08-03'
+    club: Real Madrid
+  MAR 2:
+    dob: '1991-04-05'
+    club: Al-Hilal
+  MAR 20:
+    dob: '1993-06-25'
+    club: Olympiacos FC
+  MAR 3:
+    dob: '1989-05-10'
+    club: RS Berkane
+  MAR 4:
+    dob: '1998-11-04'
+    club: Paris Saint-Germain
+  MAR 5:
+    dob: '1997-11-14'
+    club: Manchester United
+  MAR 6:
+    dob: '1996-03-30'
+    club: Olympique Marseille
+  MAR 7:
+    dob: '1990-03-26'
+    club: Al-Sadd
+  MAR 8:
+    dob: '1992-02-29'
+    club: Al-Wehda
+  MAR 9:
+    dob: '1994-01-02'
+    club: Torino FC
+  MEX 10:
+    dob: '1997-10-24'
+    club: Fenerbahçe
+  MEX 11:
+    dob: '1996-03-24'
+    club: AEK Athens
+  MEX 12:
+    dob: '2000-10-26'
+    club: Toluca FC
+  MEX 14:
+    dob: '1999-09-27'
+    club: Club América
+  MEX 15:
+    dob: '1995-07-30'
+    club: San Diego FC
+  MEX 16:
+    dob: '2001-04-18'
+    club: AC Milan
+  MEX 17:
+    dob: '1991-05-05'
+    club: Wolverhampton Wanderers
+  MEX 18:
+    dob: '1997-11-25'
+    club: Toluca FC
+  MEX 19:
+    dob: '1998-09-07'
+    club: Toluca FC
+  MEX 2:
+    dob: '1997-03-02'
+    club: Club América
+  MEX 20:
+    dob: '2000-12-03'
+    club: Anderlecht
+  MEX 3:
+    dob: '1998-10-22'
+    club: Genoa CFC
+  MEX 4:
+    dob: '1997-12-10'
+    club: PAOK
+  MEX 5:
+    dob: '1997-02-24'
+    club: Lokomotiv Moscow
+  MEX 6:
+    dob: '1994-08-15'
+    club: Toluca FC
+  MEX 7:
+    dob: '2000-05-23'
+    club: Club América
+  MEX 8:
+    dob: '2000-06-09'
+    club: Tigres UANL
+  MEX 9:
+    dob: '1997-01-03'
+    club: Cruz Azul
+  NED 10:
+    dob: '1998-07-29'
+    club: Manchester City
+  NED 11:
+    dob: '2002-05-16'
+    club: Liverpool FC
+  NED 12:
+    dob: '1998-02-28'
+    club: Juventus
+  NED 14:
+    dob: '1997-05-12'
+    club: FC Barcelona
+  NED 15:
+    dob: '2003-04-21'
+    club: Tottenham Hotspur
+  NED 16:
+    dob: '1999-05-05'
+    club: AFC Bournemouth
+  NED 17:
+    dob: '1994-02-13'
+    club: Corinthians
+  NED 18:
+    dob: '1999-01-19'
+    club: AS Roma
+  NED 19:
+    dob: '1992-08-07'
+    club: FC Twente
+  NED 2:
+    dob: '2002-08-18'
+    club: Brighton & Hove Albion
+  NED 20:
+    dob: '1999-05-07'
+    club: Liverpool FC
+  NED 3:
+    dob: '1991-07-08'
+    club: Liverpool FC
+  NED 4:
+    dob: '2001-04-19'
+    club: Tottenham Hotspur
+  NED 5:
+    dob: '2001-06-17'
+    club: Arsenal FC
+  NED 6:
+    dob: '1996-04-18'
+    club: Inter Milan
+  NED 7:
+    dob: '1995-02-18'
+    club: Manchester City
+  NED 8:
+    dob: '2000-12-10'
+    club: Liverpool FC
+  NED 9:
+    dob: '2000-06-08'
+    club: Brighton & Hove Albion
+  NOR 10:
+    dob: '1998-12-17'
+    club: Arsenal FC
+  NOR 11:
+    dob: '1998-02-14'
+    club: Fulham
+  NOR 12:
+    dob: '2004-06-01'
+    club: SL Benfica
+  NOR 14:
+    dob: '1997-11-24'
+    club: Bodø/Glimt
+  NOR 15:
+    dob: '2000-07-21'
+    club: Manchester City
+  NOR 16:
+    dob: '1995-12-05'
+    club: Atlético Madrid
+  NOR 17:
+    dob: '1998-04-20'
+    club: Toulouse
+  NOR 18:
+    dob: '2000-02-06'
+    club: Wolverhampton Wanderers
+  NOR 19:
+    dob: '2005-04-17'
+    club: RB Leipzig
+  NOR 2:
+    dob: '1990-09-10'
+    club: Sevilla FC
+  NOR 20:
+    dob: '2003-07-12'
+    club: Manchester City
+  NOR 3:
+    dob: '1997-11-17'
+    club: Borussia Dortmund
+  NOR 4:
+    dob: '1999-11-28'
+    club: Stade Rennais
+  NOR 5:
+    dob: '1998-04-17'
+    club: Brentford FC
+  NOR 6:
+    dob: '2000-07-16'
+    club: Torino FC
+  NOR 7:
+    dob: '2002-04-23'
+    club: AZ Alkmaar
+  NOR 8:
+    dob: '1999-01-12'
+    club: West Bromwich Albion
+  NOR 9:
+    dob: '1996-05-05'
+    club: Genoa CFC
+  NZL 10:
+    dob: '1998-04-26'
+    club: Viking FK
+  NZL 11:
+    dob: '1999-02-20'
+    club: Wellington Phoenix
+  NZL 12:
+    dob: '1994-12-20'
+    club: PEC Zwolle
+  NZL 14:
+    dob: '2002-04-13'
+    club: Peterborough United
+  NZL 15:
+    dob: '2002-02-19'
+    club: Swansea City
+  NZL 16:
+    dob: '2002-08-13'
+    club: Saint-Étienne
+  NZL 17:
+    dob: '1991-12-07'
+    club: Nottingham Forest
+  NZL 18:
+    dob: '2000-05-01'
+    club: Motherwell
+  NZL 19:
+    dob: '1999-04-30'
+    club: Silkeborg IF
+  NZL 2:
+    dob: '1993-08-12'
+    club: Millwall FC
+  NZL 20:
+    dob: '1990-02-19'
+    club: Western Sydney Wanderers
+  NZL 3:
+    dob: '2002-07-04'
+    club: Lechia Gdańsk
+  NZL 4:
+    dob: '1988-08-18'
+    club: Minnesota United FC
+  NZL 5:
+    dob: '2000-09-27'
+    club: Wrexham AFC
+  NZL 6:
+    dob: '1994-01-10'
+    club: Wellington Phoenix
+  NZL 7:
+    dob: '2005-01-27'
+    club: Nottingham Forest
+  NZL 8:
+    dob: '1994-11-28'
+    club: Auckland FC
+  NZL 9:
+    dob: '2003-03-23'
+    club: Portland Timbers
+  PAN 10:
+    dob: '1997-02-06'
+    club: Al Jazira
+  PAN 11:
+    dob: '1990-02-10'
+    club: Nashville SC
+  PAN 12:
+    dob: '1998-11-28'
+    club: Pumas UNAM
+  PAN 14:
+    dob: '1993-10-23'
+    club: Mazatlán
+  PAN 15:
+    dob: '2000-02-03'
+    club: Minnesota United FC
+  PAN 16:
+    dob: '1997-05-12'
+    club: Universidad Católica (Chile)
+  PAN 17:
+    dob: '1993-08-18'
+    club: Universidad Católica (Chile)
+  PAN 18:
+    dob: '1991-04-13'
+    club: Alianza Lima
+  PAN 19:
+    dob: '1998-06-19'
+    club: Famalicão
+  PAN 2:
+    dob: '1994-12-25'
+    club: Al-Fayha
+  PAN 20:
+    dob: '1987-12-18'
+    club: Sporting San Miguelito
+  PAN 3:
+    dob: '1991-03-16'
+    club: Nacional
+  PAN 4:
+    dob: '1995-01-09'
+    club: Deportivo Saprissa
+  PAN 5:
+    dob: '1998-10-16'
+    club: LASK
+  PAN 6:
+    dob: '1996-02-11'
+    club: Olympique Marseille
+  PAN 7:
+    dob: '1991-03-31'
+    club: Árabe Unido
+  PAN 8:
+    dob: '2001-02-03'
+    club: Norwich City
+  PAN 9:
+    dob: '1998-04-26'
+    club: Slovan Bratislava
+  PAR 10:
+    dob: '2003-03-27'
+    club: Brighton & Hove Albion
+  PAR 11:
+    dob: '2001-07-11'
+    club: São Paulo
+  PAR 12:
+    dob: '1996-05-22'
+    club: Vancouver Whitecaps
+  PAR 14:
+    dob: '2002-02-11'
+    club: Atlanta United
+  PAR 15:
+    dob: '2004-01-23'
+    club: RC Strasbourg
+  PAR 16:
+    dob: '1995-01-11'
+    club: Al-Taawoun
+  PAR 17:
+    dob: '1994-02-10'
+    club: Atlanta United
+  PAR 18:
+    dob: '1999-08-31'
+    club: Nottingham Forest
+  PAR 19:
+    dob: '1992-07-04'
+    club: Corinthians
+  PAR 2:
+    dob: '1988-03-04'
+    club: Leones del Norte
+  PAR 20:
+    dob: '1996-03-04'
+    club: Torino FC
+  PAR 3:
+    dob: '2000-03-11'
+    club: San Lorenzo
+  PAR 4:
+    dob: '1993-05-06'
+    club: Palmeiras
+  PAR 5:
+    dob: '1991-08-23'
+    club: Grêmio
+  PAR 6:
+    dob: '2000-06-01'
+    club: Dynamo Moscow
+  PAR 7:
+    dob: '1996-12-26'
+    club: Getafe CF
+  PAR 8:
+    dob: '1993-02-09'
+    club: Atlético Mineiro
+  PAR 9:
+    dob: '1997-01-24'
+    club: Grêmio
+  POR 10:
+    dob: '1994-09-08'
+    club: Manchester United
+  POR 11:
+    dob: '1997-03-13'
+    club: Al-Hilal
+  POR 12:
+    dob: '2000-02-13'
+    club: Paris Saint-Germain
+  POR 14:
+    dob: '2004-09-27'
+    club: Paris Saint-Germain
+  POR 15:
+    dob: '1985-02-05'
+    club: Al-Nassr
+  POR 16:
+    dob: '1999-12-29'
+    club: Sporting CP
+  POR 17:
+    dob: '1999-11-10'
+    club: FC Barcelona
+  POR 18:
+    dob: '2001-08-20'
+    club: Paris Saint-Germain
+  POR 19:
+    dob: '2000-03-09'
+    club: Chelsea
+  POR 2:
+    dob: '1999-09-14'
+    club: FC Porto
+  POR 20:
+    dob: '1999-06-10'
+    club: AC Milan
+  POR 3:
+    dob: '1993-01-17'
+    club: Wolverhampton Wanderers
+  POR 4:
+    dob: '1997-05-14'
+    club: Manchester City
+  POR 5:
+    dob: '1994-05-27'
+    club: FC Barcelona
+  POR 6:
+    dob: '1999-03-18'
+    club: Manchester United
+  POR 7:
+    dob: '2002-06-19'
+    club: Paris Saint-Germain
+  POR 8:
+    dob: '2001-08-25'
+    club: Sporting CP
+  POR 9:
+    dob: '1994-08-10'
+    club: Manchester City
+  QAT 10:
+    dob: '1990-09-16'
+    club: Al-Duhail
+  QAT 11:
+    dob: '1996-06-22'
+    club: Al-Wakrah
+  QAT 12:
+    dob: '1993-09-18'
+    club: Al-Arabi
+  QAT 14:
+    dob: '1999-09-16'
+    club: Al-Shamal
+  QAT 15:
+    dob: '1990-10-28'
+    club: Al-Rayyan
+  QAT 16:
+    dob: '1990-12-11'
+    club: Al-Sadd
+  QAT 17:
+    dob: '1994-08-19'
+    club: Al-Duhail
+  QAT 18:
+    dob: '1996-11-18'
+    club: Al-Sadd
+  QAT 19:
+    dob: '2000-09-22'
+    club: Al-Gharafa
+  QAT 2:
+    dob: '1998-02-14'
+    club: Al-Sadd
+  QAT 20:
+    dob: '1996-08-19'
+    club: Al-Duhail
+  QAT 3:
+    dob: '1996-04-07'
+    club: Al-Duhail
+  QAT 4:
+    dob: '1990-07-03'
+    club: Al-Wakrah
+  QAT 5:
+    dob: '1999-08-25'
+    club: Cultural Leonesa
+  QAT 6:
+    dob: '1990-07-09'
+    club: Al-Sadd
+  QAT 7:
+    dob: '1990-08-06'
+    club: Al-Sadd
+  QAT 8:
+    dob: '1997-12-05'
+    club: Al-Sadd
+  QAT 9:
+    dob: '1998-08-28'
+    club: Al-Shamal
+  RSA 10:
+    dob: '1995-09-22'
+    club: Orlando Pirates
+  RSA 11:
+    dob: '1997-01-24'
+    club: Mamelodi Sundowns
+  RSA 12:
+    dob: '2000-03-06'
+    club: Orlando Pirates
+  RSA 14:
+    dob: '1995-05-14'
+    club: Mamelodi Sundowns
+  RSA 15:
+    dob: '1999-05-25'
+    club: CD Tondela
+  RSA 16:
+    dob: '1998-05-22'
+    club: Zakho SC
+  RSA 17:
+    dob: '2000-09-03'
+    club: Burnley FC
+  RSA 18:
+    dob: '1995-12-19'
+    club: Mamelodi Sundowns
+  RSA 19:
+    dob: '2004-11-09'
+    club: Al-Ettifaq
+  RSA 2:
+    dob: '1992-04-21'
+    club: Mamelodi Sundowns
+  RSA 20:
+    dob: '2001-08-25'
+    club: Orlando Pirates
+  RSA 3:
+    dob: '1996-12-14'
+    club: Orlando Pirates
+  RSA 4:
+    dob: '1995-07-22'
+    club: Mamelodi Sundowns
+  RSA 5:
+    dob: '2004-03-15'
+    club: Orlando Pirates
+  RSA 6:
+    dob: '2005-09-19'
+    club: Orlando Pirates
+  RSA 7:
+    dob: '2004-02-05'
+    club: Mamelodi Sundowns
+  RSA 8:
+    dob: '1997-07-15'
+    club: FCSB
+  RSA 9:
+    dob: '1995-04-26'
+    club: Mamelodi Sundowns
+  SCO 10:
+    dob: '1991-11-20'
+    club: Hibernian
+  SCO 11:
+    dob: '1996-12-08'
+    club: SSC Napoli
+  SCO 12:
+    dob: '2001-06-11'
+    club: SSC Napoli
+  SCO 14:
+    dob: '1999-08-24'
+    club: Bologna FC
+  SCO 15:
+    dob: '1995-02-22'
+    club: AFC Bournemouth
+  SCO 16:
+    dob: '1992-01-08'
+    club: Norwich City
+  SCO 17:
+    dob: '1994-10-18'
+    club: Aston Villa
+  SCO 18:
+    dob: '1995-10-07'
+    club: Birmingham City
+  SCO 19:
+    dob: '1996-07-13'
+    club: Torino FC
+  SCO 2:
+    dob: '1996-01-22'
+    club: Nottingham Forest
+  SCO 20:
+    dob: '2005-11-01'
+    club: AFC Bournemouth
+  SCO 3:
+    dob: '1995-05-07'
+    club: Al-Ettifaq
+  SCO 4:
+    dob: '1997-06-05'
+    club: Celtic
+  SCO 5:
+    dob: '2002-06-10'
+    club: Brentford FC
+  SCO 6:
+    dob: '1994-03-11'
+    club: Liverpool FC
+  SCO 7:
+    dob: '1996-11-12'
+    club: Dinamo Zagreb
+  SCO 8:
+    dob: '1996-09-25'
+    club: Rangers
+  SCO 9:
+    dob: '1998-11-16'
+    club: Celtic
+  SEN 10:
+    dob: '2002-09-14'
+    club: Tottenham Hotspur
+  SEN 11:
+    dob: '1999-01-24'
+    club: Villarreal CF
+  SEN 12:
+    dob: '2004-01-03'
+    club: RC Strasbourg
+  SEN 14:
+    dob: '2004-01-01'
+    club: AS Monaco
+  SEN 15:
+    dob: '1992-04-10'
+    club: Al-Nassr
+  SEN 16:
+    dob: '1998-02-25'
+    club: Crystal Palace
+  SEN 17:
+    dob: '1996-11-16'
+    club: Lazio
+  SEN 18:
+    dob: '2000-03-06'
+    club: Everton
+  SEN 19:
+    dob: '2001-06-20'
+    club: Chelsea
+  SEN 2:
+    dob: '1992-03-01'
+    club: Al-Ahli Saudi FC
+  SEN 20:
+    dob: '1999-02-25'
+    club: AS Monaco
+  SEN 3:
+    dob: '1999-11-07'
+    club: Stade de Reims
+  SEN 4:
+    dob: '1996-03-08'
+    club: Nottingham Forest
+  SEN 5:
+    dob: '1992-03-04'
+    club: Maccabi Haifa
+  SEN 6:
+    dob: '1999-08-17'
+    club: Galatasaray
+  SEN 7:
+    dob: '2004-12-28'
+    club: Slavia Prague
+  SEN 8:
+    dob: '1991-06-20'
+    club: Al-Hilal
+  SEN 9:
+    dob: '1989-09-26'
+    club: Everton
+  SUI 10:
+    dob: '1996-11-20'
+    club: AS Monaco
+  SUI 11:
+    dob: '1992-04-15'
+    club: Bologna FC
+  SUI 12:
+    dob: '2002-02-16'
+    club: FC Augsburg
+  SUI 14:
+    dob: '2002-07-30'
+    club: AC Milan
+  SUI 15:
+    dob: '2005-10-14'
+    club: SC Freiburg
+  SUI 16:
+    dob: '1995-01-06'
+    club: Pisa SC
+  SUI 17:
+    dob: '1997-02-14'
+    club: Stade Rennais
+  SUI 18:
+    dob: '1998-08-05'
+    club: Sevilla FC
+  SUI 19:
+    dob: '2000-10-25'
+    club: Nottingham Forest
+  SUI 2:
+    dob: '1997-12-06'
+    club: Borussia Dortmund
+  SUI 20:
+    dob: '2000-12-04'
+    club: Burnley FC
+  SUI 3:
+    dob: '1994-06-06'
+    club: FC Lorient
+  SUI 4:
+    dob: '1995-07-19'
+    club: Inter Milan
+  SUI 5:
+    dob: '1992-08-25'
+    club: Real Betis
+  SUI 6:
+    dob: '1996-09-30'
+    club: Borussia Mönchengladbach
+  SUI 7:
+    dob: '2003-08-31'
+    club: Eintracht Frankfurt
+  SUI 8:
+    dob: '1993-03-05'
+    club: 1. FSV Mainz 05
+  SUI 9:
+    dob: '1992-09-27'
+    club: Sunderland AFC
+  SWE 10:
+    dob: '1995-06-21'
+    club: Udinese
+  SWE 11:
+    dob: '2003-10-06'
+    club: Brighton & Hove Albion
+  SWE 12:
+    dob: '1999-01-05'
+    club: VfL Wolfsburg
+  SWE 14:
+    dob: '2002-02-12'
+    club: Borussia Dortmund
+  SWE 15:
+    dob: '1993-09-30'
+    club: Pafos
+  SWE 16:
+    dob: '2005-11-15'
+    club: FC Barcelona
+  SWE 17:
+    dob: '2000-04-25'
+    club: Tottenham Hotspur
+  SWE 18:
+    dob: '2002-04-27'
+    club: Newcastle United
+  SWE 19:
+    dob: '1999-09-21'
+    club: Liverpool FC
+  SWE 2:
+    dob: '1998-09-14'
+    club: Stoke City
+  SWE 20:
+    dob: '1998-06-04'
+    club: Arsenal FC
+  SWE 3:
+    dob: '1999-01-13'
+    club: Atalanta
+  SWE 4:
+    dob: '1999-04-29'
+    club: Leeds United
+  SWE 5:
+    dob: '2000-05-13'
+    club: Juventus
+  SWE 6:
+    dob: '1994-07-17'
+    club: Aston Villa
+  SWE 7:
+    dob: '2000-04-10'
+    club: SC Braga
+  SWE 8:
+    dob: '2006-02-02'
+    club: Tottenham Hotspur
+  SWE 9:
+    dob: '2004-06-27'
+    club: Eintracht Frankfurt
+  TUN 10:
+    dob: '1996-12-13'
+    club: Al-Wakrah
+  TUN 11:
+    dob: '1992-03-18'
+    club: Al-Gharafa
+  TUN 12:
+    dob: '1999-09-06'
+    club: Al Ahly SC
+  TUN 14:
+    dob: '2003-01-21'
+    club: Burnley FC
+  TUN 15:
+    dob: '1999-02-10'
+    club: FC København
+  TUN 16:
+    dob: '1999-12-27'
+    club: FC Augsburg
+  TUN 17:
+    dob: '1997-06-18'
+    club: Dynamo Makhachkala
+  TUN 18:
+    dob: '2004-04-10'
+    club: FC Augsburg
+  TUN 19:
+    dob: '2000-04-22'
+    club: FC Twente
+  TUN 2:
+    dob: '1994-11-29'
+    club: Espérance de Tunis
+  TUN 20:
+    dob: '1992-07-27'
+    club: Al-Shamal
+  TUN 3:
+    dob: '1997-01-28'
+    club: CS Sfaxien
+  TUN 4:
+    dob: '1999-02-22'
+    club: Sheffield Wednesday
+  TUN 5:
+    dob: '1998-05-26'
+    club: FC Lorient
+  TUN 6:
+    dob: '1993-07-02'
+    club: Espérance de Tunis
+  TUN 7:
+    dob: '1993-12-20'
+    club: OGC Nice
+  TUN 8:
+    dob: '1995-06-19'
+    club: Servette FC
+  TUN 9:
+    dob: '1995-05-10'
+    club: Eintracht Frankfurt
+  TUR 10:
+    dob: '1999-01-26'
+    club: Fenerbahçe
+  TUR 11:
+    dob: '1994-02-08'
+    club: Inter Milan
+  TUR 12:
+    dob: '2000-12-29'
+    club: Beşiktaş
+  TUR 14:
+    dob: '2005-02-25'
+    club: Real Madrid
+  TUR 15:
+    dob: '1995-07-15'
+    club: Kasımpaşa
+  TUR 16:
+    dob: '2000-07-07'
+    club: Galatasaray
+  TUR 17:
+    dob: '2005-11-11'
+    club: Eintracht Frankfurt
+  TUR 18:
+    dob: '2000-05-23'
+    club: Galatasaray
+  TUR 19:
+    dob: '1998-10-21'
+    club: Fenerbahçe
+  TUR 2:
+    dob: '1996-04-05'
+    club: Galatasaray
+  TUR 20:
+    dob: '2005-05-04'
+    club: Juventus
+  TUR 3:
+    dob: '1999-04-03'
+    club: Fenerbahçe
+  TUR 4:
+    dob: '1997-02-17'
+    club: AS Roma
+  TUR 5:
+    dob: '1994-09-07'
+    club: Galatasaray
+  TUR 6:
+    dob: '1996-05-23'
+    club: Fenerbahçe
+  TUR 7:
+    dob: '1998-03-05'
+    club: Al-Ahli Saudi FC
+  TUR 8:
+    dob: '1999-10-07'
+    club: Brighton & Hove Albion
+  TUR 9:
+    dob: '1994-11-10'
+    club: Galatasaray
+  URU 10:
+    dob: '1998-07-22'
+    club: Real Madrid
+  URU 11:
+    dob: '1994-06-01'
+    club: Flamengo
+  URU 12:
+    dob: '1997-06-25'
+    club: Tottenham Hotspur
+  URU 14:
+    dob: '2001-04-11'
+    club: Manchester United
+  URU 15:
+    dob: '1997-06-01'
+    club: Flamengo
+  URU 16:
+    dob: '2000-02-15'
+    club: Sporting CP
+  URU 17:
+    dob: '1999-06-24'
+    club: Al-Hilal
+  URU 18:
+    dob: '1998-11-30'
+    club: Real Oviedo
+  URU 19:
+    dob: '1994-10-01'
+    club: Tigres UANL
+  URU 2:
+    dob: '1993-03-23'
+    club: Internacional
+  URU 20:
+    dob: '2001-12-20'
+    club: Panathinaikos
+  URU 3:
+    dob: '1997-09-06'
+    club: CF Monterrey
+  URU 4:
+    dob: '1999-03-07'
+    club: FC Barcelona
+  URU 5:
+    dob: '1995-01-20'
+    club: Atlético Madrid
+  URU 6:
+    dob: '1999-08-18'
+    club: Club América
+  URU 7:
+    dob: '1997-10-31'
+    club: SSC Napoli
+  URU 8:
+    dob: '1993-03-24'
+    club: Flamengo
+  URU 9:
+    dob: '1995-12-28'
+    club: Al-Qadsiah
+  USA 10:
+    dob: '1998-08-28'
+    club: Juventus
+  USA 11:
+    dob: '1995-06-03'
+    club: Seattle Sounders FC
+  USA 12:
+    dob: '2000-02-22'
+    club: Olympique Marseille
+  USA 14:
+    dob: '2003-03-27'
+    club: Real Salt Lake
+  USA 15:
+    dob: '2002-05-28'
+    club: Bayer Leverkusen
+  USA 16:
+    dob: '1998-09-18'
+    club: AC Milan
+  USA 17:
+    dob: '2000-10-22'
+    club: Leeds United
+  USA 18:
+    dob: '2003-01-09'
+    club: PSV Eindhoven
+  USA 19:
+    dob: '1998-03-27'
+    club: Coventry City
+  USA 2:
+    dob: '1998-09-04'
+    club: New York City FC
+  USA 20:
+    dob: '2001-07-03'
+    club: AS Monaco
+  USA 3:
+    dob: '2000-03-28'
+    club: Crystal Palace
+  USA 4:
+    dob: '1987-10-05'
+    club: Charlotte FC
+  USA 5:
+    dob: '1999-02-25'
+    club: Toulouse
+  USA 6:
+    dob: '2004-11-09'
+    club: Villarreal CF
+  USA 7:
+    dob: '1997-08-08'
+    club: Fulham
+  USA 8:
+    dob: '1999-02-14'
+    club: AFC Bournemouth
+  USA 9:
+    dob: '2001-09-24'
+    club: Olympique Lyonnais
+  UZB 10:
+    dob: '1996-02-13'
+    club: Pakhtakor
+  UZB 11:
+    dob: '1996-06-22'
+    club: Kayserispor
+  UZB 12:
+    dob: '1993-10-16'
+    club: Navbahor Namangan
+  UZB 14:
+    dob: '1994-10-01'
+    club: Sivasspor
+  UZB 15:
+    dob: '2001-05-29'
+    club: Al-Wehda
+  UZB 16:
+    dob: '1995-06-29'
+    club: AS Roma
+  UZB 17:
+    dob: '2000-12-19'
+    club: Persepolis FC
+  UZB 18:
+    dob: '1993-09-01'
+    club: Esteghlal FC
+  UZB 19:
+    dob: '1993-04-30'
+    club: Pakhtakor
+  UZB 2:
+    dob: '1991-01-04'
+    club: Navbahor Namangan
+  UZB 20:
+    dob: '2003-10-03'
+    club: CSKA Moscow
+  UZB 3:
+    dob: '1991-01-17'
+    club: Pakhtakor
+  UZB 4:
+    dob: '1997-06-23'
+    club: FC Nasaf
+  UZB 5:
+    dob: '1992-03-03'
+    club: Pakhtakor
+  UZB 6:
+    dob: '1999-04-15'
+    club: Çaykur Rizespor
+  UZB 7:
+    dob: '1996-07-07'
+    club: Rubin Kazan
+  UZB 8:
+    dob: '1997-04-19'
+    club: Pakhtakor
+  UZB 9:
+    dob: '2004-02-29'
+    club: Manchester City

@@ -1,0 +1,8 @@
+node_modules/
+cardmanager/shots/
+cardmanager/dist/candidate.html
+cardmanager/dist/cardmanager-stub.html
+mg-tap-shots/
+__pycache__/
+*.log
+.DS_Store

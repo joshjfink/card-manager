@@ -1,0 +1,302 @@
+{
+  "POR": {
+    "id": "POR",
+    "name": "Portugal",
+    "short": "POR",
+    "nickname": "A Selecao",
+    "c1": "#c8102e",
+    "c2": "#046a38",
+    "manager": "Ronaldo",
+    "managerCard": "POR 15",
+    "lines": {
+      "intro": "Watch closely. This is how it is done.",
+      "win": "Siiiu! Did you see? Of course you saw.",
+      "lose": "Impossible. We go again, and I will score twice."
+    },
+    "taunt": [
+      "I have played in five World Cups. You have played in zero.",
+      "My free kicks have their own fan club.",
+      "Bring your best card. It is still not me."
+    ],
+    "scout": [
+      "Ronaldo is their best card. He shoots from anywhere.",
+      "Bruno Fernandes pulls the strings in midfield."
+    ],
+    "fact": "Ronaldo has played in five World Cups — more than anyone."
+  },
+  "QAT": {
+    "id": "QAT",
+    "name": "Qatar",
+    "short": "QAT",
+    "nickname": "The Maroon",
+    "c1": "#8a1538",
+    "c2": "#ffffff",
+    "manager": "Afif",
+    "managerCard": "QAT 18",
+    "lines": {
+      "intro": "Welcome. I brought tricks. Lots of tricks.",
+      "win": "The tricks worked! They always work.",
+      "lose": "You saw the tricks, at least. Next time they end in goals."
+    },
+    "taunt": [
+      "Afif was named Asia's best player. Twice.",
+      "We won the Asian Cup with a wink and a chip.",
+      "Hope you like skill moves. We have all of them."
+    ],
+    "scout": [
+      "Afif is the star — quick feet, quicker smile.",
+      "Almoez Ali scores the big goals for Qatar."
+    ],
+    "fact": "Qatar hosted the 2022 World Cup and has won the Asian Cup twice."
+  },
+  "RSA": {
+    "id": "RSA",
+    "name": "South Africa",
+    "short": "RSA",
+    "nickname": "Bafana Bafana",
+    "c1": "#ffb81c",
+    "c2": "#007749",
+    "manager": "Williams",
+    "managerCard": "RSA 2",
+    "lines": {
+      "intro": "I am the captain AND the keeper. Good luck scoring.",
+      "win": "Bafana Bafana! The boys did the job and the door stayed shut.",
+      "lose": "You got past me. Very few do. Enjoy it."
+    },
+    "taunt": [
+      "I once saved four penalties in one shootout. Four.",
+      "My gloves are ready. Are your strikers?",
+      "Shoot all you like. I catch everything."
+    ],
+    "scout": [
+      "Their captain is the goalkeeper — Williams, a penalty-stopping wall.",
+      "Teboho Mokoena hits rockets from midfield."
+    ],
+    "fact": "Keeper Ronwen Williams once saved four penalties in a single shootout."
+  },
+  "SCO": {
+    "id": "SCO",
+    "name": "Scotland",
+    "short": "SCO",
+    "nickname": "The Tartan Army",
+    "c1": "#1a2a56",
+    "c2": "#ffffff",
+    "manager": "Robertson",
+    "managerCard": "SCO 6",
+    "lines": {
+      "intro": "The Tartan Army is singing. Try not to let it rattle you.",
+      "win": "Aye, that'll do nicely. All of Scotland heard that roar.",
+      "lose": "Hard luck for us, well played you. We'll be louder next time."
+    },
+    "taunt": [
+      "Our fans out-sing everyone. Even when we're losing.",
+      "McTominay scores goals now. Nobody knows how to stop it.",
+      "It's always a battle against Scotland. Bring your boots."
+    ],
+    "scout": [
+      "McTominay arrives late in the box and scores.",
+      "Captain Robertson charges up the left wing all match."
+    ],
+    "fact": "Scotland's fans, the Tartan Army, are famous for never stopping singing."
+  },
+  "SEN": {
+    "id": "SEN",
+    "name": "Senegal",
+    "short": "SEN",
+    "nickname": "Lions of Teranga",
+    "c1": "#ffffff",
+    "c2": "#00853f",
+    "manager": "Mané",
+    "managerCard": "SEN 15",
+    "lines": {
+      "intro": "We are the Lions of Teranga. We welcome you. Then we roar.",
+      "win": "The lions roared today. Senegal dances tonight.",
+      "lose": "Even lions rest. We will hunt again next match."
+    },
+    "taunt": [
+      "Mané has been Africa's best player. Twice.",
+      "Our whole team runs like the wind off the ocean.",
+      "Koulibaly has been a wall for years. Good luck."
+    ],
+    "scout": [
+      "Mané is the star — fast, direct, always dangerous.",
+      "Kalidou Koulibaly leads the defence like a fortress."
+    ],
+    "fact": "Senegal won their first Africa Cup of Nations in 2022 — on penalties."
+  },
+  "SUI": {
+    "id": "SUI",
+    "name": "Switzerland",
+    "short": "SUI",
+    "nickname": "La Nati",
+    "c1": "#d6202a",
+    "c2": "#ffffff",
+    "manager": "Xhaka",
+    "managerCard": "SUI 9",
+    "lines": {
+      "intro": "Switzerland is precise. Like our watches. Like my passing.",
+      "win": "Precise. Punctual. Three points, exactly on time.",
+      "lose": "Even a Swiss watch skips a beat. It will not happen twice."
+    },
+    "taunt": [
+      "My passes arrive on time. To the second.",
+      "We beat the big teams when it matters. Ask around.",
+      "Climb a mountain before you face us. For practice."
+    ],
+    "scout": [
+      "Xhaka controls the middle — every attack goes through him.",
+      "Keeper Gregor Kobel is one of the best around."
+    ],
+    "fact": "Switzerland reached the knockout rounds at three straight World Cups."
+  },
+  "SWE": {
+    "id": "SWE",
+    "name": "Sweden",
+    "short": "SWE",
+    "nickname": "Blagult",
+    "c1": "#ffcd00",
+    "c2": "#006aa7",
+    "manager": "Gyökeres",
+    "managerCard": "SWE 20",
+    "lines": {
+      "intro": "When I score, the mask comes on. Prepare to see the mask.",
+      "win": "The mask! You saw the mask. Sweden marches on.",
+      "lose": "No mask today. Next match it returns, I promise."
+    },
+    "taunt": [
+      "Gyökeres out-scored everyone in Europe. Then did it again.",
+      "Isak glides. Gyökeres smashes. Pick your problem.",
+      "Our strikers are faster than your defenders. Simple maths."
+    ],
+    "scout": [
+      "Two big strikers: Isak the smooth one, Gyökeres the strong one.",
+      "Watch the counter-attack — Sweden breaks at full speed."
+    ],
+    "fact": "Gyökeres celebrates goals with an invisible mask over his face."
+  },
+  "TUN": {
+    "id": "TUN",
+    "name": "Tunisia",
+    "short": "TUN",
+    "nickname": "Eagles of Carthage",
+    "c1": "#e70013",
+    "c2": "#ffffff",
+    "manager": "Hannibal",
+    "managerCard": "TUN 14",
+    "lines": {
+      "intro": "My name is Hannibal. The Eagles of Carthage fly with me.",
+      "win": "The eagles soar! Carthage remembers this one.",
+      "lose": "Eagles circle back. We always circle back."
+    },
+    "taunt": [
+      "We beat France at the last World Cup. Look it up.",
+      "The Eagles of Carthage have sharp talons and sharper passing.",
+      "Hannibal crossed the Alps. A football pitch is easy."
+    ],
+    "scout": [
+      "Hannibal Mejbri brings the energy and the tricks.",
+      "Ellyes Skhiri covers every blade of grass in midfield."
+    ],
+    "fact": "Tunisia beat France 1-0 at the 2022 World Cup."
+  },
+  "TUR": {
+    "id": "TUR",
+    "name": "Türkiye",
+    "short": "TUR",
+    "nickname": "The Crescent-Stars",
+    "c1": "#e30a17",
+    "c2": "#ffffff",
+    "manager": "Çalhanoğlu",
+    "managerCard": "TUR 11",
+    "lines": {
+      "intro": "Give me one free kick. That is all Türkiye needs.",
+      "win": "Türkiye celebrates! The crescent and star shine tonight.",
+      "lose": "You dodged my free kicks today. You cannot dodge them forever."
+    },
+    "taunt": [
+      "Arda Güler is called the Little Prince. Wait until he is king.",
+      "My shots bend around walls. Build a bigger wall.",
+      "Our fans make more noise than a rocket launch."
+    ],
+    "scout": [
+      "Çalhanoğlu's long shots are the danger. Stand off him and pay.",
+      "Young Arda Güler can unlock any defence with one pass."
+    ],
+    "fact": "Türkiye's young star Arda Güler is nicknamed the Little Prince."
+  },
+  "URU": {
+    "id": "URU",
+    "name": "Uruguay",
+    "short": "URU",
+    "nickname": "La Celeste",
+    "c1": "#55b5e5",
+    "c2": "#0b2c5f",
+    "manager": "Suárez",
+    "managerCard": "URU 15",
+    "lines": {
+      "intro": "I play fair. Mostly. Define fair.",
+      "win": "Told you it was fair. The scoreboard agrees with me.",
+      "lose": "Fine. That was fair too. Barely."
+    },
+    "taunt": [
+      "I score with my feet, my head, and... mostly my feet.",
+      "Uruguay has won two World Cups. How many has your shop won?",
+      "Valverde's shots could dent a bus."
+    ],
+    "scout": [
+      "Suárez sometimes uses his hand — the ref spots it every time.",
+      "Valverde hits thunderbolts from midfield."
+    ],
+    "fact": "Uruguay won the very first World Cup in 1930 — at home."
+  },
+  "USA": {
+    "id": "USA",
+    "name": "United States",
+    "short": "USA",
+    "nickname": "The Stars and Stripes",
+    "c1": "#3f5aa8",
+    "c2": "#ffffff",
+    "manager": "Pulisic",
+    "managerCard": "USA 16",
+    "lines": {
+      "intro": "Captain America reporting. Caruso is here too. He hustles.",
+      "win": "USA! USA! That one is for the home fans.",
+      "lose": "We will sprint it back. That is the American way."
+    },
+    "taunt": [
+      "It is called soccer here, and we are getting scary good at it.",
+      "Caruso will chase you down. He chases everyone down.",
+      "Home crowd, home noise, home win. That is the plan."
+    ],
+    "scout": [
+      "Pulisic is the star — quick cuts, cool finishes.",
+      "Caruso's tackles can stop an attack dead. He hustles every play."
+    ],
+    "fact": "The USA is hosting the 2026 World Cup with Mexico and Canada."
+  },
+  "UZB": {
+    "id": "UZB",
+    "name": "Uzbekistan",
+    "short": "UZB",
+    "nickname": "The White Wolves",
+    "c1": "#0099b5",
+    "c2": "#ffffff",
+    "manager": "Khusanov",
+    "managerCard": "UZB 9",
+    "lines": {
+      "intro": "First World Cup for Uzbekistan. The White Wolves are hungry.",
+      "win": "The wolves feast! All of Tashkent is dancing.",
+      "lose": "Wolves learn from every hunt. We are learning fast."
+    },
+    "taunt": [
+      "Nobody dribbles past Khusanov. Nobody.",
+      "New to the World Cup. Not new to winning.",
+      "The White Wolves hunt as a pack. You face all of us."
+    ],
+    "scout": [
+      "Khusanov is the rock in defence — fast and fearless.",
+      "Shomurodov leads the line and takes the big chances."
+    ],
+    "fact": "This is Uzbekistan's first ever World Cup."
+  }
+}

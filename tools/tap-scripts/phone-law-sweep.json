@@ -1,0 +1,21 @@
+[
+  {"wait": 1400},
+  {"expectState": "play", "timeout": 9000},
+  {"expectScreen": "new", "timeout": 6000},
+  {"tapId": "kickoff"},
+  {"wait": 600},
+  {"tapId": "side-0"}, {"wait": 300}, {"shot": "pane-inbox"},
+  {"tapId": "side-1"}, {"wait": 300}, {"shot": "pane-squad"},
+  {"tapId": "sq-tab-1"}, {"wait": 300}, {"shot": "pane-squad-list"},
+  {"tapId": "sq-tab-2"}, {"wait": 300}, {"shot": "pane-squad-training"},
+  {"tapId": "side-2"}, {"wait": 300}, {"shot": "pane-tactics-shape"},
+  {"tapId": "tac-tab-1"}, {"wait": 300}, {"shot": "pane-tactics-voice"},
+  {"tapId": "tac-tab-2"}, {"wait": 300}, {"shot": "pane-tactics-scout"},
+  {"tapId": "side-3"}, {"wait": 300}, {"shot": "pane-fixtures"},
+  {"tapId": "side-4"}, {"wait": 300}, {"shot": "pane-table"},
+  {"tapId": "side-5"}, {"wait": 300}, {"shot": "pane-binder"},
+  {"tapId": "side-6"}, {"wait": 300}, {"shot": "pane-shop"},
+  {"tapId": "side-7"}, {"wait": 300}, {"shot": "pane-market"},
+  {"tapId": "side-8"}, {"wait": 300}, {"shot": "pane-club"},
+  {"expectScreen": "hub/club", "timeout": 4000}
+]
