@@ -2958,6 +2958,17 @@
     return { base: y[1], sho: clamp(row.sho + d, 1, 99), dfn: clamp(row.dfn + d, 1, 99),
              age: y[0] + (y[3] || 0), seasons: y[3] || 0, grown: d };
   }
+  /* A card's age THIS season (owner, 2026-09-15: "add age more prominently to
+     all tables and roster lists"). A prospect ages with the seasons since he
+     signed; everyone else ages one year per career season from his age in the
+     data. null when the data carries no age (a crest, a team photo). */
+  function cardAge(p, pid) {
+    const row = PIDX[pid];
+    if (!row || !row.x || row.x.ag == null || row.pos === 'SPE') return null;
+    if (row.youth) { const y = youthNow(p, pid); if (y && y.age != null) return y.age; }
+    const n = p && p.season && p.season.n ? p.season.n : 1;
+    return row.x.ag + (n - 1);
+  }
   const baseOf = (p, pid) => {
     const row = PIDX[pid];
     if (!row) return 0;
@@ -5198,7 +5209,7 @@
     clubKnow, clubKnowPts, learnClub, playerKnow, notePlayerSeen,
     canScout, doScoutReport, fixtureKey, isScouted, KNOW_MAX, KNOW_WORD,
     getSave: () => SAVE, setSave: (s) => { SAVE = s; hydrateRows(SAVE); },
-    createCareer, takeoverPreview, clubSquadPids, ensureRosterRow, hydrateRows, DIFFICULTY, freshSave, ICON_PIDS, GRAIL_ONE_IN, isGrail, grailPool, packPool,
+    createCareer, cardAge, takeoverPreview, clubSquadPids, ensureRosterRow, hydrateRows, DIFFICULTY, freshSave, ICON_PIDS, GRAIL_ONE_IN, isGrail, grailPool, packPool,
     ELITE_MIN, ELITE_PIDS, ELITE_ONE_IN, isElite, isRare, packBands, pullCards, buyCombo, clubCombos, fireFeatDirect, newSeason, settleMatch, seasonReview, commitSeason,
     trainInfo, doTrain, xpInfo, XP_GATE, XP_PER_APP, questFor, questState,
     addCombo, removeCombo, ownsCombo, bestTier, combosOwned, playTiers,
@@ -5838,6 +5849,16 @@
             isBlack ? 'rgba(20,17,12,.92)' : pv.frame, isBlack ? SL.gold : 'rgba(0,0,0,.35)');
           label(ctx, tn, ax + aw - tw2 / 2 - 6, cy2 + 12, 11,
             isBlack ? SL.gold : tier === 0 ? '#241d15' : '#fff', 'center');
+        }
+        {
+          const ag = o.noAge ? null : cardAge(P && SAVE ? P() : null, pid);
+          if (ag != null && w2 >= 80) {
+            const apx = Math.max(10, Math.round(h2 * 0.07));
+            ctx.font = F(apx, 'bold');
+            const txA = 'AGE ' + ag, twA = ctx.measureText(txA).width + 10;
+            chip(ctx, ax + aw - twA - 4, ay + 4, twA, apx + 7, 'rgba(12,16,22,.78)', 'rgba(255,255,255,.18)');
+            label(ctx, txA, ax + aw - twA / 2 - 4, ay + 4 + apx + 1, apx, '#fff', 'center');
+          }
         }
         const ruleY = Math.round(y + h2 * CARD_M.ruleY) + 0.5;
         ctx.strokeStyle = isBlack ? 'rgba(233,191,99,.34)' : 'rgba(36,29,21,.20)';
@@ -7487,7 +7508,8 @@
 
       /* ---------- pane: SQUAD (TEAM view + LIST view) ---------- */
       let squadView = 0;                 // 0 pitch, 1 list
-      let listSort = 0;                  // 0 eff, 1 pos, 2 value, 3 rating
+      let listSort = 0;                  // 0 eff, 1 pos, 2 value, 3 rating, 4 xp, 5 age
+      let bSort = 0;                     // binder: 0 rating, 1 youngest first, 2 oldest first
       let listPage = 0;                  // the club must never truncate
       let pickSlot = -1;                 // slot picker overlay
       let pickPage = 0;
@@ -7622,8 +7644,8 @@
             const t2 = Math.max(0, bestTier(p, pid));
             chip(ctx, cx, cy, 158, 76, SL.row, PARS[t2].frame);
             label(ctx, trunc(PIDX[pid].short || PIDX[pid].name, 13), cx + 10, cy + 24, 14, SL.txt);
-            label(ctx, PIDX[pid].pos + ' · ' + Math.round(effOfBest(p, pid)) + ' · '
-              + LEVEL_NAME[t2], cx + 10, cy + 42, 11, SL.dim);
+            label(ctx, PIDX[pid].pos + ' · AGE ' + (cardAge(p, pid) != null ? cardAge(p, pid) : '—') + ' · '
+              + Math.round(effOfBest(p, pid)) + ' · ' + LEVEL_NAME[t2], cx + 10, cy + 42, 11, SL.dim);
             xpBar(ctx, p, pid, cx + 10, cy + 54, 138, 8);
             hot('ppc-' + pid, cx, cy, 158, 76, () => { planPick.pid = pid; planPick.step = 1; });
           });
@@ -7705,9 +7727,10 @@
             if (listSort === 2) return valueOf(b, bestTier(p, b), p.vd[b]) - valueOf(a, bestTier(p, a), p.vd[a]);
             if (listSort === 3) return avgRating(p, b) - avgRating(p, a);
             if (listSort === 4) return (p.xp[b] || 0) - (p.xp[a] || 0);
+            if (listSort === 5) return ((cardAge(p, a) || 99) - (cardAge(p, b) || 99)) || effOfBest(p, b) - effOfBest(p, a);
             return effOfBest(p, b) - effOfBest(p, a);
           });
-        const heads = [['EFF', 0, 186], ['POS', 1, 226], ['LEVEL · XP', 4, 258],
+        const heads = [['AGE', 5, 144], ['EFF', 0, 186], ['POS', 1, 226], ['LEVEL · XP', 4, 258],
                        ['VALUE', 2, 388], ['AVG ★', 3, 458]];
         label(ctx, 'PLAYER', x, HEAD_H + 66, 12, SL.dim);
         for (const [txt2, si, hx] of heads) {
@@ -7728,10 +7751,11 @@
             loan ? SL.accent : inXI ? '#2f6644' : SL.edge);
           /* his face, and the ring around it is his colour */
           kitChip(ctx, pid, tb2, x, y + 5, 36);
-          label(ctx, trunc(row.short || row.name, 11), x + 44, y + 22, 14, loan ? SL.dim : SL.txt);
-          label(ctx, LEVEL_NAME[tb2], x + 44, y + 38, 10, PARS[tb2].frame);
-          if (loan) label(ctx, 'ON LOAN AT ' + (CLUB_BY_ID[loan.club] || {}).short, x + 150, y + 29, 11, SL.accent);
-          else if (inXI) label(ctx, 'XI', x + 156, y + 29, 12, SL.good);
+          label(ctx, trunc(row.short || row.name, 10), x + 44, y + 22, 14, loan ? SL.dim : SL.txt);
+          label(ctx, LEVEL_NAME[tb2] + (inXI && !loan ? '  · XI' : ''), x + 44, y + 38, 10, PARS[tb2].frame);
+          const agL = cardAge(p, pid);
+          label(ctx, agL != null ? String(agL) : '—', x + 150, y + 29, 15, agL != null && agL <= 21 ? SL.good : SL.txt);
+          if (loan) label(ctx, 'ON LOAN AT ' + (CLUB_BY_ID[loan.club] || {}).short, x + 616, y + 42, 10, SL.accent);
           label(ctx, String(Math.round(effOfBest(p, pid))), x + 186, y + 29, 14, SL.txt);
           label(ctx, row.pos, x + 226, y + 29, 12, SL.dim);
           const info = xpBar(ctx, p, pid, x + 258, y + 20, 96, 9);
@@ -8412,24 +8436,32 @@
             out.push({ pid, tier: t2 });
           }
         }
-        out.sort((a, b) => (0.75 * PIDX[b.pid].base + 0.25 * PARS[b.tier].score)
-          - (0.75 * PIDX[a.pid].base + 0.25 * PARS[a.tier].score));
+        const effD = (a, b) => (0.75 * PIDX[b.pid].base + 0.25 * PARS[b.tier].score)
+          - (0.75 * PIDX[a.pid].base + 0.25 * PARS[a.tier].score);
+        const ageK = (c) => { const g = cardAge(p, c.pid); return g == null ? (bSort === 1 ? 999 : -1) : g; };
+        out.sort((a, b) => bSort === 1 ? (ageK(a) - ageK(b)) || effD(a, b)
+          : bSort === 2 ? (ageK(b) - ageK(a)) || effD(a, b)
+          : effD(a, b));
         return out;
       }
       function drawBinder(ctx, p) {
         const x = SIDE_W + 18;
         label(ctx, 'SO FAR: ' + combosOwned(p) + ' / ' + (ECON.cardSpace ? ECON.cardSpace.combos : 6860),
           x, HEAD_H + 28, 17, SL.gold);
-        btn(ctx, 'b-team', x + 250, HEAD_H + 4, 118, 48, bTeam === 'ALL' ? 'TEAM ▾' : bTeam + ' ▾',
+        btn(ctx, 'b-team', x + 236, HEAD_H + 4, 110, 48, bTeam === 'ALL' ? 'TEAM ▾' : bTeam + ' ▾',
           () => { bTeamPick = !bTeamPick; }, { px: 12 });
         const posOpts = ['ALL', 'GK', 'DEF', 'MID', 'ATT', 'SPE'];
-        btn(ctx, 'b-pos', x + 376, HEAD_H + 4, 92, 48, bPos === 'ALL' ? 'POS ▾' : bPos + ' ▾', () => {
+        btn(ctx, 'b-pos', x + 352, HEAD_H + 4, 88, 48, bPos === 'ALL' ? 'POS ▾' : bPos + ' ▾', () => {
           bPos = posOpts[(posOpts.indexOf(bPos) + 1) % posOpts.length]; bPage = 0;
         }, { px: 12 });
-        btn(ctx, 'b-tier', x + 476, HEAD_H + 4, 100, 48, bTier < 0 ? 'TIER ▾' : PARS[bTier].id.toUpperCase() + ' ▾', () => {
+        btn(ctx, 'b-tier', x + 446, HEAD_H + 4, 96, 48, bTier < 0 ? 'TIER ▾' : PARS[bTier].id.toUpperCase() + ' ▾', () => {
           bTier = bTier >= 6 ? -1 : bTier + 1; bPage = 0;
         }, { px: 12 });
-        btn(ctx, 'b-album', x + 584, HEAD_H + 4, 118, 48, bAlbum ? 'CARDS ▾' : 'ALBUM 📖', () => {
+        btn(ctx, 'b-sort', x + 662, HEAD_H + 4, 110, 48,
+          ['SORT: RATING', 'SORT: YOUNG', 'SORT: OLD'][bSort] + ' ▾', () => {
+            bSort = (bSort + 1) % 3; bPage = 0;
+          }, { px: 11, primary: bSort > 0 });
+        btn(ctx, 'b-album', x + 548, HEAD_H + 4, 108, 48, bAlbum ? 'CARDS ▾' : 'ALBUM 📖', () => {
           bAlbum = bAlbum ? null : (bTeam !== 'ALL' ? bTeam : 'ARG'); bTeamPick = bAlbum ? true : false;
         }, { px: 12, primary: !!bAlbum });
         if (bAlbum) { drawAlbumPage(ctx, p, bAlbum); if (bTeamPick) drawTeamPick(ctx, p); return; }
@@ -10154,9 +10186,11 @@
           const cidS = (CLUB_BY_CODE[row.team] || {}).id;
           const knS = clubKnow(p, cidS);
           crestDot(ctx, cidS, x + 22, y + 22, 12);
-          label(ctx, (row.short || row.name).slice(0, 16), x + 44, y + 27, 14, SL.txt);
+          label(ctx, (row.short || row.name).slice(0, 12), x + 44, y + 27, 14, SL.txt);
           label(ctx, row.pos + ' · ' + (owned || knS.lvl >= 3 ? row.base
             : fogBand(row.base, knS.lvl, 3)), x + 250, y + 27, 13, SL.dim);
+          const agM = cardAge(p, pid);
+          if (agM != null) label(ctx, 'AGE ' + agM, x + 190, y + 27, 13, SL.txt);
           for (let k2 = 0; k2 < KNOW_MAX; k2++) {
             ctx.fillStyle = k2 < knS.lvl ? (knS.full ? SL.good : SL.accent) : 'rgba(255,255,255,.14)';
             rr(ctx, x + 340 + k2 * 9, y + 20, 6, 6, 3); ctx.fill();
