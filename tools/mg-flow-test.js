@@ -720,12 +720,15 @@ section('F10 · icons and mystery guests: packs only, at the printed odds');
   const gold = packs.find(k => k.id === 'gold'), bronze = packs.find(k => k.id === 'bronze');
   check('no icon or guest sits in any pack band or guarantee pool',
     packs.every(pk => C.packPool(pC, pk).pool.every(id => !C.isGrail(id))));
+  check('the odds are addendum 35\'s: 1 in 30,000 / 7,500 / 2,500 / 400',
+    C.GRAIL_ONE_IN.bronze === 30000 && C.GRAIL_ONE_IN.silver === 7500 && C.GRAIL_ONE_IN.gold === 2500
+      && C.GRAIL_ONE_IN.legend === 400, JSON.stringify(C.GRAIL_ONE_IN));
   check('an unspotted guest is not even in the rare roll',
     C.grailPool(pC, gold).every(id => !window.MG_DATA.cast.some(c => c[0] === id)) && C.grailPool(pC, gold).length === 5,
     C.grailPool(pC, gold).join(','));
   /* the rate, measured on the real pull: many gold packs, counters advanced */
   const saveOpened = pC.counters.packsOpened;
-  const N = 20000;
+  const N = 40000;                     // addendum 35's rarer odds need a bigger sample to measure
   let cards = 0, grails = 0, strays = 0;
   for (let i = 0; i < N; i++) {
     pC.counters.packsOpened = 100000 + i;
@@ -740,7 +743,7 @@ section('F10 · icons and mystery guests: packs only, at the printed odds');
     grails + ' in ' + cards + ' cards (expected ~' + Math.round(expect) + ')');
   check('  and no icon ever arrives any other way in a pack', strays === 0, strays + ' strays');
   let bg = 0, bc = 0;
-  for (let i = 0; i < N; i++) {
+  for (let i = 0; i < 20000; i++) {
     pC.counters.packsOpened = 300000 + i;
     for (const c of C.pullCards(pC, bronze, 0)) { bc++; if (c.grail) bg++; }
   }
@@ -757,6 +760,68 @@ section('F10 · icons and mystery guests: packs only, at the printed odds');
   check('a feat SPOTS Gibson instead of handing him over',
     !hadGibson && pC.unlocked.indexOf('gibson') >= 0 && !pC.collection.gibson);
   check('  and once spotted he joins the rare roll', C.grailPool(pC, gold).indexOf('gibson') >= 0);
+}
+
+/* =========== F11 · elite players are scarce (addendum 35) =========== */
+section('F11 · elite players: packs only, on the rare roll, at the printed odds');
+{
+  const C = window.MG_CAREER, D = window.MG_DATA;
+  for (const k of Object.keys(store)) delete store[k];
+  const dE = driver();
+  newCareer(dE);
+  const pE = lp();
+  const rowOf = id => Object.values(D.players).flat().find(r => r[0] === id);
+  const byName = n => { const r = Object.values(D.players).flat().find(r2 => r2[2] === n); return r && r[0]; };
+  const salah = byName('Mohamed Salah'), bellingham = byName('Jude Bellingham'), kane = byName('Harry Kane');
+  check('the elites are the album footballers rated ' + C.ELITE_MIN + '+ who are not icons or guests',
+    C.ELITE_PIDS.length === 17 && C.ELITE_PIDS.every(id => rowOf(id)[5] >= C.ELITE_MIN && !C.isGrail(id))
+      && [salah, bellingham, kane].every(id => C.isElite(id)) && !C.isElite('arg17') && !C.isElite('gibson'),
+    C.ELITE_PIDS.length + ' elites');
+  const packs = D.economy.packs;
+  const gold = packs.find(k => k.id === 'gold'), silver = packs.find(k => k.id === 'silver'),
+        bronze = packs.find(k => k.id === 'bronze'), legend = packs.find(k => k.id === 'legend');
+  check('no pack band reaches an elite rating, and each pack\'s weights still add to 100',
+    packs.every(pk => C.packBands(pk).every(b => b.hi < C.ELITE_MIN)
+      && C.packBands(pk).reduce((s, b) => s + b.w, 0) === 100),
+    packs.map(pk => pk.id + ' ' + C.packBands(pk).map(b => b.lo + '-' + b.hi + ':' + b.w).join(' ')).join(' | '));
+  check('no elite sits in any pack band or guarantee pool',
+    packs.every(pk => C.packPool(pE, pk).pool.every(id => !C.isElite(id))));
+  const measure = (pack, n, base) => {
+    let cards = 0, elites = 0, strays = 0, lastOk = true, sawElite = false;
+    for (let i = 0; i < n; i++) {
+      pE.counters.packsOpened = base + i;
+      const out = C.pullCards(pE, pack, 0);
+      for (const c of out) { cards++; if (c.elite) elites++; else if (C.isElite(c.pid)) strays++; }
+      const hit = out.findIndex(c => c.elite);
+      if (hit >= 0) {
+        sawElite = true;
+        if (!out.slice(hit + 1).every(c => c.elite || c.grail)) lastOk = false;
+      }
+    }
+    return { cards, elites, strays, lastOk, sawElite };
+  };
+  const saveOpened = pE.counters.packsOpened;
+  const g = measure(gold, 20000, 500000);
+  const ge = g.cards / C.ELITE_ONE_IN.gold;
+  check('gold: an elite about 1 in ' + C.ELITE_ONE_IN.gold + ' cards, measured',
+    g.elites > ge * 0.85 && g.elites < ge * 1.15, g.elites + ' in ' + g.cards + ' cards (expected ~' + Math.round(ge) + ')');
+  check('  and no elite ever arrives any other way in a pack', g.strays === 0, g.strays + ' strays');
+  check('  and a pulled elite is revealed after every ordinary card', g.sawElite && g.lastOk);
+  const l = measure(legend, 20000, 600000);
+  const le = l.cards / C.ELITE_ONE_IN.legend;
+  check('legend prize: an elite about 1 in ' + C.ELITE_ONE_IN.legend + ', measured',
+    l.elites > le * 0.85 && l.elites < le * 1.15 && l.strays === 0, l.elites + ' in ' + l.cards + ' cards');
+  const s = measure(silver, 20000, 700000), b = measure(bronze, 20000, 800000);
+  check('silver and bronze are scarcer still, per card',
+    s.elites / s.cards < g.elites / g.cards && b.elites / b.cards < s.elites / s.cards && s.strays + b.strays === 0,
+    'silver 1 in ' + Math.round(s.cards / Math.max(1, s.elites)) + ' · bronze 1 in ' + Math.round(b.cards / Math.max(1, b.elites)));
+  pE.counters.packsOpened = saveOpened;
+  const coins = pE.coins; pE.coins = 999999;
+  check('Salah cannot be signed in the market for any money', C.buyCombo(pE, salah) === false && !pE.collection[salah]);
+  pE.coins = coins;
+  check('no CPU club offers an elite in a trade',
+    D.clubs.every(cl => C.clubCombos(pE, cl.id).every(c => !C.isElite(c[0]))));
+  check('an ordinary star can still be signed', C.buyCombo(Object.assign(pE, { coins: 999999 }), byName('Luka Modrić') || C.packPool(pE, gold).pool.find(id => rowOf(id) && rowOf(id)[4] !== 'SPE')));
 }
 
 console.log('');

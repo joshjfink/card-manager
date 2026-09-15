@@ -827,9 +827,27 @@
    * turn up in packs. They arrive on one separate roll per pack card, at the
    * odds below, and the shop prints those odds. Cards already owned stay. */
   const ICON_PIDS = ['arg17', 'por15', 'esp15', 'fra20', 'nor15'].filter(pid => PIDX[pid]);
-  const GRAIL_ONE_IN = { bronze: 10000, silver: 2500, gold: 800, legend: 120 };
+  /* addendum 35 (owner, 2026-09-15): "make Messi, Haaland, Gibson and the family
+     members, Maradona, and elite players more scarce". Icons and guests went
+     from 1 in 10,000 / 2,500 / 800 / 120 to the numbers below. */
+  const GRAIL_ONE_IN = { bronze: 30000, silver: 7500, gold: 2500, legend: 400 };
   const isIcon = pid => ICON_PIDS.indexOf(pid) >= 0;
   const isGrail = pid => isIcon(pid) || !!(PIDX[pid] && PIDX[pid].cast);
+
+  /* ---- ELITE PLAYERS (addendum 35): scarce, on the same rare roll ----
+   * The album footballers rated ELITE_MIN or better who are not icons: 17 of
+   * them at 88 (Bellingham, Salah, Vinícius, Kane, van Dijk…). Measured before
+   * this change: about 2 in every gold pack, every legend pack, and signable
+   * in the market. Now they leave the pack rating bands and the 88+ guarantee
+   * and arrive on their own roll per card at ELITE_ONE_IN, printed in the
+   * shop like the icons' odds; the market no longer signs them and no CPU
+   * club trades one to you. A club takeover still brings its real squad,
+   * elites included, and cards already owned stay. */
+  const ELITE_MIN = 88;
+  const ELITE_ONE_IN = { bronze: 500, silver: 120, gold: 25, legend: 4 };
+  const ELITE_PIDS = ALBUM_PIDS.filter(pid => isFieldable(pid) && PIDX[pid].base >= ELITE_MIN && !isGrail(pid));
+  const isElite = pid => ELITE_PIDS.indexOf(pid) >= 0;
+  const isRare = pid => isGrail(pid) || isElite(pid);
 
   const CLUB_BY_ID = {}, CLUB_BY_CODE = {};
   for (const c of D.clubs) { CLUB_BY_ID[c.id] = c; CLUB_BY_CODE[c.code] = c; }
@@ -4065,21 +4083,40 @@
     }
     return 0;
   }
+  /* A pack's rating bands with elite ratings taken out (addendum 35): every
+     band stops at ELITE_MIN - 1, a band that lay wholly above folds its weight
+     into the top band left, and a pack with no bands (the legend prize) and
+     the guaranteed slot draw the best non-elite stars. The shop prints these,
+     so what it says and what the pull does are one list. */
+  const STAR_BAND = [85, ELITE_MIN - 1];
+  function packBands(pack) {
+    const raw = pack.rating ? pack.rating.map(([txt, w2]) => {
+      const m = /^(\d+)(?:-(\d+)|\+)$/.exec(txt);
+      return { lo: +m[1], hi: m[2] ? +m[2] : 99, w: +w2 };
+    }) : [{ lo: STAR_BAND[0], hi: STAR_BAND[1], w: 100 }];
+    const out = [];
+    let spill = 0;
+    for (const b of raw) {
+      if (b.lo >= ELITE_MIN) { spill += b.w; continue; }
+      out.push({ lo: b.lo, hi: Math.min(b.hi, ELITE_MIN - 1), w: b.w });
+    }
+    if (!out.length) out.push({ lo: STAR_BAND[0], hi: STAR_BAND[1], w: 0 });
+    out[out.length - 1].w += spill;
+    return out;
+  }
   function packPool(p, pack) {
     /* rating bands per pack decide WHICH players; the album decides colours */
-    const bands = pack.rating ? pack.rating.map(([txt]) => {
-      const m = /^(\d+)(?:-(\d+)|\+)$/.exec(txt);
-      return m[2] ? [+m[1], +m[2]] : [+m[1], 99];
-    }) : [[88, 99]];
-    const lo = Math.min(...bands.map(b => b[0]));
+    const nb = packBands(pack);
+    const bands = nb.map(b => [b.lo, b.hi]);
+    const lo = Math.min(...bands.map(b => b[0]), STAR_BAND[0]);
     const pool = [];
     for (const pid of ALL_PIDS) {
       const row = PIDX[pid];
-      if (isGrail(pid)) continue;                 // icons and guests have their own roll
+      if (isRare(pid)) continue;                  // icons, guests and elites have their own roll
       if (row.base < lo) continue;
       pool.push(pid);
     }
-    return { pool, bands, weights: pack.rating ? pack.rating.map(x => x[1]) : [100] };
+    return { pool, bands, weights: nb.map(b => b.w) };
   }
   /* Who the separate roll can hand out in THIS pack: every icon, and every
      guest the career has spotted (Maradona only in a gold or legend pack). */
@@ -4097,16 +4134,31 @@
     });
   }
   /* The roll is its own hash, not a draw from the pack's rng, so a pack that
-     rolls nothing rare pulls exactly the cards it always would have. */
-  function grailRoll(p, pack, i, seedMix) {
-    const one = GRAIL_ONE_IN[pack && pack.id];
+     rolls nothing rare pulls exactly the cards it always would have. One roll,
+     two tiers: the icon-or-guest tier first, then the elite tier. */
+  const RARE = {
+    grail: { odds: GRAIL_ONE_IN, pool: (p, pack) => grailPool(p, pack) },
+    elite: { odds: ELITE_ONE_IN, pool: () => ELITE_PIDS },
+  };
+  /* FNV-1a's low bits follow the low bits of the input characters, so a small
+     power-of-two modulus (the legend pack's 1 in 4) came out in lockstep with
+     the pack counter's digits: exactly 5,000 of 20,000. murmur3's finaliser
+     spreads every input bit into the ones the modulus reads. */
+  const mix32 = (h) => {
+    h ^= h >>> 16; h = Math.imul(h, 0x85ebca6b);
+    h ^= h >>> 13; h = Math.imul(h, 0xc2b2ae35);
+    return (h ^ (h >>> 16)) >>> 0;
+  };
+  function rareRoll(kind, p, pack, i, seedMix) {
+    const one = RARE[kind].odds[pack && pack.id];
     if (!one) return null;
-    const h = hashStr('grail:' + (p.pseed >>> 0) + ':' + pack.id + ':'
+    const h = hashStr(kind + ':' + (p.pseed >>> 0) + ':' + pack.id + ':'
       + (p.counters.packsOpened | 0) + ':' + i + ':' + (seedMix || 0));
-    if (h % one !== 0) return null;
-    const gp = grailPool(p, pack);
-    return gp.length ? gp[hashStr('grail-who:' + h) % gp.length] : null;
+    if (mix32(h) % one !== 0) return null;
+    const gp = RARE[kind].pool(p, pack);
+    return gp.length ? gp[hashStr(kind + '-who:' + h) % gp.length] : null;
   }
+  const grailRoll = (p, pack, i, seedMix) => rareRoll('grail', p, pack, i, seedMix);
   function pullCards(p, pack, seedMix) {
     const h = ((p.pseed ^ Math.imul(p.counters.packsOpened + 1, 2654435761)) ^ (seedMix || 0)) >>> 0;
     const rng = mulberry32(h);
@@ -4121,25 +4173,28 @@
         let r = rng() * weights.reduce((a2, b2) => a2 + b2, 0);
         for (let j = 0; j < weights.length; j++) { r -= weights[j]; if (r < 0) { bandIdx = j; break; } }
       }
-      const [blo, bhi] = bandIdx < 0 ? [88, 99] : bands[bandIdx];
+      const [blo, bhi] = bandIdx < 0 ? STAR_BAND : bands[bandIdx];
       const cands = pool.filter(pid => PIDX[pid].base >= blo && PIDX[pid].base <= bhi);
       let pid = cands.length ? cands[Math.floor(rng() * cands.length)] : pool[Math.floor(rng() * pool.length)];
       const tier = rollTier(rng);
       const grail = grailRoll(p, pack, i, seedMix);
-      if (grail) pid = grail;
-      out.push(grail ? { pid, tier, grail: true } : { pid, tier });
+      const elite = grail ? null : rareRoll('elite', p, pack, i, seedMix);
+      if (grail) pid = grail; else if (elite) pid = elite;
+      out.push(grail ? { pid, tier, grail: true } : elite ? { pid, tier, elite: true } : { pid, tier });
     }
     /* bronze pity: every 5th bronze guarantees an un-owned combo */
     if (pack.id === 'bronze' && (p.counters.packsOpened + 1) % 5 === 0) {
       let idx = out.length - 1, tries = 0;
-      while (tries < 20 && !out[idx].grail && ownsCombo(p, out[idx].pid, out[idx].tier)) {
+      while (tries < 20 && !out[idx].grail && !out[idx].elite && ownsCombo(p, out[idx].pid, out[idx].tier)) {
         const cands = pool;
         out[idx] = { pid: cands[Math.floor(rng() * cands.length)], tier: rollTier(rng) };
         tries += 1;
       }
     }
-    /* reveal worst-to-best: an icon or guest always last, then tier, then base */
-    out.sort((a2, b2) => ((a2.grail ? 1 : 0) - (b2.grail ? 1 : 0))
+    /* reveal worst-to-best: an icon or guest always last, an elite just before,
+       then tier, then base */
+    const rank = c => (c.grail ? 2 : c.elite ? 1 : 0);
+    out.sort((a2, b2) => (rank(a2) - rank(b2))
       || (a2.tier - b2.tier) || (PIDX[a2.pid].base - PIDX[b2.pid].base));
     return out;
   }
@@ -4258,7 +4313,7 @@
     const top = Math.min(6, scaledIdx(club, defIdx, p.season ? p.season.n : 1) + 1);
     const out = [];
     for (const pid of club.squad) {
-      if (!isFieldable(pid) || isIcon(pid)) continue;   // nobody trades you an icon
+      if (!isFieldable(pid) || isIcon(pid) || isElite(pid)) continue;   // nobody trades you an icon or an elite
       for (let t2 = 0; t2 <= top; t2++) out.push([pid, t2]);
     }
     return out;
@@ -4490,7 +4545,7 @@
     return true;
   }
   function buyCombo(p, pid) {
-    if (isGrail(pid)) return false;              // icons and guests: packs only
+    if (isRare(pid)) return false;               // icons, guests and elites: packs only
     const price = Math.round(valueOf(pid, 0, 0) * 1.25);
     if (p.coins < price || ownsCombo(p, pid, 0)) return false;
     p.coins -= price;
@@ -5143,7 +5198,8 @@
     clubKnow, clubKnowPts, learnClub, playerKnow, notePlayerSeen,
     canScout, doScoutReport, fixtureKey, isScouted, KNOW_MAX, KNOW_WORD,
     getSave: () => SAVE, setSave: (s) => { SAVE = s; hydrateRows(SAVE); },
-    createCareer, takeoverPreview, clubSquadPids, ensureRosterRow, hydrateRows, DIFFICULTY, freshSave, ICON_PIDS, GRAIL_ONE_IN, isGrail, grailPool, packPool, pullCards, buyCombo, clubCombos, fireFeatDirect, newSeason, settleMatch, seasonReview, commitSeason,
+    createCareer, takeoverPreview, clubSquadPids, ensureRosterRow, hydrateRows, DIFFICULTY, freshSave, ICON_PIDS, GRAIL_ONE_IN, isGrail, grailPool, packPool,
+    ELITE_MIN, ELITE_PIDS, ELITE_ONE_IN, isElite, isRare, packBands, pullCards, buyCombo, clubCombos, fireFeatDirect, newSeason, settleMatch, seasonReview, commitSeason,
     trainInfo, doTrain, xpInfo, XP_GATE, XP_PER_APP, questFor, questState,
     addCombo, removeCombo, ownsCombo, bestTier, combosOwned, playTiers,
     autoFill, mySquad, cpuSquad, isAvailable, canRelease, valueOf, effOfBest,
@@ -9872,13 +9928,17 @@
           label(ctx, pk.id.toUpperCase(), bx + bw / 2, by + 40, 22,
             pk.id === 'gold' ? SL.gold : pk.id === 'silver' ? '#cfd4dc' : '#c98a5a', 'center');
           label(ctx, pk.cards + ' cards', bx + bw / 2, by + 66, 14, SL.txt, 'center');
-          if (pk.guarantee) label(ctx, 'one 88+ guaranteed', bx + bw / 2, by + 86, 12, SL.accent, 'center');
-          const bandTxt = pk.rating.map(([b2, w2]) => b2 + ': ' + w2 + '%').join(' · ');
-          wrapText(ctx, 'players: ' + bandTxt, bx + 16, by + 112, bw - 32, 15, 12, SL.dim);
-          wrapText(ctx, 'colours: the same album odds in every pack', bx + 16, by + 150, bw - 32, 15, 12, SL.dim);
+          if (pk.guarantee) label(ctx, 'one ' + STAR_BAND[0] + '+ guaranteed', bx + bw / 2, by + 86, 12, SL.accent, 'center');
+          const bandTxt = packBands(pk).filter(b => b.w > 0)
+            .map(b => b.lo + '-' + b.hi + ': ' + b.w + '%').join(' · ');
+          wrapText(ctx, 'players: ' + bandTxt, bx + 16, by + 104, bw - 32, 15, 12, SL.dim);
+          label(ctx, 'colours: same odds in every pack', bx + 16, by + 142, 12, SL.dim);
+          if (ELITE_ONE_IN[pk.id])
+            label(ctx, '💎 elite ' + ELITE_MIN + '+: 1 in ' + ELITE_ONE_IN[pk.id].toLocaleString('en-US') + ' cards',
+              bx + bw / 2, by + 164, 12, SL.accent, 'center');
           if (GRAIL_ONE_IN[pk.id])
             label(ctx, '⭐ icon or guest: 1 in ' + GRAIL_ONE_IN[pk.id].toLocaleString('en-US') + ' cards',
-              bx + bw / 2, by + 186, 12, SL.gold, 'center');
+              bx + bw / 2, by + 182, 12, SL.gold, 'center');
           btn(ctx, 'buy-' + pk.id, bx + 26, by + bh - 62, bw - 52, 48, pk.cost + ' 🪙  OPEN',
             () => {
               if (!afford) { toastMsg('need ' + (pk.cost - p.coins) + ' more coins — win matches'); return; }
@@ -9903,9 +9963,11 @@
         label(ctx, 'honest odds per card: ' + oddsTxt, x, H - 98, 12, SL.dim);
         label(ctx, '⬛ BLACK is 1 in 500. Training is the sure road.', x, H - 80, 13, SL.gold);
         /* ends well short of the CONTINUE button in the bottom-right corner */
-        fitLabel(ctx, '⭐ Icons and spotted guests: packs only · 1 in '
-          + GRAIL_ONE_IN.legend.toLocaleString('en-US') + ' cards in a legend prize pack',
+        fitLabel(ctx, '💎 Elite ' + ELITE_MIN + '+ players and ⭐ icons & spotted guests come only from packs.',
           x, H - 62, CONT.x - x - 24, 12, SL.gold, 'left');
+        fitLabel(ctx, 'Legend prize pack: 1 in ' + ELITE_ONE_IN.legend + ' elite · 1 in '
+          + GRAIL_ONE_IN.legend.toLocaleString('en-US') + ' icon or guest.',
+          x, H - 44, CONT.x - x - 24, 12, SL.gold, 'left');
       }
       function beginPack(p, pack) {
         const cards = pullCards(p, pack, 0);
@@ -9993,8 +10055,12 @@
             label(ctx, PIDX[c2.pid].cast ? '⭐ MYSTERY GUEST!' : '⭐ AN ICON!', W / 2, 78, 40, SL.gold, 'center');
             label(ctx, PARS[c2.tier].id.toUpperCase() + ' · 1 in '
               + (GRAIL_ONE_IN[po.pack.id] || 0).toLocaleString('en-US') + ' cards', W / 2, 108, 16, PARS[c2.tier].frame, 'center');
+          } else if (c2.elite) {
+            label(ctx, '💎 ELITE!', W / 2, 78, 40, SL.accent, 'center');
+            label(ctx, PARS[c2.tier].id.toUpperCase() + ' · 1 in '
+              + (ELITE_ONE_IN[po.pack.id] || 0).toLocaleString('en-US') + ' cards', W / 2, 108, 16, PARS[c2.tier].frame, 'center');
           } else label(ctx, PARS[c2.tier].id.toUpperCase() + '!', W / 2, 90, 40, PARS[c2.tier].frame, 'center');
-          if ((c2.tier >= 5 || c2.grail) && po.zoomT > 1.4) { env.burst(W / 2, 200, SL.gold, 6); }
+          if ((c2.tier >= 5 || c2.grail || c2.elite) && po.zoomT > 1.4) { env.burst(W / 2, 200, c2.elite && !c2.grail ? SL.accent : SL.gold, 6); }
           hots.length = 0;
           hot('zoomskip', 0, 0, W, H, () => { po.zoomT = 0; }, { quiet: true });
           label(ctx, isTouch ? 'tap to continue' : 'tap to continue', W / 2, 540, 14, SL.txt, 'center');
@@ -10009,7 +10075,7 @@
             po.results[po.idx] = res;
             saveNow();
             env.sfx.point();
-            if (c2.tier >= 4 || c2.grail) { po.zoomT = 1.6; env.sfx.fanfare(); if (c2.tier >= 5 || c2.grail) env.shake(10); }
+            if (c2.tier >= 4 || c2.grail || c2.elite) { po.zoomT = 1.6; env.sfx.fanfare(); if (c2.tier >= 5 || c2.grail) env.shake(10); }
           }, { quiet: true });
         } else {
           po.cards.forEach((c2, i) => {                 // the reveal is a card too
@@ -10078,6 +10144,7 @@
           const price = Math.round(valueOf(pid, 0, 0) * 1.25);
           if (owned) label(ctx, 'IN THE CLUB', W - 60, y + 27, 12, SL.good, 'right');
           else if (isIcon(pid)) label(ctx, '⭐ ICON · PACKS ONLY', W - 60, y + 27, 12, SL.gold, 'right');
+          else if (isElite(pid)) label(ctx, '💎 ELITE · PACKS ONLY', W - 60, y + 27, 12, SL.accent, 'right');
           else if (open2) btn(ctx, 'buy-' + pid, W - 196, y - 1, 160, 46,
             'SIGN — ' + price + ' 🪙', () => {
               if (buyCombo(p, pid)) { toastMsg((row.short || '') + ' signs for the club!'); env.sfx.point(); }
@@ -12269,7 +12336,7 @@
             const c2 = packOpen.cards[packOpen.idx];
             packOpen.results[packOpen.idx] = settleCard(demoProfile, c2);
             env.sfx.point();
-            if (c2.tier >= 4 || c2.grail) { packOpen.zoomT = 1.6; env.sfx.fanfare(); }
+            if (c2.tier >= 4 || c2.grail || c2.elite) { packOpen.zoomT = 1.6; env.sfx.fanfare(); }
           });
         }
         demoAt('p2g', 16.2, () => {           // THE WEEKLY PLAN (addendum 14)

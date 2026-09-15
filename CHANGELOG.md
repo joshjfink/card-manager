@@ -1,5 +1,36 @@
 # Changelog
 
+## Unreleased
+
+### Icons, mystery guests and elite players are scarcer
+
+Measured before the change, with the game's own pack code over 60,000 packs of
+each kind: elite players, the 17 album footballers rated 88 or better who are
+not icons, arrived about twice in every gold pack and in every legend pack,
+and could be bought in the market.
+
+| Pack | Elite player, per card | Icon or mystery guest, per card |
+|---|---|---|
+| Bronze | 1 in 500 (was 1 in 142) | 1 in 30,000 (was 1 in 10,000) |
+| Silver | 1 in 120 (was 1 in 17) | 1 in 7,500 (was 1 in 2,500) |
+| Gold | 1 in 25 (was about 2 per pack) | 1 in 2,500 (was 1 in 800) |
+| Legend prize | 1 in 4 (was every pack) | 1 in 400 (was 1 in 120) |
+
+- **The elite players** are Vinícius Júnior, Mohamed Salah, Jude Bellingham,
+  Rodri, Ousmane Dembélé, Lautaro Martínez, Thibaut Courtois, Alisson, Florian
+  Wirtz, Achraf Hakimi, Virgil van Dijk, Vitinha, Raphinha, Harry Kane, Joshua
+  Kimmich, Jamal Musiala and Federico Valverde.
+- Elites come on the same separate rare roll as the icons, now printed on
+  every pack. They no longer appear in a pack's rating bands, so those bands
+  stop at 87, and the gold pack's guarantee is now one player rated 85 or
+  better.
+- Elites can no longer be signed in the market, and no CPU club offers one in
+  a trade. Taking over a real club still brings its whole squad, elites
+  included. Cards you already own stay yours.
+- A pulled elite gets its own "💎 ELITE!" reveal, after every ordinary card.
+- Fixed: the 1-in-4 legend-pack roll followed the pack counter's digits instead
+  of behaving randomly. The rare roll now scrambles its hash first.
+
 ## v0.0.1 — 2026-09-15
 
 The first tagged release of **Card Manager**, a Football-Manager-style career
