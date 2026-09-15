@@ -705,6 +705,60 @@ section('F9 · starting division and difficulty change the career, not just the 
     pN.division === 6 && pN.difficulty === 'normal' && pN.coins === 300);
 }
 
+/* =========== F10 · icons and mystery guests are excruciatingly rare =========== */
+section('F10 · icons and mystery guests: packs only, at the printed odds');
+{
+  const C = window.MG_CAREER;
+  for (const k of Object.keys(store)) delete store[k];
+  const dC = driver();
+  newCareer(dC);
+  const pC = lp();
+  check('the icons are Messi, Ronaldo, Yamal, Mbappé and Haaland',
+    ['arg17', 'por15', 'esp15', 'fra20', 'nor15'].every(id => C.ICON_PIDS.indexOf(id) >= 0) && C.ICON_PIDS.length === 5,
+    C.ICON_PIDS.join(','));
+  const packs = window.MG_DATA.economy.packs;
+  const gold = packs.find(k => k.id === 'gold'), bronze = packs.find(k => k.id === 'bronze');
+  check('no icon or guest sits in any pack band or guarantee pool',
+    packs.every(pk => C.packPool(pC, pk).pool.every(id => !C.isGrail(id))));
+  check('an unspotted guest is not even in the rare roll',
+    C.grailPool(pC, gold).every(id => !window.MG_DATA.cast.some(c => c[0] === id)) && C.grailPool(pC, gold).length === 5,
+    C.grailPool(pC, gold).join(','));
+  /* the rate, measured on the real pull: many gold packs, counters advanced */
+  const saveOpened = pC.counters.packsOpened;
+  const N = 20000;
+  let cards = 0, grails = 0, strays = 0;
+  for (let i = 0; i < N; i++) {
+    pC.counters.packsOpened = 100000 + i;
+    for (const c of C.pullCards(pC, gold, 0)) {
+      cards++;
+      if (c.grail) grails++;
+      else if (C.isGrail(c.pid)) strays++;
+    }
+  }
+  const expect = cards / C.GRAIL_ONE_IN.gold;
+  check('gold: about 1 in ' + C.GRAIL_ONE_IN.gold + ' cards, measured', grails > expect * 0.6 && grails < expect * 1.4,
+    grails + ' in ' + cards + ' cards (expected ~' + Math.round(expect) + ')');
+  check('  and no icon ever arrives any other way in a pack', strays === 0, strays + ' strays');
+  let bg = 0, bc = 0;
+  for (let i = 0; i < N; i++) {
+    pC.counters.packsOpened = 300000 + i;
+    for (const c of C.pullCards(pC, bronze, 0)) { bc++; if (c.grail) bg++; }
+  }
+  check('bronze: rarer still (1 in ' + C.GRAIL_ONE_IN.bronze + ')', bg < bc / C.GRAIL_ONE_IN.bronze * 3 + 3,
+    bg + ' in ' + bc + ' cards');
+  pC.counters.packsOpened = saveOpened;
+  const coins = pC.coins; pC.coins = 999999;
+  check('Messi cannot be signed in the market for any money', C.buyCombo(pC, 'arg17') === false && !pC.collection.arg17);
+  pC.coins = coins;
+  check('no CPU club offers an icon in a trade',
+    ['arg', 'por', 'esp', 'fra', 'nor'].every(cid => C.clubCombos(pC, cid).every(c => C.ICON_PIDS.indexOf(c[0]) < 0)));
+  const hadGibson = !!pC.collection.gibson;
+  C.fireFeatDirect(pC, 'first-win');
+  check('a feat SPOTS Gibson instead of handing him over',
+    !hadGibson && pC.unlocked.indexOf('gibson') >= 0 && !pC.collection.gibson);
+  check('  and once spotted he joins the rare roll', C.grailPool(pC, gold).indexOf('gibson') >= 0);
+}
+
 console.log('');
 console.log(failures ? failures + ' FLOW CHECK(S) FAILED' : 'ALL FLOW CHECKS GREEN');
 process.exit(failures ? 1 : 0);

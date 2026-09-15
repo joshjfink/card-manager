@@ -818,6 +818,19 @@
   const isFieldable = pid => PIDX[pid] && FIELDABLE.has(PIDX[pid].pos);
   const ALBUM_PIDS = ALL_PIDS.filter(pid => !PIDX[pid].cast);
 
+  /* ---- ICONS AND MYSTERY GUESTS (addendum 33): excruciatingly rare ----
+   * Owner, 2026-09-15: "make the top tier guys like Messi, Ronaldo, Lamine,
+   * and the mystery guests like Gibson and Ellis excruciatingly rare."
+   * These cards leave every ordinary route: no pack rating band or 88+/90+
+   * guarantee, no market signing, no CPU trade, no club takeover, and a feat
+   * no longer hands a guest over. A feat SPOTS him instead, which lets him
+   * turn up in packs. They arrive on one separate roll per pack card, at the
+   * odds below, and the shop prints those odds. Cards already owned stay. */
+  const ICON_PIDS = ['arg17', 'por15', 'esp15', 'fra20', 'nor15'].filter(pid => PIDX[pid]);
+  const GRAIL_ONE_IN = { bronze: 10000, silver: 2500, gold: 800, legend: 120 };
+  const isIcon = pid => ICON_PIDS.indexOf(pid) >= 0;
+  const isGrail = pid => isIcon(pid) || !!(PIDX[pid] && PIDX[pid].cast);
+
   const CLUB_BY_ID = {}, CLUB_BY_CODE = {};
   for (const c of D.clubs) { CLUB_BY_ID[c.id] = c; CLUB_BY_CODE[c.code] = c; }
   const TEAM_NAME = code => (D.teams[code] && D.teams[code].name) || code;
@@ -3181,9 +3194,8 @@
       const f = D.feats.find(x => x.id === id);
       if (!f || featDone(id)) return;
       p.featsDone.push(id);
-      if (f.reward.unlock) {
+      if (f.reward.unlock) {                    // SPOTTED: he can turn up in packs now
         if (p.unlocked.indexOf(f.reward.unlock) < 0) p.unlocked.push(f.reward.unlock);
-        addCombo(p, f.reward.unlock, 0);
       }
       if (f.reward.coins) p.coins += f.reward.coins;
       if (f.reward.pack) p.pendingPacks.push(f.reward.pack);
@@ -3439,9 +3451,8 @@
     const f = D.feats.find(x => x.id === id);
     if (!f) return null;
     p.featsDone.push(id);
-    if (f.reward.unlock) {
+    if (f.reward.unlock) {                      // SPOTTED: he can turn up in packs now
       if (p.unlocked.indexOf(f.reward.unlock) < 0) p.unlocked.push(f.reward.unlock);
-      addCombo(p, f.reward.unlock, 0);
     }
     if (f.reward.coins) p.coins += f.reward.coins;
     if (f.reward.pack) p.pendingPacks.push(f.reward.pack);
@@ -3956,15 +3967,37 @@
     const pool = [];
     for (const pid of ALL_PIDS) {
       const row = PIDX[pid];
-      if (row.cast) {
-        const gate = row.x && row.x.unlock;
-        if (gate && p.unlocked.indexOf(pid) < 0) continue;   // never before the feat
-        if (row.x && row.x.legend && pack.id !== 'gold' && pack.id !== 'legend') continue;
-      }
+      if (isGrail(pid)) continue;                 // icons and guests have their own roll
       if (row.base < lo) continue;
       pool.push(pid);
     }
     return { pool, bands, weights: pack.rating ? pack.rating.map(x => x[1]) : [100] };
+  }
+  /* Who the separate roll can hand out in THIS pack: every icon, and every
+     guest the career has spotted (Maradona only in a gold or legend pack). */
+  function grailPool(p, pack) {
+    return ALL_PIDS.filter(pid => {
+      if (!isGrail(pid)) return false;
+      const row = PIDX[pid];
+      if (!FIELDABLE.has(row.pos)) return false;
+      if (row.cast) {
+        const gate = row.x && row.x.unlock;
+        if (gate && (p.unlocked || []).indexOf(pid) < 0) return false;   // never before the feat
+        if (row.x && row.x.legend && pack.id !== 'gold' && pack.id !== 'legend') return false;
+      }
+      return true;
+    });
+  }
+  /* The roll is its own hash, not a draw from the pack's rng, so a pack that
+     rolls nothing rare pulls exactly the cards it always would have. */
+  function grailRoll(p, pack, i, seedMix) {
+    const one = GRAIL_ONE_IN[pack && pack.id];
+    if (!one) return null;
+    const h = hashStr('grail:' + (p.pseed >>> 0) + ':' + pack.id + ':'
+      + (p.counters.packsOpened | 0) + ':' + i + ':' + (seedMix || 0));
+    if (h % one !== 0) return null;
+    const gp = grailPool(p, pack);
+    return gp.length ? gp[hashStr('grail-who:' + h) % gp.length] : null;
   }
   function pullCards(p, pack, seedMix) {
     const h = ((p.pseed ^ Math.imul(p.counters.packsOpened + 1, 2654435761)) ^ (seedMix || 0)) >>> 0;
@@ -3982,21 +4015,24 @@
       }
       const [blo, bhi] = bandIdx < 0 ? [88, 99] : bands[bandIdx];
       const cands = pool.filter(pid => PIDX[pid].base >= blo && PIDX[pid].base <= bhi);
-      const pid = cands.length ? cands[Math.floor(rng() * cands.length)] : pool[Math.floor(rng() * pool.length)];
+      let pid = cands.length ? cands[Math.floor(rng() * cands.length)] : pool[Math.floor(rng() * pool.length)];
       const tier = rollTier(rng);
-      out.push({ pid, tier });
+      const grail = grailRoll(p, pack, i, seedMix);
+      if (grail) pid = grail;
+      out.push(grail ? { pid, tier, grail: true } : { pid, tier });
     }
     /* bronze pity: every 5th bronze guarantees an un-owned combo */
     if (pack.id === 'bronze' && (p.counters.packsOpened + 1) % 5 === 0) {
       let idx = out.length - 1, tries = 0;
-      while (tries < 20 && ownsCombo(p, out[idx].pid, out[idx].tier)) {
+      while (tries < 20 && !out[idx].grail && ownsCombo(p, out[idx].pid, out[idx].tier)) {
         const cands = pool;
         out[idx] = { pid: cands[Math.floor(rng() * cands.length)], tier: rollTier(rng) };
         tries += 1;
       }
     }
-    /* reveal worst-to-best: sort by tier then base */
-    out.sort((a2, b2) => (a2.tier - b2.tier) || (PIDX[a2.pid].base - PIDX[b2.pid].base));
+    /* reveal worst-to-best: an icon or guest always last, then tier, then base */
+    out.sort((a2, b2) => ((a2.grail ? 1 : 0) - (b2.grail ? 1 : 0))
+      || (a2.tier - b2.tier) || (PIDX[a2.pid].base - PIDX[b2.pid].base));
     return out;
   }
   /* the PACK's own catalyst, decided by the same deterministic hash the pull
@@ -4114,7 +4150,7 @@
     const top = Math.min(6, scaledIdx(club, defIdx, p.season ? p.season.n : 1) + 1);
     const out = [];
     for (const pid of club.squad) {
-      if (!isFieldable(pid)) continue;
+      if (!isFieldable(pid) || isIcon(pid)) continue;   // nobody trades you an icon
       for (let t2 = 0; t2 <= top; t2++) out.push([pid, t2]);
     }
     return out;
@@ -4346,6 +4382,7 @@
     return true;
   }
   function buyCombo(p, pid) {
+    if (isGrail(pid)) return false;              // icons and guests: packs only
     const price = Math.round(valueOf(pid, 0, 0) * 1.25);
     if (p.coins < price || ownsCombo(p, pid, 0)) return false;
     p.coins -= price;
@@ -4981,7 +5018,7 @@
     clubKnow, clubKnowPts, learnClub, playerKnow, notePlayerSeen,
     canScout, doScoutReport, fixtureKey, isScouted, KNOW_MAX, KNOW_WORD,
     getSave: () => SAVE, setSave: (s) => { SAVE = s; },
-    createCareer, takeoverPreview, DIFFICULTY, freshSave, newSeason, settleMatch, seasonReview, commitSeason,
+    createCareer, takeoverPreview, DIFFICULTY, freshSave, ICON_PIDS, GRAIL_ONE_IN, isGrail, grailPool, packPool, pullCards, buyCombo, clubCombos, fireFeatDirect, newSeason, settleMatch, seasonReview, commitSeason,
     trainInfo, doTrain, xpInfo, XP_GATE, XP_PER_APP, questFor, questState,
     addCombo, removeCombo, ownsCombo, bestTier, combosOwned, playTiers,
     autoFill, mySquad, cpuSquad, isAvailable, canRelease, valueOf, effOfBest,
@@ -5030,6 +5067,12 @@
       let toast = null;                 // {msg, until}
       let modal = null;                 // a full-screen overlay owns the hots
       const isTouch = (typeof window !== 'undefined') && ('ontouchstart' in window);
+      /* addendum 33: a feat no longer hands a guest over — it SPOTS him */
+      const spottedLine = f2 => {
+        const row = PIDX[f2.reward.unlock] || {};
+        return (row.short || row.name || 'He') + ' has been spotted. From now on he can turn up in a pack — '
+          + 'about 1 in ' + GRAIL_ONE_IN.gold.toLocaleString('en-US') + ' cards in a gold pack, shared with the icons.';
+      };
       const featHow = f2 => String(f2 && f2.how || '')
         .replace(/Su\u00e1rez FC/g, 'Uruguay (Su\u00e1rez\u2019s crew)')
         .replace(/Legends XI/g, 'Argentina (the boss)');
@@ -6541,7 +6584,7 @@
         if (C2[k]) return C2[k];
         let sq = [];
         try { sq = R.playersOfClub(club.id) || []; } catch (e) { sq = []; }
-        C2[k] = sq.filter(q => q && q.card && isFieldable(q.card))
+        C2[k] = sq.filter(q => q && q.card && isFieldable(q.card) && !isIcon(q.card))
           .sort((a, b) => (b.ovr | 0) - (a.ovr | 0))
           .map(q => q.card);
         return C2[k];
@@ -9703,8 +9746,11 @@
           label(ctx, pk.cards + ' cards', bx + bw / 2, by + 66, 14, SL.txt, 'center');
           if (pk.guarantee) label(ctx, 'one 88+ guaranteed', bx + bw / 2, by + 86, 12, SL.accent, 'center');
           const bandTxt = pk.rating.map(([b2, w2]) => b2 + ': ' + w2 + '%').join(' · ');
-          wrapText(ctx, 'players: ' + bandTxt, bx + 16, by + 116, bw - 32, 15, 12, SL.dim);
-          wrapText(ctx, 'colours come with album luck — same odds in every pack', bx + 16, by + 158, bw - 32, 15, 12, SL.dim);
+          wrapText(ctx, 'players: ' + bandTxt, bx + 16, by + 112, bw - 32, 15, 12, SL.dim);
+          wrapText(ctx, 'colours: the same album odds in every pack', bx + 16, by + 150, bw - 32, 15, 12, SL.dim);
+          if (GRAIL_ONE_IN[pk.id])
+            label(ctx, '⭐ icon or guest: 1 in ' + GRAIL_ONE_IN[pk.id].toLocaleString('en-US') + ' cards',
+              bx + bw / 2, by + 186, 12, SL.gold, 'center');
           btn(ctx, 'buy-' + pk.id, bx + 26, by + bh - 62, bw - 52, 48, pk.cost + ' 🪙  OPEN',
             () => {
               if (!afford) { toastMsg('need ' + (pk.cost - p.coins) + ' more coins — win matches'); return; }
@@ -9726,8 +9772,12 @@
           });
         }
         const oddsTxt = TIER_ODDS.map(([id, w2]) => id + ' ' + w2 + '%').join(' · ');
-        label(ctx, 'honest odds per card: ' + oddsTxt, x, H - 80, 12, SL.dim);
-        label(ctx, '⬛ BLACK is 1 in 500. Training is the sure road.', x, H - 62, 13, SL.gold);
+        label(ctx, 'honest odds per card: ' + oddsTxt, x, H - 98, 12, SL.dim);
+        label(ctx, '⬛ BLACK is 1 in 500. Training is the sure road.', x, H - 80, 13, SL.gold);
+        /* ends well short of the CONTINUE button in the bottom-right corner */
+        fitLabel(ctx, '⭐ Icons and spotted guests: packs only · 1 in '
+          + GRAIL_ONE_IN.legend.toLocaleString('en-US') + ' cards in a legend prize pack',
+          x, H - 62, CONT.x - x - 24, 12, SL.gold, 'left');
       }
       function beginPack(p, pack) {
         const cards = pullCards(p, pack, 0);
@@ -9811,8 +9861,12 @@
           ctx.translate(W / 2, 300); ctx.scale(k, k);
           drawCardX(ctx, c2.pid, c2.tier, -105, -150, 210, 292);
           ctx.restore();
-          label(ctx, PARS[c2.tier].id.toUpperCase() + '!', W / 2, 90, 40, PARS[c2.tier].frame, 'center');
-          if (c2.tier >= 5 && po.zoomT > 1.4) { env.burst(W / 2, 200, SL.gold, 6); }
+          if (c2.grail) {
+            label(ctx, PIDX[c2.pid].cast ? '⭐ MYSTERY GUEST!' : '⭐ AN ICON!', W / 2, 78, 40, SL.gold, 'center');
+            label(ctx, PARS[c2.tier].id.toUpperCase() + ' · 1 in '
+              + (GRAIL_ONE_IN[po.pack.id] || 0).toLocaleString('en-US') + ' cards', W / 2, 108, 16, PARS[c2.tier].frame, 'center');
+          } else label(ctx, PARS[c2.tier].id.toUpperCase() + '!', W / 2, 90, 40, PARS[c2.tier].frame, 'center');
+          if ((c2.tier >= 5 || c2.grail) && po.zoomT > 1.4) { env.burst(W / 2, 200, SL.gold, 6); }
           hots.length = 0;
           hot('zoomskip', 0, 0, W, H, () => { po.zoomT = 0; }, { quiet: true });
           label(ctx, isTouch ? 'tap to continue' : 'tap to continue', W / 2, 540, 14, SL.txt, 'center');
@@ -9827,7 +9881,7 @@
             po.results[po.idx] = res;
             saveNow();
             env.sfx.point();
-            if (c2.tier >= 4) { po.zoomT = 1.6; env.sfx.fanfare(); if (c2.tier >= 5) env.shake(10); }
+            if (c2.tier >= 4 || c2.grail) { po.zoomT = 1.6; env.sfx.fanfare(); if (c2.tier >= 5 || c2.grail) env.shake(10); }
           }, { quiet: true });
         } else {
           po.cards.forEach((c2, i) => {                 // the reveal is a card too
@@ -9895,6 +9949,7 @@
             knS.full ? SL.good : knS.lvl ? SL.accent : SL.dim);
           const price = Math.round(valueOf(pid, 0, 0) * 1.25);
           if (owned) label(ctx, 'IN THE CLUB', W - 60, y + 27, 12, SL.good, 'right');
+          else if (isIcon(pid)) label(ctx, '⭐ ICON · PACKS ONLY', W - 60, y + 27, 12, SL.gold, 'right');
           else if (open2) btn(ctx, 'buy-' + pid, W - 196, y - 1, 160, 46,
             'SIGN — ' + price + ' 🪙', () => {
               if (buyCombo(p, pid)) { toastMsg((row.short || '') + ' signs for the club!'); env.sfx.point(); }
@@ -10067,22 +10122,31 @@
         });
         if (clubTab === 1) { drawDynasty(ctx, p, x, HEAD_H + 76); return; }
         label(ctx, 'LEGENDS OF THE SHOP', x + 260, HEAD_H + 30, 15, SL.gold);
-        label(ctx, 'do the deed, win the card', x + 448, HEAD_H + 30, 12, SL.dim);
+        label(ctx, 'do the deed to spot him — then find him in a pack', x + 448, HEAD_H + 30, 12, SL.dim);
         D.cast.forEach((r2, i) => {
           const pid = r2[0];
           const cx = x + (i % 3) * 168, cy = HEAD_H + 56 + Math.floor(i / 3) * 156;
           const un = p.unlocked.indexOf(pid) >= 0;
+          const have = bestTier(p, pid) >= 0;
           const feat = D.feats.find(f2 => f2.reward.unlock === pid);
-          if (un) {
+          if (have) {
             drawCardX(ctx, pid, Math.max(0, bestTier(p, pid)), cx, cy, 96, 106);
             label(ctx, '✔ IN YOUR CLUB', cx + 48, cy + 122, 12, SL.good, 'center');
+          } else if (un) {
+            drawCardX(ctx, pid, 0, cx, cy, 96, 106, { locked: true });
+            label(ctx, '👀 SPOTTED', cx + 48, cy + 122, 12, SL.gold, 'center');
+            label(ctx, 'packs only now', cx + 48, cy + 138, 12, SL.dim, 'center');
           } else {
             drawCardX(ctx, pid, 0, cx, cy, 96, 106, { locked: true });
             const pr = featProgress(p, feat && feat.id);
             if (pr) label(ctx, pr[0] + '/' + pr[1], cx + 92, cy + 16, 12, SL.gold, 'right');
             wrapText(ctx, featHow(feat), cx - 2, cy + 120, 158, 13, 12, SL.dim, 3);
           }
-          hot('legend-' + pid, cx, cy, 96, 106, () => { if (un) openSheet(pid); else toastMsg(featHow(feat) || 'locked'); });
+          hot('legend-' + pid, cx, cy, 96, 106, () => {
+            if (have) openSheet(pid);
+            else if (un) toastMsg('Spotted. He turns up only in packs — and very rarely.');
+            else toastMsg(featHow(feat) || 'locked');
+          });
         });
         /* right column: manager tools, silverware, the record */
         const rx = x + 520, rw = W - rx - 22;
@@ -11479,13 +11543,14 @@
           label(ctx, 'FEAT COMPLETE!', W / 2, 110, 34, SL.gold, 'center');
           label(ctx, f2.name, W / 2, 148, 20, SL.txt, 'center');
           if (f2.reward.unlock) {
-            drawCardX(ctx, f2.reward.unlock, 0, W / 2 - 90, 180, 180, 250);
+            drawCardX(ctx, f2.reward.unlock, 0, W / 2 - 90, 180, 180, 250, { locked: true });
             const cast = PIDX[f2.reward.unlock];
             if (cast && ['gibson', 'ellis', 'grandpa', 'phoenix'].indexOf(f2.reward.unlock) >= 0)
               drawChar(ctx, cast.short, W / 2 + 170, 380, 1.6, 'cheer', post.t);
             if (post.t % 0.4 < 0.05) env.burst(W / 2, 250, SL.gold, 8);
           }
-          wrapText(ctx, f2.celebrationLine || f2.rewardText || '', W / 2 - 220, 470, 440, 18, 14, SL.txt);
+          wrapText(ctx, f2.reward.unlock ? spottedLine(f2) : (f2.celebrationLine || f2.rewardText || ''),
+            W / 2 - 220, 470, 440, 18, 14, SL.txt);
           label(ctx, isTouch ? 'tap to continue' : 'tap / Enter to continue', W / 2, 545, 14, SL.dim, 'center');
           hot('feat-ok', 0, 0, W, H, () => { r2.fired.shift(); env.sfx.fanfare(); }, { quiet: true });
           return;
@@ -11556,8 +11621,9 @@
             const f2 = cer.sFired[0];
             label(ctx, 'FEAT COMPLETE!', W / 2, 110, 30, SL.gold, 'center');
             label(ctx, f2.name, W / 2, 146, 18, SL.txt, 'center');
-            if (f2.reward.unlock) drawCardX(ctx, f2.reward.unlock, 0, W / 2 - 85, 170, 170, 236);
-            wrapText(ctx, f2.celebrationLine || '', W / 2 - 200, 440, 400, 18, 14, SL.txt);
+            if (f2.reward.unlock) drawCardX(ctx, f2.reward.unlock, 0, W / 2 - 85, 170, 170, 236, { locked: true });
+            wrapText(ctx, f2.reward.unlock ? spottedLine(f2) : (f2.celebrationLine || ''),
+              W / 2 - 200, 440, 400, 18, 14, SL.txt);
             hot('cer-feat', 0, 100, W, 400, () => { cer.sFired.shift(); env.sfx.fanfare(); }, { quiet: true });
             label(ctx, isTouch ? 'tap for the next' : 'tap for the next', W / 2, 540, 13, SL.dim, 'center');
             return;
@@ -12075,7 +12141,7 @@
             const c2 = packOpen.cards[packOpen.idx];
             packOpen.results[packOpen.idx] = settleCard(demoProfile, c2);
             env.sfx.point();
-            if (c2.tier >= 4) { packOpen.zoomT = 1.6; env.sfx.fanfare(); }
+            if (c2.tier >= 4 || c2.grail) { packOpen.zoomT = 1.6; env.sfx.fanfare(); }
           });
         }
         demoAt('p2g', 16.2, () => {           // THE WEEKLY PLAN (addendum 14)
