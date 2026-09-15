@@ -183,4 +183,10 @@ python3 tools/build_mg_data.py
 
 It regenerates `mg-manager-data.js` from `data/ea_pages.jsonl`,
 `data/basicplayerdata.csv`, `data/mg-content/`, and the album checklist and
-price list under `config/`. Then rebuild the single file.
+price list under `config/`, in a few seconds. The output is deterministic, so an
+unchanged checkout rebuilds the committed file exactly. Then rebuild the single
+file.
+
+The real-club layer, `mg-roster.js`, is not rebuilt from this repo. It needs the
+harvested EA ratings pages, which stay in Gibson Store, so the script reports
+"roster: skipped" here. That is expected.
