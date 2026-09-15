@@ -137,9 +137,10 @@ check('  and the club is stored by EA team id and found again', re.clubEa === cl
 
 /* a save from before the FC 27 roster holds only the OLD club index */
 {
-  const legacyIdx = +Object.keys({}).concat(Object.entries(JSON.parse(require('fs').readFileSync(
-    path.join(__dirname, 'clubdata', 'clubs.json'), 'utf8')).reduce((m, c) => (m[c.id] = c.ea, m), {}))
-    .find(([i, ea]) => ea === club.ea)[0]);
+  /* the old numbering ships inside mg-badges.js (legacyEa), so this check
+     needs nothing that lives outside the game's own files */
+  let legacyIdx = 0;
+  for (let i = 1; i < 2000 && !legacyIdx; i++) if (+window.MG_BADGES.legacyEa(i) === club.ea) legacyIdx = i;
   const s3 = JSON.parse(store['gs-mg-career']);
   delete s3.profiles.p1.clubEa;
   s3.profiles.p1.clubId = legacyIdx;
@@ -147,7 +148,7 @@ check('  and the club is stored by EA team id and found again', re.clubEa === cl
   try { re = JSON.parse(execFileSync(process.execPath, [__filename, '--reopen', tmp], { encoding: 'utf8' })); }
   catch (e) { re = { ok: false, err: String(e.message).slice(0, 200) }; }
   check('an older save that stored the pre-FC 27 club index finds the same club',
-    legacyIdx !== clubId ? (re.clubEa === club.ea && re.clubId === clubId) : true,
+    !legacyIdx || (re.clubEa === club.ea && re.clubId === clubId),
     'old index ' + legacyIdx + ' → ' + re.clubName + ' (index ' + re.clubId + ')');
 }
 
