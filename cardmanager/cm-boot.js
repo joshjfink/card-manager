@@ -235,6 +235,13 @@
         || (p && p.seasonNo) || null,
       division: (p && p.division) != null ? p.division : null,
       coins: (p && p.coins) != null ? p.coins : null,
+      /* what a slot TILE draws (addendum 32): the real club's badge id, or the
+         crest and kit he made; the difficulty he chose; when it was last saved */
+      clubId: (p && p.clubId) || 0,
+      crest: (p && p.crest) != null ? p.crest : null,
+      colors: (p && Array.isArray(p.colors)) ? p.colors.slice(0, 2) : null,
+      difficulty: (p && p.difficulty) || null,
+      updatedAt: (s && s.updatedAt) || 0,
     };
   }
   function list() {

@@ -5074,13 +5074,13 @@ by_sticker:
     green: 76.04
     black: 309.41
   FRA 14:
-    white: 1.15
-    blue: 1.34
-    red: 13.14
-    purple: 45.86
-    orange: 53.0
-    green: 113.28
-    black: 458.39
+    white: 1.21
+    blue: 1.41
+    red: 13.86
+    purple: 48.38
+    orange: 55.92
+    green: 119.51
+    black: 483.60
   FRA 15:
     white: 2.4
     blue: 3.26
@@ -5098,13 +5098,13 @@ by_sticker:
     green: 126.82
     black: 512.51
   FRA 17:
-    white: 1.52
-    blue: 1.89
-    red: 15.15
-    purple: 52.31
-    orange: 60.42
-    green: 139.35
-    black: 562.66
+    white: 1.40
+    blue: 1.74
+    red: 13.94
+    purple: 48.13
+    orange: 55.59
+    green: 128.20
+    black: 517.65
   FRA 18:
     white: 0.49
     blue: 0.98
@@ -6954,7 +6954,7 @@ by_sticker:
     green: 209.15
     black: 841.86
   ENG 18:
-    white: 3.95
+    white: 7.95
     blue: 5.91
     red: 28.51
     purple: 95.1

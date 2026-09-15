@@ -1,29 +1,27 @@
 [
-  {"wait": 900},
-  {"shot": "boot"},
-  {"expectState": "play", "timeout": 12000},
-
-  {"expectScreen": "welcome", "timeout": 20000},
-  {"shot": "welcome"},
-
-  {"tapId": "wel-new"},
-  {"wait": 700},
-  {"expectScreen": "start", "timeout": 10000},
-  {"shot": "who-will-you-manage"},
-
-  {"tapId": "start-own"},
-  {"wait": 700},
-  {"expectScreen": "new", "timeout": 10000},
-  {"shot": "own-club-builder"},
-
-  {"tapId": "new-back"},
-  {"wait": 600},
-  {"expectScreen": "start", "timeout": 8000},
-
-  {"tapId": "start-real"},
-  {"wait": 900},
-  {"expectScreen": "pick", "timeout": 10000},
-  {"shot": "club-picker"},
-
-  {"expectState": "play", "timeout": 4000}
+ {"wait": 900},
+ {"shot": "boot"},
+ {"expectState": "play", "timeout": 12000},
+ {"expectScreen": "welcome", "timeout": 20000},
+ {"shot": "welcome"},
+ {"tapId": "wel-new"},
+ {"wait": 700},
+ {"expectScreen": "slots", "timeout": 10000},
+ {"shot": "choose-a-slot"},
+ {"tapId": "slot-1"},
+ {"wait": 700},
+ {"expectScreen": "setup", "timeout": 10000},
+ {"shot": "setup"},
+ {"tapId": "setup-own"},
+ {"wait": 700},
+ {"expectScreen": "new", "timeout": 10000},
+ {"shot": "own-club-builder"},
+ {"tapId": "own-use"},
+ {"wait": 600},
+ {"expectScreen": "setup", "timeout": 8000},
+ {"tapId": "setup-real"},
+ {"wait": 900},
+ {"expectScreen": "pick", "timeout": 10000},
+ {"shot": "club-picker"},
+ {"expectState": "play", "timeout": 4000}
 ]

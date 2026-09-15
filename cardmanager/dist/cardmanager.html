@@ -1623,6 +1623,13 @@
         || (p && p.seasonNo) || null,
       division: (p && p.division) != null ? p.division : null,
       coins: (p && p.coins) != null ? p.coins : null,
+      /* what a slot TILE draws (addendum 32): the real club's badge id, or the
+         crest and kit he made; the difficulty he chose; when it was last saved */
+      clubId: (p && p.clubId) || 0,
+      crest: (p && p.crest) != null ? p.crest : null,
+      colors: (p && Array.isArray(p.colors)) ? p.colors.slice(0, 2) : null,
+      difficulty: (p && p.difficulty) || null,
+      updatedAt: (s && s.updatedAt) || 0,
     };
   }
   function list() {
@@ -5360,7 +5367,10 @@ window.MG_BADGES = {
       backupRaw(raw, '-bak');           // unparseable, or written by a FUTURE build
       saveDamaged = true;               // the CAREER FILE screen offers the backups
     }
-    SAVE = { v: SAVE_V, createdAt: Date.now(), updatedAt: 0, activeProfile: 'p1',
+    SAVE = freshSave();
+  }
+  function freshSave() {
+    return { v: SAVE_V, createdAt: Date.now(), updatedAt: 0, activeProfile: 'p1',
              profiles: { p1: null, p2: null } };
   }
   function pruneMap(m) {
@@ -6216,14 +6226,40 @@ window.MG_BADGES = {
              starters, bench };
   }
 
+  /* DIFFICULTY (addendum 32) — chosen once, on the setup screen, and shown
+     on the slot tile. Three honest levers and nothing hidden:
+       coins      what he starts with
+       startTier  the colour his starting cards arrive in (EASY: blue)
+       cpu        colours added to every CPU side (HARD: +1, capped below)
+     A save with no difficulty is NORMAL, which is the game exactly as it was,
+     so no migration and no save version bump. */
+  const DIFFICULTY = {
+    easy:   { label: 'EASY',   coins: 600, startTier: 1, cpu: 0,
+              line: 'your starting cards arrive blue' },
+    normal: { label: 'NORMAL', coins: 300, startTier: 0, cpu: 0,
+              line: 'the game as designed' },
+    hard:   { label: 'HARD',   coins: 150, startTier: 0, cpu: 1,
+              line: 'every opponent plays one colour stronger' },
+  };
+  const DIFF_ORDER = ['easy', 'normal', 'hard'];
+  /* Read off the career being played. The harness has no SAVE and every
+     older save has no difficulty, so both see 0 and nothing they gate moves. */
+  function cpuBias() {
+    try {
+      const p = SAVE && SAVE.profiles && SAVE.profiles[SAVE.activeProfile];
+      const d = p && DIFFICULTY[p.difficulty];
+      return d ? d.cpu : 0;
+    } catch (e) { return 0; }
+  }
+
   /* CPU club squads — deterministic; scaled by season number */
   function scaledIdx(club, baseIdx, seasonN) {
     const cap = club.tier <= 2 ? 4 : 5;                      // purple / green caps
-    return Math.min(baseIdx + Math.min(seasonN - 1, 2), cap);
+    return Math.max(0, Math.min(baseIdx + Math.min(seasonN - 1, 2) + cpuBias(), cap));
   }
   const cpuSquadCache = {};
   function cpuSquad(clubId, seasonN) {
-    const key = clubId + ':' + seasonN;
+    const key = clubId + ':' + seasonN + ':' + cpuBias();
     if (cpuSquadCache[key]) return cpuSquadCache[key];
     const club = CLUB_BY_ID[clubId];
     const defIdx = PAR_IDX[club.parallels.default] || 0;
@@ -8780,13 +8816,13 @@ window.MG_BADGES = {
      from the host-nation starters, in their published order, and never in
      place of a card the club brought. */
   const SQUAD_MIN = 14;                       // the host-nation start hands out 14
-  function topUpSquad(p) {
+  function topUpSquad(p, tier) {
     const owned = () => Object.keys(p.collection).filter(isFieldable);
     const hasGK = () => owned().some(pid => PIDX[pid].pos === 'GK');
     for (const pid of D.starters) {
       if (p.collection[pid]) continue;
-      if (PIDX[pid].pos === 'GK') { if (!hasGK()) addCombo(p, pid, 0); continue; }
-      if (owned().length < SQUAD_MIN) addCombo(p, pid, 0);
+      if (PIDX[pid].pos === 'GK') { if (!hasGK()) addCombo(p, pid, tier || 0); continue; }
+      if (owned().length < SQUAD_MIN) addCombo(p, pid, tier || 0);
     }
   }
   /* What a takeover would hand over, for the card that asks him to agree to
@@ -8812,12 +8848,18 @@ window.MG_BADGES = {
        crest — no migration, no save version bump. */
     p.clubId = opts.clubId || 0;
     p.pseed = rollSeed();
+    /* addendum 32: where he starts and how hard. Both default to the game as
+       it always was — Division 6, NORMAL. */
+    p.difficulty = DIFFICULTY[opts.difficulty] ? opts.difficulty : 'normal';
+    const diff = DIFFICULTY[p.difficulty];
+    p.coins = diff.coins;
+    p.division = Math.max(1, Math.min(6, (opts.division | 0) || 6));
     /* opts.squad: the sids a real club brings (see topUpSquad). An invented
        club, or a club that brings nobody, is the host-nation starters alone. */
     const brought = Array.isArray(opts.squad) ? opts.squad.filter(isFieldable) : [];
-    for (const pid of brought) addCombo(p, pid, 0);
-    if (brought.length) topUpSquad(p);
-    else for (const pid of D.starters) addCombo(p, pid, 0);
+    for (const pid of brought) addCombo(p, pid, diff.startTier);
+    if (brought.length) topUpSquad(p, diff.startTier);
+    else for (const pid of D.starters) addCombo(p, pid, diff.startTier);
     autoFill(p);
     newSeason(p, 1);
     SAVE.profiles[key] = p;
@@ -8842,7 +8884,7 @@ window.MG_BADGES = {
     clubKnow, clubKnowPts, learnClub, playerKnow, notePlayerSeen,
     canScout, doScoutReport, fixtureKey, isScouted, KNOW_MAX, KNOW_WORD,
     getSave: () => SAVE, setSave: (s) => { SAVE = s; },
-    createCareer, takeoverPreview, newSeason, settleMatch, seasonReview, commitSeason,
+    createCareer, takeoverPreview, DIFFICULTY, freshSave, newSeason, settleMatch, seasonReview, commitSeason,
     trainInfo, doTrain, xpInfo, XP_GATE, XP_PER_APP, questFor, questState,
     addCombo, removeCombo, ownsCombo, bestTier, combosOwned, playTiers,
     autoFill, mySquad, cpuSquad, isAvailable, canRelease, valueOf, effOfBest,
@@ -8883,7 +8925,7 @@ window.MG_BADGES = {
                    edge: '#26313d', txt: '#e8edf2', dim: '#8494a2', gold: '#e9bf63',
                    good: '#4fb477', bad: '#e2695a', accent: '#5b9bd3' };
 
-      let screen = 'boot';              // boot|welcome|start|new|pick|hub|tactics|match|ticker|post|news|ceremony|story|friendly|draft|draftlineup|packopen
+      let screen = 'boot';              // boot|welcome|slots|setup|new|pick|hub|tactics|match|ticker|post|news|ceremony|story|friendly|draft|draftlineup|packopen
       let pane = 0;                     // hub sidebar index
       const PANES = ['INBOX', 'SQUAD', 'TACTICS', 'FIXTURES', 'TABLE', 'BINDER', 'SHOP', 'MARKET', 'CLUB'];
       let t = 0;
@@ -8920,6 +8962,7 @@ window.MG_BADGES = {
        * gold ring around the whole viewport read as a rendering bug.
        * o2.def marks the screen's natural resting focus (the heartbeat). */
       let hots = [], focusId = null, focusPop = 0;
+      const hoverAt = { x: -1, y: -1 };
       const hot = (id, x, y, w, h, cb, o2) => {
         hots.push({ id, x, y, w, h, cb,
                     quiet: !!(o2 && o2.quiet), def: !!(o2 && o2.def) });
@@ -8955,7 +8998,13 @@ window.MG_BADGES = {
         if (best) { focusId = best.id; focusPop = 1; env.sfx.move(); }
       }
       function focusInput(input) {
-        if (input.px >= 0) {
+        /* Hover focus follows the pointer only when it MOVES. On a phone the
+           last tap position stays put, so after a tap that changes the screen
+           the finger's old spot used to focus whatever the new screen drew
+           there — tap LALIGA, and the club under the finger (Real Madrid)
+           lit up as if the game had chosen it. */
+        if (input.px >= 0 && (input.px !== hoverAt.x || input.py !== hoverAt.y)) {
+          hoverAt.x = input.px; hoverAt.y = input.py;
           const over = hotAt(input.px, input.py);
           if (over && !over.quiet && over.id !== focusId) { focusId = over.id; focusPop = 1; }
         }
@@ -9589,59 +9638,66 @@ window.MG_BADGES = {
 
       /* ---------- BOOT + NEW CAREER ---------- */
       let nc = { crest: 3, kit: 3, adj: 5, noun: 3, step: 0 };
-      /* The front door. It used to open straight into the hub if a career
-         existed — quicker, but the game had no face and no way to reach a
-         second save. CONTINUE keeps that one-tap route intact. */
-      let welUI = null;
+
+      /* THE FRONT DOOR (addendum 32). Owner, 2026-09-15: "It should be
+         simple. New Game > pick slot to overwrite > takes you to starting
+         team/league/roster/division selection and difficulty."
+         One job per screen:
+           welcome  CONTINUE · NEW GAME · LOAD GAME
+           slots    the save slots as big numbered tiles — a career, or empty
+           setup    team, starting division, difficulty — then START
+         Nothing touches a slot until START. SAVE GAME left the title: every
+         career lives in its own slot and saves itself as it is played. */
+      let welUI = null;     // {note, kind}
+      let slotUI = null;    // {mode:'new'|'load', arm, armKind:'over'|'erase', note, kind}
+      let setupUI = null;   // {mode:'slot'|'single'|'manager', slot, from, replaces, prev, team, division, diff, note, kind}
       function bootScreen() {
         pane = 0;
-        welUI = { tab: 'main', note: '', confirm: 0 };
+        welUI = { note: '', kind: 'ok' };
+        slotUI = null; setupUI = null;
         screen = 'welcome';
         focusId = P() ? 'wel-continue' : 'wel-new';
       }
 
       /* The slot store lives in the standalone shell (cardmanager/cm-boot.js).
-         The arcade build has no such thing, and saying so honestly is better
-         than drawing an empty slot list. */
+         The headless rig has no such thing: NEW GAME then opens the setup
+         screen on the single save, and LOAD GAME the career file. */
       const slotStore = () => {
         try { return (typeof window !== 'undefined' && window.CM_SAVE) || null; }
         catch (e) { return null; }
       };
-      const SLOTS_SHOWN = 6;              // cm-boot keeps 12; six fit the screen
+      const SLOTS_SHOWN = 6;              // cm-boot keeps 12; six tiles fit the screen
 
-      function slotLine(row) {
-        const i = row.info;
-        if (!i) return 'empty';
-        if (i.broken) return 'damaged — ' + kbWords(i.bytes || 0);
-        const bits = [];
-        if (i.club) bits.push(i.club);
-        if (i.season) bits.push('Season ' + i.season);
-        if (i.division != null) bits.push('Division ' + i.division);
-        if (i.coins != null) bits.push(i.coins + ' coins');
-        return bits.length ? bits.join('  ·  ') : 'a saved career';
+      /* one line that never runs into the next column */
+      function fitLabel(ctx, txt, x, y, maxW, px2, col, align, weight) {
+        let s = String(txt == null ? '' : txt);
+        ctx.font = F(px2, weight);
+        if (ctx.measureText(s).width > maxW) {
+          while (s.length > 1 && ctx.measureText(s + '…').width > maxW) s = s.slice(0, -1);
+          s += '…';
+        }
+        label(ctx, s, x, y, px2, col, align, weight);
       }
 
-      /* A club's badge from its NAME. A save stores the club name, never the
-         roster id, so this is the only route in from a slot headline. Returns
-         null on any miss. Cached: it runs every frame the slot list is open. */
-      const _badgeByName = {};
-      function badgeByClubName(name) {
-        if (!name) return null;
-        const k = String(name);
-        if (k in _badgeByName) return _badgeByName[k];
-        let im = null;
-        try {
-          const R = (typeof window !== 'undefined' && window.MG_ROSTER) || null;
-          const id = R && R.findClub(k);
-          if (typeof id === 'number') im = clubBadge(id);
-        } catch (e) { im = null; }
-        _badgeByName[k] = im;
-        return im;
+      /* The slot and setup screens carry their own note line, so a toast there
+         would say the same thing twice and sit on top of the footer. */
+      function slotNote(msg, kind) {
+        const box = screen === 'setup' ? setupUI : screen === 'slots' ? slotUI : welUI;
+        if (box) { box.note = msg; box.kind = kind || 'ok'; }
+        if (screen !== 'slots' && screen !== 'setup')
+          toastMsg(msg.length > 92 ? msg.slice(0, 90) + '…' : msg);
       }
 
-      function welNote(msg, kind) {
-        if (welUI) { welUI.note = msg; welUI.kind = kind || 'ok'; }
-        toastMsg(msg.length > 92 ? msg.slice(0, 90) + '…' : msg);
+      function openSlots(mode) {
+        const st = slotStore();
+        if (!st) { bootScreen(); return; }
+        slotUI = { mode, arm: 0, armKind: '', note: '', kind: 'ok' };
+        welUI = null;
+        screen = 'slots';
+        const rows = st.list().slice(0, SLOTS_SHOWN);
+        const first = mode === 'new' ? (rows.find(r => !r.used) || rows[0])
+                                     : (rows.find(r => r.used && r.active) || rows.find(r => r.used) || rows[0]);
+        focusId = first ? 'slot-' + first.n : 'slots-back';
       }
 
       /* Switching save is a real switch: the career on screen is written down
@@ -9651,191 +9707,412 @@ window.MG_BADGES = {
         if (!st) return;
         try { if (haveCareer()) saveNow(); } catch (e) {}
         try { st.setActive(n); loadSave(); } catch (e) {
-          welNote('That save would not open. Nothing was changed.', 'bad');
+          slotNote('That save would not open. Nothing was changed.', 'bad');
           return;
         }
-        welUI = null; pane = 0; coinShow = null;
-        screen = P() ? 'hub' : 'start';
-        env.sfx.fanfare();
+        slotUI = null; pane = 0; coinShow = null;
+        if (P()) { screen = 'hub'; env.sfx.fanfare(); return; }
+        /* damaged: loadSave kept a copy, and the CAREER FILE offers the backups */
+        openFileScreen('welcome');
       }
 
-      function saveToSlot(n) {
+      /* Two taps on the bin. A copy goes into that slot's own backups first —
+         an erase is quick, a dynasty is years. */
+      function eraseSlot(n) {
         const st = slotStore();
         if (!st) return;
-        try { saveNow(); } catch (e) {}
-        let raw = null;
-        try { raw = st.read(); } catch (e) {}
-        if (!raw) { welNote('There was nothing to write. The career is still here.', 'bad'); return; }
-        try { st.write(raw, n); } catch (e) {
-          welNote('This device would not take another save — it is out of room.', 'bad');
+        const rows = st.list();
+        const was = (rows.find(r => r.active) || { n }).n;
+        try {
+          if (haveCareer()) saveNow();
+          st.setActive(n); loadSave();
+          if (haveCareer()) writeBackup('before slot ' + n + ' was erased');
+          st.erase(n);
+          st.setActive(was);
+          loadSave();
+        } catch (e) {
+          slotNote('That slot would not erase. Nothing was changed.', 'bad');
           return;
         }
-        welUI.confirm = 0;
-        welNote('Saved into slot ' + n + '.', 'ok');
-        env.sfx.point();
+        saveDamaged = false;
+        if (slotUI) { slotUI.arm = 0; slotUI.armKind = ''; }
+        slotNote('Slot ' + n + ' is empty now.', 'ok');
+        env.sfx.thud();
       }
 
       function drawWelcome(ctx) {
-        if (!welUI) welUI = { tab: 'main', note: '', confirm: 0 };
+        if (!welUI) welUI = { note: '', kind: 'ok' };
         ctx.fillStyle = SL.bg; ctx.fillRect(0, 0, W, H);
 
-        if (welUI.tab === 'load') return drawWelcomeSlots(ctx, 'load');
-        if (welUI.tab === 'save') return drawWelcomeSlots(ctx, 'save');
-
-        label(ctx, '🏆', W / 2, 92, 46, SL.gold, 'center');
-        label(ctx, 'CARD MANAGER', W / 2, 146, 40, SL.gold, 'center');
+        label(ctx, '🏆', W / 2, 96, 46, SL.gold, 'center');
+        label(ctx, 'CARD MANAGER', W / 2, 150, 40, SL.gold, 'center');
         label(ctx, 'the family club · the whole album · the long game',
-          W / 2, 172, 14, SL.dim, 'center');
+          W / 2, 176, 14, SL.dim, 'center');
 
         const p = P();
-        const X = 170, BW = 620, BH = 74;
-        let y = p ? 206 : 244;
-        const step = 82;
+        const st = slotStore();
+        let used = 0;
+        try { used = st ? st.list().filter(r => r.used).length : (haveCareer() ? 1 : 0); } catch (e) {}
+        const X = 190, BW = 580, BH = 84, step = 96;
+        let y = p ? 214 : 262;
 
         if (p) {
           const bits = [p.clubName || 'your club'];
           if (p.season && p.season.n) bits.push('Season ' + p.season.n);
           if (p.division != null) bits.push('Division ' + p.division);
-          fileBtn(ctx, 'wel-continue', X, y, BW, BH, ' ', 'CONTINUE',
-            bits.join('  ·  '), () => { welUI = null; pane = 0; screen = 'hub'; },
-            { go: true, def: true });
-          /* The crest goes in the icon well fileBtn leaves empty. A club is
-             quicker to recognise by its badge than by reading its name, which
-             is why FIFA's continue tile shows one. Drawn through myCrest so it
-             falls back to the emoji shield for an invented club, and so it
-             picks up drawFit's aspect handling rather than squaring the badge. */
+          if (p.difficulty && p.difficulty !== 'normal' && DIFFICULTY[p.difficulty])
+            bits.push(DIFFICULTY[p.difficulty].label);
+          fileBtn(ctx, 'wel-continue', X, y, BW, BH, ' ', 'CONTINUE', bits.join('  ·  '),
+            () => { welUI = null; pane = 0; screen = 'hub'; }, { go: true, def: true });
           myCrest(ctx, p, X + 34, y + BH / 2, 21);
-          /* trimmed in the club's own colour */
           ctx.fillStyle = (p.colors && p.colors[0]) || SL.good;
-          rr(ctx, X + 2, y + 10, 3, BH - 20, 2); ctx.fill();
+          rr(ctx, X + 2, y + 12, 3, BH - 24, 2); ctx.fill();
           y += step;
         }
 
         fileBtn(ctx, 'wel-new', X, y, BW, BH, '✦', 'NEW GAME',
-          p ? 'a second career in its own slot — this one is kept'
-            : 'take over a real club, or start your own',
-          () => {
-            /* A new career must never land on top of the one he has. If the
-               shell is here, move to a free slot first; if it is not, the
-               career builder writes over the single save, so say so. */
-            const st = slotStore();
-            if (p && st) {
-              const free = st.list().filter(r => !r.used)[0];
-              if (!free) {
-                welUI.tab = 'save';
-                welNote('Every slot is full. Pick one to write over first.', 'bad');
-                return;
-              }
-              try { saveNow(); st.setActive(free.n); loadSave(); } catch (e) {}
-            }
-            welUI = null; nc.step = 0; screen = 'start';
-          }, { def: !p });
+          st ? 'pick a slot, then your team, division and difficulty'
+             : 'pick your team, division and difficulty',
+          () => { if (st) openSlots('new'); else openSetup({ mode: 'single' }); },
+          { def: !p });
         y += step;
 
         fileBtn(ctx, 'wel-load', X, y, BW, BH, '📂', 'LOAD GAME',
-          slotStore()
-            ? 'your saved careers on this device — or a code, or a file'
-            : 'bring a career back from a save code or a file',
-          () => {
-            if (!slotStore()) { openFileScreen('welcome'); return; }
-            welUI.tab = 'load'; welUI.note = ''; welUI.confirm = 0;
-          });
-        y += step;
-
-        fileBtn(ctx, 'wel-save', X, y, BW, BH, '💾', 'SAVE GAME',
-          haveCareer()
-            ? 'keep this career in a slot, a code, or a file'
-            : 'nothing to save yet — start a career first',
-          () => {
-            if (!haveCareer()) {
-              welNote('There is no career to save yet. Tap NEW GAME, or load one.', 'bad');
-              return;
-            }
-            if (!slotStore()) { openFileScreen('welcome'); return; }
-            welUI.tab = 'save'; welUI.note = ''; welUI.confirm = 0;
-          });
+          st ? (used ? used + (used === 1 ? ' saved career' : ' saved careers') + ' on this device'
+                     : 'no saved careers yet — or bring one back from a code or a file')
+             : 'bring a career back from a save code or a file',
+          () => { if (st) openSlots('load'); else openFileScreen('welcome'); });
 
         if (welUI.note) {
           const good = welUI.kind !== 'bad';
-          chip(ctx, 170, H - 74, BW, 40, good ? '#14291d' : '#301a18', good ? SL.good : SL.bad);
-          label(ctx, good ? '✔' : '⚠', 196, H - 49, 15, good ? SL.good : SL.bad, 'center');
-          wrapText(ctx, welUI.note, 216, H - 58, BW - 62, 15, 12, SL.txt, 2);
+          chip(ctx, X, H - 74, BW, 40, good ? '#14291d' : '#301a18', good ? SL.good : SL.bad);
+          label(ctx, good ? '✔' : '⚠', X + 26, H - 49, 15, good ? SL.good : SL.bad, 'center');
+          wrapText(ctx, welUI.note, X + 46, H - 58, BW - 62, 15, 12, SL.txt, 2);
         }
         label(ctx, HONESTY, W / 2, H - 16, 12, SL.dim, 'center');
       }
 
-      /* LOAD and SAVE are the same list of slots read two different ways, so
-         they are drawn once. */
-      function drawWelcomeSlots(ctx, mode) {
+      /* THE SLOTS — the reference screens' idea: a big number, and in the
+         tile either the career that lives there or "NEW GAME". NEW GAME and
+         LOAD GAME are the same six tiles read two ways. */
+      function drawSlots(ctx) {
         const st = slotStore();
-        const saving = mode === 'save';
+        if (!slotUI || !st) { bootScreen(); return; }
+        const fresh = slotUI.mode === 'new';
+        ctx.fillStyle = SL.bg; ctx.fillRect(0, 0, W, H);
         ctx.fillStyle = SL.panel; ctx.fillRect(0, 0, W, 72);
         ctx.fillStyle = SL.gold; ctx.fillRect(0, 69, W, 3);
-        btn(ctx, 'wel-back', 16, 14, 96, 44, '◀ BACK',
-          () => { welUI.tab = 'main'; welUI.note = ''; welUI.confirm = 0; }, { px: 13 });
-        label(ctx, saving ? 'SAVE GAME' : 'LOAD GAME', 128, 34, 24, SL.gold);
-        label(ctx, saving
-          ? 'write this career into a slot — the others are left alone'
-          : 'every career this device is keeping', 128, 56, 12, SL.dim);
+        btn(ctx, 'slots-back', 16, 14, 96, 44, '◀ BACK', () => { bootScreen(); }, { px: 13 });
+        label(ctx, fresh ? 'NEW GAME  ·  CHOOSE A SLOT' : 'LOAD GAME  ·  CHOOSE A SLOT', 128, 36, 24, SL.gold);
+        label(ctx, fresh ? 'an empty slot, or a career to start over from'
+                         : 'tap a career to carry on', 128, 57, 12, SL.dim);
 
-        const rows = st ? st.list().slice(0, SLOTS_SHOWN) : [];
-        const shown = saving ? rows : rows.filter(r => r.used);
-        /* Six rows at 64 apiece end at 468, clear of the code/file pair at
-           H-108. At 70 the sixth slot sat on top of them. */
-        let y = 84;
+        let rows = [];
+        try { rows = st.list().slice(0, SLOTS_SHOWN); } catch (e) { rows = []; }
+        const TW = (W - 60) / 2, TH = 128, GY = 86, GAP = 12;
+        for (let i = 0; i < rows.length; i++) {
+          const r = rows[i], info = r.info || {};
+          const x = 20 + (i % 2) * (TW + 20), y = GY + ((i / 2) | 0) * (TH + GAP);
+          const armed = slotUI.arm === r.n;
+          const erasing = armed && slotUI.armKind === 'erase';
+          const over = armed && slotUI.armKind === 'over';
 
-        if (!shown.length) {
-          chip(ctx, 20, y, W - 40, 56, SL.row, SL.edge);
-          label(ctx, 'No saved careers on this device yet.', 40, y + 34, 15, SL.dim);
-          y += 64;
+          chip(ctx, x, y, TW, TH,
+            erasing ? '#301a18' : over ? '#2e2616' : r.used ? SL.panel2 : '#10161d',
+            erasing ? SL.bad : over ? SL.gold : r.used ? SL.edge : '#222c36');
+          /* the slot number, big, on a light block */
+          ctx.fillStyle = r.used ? '#e8edf2' : '#1b242e';
+          rr(ctx, x + 8, y + 8, 78, TH - 16, 8); ctx.fill();
+          label(ctx, String(r.n), x + 47, y + TH / 2 + 18, 52, r.used ? '#12181f' : SL.dim, 'center', '900');
+
+          const tx = x + 102, tw = TW - 102 - 64;
+          if (!r.used) {
+            label(ctx, fresh ? '＋  NEW GAME' : 'EMPTY', tx, y + 60, 22,
+              fresh ? SL.gold : SL.dim, 'left', '800');
+            label(ctx, fresh ? 'start a career in this slot' : 'tap to start a new career here',
+              tx, y + 86, 13, SL.dim, 'left', 'normal');
+          } else if (info.broken) {
+            label(ctx, 'DAMAGED SAVE', tx, y + 52, 20, SL.bad, 'left', '800');
+            label(ctx, fresh ? 'tap twice to start over here' : 'tap to open its backups',
+              tx, y + 78, 13, SL.dim, 'left', 'normal');
+          } else {
+            /* the crest: a real club's badge, or the shield he made */
+            const cx = tx + 21, cy = y + 36;
+            const badge = info.clubId ? clubBadge(info.clubId) : null;
+            if (badge) drawFit(ctx, badge, cx - 21, cy - 21, 42, 42);
+            else {
+              const cols = (info.colors && info.colors.length) ? info.colors : [SL.good, SL.gold];
+              ctx.save();
+              ctx.beginPath(); ctx.arc(cx, cy, 20, 0, 7);
+              ctx.fillStyle = cols[0]; ctx.fill();
+              ctx.strokeStyle = cols[1] || SL.gold; ctx.lineWidth = 2; ctx.stroke();
+              ctx.font = '21px system-ui'; ctx.textAlign = 'center';
+              ctx.fillText(CREST_CHOICES[info.crest] || '⚽', cx, cy + 8);
+              ctx.restore();
+            }
+            fitLabel(ctx, info.club || 'a saved career', tx + 52, y + 34, tw - 52, 19, SL.txt, 'left', '800');
+            const l1 = ['Season ' + (info.season || 1)];
+            if (info.division != null) l1.push('Division ' + info.division);
+            const dl = DIFFICULTY[info.difficulty || 'normal'];
+            if (dl) l1.push(dl.label);
+            fitLabel(ctx, l1.join('  ·  '), tx + 52, y + 54, tw - 52, 13, SL.dim, 'left', 'normal');
+            if (armed) {
+              wrapText(ctx, erasing ? 'Tap the bin again to erase this career.'
+                                    : 'Tap again to start over here. Nothing is replaced until START.',
+                tx, y + 86, TW - 116, 16, 13, erasing ? SL.bad : SL.gold, 2);
+            } else {
+              const l2 = [];
+              if (info.coins != null) l2.push(info.coins + ' coins');
+              if (info.updatedAt) l2.push('played ' + agoWords(info.updatedAt));
+              if (r.active) l2.push('last played');
+              fitLabel(ctx, l2.join('  ·  '), tx, y + 94, TW - 116, 13, SL.dim, 'left', 'normal');
+            }
+          }
+
+          hot('slot-' + r.n, x, y, TW, TH, () => {
+            const wasOver = slotUI.arm === r.n && slotUI.armKind === 'over';
+            slotUI.arm = 0; slotUI.armKind = ''; slotUI.note = '';
+            if (!r.used) { openSetup({ mode: 'slot', slot: r.n }); return; }
+            if (!fresh) { loadSlot(r.n); return; }
+            /* starting over on top of a career takes two taps, on purpose */
+            if (!wasOver) {
+              slotUI.arm = r.n; slotUI.armKind = 'over';
+              slotNote('Slot ' + r.n + ' holds ' + (info.broken ? 'a damaged save' : (info.club || 'a career'))
+                + '. Tap it again to start over there.', 'bad');
+              return;
+            }
+            openSetup({ mode: 'slot', slot: r.n,
+                        replaces: info.broken ? 'the damaged save' : (info.club || 'the saved career') });
+          });
+
+          if (r.used) {
+            btn(ctx, 'slot-erase-' + r.n, x + TW - 54, y + 10, 44, 44, '🗑', () => {
+              if (slotUI.arm === r.n && slotUI.armKind === 'erase') { eraseSlot(r.n); return; }
+              slotUI.arm = r.n; slotUI.armKind = 'erase';
+              slotNote('Erase slot ' + r.n + (info.club ? ' — ' + info.club : '')
+                + '? Tap the bin again to erase it.', 'bad');
+            }, { px: 18, danger: erasing });
+          }
         }
 
-        for (const r of shown) {
-          const armed = saving && welUI.confirm === r.n;
-          const title = 'SLOT ' + r.n + (r.active ? '   · playing now' : '');
-          /* A slot is known by the club sitting in it. The save headline holds
-             the club's NAME and not its roster id, so the badge is found by
-             name — and left out entirely on a miss, because a wrong crest would
-             tell him he is managing a club he is not. */
-          const slotBadge = r.used ? badgeByClubName(r.info && r.info.club) : null;
-          fileBtn(ctx, 'wel-slot-' + r.n, 20, y, W - 40, 58,
-            slotBadge ? ' ' : (r.used ? (r.active ? '▣' : '▢') : '＋'),
-            title,
-            armed ? 'TAP AGAIN to write over ' + slotLine(r)
-                  : slotLine(r),
-            () => {
-              if (!saving) { loadSlot(r.n); return; }
-              /* Overwriting someone's dynasty takes two taps, on purpose. */
-              if (r.used && welUI.confirm !== r.n) {
-                welUI.confirm = r.n;
-                welNote('That slot holds ' + slotLine(r) + '. Tap it again to write over it.', 'bad');
-                return;
-              }
-              saveToSlot(r.n);
-            },
-            { go: r.active && !saving });
-          if (slotBadge) drawFit(ctx, slotBadge, 34, y + 13, 32, 32);
-          y += 64;
-        }
-
-        /* The two routes that need no slots at all, and work in every build. */
-        const cw = (W - 60) / 2;
-        fileBtn(ctx, 'wel-code', 20, H - 108, cw, 62, '🔑',
-          saving ? 'MAKE A SAVE CODE' : 'FROM A SAVE CODE',
-          saving ? 'text you can keep anywhere' : 'paste a code you kept',
-          () => { openFileScreen('welcome'); });
-        fileBtn(ctx, 'wel-file', 40 + cw, H - 108, cw, 62, '📂',
-          saving ? 'EXPORT A FILE' : 'FROM A FILE',
-          saving ? 'a file for Files / iCloud Drive' : 'open a save file you kept',
-          () => { openFileScreen('welcome'); });
-
-        if (welUI.note) {
-          const good = welUI.kind !== 'bad';
-          label(ctx, welUI.note.slice(0, 110), W / 2, H - 20, 12,
-            good ? SL.good : SL.bad, 'center');
+        const by = GY + 3 * (TH + GAP) + 6;
+        if (!fresh) {
+          const cw = (W - 60) / 2;
+          btn(ctx, 'slots-code', 20, by, cw, 44, '🔑  FROM A SAVE CODE',
+            () => { openFileScreen('welcome'); }, { px: 14 });
+          btn(ctx, 'slots-file', 40 + cw, by, cw, 44, '📂  FROM A FILE',
+            () => { openFileScreen('welcome'); }, { px: 14 });
         } else {
-          label(ctx, HONESTY, W / 2, H - 20, 12, SL.dim, 'center');
+          label(ctx, 'Every career saves itself into its slot as you play.', W / 2, by + 28, 13, SL.dim, 'center', 'normal');
         }
+        if (slotUI.note) {
+          label(ctx, slotUI.note.slice(0, 120), W / 2, H - 12, 12,
+            slotUI.kind === 'bad' ? SL.bad : SL.good, 'center');
+        } else {
+          label(ctx, HONESTY, W / 2, H - 12, 12, SL.dim, 'center');
+        }
+      }
+
+      /* ---------- NEW CAREER SETUP ----------
+         Everything a new career needs, on one screen, nothing pre-chosen:
+         TEAM (a real club from the picker, or his own from the builder — each
+         comes back here), STARTING DIVISION, DIFFICULTY, and what comes with
+         the job. START is the only thing that writes. */
+      function openSetup(o) {
+        setupUI = { mode: o.mode, slot: o.slot || 0, from: slotUI ? slotUI.mode : null,
+                    replaces: o.replaces || '', prev: o.prev || null,
+                    team: null, division: 6, diff: 'normal', note: '', kind: 'ok' };
+        slotUI = null; welUI = null;
+        screen = 'setup';
+        focusId = 'setup-real';
+      }
+      function setupBack() {
+        const su = setupUI;
+        setupUI = null;
+        if (su && su.mode === 'slot' && slotStore()) { openSlots(su.from || 'new'); return; }
+        if (su && su.mode === 'manager' && su.prev && SAVE) {
+          SAVE.activeProfile = su.prev;
+          try { saveNow(); } catch (e) {}
+          pane = 0; screen = 'hub';
+          return;
+        }
+        bootScreen();
+      }
+      const DIV_WORD = n => n === 6 ? 'the bottom of the pyramid — the classic climb'
+        : n === 1 ? 'the top flight — straight in with the giants'
+        : (n - 1) + (n === 2 ? ' division' : ' divisions') + ' below the top';
+
+      function setupRoster(su) {
+        const d = DIFFICULTY[su.diff];
+        const blue = d.startTier ? ' On EASY every one of them arrives blue.' : '';
+        if (!su.team) return 'Pick a real club, or create your own. Nothing is chosen for you.';
+        if (su.team.kind === 'own')
+          return 'The 14 host-nation starter cards — USA, Mexico and Canada. The underdog start.' + blue;
+        const pv = takeoverPreview(clubAlbumSquad(su.team.club));
+        const l1 = pv.brought
+          ? pv.brought + ' of their players are album cards and come with you'
+            + (pv.base ? ', average rating ' + pv.base + '.' : '.')
+          : 'None of their players are album cards — the album holds national-team players only.';
+        const l2 = !pv.fill ? ''
+          : pv.brought
+            ? ' Host-nation starters fill the other ' + pv.fill + (pv.fill === 1 ? ' place' : ' places')
+              + (pv.gk ? '.' : ', your keeper among them.')
+            : ' You take the name, badge and colours, with the 14 host-nation starters.';
+        return l1 + l2 + blue;
+      }
+
+      function drawSetup(ctx) {
+        const su = setupUI;
+        if (!su) { bootScreen(); return; }
+        ctx.fillStyle = SL.bg; ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = SL.panel; ctx.fillRect(0, 0, W, 72);
+        ctx.fillStyle = SL.gold; ctx.fillRect(0, 69, W, 3);
+        btn(ctx, 'setup-back', 16, 14, 96, 44, '◀ BACK', () => { setupBack(); }, { px: 13 });
+        label(ctx, su.mode === 'manager' ? 'SECOND MANAGER' : 'NEW CAREER', 128, 36, 24, SL.gold);
+        label(ctx, (su.mode === 'slot' ? 'slot ' + su.slot + '  ·  ' : '')
+          + 'your team, where you start, and how hard', 128, 57, 12, SL.dim);
+
+        /* ---- left: the team card ---- */
+        const LX = 20, LY = 86, LW = 340, LH = 436, CX = LX + LW / 2;
+        chip(ctx, LX, LY, LW, LH, SL.panel2, SL.edge);
+        const tm = su.team;
+        if (!tm) {
+          ctx.save();
+          if (ctx.setLineDash) ctx.setLineDash([7, 7]);
+          ctx.strokeStyle = SL.edge; ctx.lineWidth = 3;
+          ctx.beginPath(); ctx.arc(CX, LY + 104, 58, 0, 7); ctx.stroke();
+          ctx.restore();
+          label(ctx, '?', CX, LY + 122, 48, SL.dim, 'center');
+          label(ctx, 'NO TEAM YET', CX, LY + 204, 22, SL.dim, 'center', '800');
+        } else if (tm.kind === 'real') {
+          badgeOrInitials(ctx, tm.club, CX - 58, LY + 46, 116);
+          fitLabel(ctx, tm.club.name, CX, LY + 204, LW - 40, 22, SL.txt, 'center', '800');
+          fitLabel(ctx, (tm.league ? tm.league + '  ·  ' : '') + 'strength ' + tm.club.strength,
+            CX, LY + 228, LW - 40, 13, SL.dim, 'center', 'normal');
+        } else {
+          const kit = KIT_CHOICES[tm.kit] || KIT_CHOICES[0];
+          ctx.save();
+          ctx.beginPath(); ctx.arc(CX, LY + 104, 56, 0, 7);
+          ctx.fillStyle = kit.hex; ctx.fill();
+          ctx.strokeStyle = SL.gold; ctx.lineWidth = 3; ctx.stroke();
+          ctx.font = '54px system-ui'; ctx.textAlign = 'center';
+          ctx.fillText(CREST_CHOICES[tm.crest] || '⚽', CX, LY + 124);
+          ctx.restore();
+          fitLabel(ctx, tm.name, CX, LY + 204, LW - 40, 22, SL.txt, 'center', '800');
+          label(ctx, 'your own club', CX, LY + 228, 13, SL.dim, 'center', 'normal');
+        }
+        ctx.fillStyle = 'rgba(255,255,255,.05)'; ctx.fillRect(LX + 20, LY + 250, LW - 40, 1);
+        label(ctx, 'WHAT COMES WITH THE JOB', LX + 22, LY + 278, 12, SL.dim, 'left');
+        wrapText(ctx, setupRoster(su), LX + 22, LY + 304, LW - 44, 21, 14, SL.txt, 6);
+
+        /* ---- right: the three choices ---- */
+        const RX = 380, RW = W - RX - 20;
+        const row = (y, h, cap, value, sub) => {
+          chip(ctx, RX, y, RW, h, SL.panel2, SL.edge);
+          label(ctx, cap, RX + 18, y + 26, 12, SL.dim, 'left');
+          fitLabel(ctx, value, RX + 18, y + 56, RW - 250, 21, SL.txt, 'left', '800');
+          if (sub) wrapText(ctx, sub, RX + 18, y + 78, RW - 250, 16, 12, SL.dim, 2);
+        };
+        const arrows = (id, y, h, canL, canR, onL, onR) => {
+          btn(ctx, id + '-l', RX + RW - 128, y + (h - 52) / 2, 52, 52, '◀', canL ? onL : null, { px: 18, dim: !canL });
+          btn(ctx, id + '-r', RX + RW - 66, y + (h - 52) / 2, 52, 52, '▶', canR ? onR : null, { px: 18, dim: !canR });
+          /* a dimmed arrow is still pressable by name, so a press at the end is a quiet no-op */
+          if (!canL) hot(id + '-l', RX + RW - 128, y + (h - 52) / 2, 52, 52, () => {});
+          if (!canR) hot(id + '-r', RX + RW - 66, y + (h - 52) / 2, 52, 52, () => {});
+        };
+
+        /* TEAM */
+        row(86, 132, 'TEAM', tm ? (tm.kind === 'real' ? tm.club.name : tm.name) : 'Not chosen yet',
+          tm ? (tm.kind === 'real' ? 'a real club' + (tm.league ? ' in ' + tm.league : '') : 'your own club — the underdog start')
+             : 'a real club and its album-card players, or a club of your own');
+        btn(ctx, 'setup-real', RX + RW - 222, 100, 208, 48, '🌍  REAL CLUB ▸',
+          () => { openPicker(); }, { px: 14, primary: !!(tm && tm.kind === 'real'), def: !tm });
+        btn(ctx, 'setup-own', RX + RW - 222, 156, 208, 48, '✦  YOUR OWN CLUB ▸',
+          () => { screen = 'new'; focusId = 'own-use'; }, { px: 14, primary: !!(tm && tm.kind === 'own') });
+
+        /* STARTING DIVISION */
+        const dv = su.division;
+        let names = '';
+        try {
+          names = D.divisions[dv - 1].slice(0, 3)
+            .map(id => (CLUB_BY_ID[id] && CLUB_BY_ID[id].name) || id).join(', ') + ' and more';
+        } catch (e) {}
+        row(230, 118, 'STARTING DIVISION', 'DIVISION ' + dv, DIV_WORD(dv) + (names ? ' · ' + names : ''));
+        arrows('setup-div', 230, 118, dv > 1, dv < 6,
+          () => { su.division = Math.max(1, dv - 1); }, () => { su.division = Math.min(6, dv + 1); });
+
+        /* DIFFICULTY */
+        const di = DIFF_ORDER.indexOf(su.diff), dd = DIFFICULTY[su.diff];
+        row(360, 104, 'DIFFICULTY', dd.label, dd.coins + ' coins to start · ' + dd.line);
+        arrows('setup-diff', 360, 104, di > 0, di < DIFF_ORDER.length - 1,
+          () => { su.diff = DIFF_ORDER[Math.max(0, di - 1)]; },
+          () => { su.diff = DIFF_ORDER[Math.min(DIFF_ORDER.length - 1, di + 1)]; });
+
+        /* START */
+        if (su.replaces) {
+          fitLabel(ctx, '⚠  START replaces ' + su.replaces + ' in slot ' + su.slot + '.',
+            RX, 488, RW, 13, SL.bad, 'left');
+        } else if (su.mode === 'manager') {
+          label(ctx, 'This career joins the save as its second manager.', RX, 488, 13, SL.dim, 'left', 'normal');
+        }
+        btn(ctx, 'kickoff', RX, 500, RW, 60, tm ? 'START CAREER  ▶' : 'PICK A TEAM TO START',
+          () => { setupStart(); }, { primary: !!tm, dim: !tm, px: 19, def: !!tm });
+
+        if (su.note) label(ctx, su.note.slice(0, 120), W / 2, 578, 13, su.kind === 'bad' ? SL.bad : SL.good, 'center');
+        label(ctx, HONESTY, W / 2, 596, 11, SL.dim, 'center');
+      }
+
+      function setupStart() {
+        const su = setupUI;
+        if (!su) return;
+        if (!su.team) {
+          su.note = 'Pick a team first — a real club, or your own.'; su.kind = 'bad';
+          env.sfx.miss();
+          return;
+        }
+        const st = slotStore();
+        try {
+          if (su.mode === 'slot' && st) {
+            if (haveCareer()) saveNow();
+            st.setActive(su.slot);
+            loadSave();                                        // what that slot holds now
+            if (haveCareer()) writeBackup('before a new career replaced it');
+            SAVE = freshSave();
+            saveDamaged = false;
+          } else if (su.mode === 'single') {
+            if (haveCareer()) writeBackup('before a new career replaced it');
+            SAVE = freshSave();
+            saveDamaged = false;
+          }
+          /* mode 'manager': the save stays, and the new manager joins it */
+        } catch (e) {
+          su.note = 'That slot could not be prepared. Nothing was changed.'; su.kind = 'bad';
+          return;
+        }
+        const key = SAVE.activeProfile;
+        const base = { name: key === 'p1' ? 'Gibson' : 'Ellis', division: su.division, difficulty: su.diff };
+        let msg;
+        if (su.team.kind === 'real') {
+          const c = su.team.club;
+          const B = (typeof window !== 'undefined' && window.MG_BADGES) || null;
+          const squad = clubAlbumSquad(c);
+          createCareer(key, Object.assign(base, {
+            clubName: c.name, crest: nc.crest, clubId: c.id, squad,
+            colors: B ? B.colors(c.id) : ['#e9bf63', '#2f8f52'],
+          }));
+          msg = 'You are the manager of ' + c.name + '.'
+            + (squad.length ? ' ' + squad.length + ' of their players came with you.' : '');
+        } else {
+          const o = su.team;
+          createCareer(key, Object.assign(base, {
+            clubName: o.name, crest: o.crest,
+            colors: [KIT_CHOICES[o.kit].hex, KIT_CHOICES[(o.kit + 2) % 8].hex],
+          }));
+          msg = o.name + ' kick off in Division ' + su.division + '.';
+        }
+        setupUI = null; coinShow = null; pane = 0; screen = 'hub';
+        env.sfx.fanfare();
+        toastMsg(msg);
       }
       /* ---------- PICK A REAL CLUB ---------- */
       /* 651 clubs is too many to scroll past on a phone, so it is two steps:
@@ -9848,7 +10125,7 @@ window.MG_BADGES = {
       function openPicker() {
         pickUI = { tab: 'league', league: 0, page: 0 };
         screen = 'pick';
-        focusId = 'pick-0';
+        focusId = 'pick-back';          // nothing is chosen for him — not even by a ring
       }
 
       const RSTR = () => (typeof window !== 'undefined' && window.MG_ROSTER) || null;
@@ -9976,9 +10253,9 @@ window.MG_BADGES = {
         ctx.fillRect(0, 71, W, 3);
 
         btn(ctx, 'pick-back', 16, 14, 96, 44, '◀ BACK', () => {
-          if (pickUI.tab === 'confirm') { pickUI.tab = 'club'; pickUI.club = null; focusId = 'pick-0'; return; }
-          if (pickUI.tab === 'club') { pickUI.tab = 'league'; pickUI.page = 0; return; }
-          pickUI = null; screen = 'start';
+          if (pickUI.tab === 'club') { pickUI.tab = 'league'; pickUI.page = 0; focusId = 'pick-back'; return; }
+          pickUI = null;
+          if (setupUI) { screen = 'setup'; focusId = 'setup-real'; } else bootScreen();
         }, { px: 13 });
 
         if (!R) {
@@ -10001,29 +10278,23 @@ window.MG_BADGES = {
         pickUI.page = Math.min(pickUI.page, pages - 1);
         const start = pickUI.page * PICK_PER;
         const shown = items.slice(start, start + PICK_PER);
-        const onClubs = pickUI.tab !== 'league';
-        const confirming = pickUI.tab === 'confirm' && !!pickUI.club;
-        const lg = onClubs ? R.league(pickUI.league) : null;
+        const onClubs = pickUI.tab === 'club';
 
         if (!onClubs) {
           label(ctx, 'PICK A LEAGUE', 128, 36, 24, SL.gold);
           caps(items.length + ' LEAGUES · STRONGEST FIRST', 128, 57, SL.dim);
-        } else if (confirming) {
-          fitLine('TAKE OVER ' + String(pickUI.club.name || '').toUpperCase(), 128, 36, 480, 24, SL.gold);
-          caps('NOTHING STARTS UNTIL YOU PRESS THE BUTTON', 128, 57, SL.dim);
         } else {
+          const lg = R.league(pickUI.league);
           fitLine(String((lg && lg.name) || 'CLUBS').toUpperCase(), 128, 36, 480, 24, SL.gold);
           caps(items.length + ' CLUBS WITH A SQUAD BIG ENOUGH TO FIELD', 128, 57, SL.dim);
         }
 
-        /* step marker, right of the header — dots, not buttons: BACK is the
-           only way up a step and it is already on this row */
-        const stepN = confirming ? 2 : onClubs ? 1 : 0;
-        caps(['STEP 1 · THE LEAGUE', 'STEP 2 · THE CLUB', 'STEP 3 · TAKE OVER'][stepN],
-          944, 32, SL.dim, 'right');
-        for (let s2 = 0; s2 < 3; s2++) {
-          ctx.beginPath(); ctx.arc(906 + s2 * 16, 48, 4.5, 0, 7);
-          ctx.fillStyle = (s2 === stepN) ? chrome : SL.edge; ctx.fill();
+        /* step marker, right of the header — two dots, not two buttons: BACK is
+           the only way up a step and it is already on this row */
+        caps(onClubs ? 'STEP 2 · THE CLUB' : 'STEP 1 · THE LEAGUE', 944, 32, SL.dim, 'right');
+        for (let s2 = 0; s2 < 2; s2++) {
+          ctx.beginPath(); ctx.arc(922 + s2 * 16, 48, 4.5, 0, 7);
+          ctx.fillStyle = (s2 === (onClubs ? 1 : 0)) ? chrome : SL.edge; ctx.fill();
         }
 
         /* ---------- ATT / MID / DEF, from the real squad ----------
@@ -10054,71 +10325,6 @@ window.MG_BADGES = {
           LINES[k] = out || { att: 0, mid: 0, def: 0 };
           return LINES[k];
         };
-
-        /* ---------- STEP 3: the takeover card — y 82-576 ----------
-           A tap on a club row used to start the career on the spot, and the
-           first row's focus ring read as "the game picked Real Madrid for me".
-           Now a row opens this card and only its button starts anything. The
-           card also says what actually comes with the job: the album holds
-           national-team players only, so most clubs bring few of theirs. */
-        if (confirming) {
-          const c = pickUI.club;
-          let acc = chrome;
-          if (BG) { try { acc = BG.colors(c.id)[0] || chrome; } catch (e) {} }
-          const pv = takeoverPreview(clubAlbumSquad(c));
-          const ln = linesOf(c);
-          const CX = 110, CY = 90, CWD = W - 220, CHT = 306;
-
-          ctx.fillStyle = lgrad(ctx, 0, CY, 0, CY + CHT, [[0, SL.panel2], [1, '#0e151c']], SL.panel2);
-          rr(ctx, CX, CY, CWD, CHT, 14); ctx.fill();
-          ctx.fillStyle = hexA(acc, 0.08); rr(ctx, CX, CY, CWD, CHT, 14); ctx.fill();
-          ctx.fillStyle = 'rgba(255,255,255,.05)'; ctx.fillRect(CX + 14, CY + 0.5, CWD - 28, 1);
-          ctx.strokeStyle = hexA(acc, 0.55); ctx.lineWidth = 1;
-          rr(ctx, CX + 0.5, CY + 0.5, CWD - 1, CHT - 1, 14); ctx.stroke();
-          ctx.fillStyle = acc; ctx.fillRect(CX + 1, CY + 18, 3, CHT - 36);
-
-          badgeOrInitials(ctx, c, CX + 30, CY + 26, 116);
-          fitLine(String(c.name || '—'), CX + 170, CY + 64, 380, 32, SL.txt, '800');
-          caps(String((lg && lg.name) || '').toUpperCase()
-            + '  ·  ' + c.size + ' IN THE SQUAD  ·  STRENGTH ' + c.strength,
-            CX + 170, CY + 90, SL.dim, 'left');
-          starRow(CX + CWD - 30, CY + 46, starsOf(c.strength, 50, 86));
-          if (ln.att || ln.mid || ln.def) {
-            cell(CX + 170, CY + 106, 62, 'ATT', ln.att || '—');
-            cell(CX + 238, CY + 106, 62, 'MID', ln.mid || '—');
-            cell(CX + 306, CY + 106, 62, 'DEF', ln.def || '—');
-          }
-
-          /* what comes with the job — counted, never promised */
-          const by = CY + 158;
-          ctx.fillStyle = 'rgba(255,255,255,.04)';
-          rr(ctx, CX + 18, by, CWD - 36, CHT - 176, 10); ctx.fill();
-          caps('WHAT COMES WITH THE JOB', CX + 34, by + 24, SL.dim, 'left');
-          const diff = pv.brought >= 9 && pv.base >= 78 ? ['EASY START', SL.good]
-            : pv.brought >= 5 ? ['A HEAD START', SL.gold]
-            : pv.brought ? ['THE LONG ROAD', SL.accent]
-            : ['THE CHALLENGE RUN', SL.bad];
-          label(ctx, diff[0], CX + CWD - 34, by + 24, 13, diff[1], 'right', '800');
-          const l1 = pv.brought
-            ? pv.brought + ' of their players are album cards and join you'
-              + (pv.base ? ' — average rating ' + pv.base + '.' : '.')
-            : 'None of their players are album cards: the album carries national-team players only.';
-          const l2 = !pv.fill ? ' That is a full squad on its own.'
-            : pv.brought
-              ? ' Host-nation starters fill the other ' + pv.fill + ' place' + (pv.fill === 1 ? '' : 's')
-                + (pv.gk ? '.' : ', your keeper among them.')
-              : ' You take the name, the badge and the colours, and start from the 14 host-nation starter cards.';
-          wrapText(ctx, l1 + l2, CX + 34, by + 50, CWD - 68, 20, 14, SL.txt, 3);
-
-          const nm = String(c.name || 'this club');
-          btn(ctx, 'pick-go', W / 2 - 210, 420, 420, 60,
-            'TAKE OVER ' + (nm.length > 18 ? 'THIS CLUB' : nm.toUpperCase()) + '  ▶',
-            () => { startRealClub(c); }, { primary: true, px: 18, def: true });
-          btn(ctx, 'pick-another', W / 2 - 210, 492, 420, 44, '◀ PICK ANOTHER CLUB',
-            () => { pickUI.tab = 'club'; pickUI.club = null; focusId = 'pick-0'; }, { px: 13 });
-          label(ctx, HONESTY, W / 2, 592, 12, SL.dim, 'center');
-          return;
-        }
 
         /* ---------- the grid: y 82-527, 2 cols x 6 rows of 70 ---------- */
         const CW = (W - 60) / PICK_COLS, CH = 70, GAP = 5, TOP = 82;
@@ -10203,10 +10409,15 @@ window.MG_BADGES = {
           hot('pick-' + i, x, y, CW, CH, () => {
             if (pickUI.tab === 'league') {
               pickUI.tab = 'club'; pickUI.league = it.id; pickUI.page = 0;
-              focusId = 'pick-0';
+              focusId = 'pick-back';
             } else {
-              /* never straight into a career: the card asks first */
-              pickUI.tab = 'confirm'; pickUI.club = it; focusId = 'pick-go';
+              /* a club comes back to the setup screen; START is what commits */
+              const lg = R.league(pickUI.league);
+              pickUI = null;
+              if (!setupUI) { bootScreen(); return; }
+              setupUI.team = { kind: 'real', club: it, league: (lg && lg.name) || '' };
+              setupUI.note = '';
+              screen = 'setup'; focusId = 'kickoff';
             }
           });
         }
@@ -10239,80 +10450,13 @@ window.MG_BADGES = {
         return C2[k];
       }
 
-      /* Start a career as a real club: its name, its badge, the two colours
-         counted out of that badge at build time, and whichever of its players
-         are album cards (createCareer tops the side up from the host-nation
-         starters — the takeover card said so before he pressed). */
-      function startRealClub(club) {
-        const B = (typeof window !== 'undefined' && window.MG_BADGES) || null;
-        const cols = B ? B.colors(club.id) : ['#e9bf63', '#2f8f52'];
-        const squad = clubAlbumSquad(club);
-        createCareer(SAVE.activeProfile, {
-          name: SAVE.activeProfile === 'p1' ? 'Gibson' : 'Ellis',
-          clubName: club.name,
-          crest: nc.crest,                 // only shown if the badge is missing
-          colors: cols,
-          clubId: club.id,
-          squad,
-        });
-        pickUI = null; coinShow = null; pane = 0; screen = 'hub';
-        env.sfx.fanfare();
-        toastMsg(squad.length
-          ? 'You are the manager of ' + club.name + '. ' + squad.length + ' of their players came with you.'
-          : 'You are the manager of ' + club.name + '.');
-      }
-
-      /* ---------- NEW GAME: who will you manage? ----------
-         Addendum 29 gives two ways in. The builder used to be the first stop,
-         with an invented club already filled in and the real-club route in a
-         corner, so a new game looked as if it had picked a team for him. The
-         choice is now its own screen: two tiles, nothing pre-filled, and the
-         way back to a saved career is the title's LOAD GAME (addendum 30),
-         not a third button here. */
-      let startInfo = null;
-      function drawStart(ctx) {
-        ctx.fillStyle = SL.bg; ctx.fillRect(0, 0, W, H);
-        btn(ctx, 'start-back', 16, 14, 96, 44, '◀ BACK', () => { bootScreen(); }, { px: 13 });
-        label(ctx, 'NEW GAME', W / 2, 84, 40, SL.gold, 'center');
-        label(ctx, 'who will you manage?', W / 2, 112, 15, SL.dim, 'center');
-
-        const R = RSTR();
-        if (!startInfo) {
-          let n = 0;
-          try { n = R ? R.clubs().filter(c => c.size >= 14).length : 0; } catch (e) { n = 0; }
-          startInfo = { clubs: n };
-        }
-        const tile = (id, y, icon, title, sub, cb, opts) => {
-          const x = 150, w2 = W - 300, h2 = 150;
-          chip(ctx, x, y, w2, h2, opts.go ? '#1c3a2b' : SL.panel2, opts.go ? '#2f6644' : SL.edge);
-          ctx.fillStyle = 'rgba(255,255,255,.06)';
-          ctx.beginPath(); ctx.arc(x + 64, y + h2 / 2, 38, 0, 7); ctx.fill();
-          label(ctx, icon, x + 64, y + h2 / 2 + 14, 38, opts.go ? SL.good : SL.gold, 'center');
-          label(ctx, title, x + 124, y + 50, 24, SL.txt, 'left', '800');
-          wrapText(ctx, sub, x + 124, y + 76, w2 - 184, 20, 14, SL.dim, 3);
-          label(ctx, '▶', x + w2 - 34, y + h2 / 2 + 8, 22, opts.go ? SL.good : SL.gold, 'center');
-          hot(id, x, y, w2, h2, cb, { def: !!opts.def });
-        };
-
-        tile('start-real', 144, '🌍', 'TAKE OVER A REAL CLUB',
-          R ? 'Any of ' + (startInfo.clubs || 'hundreds of') + ' real clubs, with its badge and '
-              + 'colours. A giant brings its album-card stars — the easy start. '
-              + 'A small club is the challenge run.'
-            : 'Not in this build — it ships without the club list.',
-          () => { openPicker(); }, { go: true, def: true });
-        tile('start-own', 314, '✦', 'START YOUR OWN CLUB',
-          'The underdog start: your crest, your kit and your name on the door, '
-          + 'with the 14 host-nation starter cards.',
-          () => { nc.step = 0; screen = 'new'; }, {});
-
-        label(ctx, HONESTY, W / 2, H - 16, 12, SL.dim, 'center');
-      }
-
       function drawNew(ctx) {
         ctx.fillStyle = SL.bg; ctx.fillRect(0, 0, W, H);
-        btn(ctx, 'new-back', 16, 14, 96, 44, '◀ BACK', () => { screen = 'start'; }, { px: 13 });
-        label(ctx, 'YOUR OWN CLUB', W / 2, 78, 40, SL.gold, 'center');
-        label(ctx, 'your crest, your colours, your name on the door — the underdog start', W / 2, 108, 14, SL.dim, 'center');
+        btn(ctx, 'new-back', 16, 14, 96, 44, '◀ BACK', () => {
+          if (setupUI) { screen = 'setup'; focusId = 'setup-own'; } else bootScreen();
+        }, { px: 13 });
+        label(ctx, 'CREATE YOUR CLUB', W / 2, 78, 40, SL.gold, 'center');
+        label(ctx, 'your crest, your colours, your name on the door', W / 2, 108, 14, SL.dim, 'center');
         const name = D.clubNames.adj[nc.adj] + ' ' + D.clubNames.noun[nc.noun];
         const kit = KIT_CHOICES[nc.kit];
         /* preview crest */
@@ -10334,15 +10478,11 @@ window.MG_BADGES = {
         spin('kit', 84 + 236, 'KIT: ' + KIT_CHOICES[nc.kit].name, () => { nc.kit = (nc.kit + 7) % 8; }, () => { nc.kit = (nc.kit + 1) % 8; });
         spin('name', 84 + 472, 'CLUB NAME', () => { nc.adj = (nc.adj + 7) % 8; },
           () => { nc.noun = (nc.noun + 1) % 8; });
-        btn(ctx, 'kickoff', W / 2 - 130, 452, 260, 56, 'KICK OFF  ▶', () => {
-          const whoKey = SAVE.activeProfile;
-          createCareer(whoKey, {
-            name: whoKey === 'p1' ? 'Gibson' : 'Ellis',
-            clubName: name, crest: nc.crest,
-            colors: [KIT_CHOICES[nc.kit].hex, KIT_CHOICES[(nc.kit + 2) % 8].hex],
-          });
-          coinShow = null; pane = 0; screen = 'hub';
-          env.sfx.fanfare();
+        btn(ctx, 'own-use', W / 2 - 150, 452, 300, 56, 'USE THIS CLUB  ▶', () => {
+          if (!setupUI) { bootScreen(); return; }
+          setupUI.team = { kind: 'own', name, crest: nc.crest, kit: nc.kit };
+          setupUI.note = '';
+          screen = 'setup'; focusId = 'kickoff';
         }, { primary: true, px: 19, def: true });
         label(ctx, 'your 14 starter cards come from the host nations — USA, Mexico, Canada', W / 2, 540, 13, SL.dim, 'center');
         label(ctx, HONESTY, W / 2, H - 16, 12, SL.dim, 'center');
@@ -10795,8 +10935,8 @@ window.MG_BADGES = {
            LOAD row skipped past the welcome screen entirely. */
         const from = fileUI && fileUI.back;
         fileUI = null;
-        if (from === 'welcome') { bootScreen(); return; }
-        screen = P() ? 'hub' : 'new';
+        if (from === 'welcome' || !P()) { bootScreen(); return; }
+        screen = 'hub';
       }
       function fileBtn(ctx, id, x, y, w2, h2, icon, title, sub, cb, opts) {
         opts = opts || {};
@@ -10807,7 +10947,7 @@ window.MG_BADGES = {
         hot(id, x, y, w2, h2, cb, { def: !!opts.def });
       }
       function drawFile(ctx) {
-        if (!fileUI) { screen = P() ? 'hub' : 'start'; return; }
+        if (!fileUI) { if (P()) screen = 'hub'; else bootScreen(); return; }
         ctx.fillStyle = SL.bg; ctx.fillRect(0, 0, W, H);
         ctx.fillStyle = SL.panel; ctx.fillRect(0, 0, W, 72);
         ctx.fillStyle = SL.gold; ctx.fillRect(0, 69, W, 3);
@@ -13855,7 +13995,7 @@ window.MG_BADGES = {
           SAVE.activeProfile = other;
           saveNow();
           coinShow = null;
-          if (!SAVE.profiles[other]) { nc.step = 0; screen = 'start'; }
+          if (!SAVE.profiles[other]) openSetup({ mode: 'manager', prev: other === 'p1' ? 'p2' : 'p1' });
         }, { px: 13 });
         btn(ctx, 'friendly', rx, HEAD_H + 102, rw, 40, 'FRIENDLY MATCH 👐', () => { startFriendly(p); }, { px: 13 });
         btn(ctx, 'draft', rx, HEAD_H + 148, rw, 40, 'DRAFT DUEL 🃏', () => { startDraft(); }, { px: 13 });
@@ -15696,7 +15836,8 @@ window.MG_BADGES = {
             break;
           case 'welcome': drawWelcome(ctx); break;
           case 'pick': drawPick(ctx); break;
-          case 'start': drawStart(ctx); break;
+          case 'slots': drawSlots(ctx); break;
+          case 'setup': drawSetup(ctx); break;
           case 'new': drawNew(ctx); break;
           case 'file': drawFile(ctx); break;
           case 'hub': {

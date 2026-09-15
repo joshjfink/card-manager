@@ -109,10 +109,8 @@ function section(t) { console.log('\n— ' + t + ' —'); }
 function step(d, prefer) {
   const sc = d.screen();
   if (sc === 'welcome') {
-    if (!d.press('wel-continue')) d.press('wel-new');
-    d.f(2);
-    if (d.screen() === 'start') { d.press('start-own'); d.f(2); }   // who-will-you-manage → the builder
-    return;
+    if (d.press('wel-continue')) { d.f(2); return; }
+    newCareer(d); return;
   }
   if (sc === 'news') {
     if (!d.press('news-skip')) d.press('news-adv');
@@ -150,7 +148,21 @@ function pastWelcome(d) {
   if (d.screen() !== 'welcome') return d;
   if (!d.press('wel-continue')) d.press('wel-new');
   d.f(2);
-  if (d.screen() === 'start') { d.press('start-own'); d.f(2); }     // who-will-you-manage → the builder
+  return d;
+}
+/* Title → NEW GAME → setup → YOUR OWN CLUB → USE THIS CLUB → START.
+   This rig has no slot store, so NEW GAME opens the setup screen directly.
+   o.divUp: presses of the division ◀ (towards Division 1) · o.diff: 'easy'|'hard' */
+function newCareer(d, o) {
+  o = o || {};
+  if (d.screen() === 'welcome') { d.press('wel-new'); d.f(2); }
+  if (d.screen() !== 'setup') return d;
+  d.press('setup-own'); d.f(2);
+  d.press('own-use'); d.f(2);
+  for (let i = 0; i < (o.divUp || 0); i++) { d.press('setup-div-l'); d.f(1); }
+  if (o.diff === 'easy') { d.press('setup-diff-l'); d.f(1); }
+  if (o.diff === 'hard') { d.press('setup-diff-r'); d.f(1); }
+  d.press('kickoff'); d.f(2);
   return d;
 }
 function drive(d, n, prefer) { for (let i = 0; i < n; i++) step(d, prefer); }
@@ -170,19 +182,32 @@ let d = driver();
 check('boot lands on the WELCOME screen', d.screen() === 'welcome', d.screen());
 check('with no career, there is nothing to continue',
   !d.find('wel-continue'), 'no CONTINUE row');
-check('NEW GAME, LOAD GAME and SAVE GAME are all on it',
-  !!d.find('wel-new') && !!d.find('wel-load') && !!d.find('wel-save'));
+check('NEW GAME and LOAD GAME are on it, and SAVE GAME is not',
+  !!d.find('wel-new') && !!d.find('wel-load') && !d.find('wel-save'));
 d.press('wel-new'); d.f(2);
-check('NEW GAME opens the who-will-you-manage screen', d.screen() === 'start', d.screen());
-check('  with both ways in on it, and a way back', !!d.find('start-real') && !!d.find('start-own') && !!d.find('start-back'));
-d.press('start-own'); d.f(2);
-check('  START YOUR OWN CLUB opens the builder', d.screen() === 'new', d.screen());
-check('  the builder has no side doors — just BACK and KICK OFF',
-  !!d.find('new-back') && !!d.find('kickoff') && !d.find('new-real') && !d.find('new-restore'));
-d.press('new-back'); d.f(2);
-check('  BACK returns to the choice', d.screen() === 'start', d.screen());
-d.press('start-own'); d.f(2);
+check('NEW GAME opens the career setup (this rig has no slot store)', d.screen() === 'setup', d.screen());
+check('  team, division, difficulty and START are all on it, with a way back',
+  ['setup-real', 'setup-own', 'setup-div-l', 'setup-div-r', 'setup-diff-l', 'setup-diff-r', 'kickoff', 'setup-back']
+    .every(id => !!d.find(id)));
 d.press('kickoff'); d.f(2);
+check('  START refuses until a team is picked — nothing is chosen for him',
+  d.screen() === 'setup' && !(save() && save().profiles && save().profiles.p1), d.screen());
+d.press('setup-own'); d.f(2);
+check('  YOUR OWN CLUB opens the builder', d.screen() === 'new', d.screen());
+check('  the builder only makes a club: BACK and USE THIS CLUB, no KICK OFF',
+  !!d.find('new-back') && !!d.find('own-use') && !d.find('kickoff'));
+d.press('new-back'); d.f(2);
+check('  BACK returns to the setup', d.screen() === 'setup', d.screen());
+d.press('setup-real'); d.f(2);
+check('  REAL CLUB opens the picker', d.screen() === 'pick', d.screen());
+d.press('pick-back'); d.f(2);
+check('  and its BACK returns to the setup', d.screen() === 'setup', d.screen());
+d.press('setup-own'); d.f(2); d.press('own-use'); d.f(2);
+check('  USE THIS CLUB comes back to the setup with nothing written yet',
+  d.screen() === 'setup' && !(save() && save().profiles && save().profiles.p1), d.screen());
+d.press('setup-back'); d.f(2);
+check('  BACK from the setup is the title', d.screen() === 'welcome', d.screen());
+newCareer(d);
 let sv = save();
 check('career created + saved', !!(sv && sv.profiles.p1), 'v=' + (sv && sv.v));
 const SAVE_V = window.MG_CAREER.SAVE_V;
@@ -256,7 +281,7 @@ section('5 · corrupt save recovery');
   check('  and offers no CONTINUE, because there is nothing to continue',
     !d3.find('wel-continue'));
   pastWelcome(d3);
-  check('  NEW GAME still works from there', d3.screen() === 'new', d3.screen());
+  check('  NEW GAME still works from there', d3.screen() === 'setup', d3.screen());
 }
 
 /* =========== F1 · SAVE MIGRATION: a v2 career opens as v3 =========== */
@@ -333,8 +358,7 @@ section('F2 · PLAY and ⏩ settle identically, verbs and all');
 {
   for (const k of Object.keys(store)) delete store[k];
   const d4 = driver();
-  pastWelcome(d4);                      // boot opens on the front door now
-  d4.press('kickoff'); d4.f(2);
+  newCareer(d4);                        // title → setup → own club → START
   /* set a REAL plan: a talk that is not steady, calls that are not hold */
   d4.pane(2); d4.press('tac-tab-1'); d4.f(1);
   d4.press('talk-fire'); d4.f(1);
@@ -372,8 +396,7 @@ section('F6/F7 · the dual gate, the weekly plan and the coaches');
   const C = window.MG_CAREER;
   for (const k of Object.keys(store)) delete store[k];
   const d6 = driver();
-  pastWelcome(d6);                      // boot opens on the front door now
-  d6.press('kickoff'); d6.f(2);
+  newCareer(d6);                        // title → setup → own club → START
   const p6 = lp();
   p6.coins = 5000;
   const pid = p6.lineup.slots[3];
@@ -439,8 +462,7 @@ section('F3/F4/F5 · the market verbs');
   const C = window.MG_CAREER;
   for (const k of Object.keys(store)) delete store[k];
   const d7 = driver();
-  pastWelcome(d7);                      // boot opens on the front door now
-  d7.press('kickoff'); d7.f(2);
+  newCareer(d7);                        // title → setup → own club → START
   const p = lp();
   p.coins = 4000;
   /* deepen the squad so the market has something to talk about */
@@ -541,8 +563,7 @@ section('7 · five seasons with talks, calls, trades, loans and a plan');
 {
   for (const k of Object.keys(store)) delete store[k];
   const d8 = driver();
-  pastWelcome(d8);                      // boot opens on the front door now
-  d8.press('kickoff'); d8.f(2);
+  newCareer(d8);                        // title → setup → own club → START
   const p8 = prof();
   p8.tactics.talk = 'fire';
   p8.tactics.calls = { lead: 'shut', level: 'hold', trail: 'push' };
@@ -624,7 +645,7 @@ section('F8 · a real-club takeover brings its album cards and still fields a si
 {
   for (const k of Object.keys(store)) delete store[k];
   const dA = driver();
-  pastWelcome(dA); dA.press('kickoff'); dA.f(2);          // SAVE is live from here
+  newCareer(dA);                                          // SAVE is live from here
   const C = window.MG_CAREER;
   const own14 = Object.keys(prof().collection).length;
   check('an invented club still starts with the 14 host-nation cards', own14 === 14, own14);
@@ -644,6 +665,44 @@ section('F8 · a real-club takeover brings its album cards and still fields a si
   const pB = C.createCareer('p1', { name: 'Gibson', clubName: 'Nobody FC', crest: 0,
     colors: ['#ffffff', '#000000'], clubId: 9, squad: [] });
   check('a club that brings nobody gets the plain host-nation start', Object.keys(pB.collection).length === 14);
+}
+
+/* =========== F9 · the setup's division and difficulty are real =========== */
+section('F9 · starting division and difficulty change the career, not just the label');
+{
+  const C = window.MG_CAREER;
+  for (const k of Object.keys(store)) delete store[k];
+  const dB = driver();
+  newCareer(dB, { divUp: 3, diff: 'hard' });                // Division 6 → 3, NORMAL → HARD
+  const pB = lp();
+  check('the chosen division is where he starts', !!pB && pB.division === 3, pB && pB.division);
+  check('HARD is recorded and starts on its own coins',
+    !!pB && pB.difficulty === 'hard' && pB.coins === C.DIFFICULTY.hard.coins, pB && (pB.difficulty + ' · ' + pB.coins));
+  check('  and START lands him in the hub', !!pB && dB.screen().indexOf('hub') === 0, dB.screen());
+  /* the opposition lever: every CPU starter one colour up, capped as before */
+  const club = pB.pyramid[2][0];
+  const hard = C.cpuSquad(club, 1).starters.map(q => q.parallel);
+  pB.difficulty = 'normal';
+  const norm = C.cpuSquad(club, 1).starters.map(q => q.parallel);
+  pB.difficulty = 'hard';
+  const clubRow = (window.MG_DATA.clubs || []).find(c => c.id === club) || {};
+  const cap = clubRow.tier <= 2 ? 4 : 5;
+  check('HARD plays every opponent one colour stronger (capped)',
+    hard.length === norm.length && hard.every((t, i) => t === Math.min(norm[i] + 1, Math.max(norm[i], cap))),
+    club + ' normal ' + norm.join('') + ' → hard ' + hard.join(''));
+  const before = pB.season.results.length;
+  oneRound(dB);
+  check('a Division 3 start plays a real round', lp().season.results.length === before + 1,
+    before + ' → ' + lp().season.results.length);
+  const pE = C.createCareer('p1', { name: 'Gibson', clubName: 'Easy FC', crest: 0,
+    colors: ['#ffffff', '#000000'], difficulty: 'easy' });
+  const cards = Object.keys(pE.collection);
+  check('EASY starts on its coins, with every starting card blue',
+    pE.coins === C.DIFFICULTY.easy.coins && cards.length === 14 && cards.every(id => (pE.collection[id][0] & 2) === 2),
+    pE.coins + ' coins · ' + cards.filter(id => (pE.collection[id][0] & 2) === 2).length + '/14 blue');
+  const pN = C.createCareer('p1', { name: 'Gibson', clubName: 'Plain FC', crest: 0, colors: ['#ffffff', '#000000'] });
+  check('no choice at all is Division 6, NORMAL, 300 coins — the game as it was',
+    pN.division === 6 && pN.difficulty === 'normal' && pN.coins === 300);
 }
 
 console.log('');
